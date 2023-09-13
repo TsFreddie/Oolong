@@ -1,0 +1,21 @@
+{
+  "name": "schema-server",
+  "bin": "./node_modules/typescript/lib/tsserver.js",
+  "scripts": {
+    "build": "pkg . -C gzip"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/json-schema": "^7.0.12",
+    "@types/node": "^20.6.0",
+    "@types/normalize-path": "^3.0.0",
+    "pkg": "^5.8.1"
+  },
+  "dependencies": {
+    "glob": "^8.0.3",
+    "json5": "^2.2.3",
+    "normalize-path": "^3.0.0",
+    "safe-stable-stringify": "^2.4.3",
+    "typescript": "~5.2.2"
+  }
+}

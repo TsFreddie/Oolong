@@ -1,0 +1,20 @@
+{
+  "name": "in.tsdo.oolong",
+  "version": "1.0.0",
+  "displayName": "Oolong",
+  "description": "A TypeScript workflow for PuerTS",
+  "keywords": [
+    "PuerTS",
+    "TypeScript",
+    "JavaScript"
+  ],
+  "author": {
+    "name": "TsFreddie",
+    "url": "https://github.com/TsFreddie"
+  },
+  "dependencies": {
+    "com.tencent.puerts.core": "2.0.2",
+    "com.unity.addressables": "1.21.17",
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  }
+}

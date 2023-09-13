@@ -1,0 +1,18 @@
+﻿{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ES2020",
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "typeRoots": [
+      "../../../Assets/Generated/Puerts/Typing",
+      "./Typings"
+    ],
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noEmit": true
+  }
+}

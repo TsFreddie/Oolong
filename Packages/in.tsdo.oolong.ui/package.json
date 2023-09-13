@@ -1,0 +1,19 @@
+{
+    "name": "in.tsdo.oolong.ui",
+    "version": "1.0.0",
+    "displayName": "OolongUI",
+    "description": "A tsx UI framework powered by PuerTS and mithril.js",
+    "keywords": [
+        "PuerTS",
+        "TypeScript",
+        "JavaScript",
+        "UI"
+    ],
+    "author": {
+        "name": "TsFreddie",
+        "url": "https://github.com/TsFreddie"
+    },
+    "dependencies": {
+        "in.tsdo.oolong": "1.0.0"
+    }
+}
