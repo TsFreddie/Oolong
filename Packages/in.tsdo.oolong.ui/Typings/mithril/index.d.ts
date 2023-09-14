@@ -1,3 +1,6 @@
+///<reference path="./elements.d.ts" />
+///<reference path="./tsx.d.ts" />
+
 // Type definitions for Mithril 2.0
 // Project: https://mithril.js.org/, https://github.com/mithriljs/mithril.js
 // Definitions by: Mike Linkovich <https://github.com/spacejack>
@@ -9,19 +12,32 @@
 declare function render(el: Element, vnodes: Mithril.Children): void;
 
 /** Mounts a component to a DOM element, enabling it to autoredraw on user events. */
-declare function mount(element: Element, component: Mithril.ComponentTypes<any, any>): void;
+declare function mount(
+    element: Element,
+    component: Mithril.ComponentTypes<any, any>
+): void;
 /** Unmounts a component from a DOM element. */
 declare function mount(element: Element, component: null): void; // tslint:disable-line unified-signatures
 
 /** Makes an XHR request and returns a promise. */
-declare function request<T>(options: Mithril.RequestOptions<T> & { url: string }): Promise<T>;
+declare function request<T>(
+    options: Mithril.RequestOptions<T> & { url: string }
+): Promise<T>;
 /** Makes an XHR request and returns a promise. */
-declare function request<T>(url: string, options?: Mithril.RequestOptions<T>): Promise<T>;
+declare function request<T>(
+    url: string,
+    options?: Mithril.RequestOptions<T>
+): Promise<T>;
 
 /** Makes a JSON-P request and returns a promise. */
-declare function jsonp<T>(options: Mithril.JsonpOptions & { url: string }): Promise<T>; // eslint-disable-line @definitelytyped/no-unnecessary-generics
+declare function jsonp<T>(
+    options: Mithril.JsonpOptions & { url: string }
+): Promise<T>; // eslint-disable-line @definitelytyped/no-unnecessary-generics
 /** Makes a JSON-P request and returns a promise. */
-declare function jsonp<T>(url: string, options?: Mithril.JsonpOptions): Promise<T>; // eslint-disable-line @definitelytyped/no-unnecessary-generics
+declare function jsonp<T>(
+    url: string,
+    options?: Mithril.JsonpOptions
+): Promise<T>; // eslint-disable-line @definitelytyped/no-unnecessary-generics
 
 declare namespace Mithril {
     interface CommonAttributes<Attrs, State> {
@@ -32,13 +48,20 @@ declare namespace Mithril {
         oncreate?(this: State, vnode: VnodeDOM<Attrs, State>): any;
 
         /** The onbeforeremove hook is called before a DOM element is detached from the document. If a Promise is returned, Mithril only detaches the DOM element after the promise completes. */
-        onbeforeremove?(this: State, vnode: VnodeDOM<Attrs, State>): Promise<any> | void;
+        onbeforeremove?(
+            this: State,
+            vnode: VnodeDOM<Attrs, State>
+        ): Promise<any> | void;
 
         /** The onremove hook is called before a DOM element is removed from the document. */
         onremove?(this: State, vnode: VnodeDOM<Attrs, State>): any;
 
         /** The onbeforeupdate hook is called before a vnode is diffed in a update. */
-        onbeforeupdate?(this: State, vnode: Vnode<Attrs, State>, old: VnodeDOM<Attrs, State>): boolean | void;
+        onbeforeupdate?(
+            this: State,
+            vnode: Vnode<Attrs, State>,
+            old: VnodeDOM<Attrs, State>
+        ): boolean | void;
 
         /** The onupdate hook is called after a DOM element is updated, while attached to the document. */
         onupdate?(this: State, vnode: VnodeDOM<Attrs, State>): any;
@@ -48,24 +71,34 @@ declare namespace Mithril {
     }
 
     interface Hyperscript {
-        /** Creates a virtual element (Vnode). */<Attrs, State>(
+        /** Creates a virtual element (Vnode). */ <Attrs, State>(
             component: ComponentTypes<Attrs, State>,
             attributes: Attrs & CommonAttributes<Attrs, State>,
             ...args: Children[]
         ): Vnode<Attrs, State>;
 
         /** Creates a virtual element (Vnode). */
-        (selector: string, attributes: Attributes, ...children: Children[]): Vnode<any, any>;
+        (
+            selector: string,
+            attributes: Attributes,
+            ...children: Children[]
+        ): Vnode<any, any>;
 
-        /** Creates a virtual element (Vnode). */<Attrs, State>(component: ComponentTypes<Attrs, State>, ...args: Children[]): Vnode<Attrs, State>;
+        /** Creates a virtual element (Vnode). */ <Attrs, State>(
+            component: ComponentTypes<Attrs, State>,
+            ...args: Children[]
+        ): Vnode<Attrs, State>;
 
         /** Creates a virtual element (Vnode). */
         (selector: string, ...children: Children[]): Vnode<any, any>;
 
         /** Creates a fragment virtual element (Vnode). */
-        fragment(attrs: CommonAttributes<any, any> & {
-            [key: string]: any
-        }, children: ChildArrayOrPrimitive): Vnode<any, any>;
+        fragment(
+            attrs: CommonAttributes<any, any> & {
+                [key: string]: any;
+            },
+            children: ChildArrayOrPrimitive
+        ): Vnode<any, any>;
 
         /** Turns an HTML string into a virtual element (Vnode). Do not use trust on unsanitized user input. */
         trust(html: string): Vnode<any, any>;
@@ -77,7 +110,7 @@ declare namespace Mithril {
             this: this,
             args: Attrs,
             requestedPath: string,
-            route: string,
+            route: string
         ): ComponentTypes<any, any> | Promise<any> | void;
 
         /** The render method is called on every redraw for a matching route. */
@@ -136,9 +169,12 @@ declare namespace Mithril {
         /** The data to be interpolated into the URL and serialized into the querystring. */
         params?: { [key: string]: any } | undefined;
         /** The data to be serialized into the request body. */
-        body?: (XMLHttpRequest['send'] extends (x: infer R) => any ? R : never) | (object & {
-            [id: string]: any
-        }) | undefined;
+        body?:
+            | (XMLHttpRequest["send"] extends (x: infer R) => any ? R : never)
+            | (object & {
+                  [id: string]: any;
+              })
+            | undefined;
         /** Whether the request should be asynchronous. Defaults to true. */
         async?: boolean | undefined;
         /** A username for HTTP authorization. */
@@ -176,7 +212,14 @@ declare namespace Mithril {
         /** Milliseconds a request can take before automatically being terminated. */
         timeout?: number | undefined;
         /** The expected type of the response, as a legal value of XMLHttpRequest.responseType. */
-        responseType?: '' | 'arraybuffer' | 'blob' | 'document' | 'json' | 'text' | undefined;
+        responseType?:
+            | ""
+            | "arraybuffer"
+            | "blob"
+            | "document"
+            | "json"
+            | "text"
+            | undefined;
     }
 
     interface JsonpOptions {
@@ -234,8 +277,7 @@ declare namespace Mithril {
     // Vnode children types
     type Child = Vnode<any, any> | string | number | boolean | null | undefined;
 
-    interface ChildArray extends Array<Children> {
-    }
+    interface ChildArray extends Array<Children> {}
 
     type Children = Child | ChildArray;
     type ChildArrayOrPrimitive = ChildArray | string | number | boolean;
@@ -271,11 +313,9 @@ declare namespace Mithril {
 
     type _NoLifecycle<T> = Omit<T, keyof Component>;
 
-    interface CVnode<A = {}> extends Vnode<A, ClassComponent<A>> {
-    }
+    interface CVnode<A = {}> extends Vnode<A, ClassComponent<A>> {}
 
-    interface CVnodeDOM<A = {}> extends VnodeDOM<A, ClassComponent<A>> {
-    }
+    interface CVnodeDOM<A = {}> extends VnodeDOM<A, ClassComponent<A>> {}
 
     /**
      * Components are a mechanism to encapsulate parts of a view to make code easier to organize and/or reuse.
@@ -284,25 +324,47 @@ declare namespace Mithril {
      */
     interface Component<Attrs = {}, State = {}> {
         /** The oninit hook is called before a vnode is touched by the virtual DOM engine. */
-        oninit?(this: _NoLifecycle<this & State>, vnode: Vnode<Attrs, _NoLifecycle<this & State>>): any;
+        oninit?(
+            this: _NoLifecycle<this & State>,
+            vnode: Vnode<Attrs, _NoLifecycle<this & State>>
+        ): any;
 
         /** The oncreate hook is called after a DOM element is created and attached to the document. */
-        oncreate?(this: _NoLifecycle<this & State>, vnode: VnodeDOM<Attrs, _NoLifecycle<this & State>>): any;
+        oncreate?(
+            this: _NoLifecycle<this & State>,
+            vnode: VnodeDOM<Attrs, _NoLifecycle<this & State>>
+        ): any;
 
         /** The onbeforeremove hook is called before a DOM element is detached from the document. If a Promise is returned, Mithril only detaches the DOM element after the promise completes. */
-        onbeforeremove?(this: _NoLifecycle<this & State>, vnode: VnodeDOM<Attrs, _NoLifecycle<this & State>>): Promise<any> | void;
+        onbeforeremove?(
+            this: _NoLifecycle<this & State>,
+            vnode: VnodeDOM<Attrs, _NoLifecycle<this & State>>
+        ): Promise<any> | void;
 
         /** The onremove hook is called before a DOM element is removed from the document. */
-        onremove?(this: _NoLifecycle<this & State>, vnode: VnodeDOM<Attrs, _NoLifecycle<this & State>>): any;
+        onremove?(
+            this: _NoLifecycle<this & State>,
+            vnode: VnodeDOM<Attrs, _NoLifecycle<this & State>>
+        ): any;
 
         /** The onbeforeupdate hook is called before a vnode is diffed in a update. */
-        onbeforeupdate?(this: _NoLifecycle<this & State>, vnode: Vnode<Attrs, _NoLifecycle<this & State>>, old: VnodeDOM<Attrs, _NoLifecycle<this & State>>): boolean | void;
+        onbeforeupdate?(
+            this: _NoLifecycle<this & State>,
+            vnode: Vnode<Attrs, _NoLifecycle<this & State>>,
+            old: VnodeDOM<Attrs, _NoLifecycle<this & State>>
+        ): boolean | void;
 
         /** The onupdate hook is called after a DOM element is updated, while attached to the document. */
-        onupdate?(this: _NoLifecycle<this & State>, vnode: VnodeDOM<Attrs, _NoLifecycle<this & State>>): any;
+        onupdate?(
+            this: _NoLifecycle<this & State>,
+            vnode: VnodeDOM<Attrs, _NoLifecycle<this & State>>
+        ): any;
 
         /** Creates a view out of virtual elements. */
-        view(this: _NoLifecycle<this & State>, vnode: Vnode<Attrs, _NoLifecycle<this & State>>): Children | null | void;
+        view(
+            this: _NoLifecycle<this & State>,
+            vnode: Vnode<Attrs, _NoLifecycle<this & State>>
+        ): Children | null | void;
     }
 
     /**
@@ -324,7 +386,10 @@ declare namespace Mithril {
         onremove?(vnode: VnodeDOM<A, this>): any;
 
         /** The onbeforeupdate hook is called before a vnode is diffed in a update. */
-        onbeforeupdate?(vnode: Vnode<A, this>, old: VnodeDOM<A, this>): boolean | void;
+        onbeforeupdate?(
+            vnode: Vnode<A, this>,
+            old: VnodeDOM<A, this>
+        ): boolean | void;
 
         /** The onupdate hook is called after a DOM element is updated, while attached to the document. */
         onupdate?(vnode: VnodeDOM<A, this>): any;
@@ -351,12 +416,13 @@ declare namespace Mithril {
      * Components are a mechanism to encapsulate parts of a view to make code easier to organize and/or reuse.
      * Any Javascript object that has a view method is a Mithril component. Components can be consumed via the m() utility.
      */
-    type Comp<Attrs = {}, State = {}> = _NoLifecycle<State> & Component<Attrs, _NoLifecycle<State>>;
+    type Comp<Attrs = {}, State = {}> = _NoLifecycle<State> &
+        Component<Attrs, _NoLifecycle<State>>;
 
     /** Components are a mechanism to encapsulate parts of a view to make code easier to organize and/or reuse. Components can be consumed via the m() utility. */
     type ComponentTypes<A = {}, S = {}> =
         | Component<A, S>
-        | { new(vnode: CVnode<A>): ClassComponent<A> }
+        | { new (vnode: CVnode<A>): ClassComponent<A> }
         | FactoryComponent<A>;
 
     /** This represents the attributes available for configuring virtual elements, beyond the applicable DOM attributes. */
@@ -374,205 +440,65 @@ declare namespace Mithril {
 declare global {
     namespace JSX {
         // tslint:disable-next-line:no-empty-interface
-        interface Element extends Mithril.Vnode {
-        }
-
+        interface Element extends Mithril.Vnode {}
         // tslint:disable-next-line:no-empty-interface
-        interface IntrinsicAttributes extends Mithril.Attributes {
-        }
-
+        interface IntrinsicAttributes extends Mithril.Attributes {}
         // tslint:disable-next-line:no-empty-interface
-        interface IntrinsicClassAttributes extends Mithril.Attributes {
-        }
+        interface IntrinsicClassAttributes extends Mithril.Attributes {}
 
         interface IntrinsicElements {
-            // HTML
-            a: Mithril.Attributes;
-            abbr: Mithril.Attributes;
-            address: Mithril.Attributes;
-            area: Mithril.Attributes;
-            article: Mithril.Attributes;
-            aside: Mithril.Attributes;
-            audio: Mithril.Attributes;
-            b: Mithril.Attributes;
-            base: Mithril.Attributes;
-            bdi: Mithril.Attributes;
-            bdo: Mithril.Attributes;
-            big: Mithril.Attributes;
-            blockquote: Mithril.Attributes;
-            body: Mithril.Attributes;
-            br: Mithril.Attributes;
-            button: Mithril.Attributes;
-            canvas: Mithril.Attributes;
-            caption: Mithril.Attributes;
-            cite: Mithril.Attributes;
-            code: Mithril.Attributes;
-            col: Mithril.Attributes;
-            colgroup: Mithril.Attributes;
-            data: Mithril.Attributes;
-            datalist: Mithril.Attributes;
-            dd: Mithril.Attributes;
-            del: Mithril.Attributes;
-            details: Mithril.Attributes;
-            dfn: Mithril.Attributes;
-            dialog: Mithril.Attributes;
-            div: Mithril.Attributes;
-            dl: Mithril.Attributes;
-            dt: Mithril.Attributes;
-            em: Mithril.Attributes;
-            embed: Mithril.Attributes;
-            fieldset: Mithril.Attributes;
-            figcaption: Mithril.Attributes;
-            figure: Mithril.Attributes;
-            footer: Mithril.Attributes;
-            form: Mithril.Attributes;
-            h1: Mithril.Attributes;
-            h2: Mithril.Attributes;
-            h3: Mithril.Attributes;
-            h4: Mithril.Attributes;
-            h5: Mithril.Attributes;
-            h6: Mithril.Attributes;
-            head: Mithril.Attributes;
-            header: Mithril.Attributes;
-            hgroup: Mithril.Attributes;
-            hr: Mithril.Attributes;
-            html: Mithril.Attributes;
-            i: Mithril.Attributes;
-            iframe: Mithril.Attributes;
-            img: Mithril.Attributes;
-            input: Mithril.Attributes;
-            ins: Mithril.Attributes;
-            kbd: Mithril.Attributes;
-            keygen: Mithril.Attributes;
-            label: Mithril.Attributes;
-            legend: Mithril.Attributes;
-            li: Mithril.Attributes;
-            link: Mithril.Attributes;
-            main: Mithril.Attributes;
-            map: Mithril.Attributes;
-            mark: Mithril.Attributes;
-            menu: Mithril.Attributes;
-            menuitem: Mithril.Attributes;
-            meta: Mithril.Attributes;
-            meter: Mithril.Attributes;
-            nav: Mithril.Attributes;
-            noindex: Mithril.Attributes;
-            noscript: Mithril.Attributes;
-            object: Mithril.Attributes;
-            ol: Mithril.Attributes;
-            optgroup: Mithril.Attributes;
-            option: Mithril.Attributes;
-            output: Mithril.Attributes;
-            p: Mithril.Attributes;
-            param: Mithril.Attributes;
-            picture: Mithril.Attributes;
-            pre: Mithril.Attributes;
-            progress: Mithril.Attributes;
-            q: Mithril.Attributes;
-            rp: Mithril.Attributes;
-            rt: Mithril.Attributes;
-            ruby: Mithril.Attributes;
-            s: Mithril.Attributes;
-            samp: Mithril.Attributes;
-            script: Mithril.Attributes;
-            section: Mithril.Attributes;
-            select: Mithril.Attributes;
-            small: Mithril.Attributes;
-            source: Mithril.Attributes;
-            span: Mithril.Attributes;
-            strong: Mithril.Attributes;
-            style: Mithril.Attributes;
-            sub: Mithril.Attributes;
-            summary: Mithril.Attributes;
-            sup: Mithril.Attributes;
-            table: Mithril.Attributes;
-            template: Mithril.Attributes;
-            tbody: Mithril.Attributes;
-            td: Mithril.Attributes;
-            textarea: Mithril.Attributes;
-            tfoot: Mithril.Attributes;
-            th: Mithril.Attributes;
-            thead: Mithril.Attributes;
-            time: Mithril.Attributes;
-            title: Mithril.Attributes;
-            tr: Mithril.Attributes;
-            track: Mithril.Attributes;
-            u: Mithril.Attributes;
-            ul: Mithril.Attributes;
-            var: Mithril.Attributes;
-            video: Mithril.Attributes;
-            wbr: Mithril.Attributes;
-            webview: Mithril.Attributes;
-
-            // SVG
-            svg: Mithril.Attributes;
-            animate: Mithril.Attributes;
-            animateMotion: Mithril.Attributes;
-            animateTransform: Mithril.Attributes;
-            circle: Mithril.Attributes;
-            clipPath: Mithril.Attributes;
-            defs: Mithril.Attributes;
-            desc: Mithril.Attributes;
-            ellipse: Mithril.Attributes;
-            feBlend: Mithril.Attributes;
-            feColorMatrix: Mithril.Attributes;
-            feComponentTransfer: Mithril.Attributes;
-            feComposite: Mithril.Attributes;
-            feConvolveMatrix: Mithril.Attributes;
-            feDiffuseLighting: Mithril.Attributes;
-            feDisplacementMap: Mithril.Attributes;
-            feDistantLight: Mithril.Attributes;
-            feDropShadow: Mithril.Attributes;
-            feFlood: Mithril.Attributes;
-            feFuncA: Mithril.Attributes;
-            feFuncB: Mithril.Attributes;
-            feFuncG: Mithril.Attributes;
-            feFuncR: Mithril.Attributes;
-            feGaussianBlur: Mithril.Attributes;
-            feImage: Mithril.Attributes;
-            feMerge: Mithril.Attributes;
-            feMergeNode: Mithril.Attributes;
-            feMorphology: Mithril.Attributes;
-            feOffset: Mithril.Attributes;
-            fePointLight: Mithril.Attributes;
-            feSpecularLighting: Mithril.Attributes;
-            feSpotLight: Mithril.Attributes;
-            feTile: Mithril.Attributes;
-            feTurbulence: Mithril.Attributes;
-            filter: Mithril.Attributes;
-            foreignObject: Mithril.Attributes;
-            g: Mithril.Attributes;
-            image: Mithril.Attributes;
-            line: Mithril.Attributes;
-            linearGradient: Mithril.Attributes;
-            marker: Mithril.Attributes;
-            mask: Mithril.Attributes;
-            metadata: Mithril.Attributes;
-            mpath: Mithril.Attributes;
-            path: Mithril.Attributes;
-            pattern: Mithril.Attributes;
-            polygon: Mithril.Attributes;
-            polyline: Mithril.Attributes;
-            radialGradient: Mithril.Attributes;
-            rect: Mithril.Attributes;
-            stop: Mithril.Attributes;
-            switch: Mithril.Attributes;
-            symbol: Mithril.Attributes;
-            text: Mithril.Attributes;
-            textPath: Mithril.Attributes;
-            tspan: Mithril.Attributes;
-            use: Mithril.Attributes;
-            view: Mithril.Attributes;
+            // Unity
+            panel: Mithril.Attributes & RectAttributes & LayoutAttributes;
+            image: Mithril.Attributes & RectAttributes & ImageAttributes;
+            text: Mithril.Attributes & RectAttributes & TextAttributes;
+            button: Mithril.Attributes &
+                RectAttributes &
+                SelectableAttributes &
+                ButtonCallbacks;
+            toggle: Mithril.Attributes &
+                RectAttributes &
+                SelectableAttributes &
+                ToggleAttributes &
+                PrefixAttributes<ImageAttributes, "cm-"> &
+                PrefixAttributes<RectAttributes, "cm-"> &
+                ToggleCallbacks;
+            scrollview: Mithril.Attributes &
+                RectAttributes &
+                ScrollScrollView &
+                PrefixAttributes<ScrollbarAttributes, "sx-"> &
+                PrefixAttributes<ScrollbarAttributes, "sy-"> &
+                PrefixAttributes<RectAttributes, "content-"> &
+                LayoutAttributes &
+                ScrollViewCallbacks;
+            input: Mithril.Attributes &
+                RectAttributes &
+                InputAttributes &
+                SelectableAttributes &
+                PrefixAttributes<TextAttributes, "text-"> &
+                PrefixAttributes<TextAttributes, "ph-"> &
+                InputCallbacks;
+            slider: Mithril.Attributes &
+                RectAttributes &
+                InputAttributes &
+                SliderAttributes &
+                SelectableAttributes &
+                PrefixAttributes<ImageAttributes, "bg-"> &
+                PrefixAttributes<ImageAttributes, "fill-"> &
+                SliderCallbacks;
+            container: Mithril.Attributes &
+                RectAttributes &
+                ContainerAttributes;
 
             // Special Mithril types
-            '[': Mithril.Attributes;
+            "[": Mithril.Attributes;
         }
     }
 }
 
 declare const Mithril: Mithril.Static;
-export = Mithril;
+export {};
 
 declare global {
-    const m: Mithril.Static;
+    const m: Mithril;
+    export import m = Mithril;
 }

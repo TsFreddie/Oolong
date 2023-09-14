@@ -351,6 +351,8 @@ export class UnityElement extends UnityNode {
     }
 
     public attachChildInternal(child: UnityElement) {
+        console.log(this.element);
+        console.log(child.element);
         CS.TSF.Oolong.UI.DocumentUtils.AttachElement(
             this.element,
             child.element
@@ -523,6 +525,7 @@ export class UnityWindow {
     public URLSearchParams = UnimlementedURLSearchParams;
 }
 
+globalThis.UnityElement = UnityElement;
 globalThis.window = new UnityWindow();
 globalThis.requestAnimationFrame = (cb: () => void) =>
     globalThis.window.requestAnimationFrame(cb);

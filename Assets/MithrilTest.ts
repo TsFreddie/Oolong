@@ -1,14 +1,9 @@
-export default class TestBehaviour extends ScriptBehaviour {
-    async onEnable() {
-        const result = await m.request<string>({
-            url: "https://www.baidu.com",
-            method: "GET",
-            responseType: "text",
-        });
-        console.log(result);
-    }
+import Page from "./Page";
 
-    onDisable() {
-        console.log("disabled");
+export default class TestBehaviour extends ScriptBehaviour {
+    async start() {
+        const body = new UnityElement(this.mono);
+
+        m.mount(body, Page);
     }
 }

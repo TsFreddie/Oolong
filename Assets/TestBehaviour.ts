@@ -1,13 +1,19 @@
 interface TestStruct {
-    a: number;
-    b: string;
+    /**
+     * @minimum 0
+     * @maximum 1
+     */
+    num: number;
+    str: string;
+    toggle: boolean;
 }
 
 export default class TestBehaviour extends ScriptBehaviour {
-    // public test: 100n;
+    public obj: CS.UnityEngine.GameObject;
+    public info: TestStruct;
+    public objArr: CS.UnityEngine.GameObject[];
 
-    @ValueRange(0, 1)
-    public test: number;
+    public action: () => void;
 
     onEnable() {
         console.log("enabled");

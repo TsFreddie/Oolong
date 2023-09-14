@@ -27,6 +27,7 @@ namespace TSF.Oolong
 
         public static JsEnv JsEnv => s_instance?._environment;
         public static OolongEnvironment Instance => s_instance;
+        public static Action OnDispose;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
         public static void Initialize()
@@ -35,8 +36,8 @@ namespace TSF.Oolong
             s_instance.InitializeJsEnv();
 #if UNITY_EDITOR
             Application.quitting -= DisposeInstance;
-            Application.quitting += DisposeInstance;
 #endif
+            Application.quitting += DisposeInstance;
         }
 
         public static void DisposeInstance()
@@ -143,8 +144,10 @@ namespace TSF.Oolong
 
         private void Dispose()
         {
+            OnDispose?.Invoke();
             _environment.Eval("Oolong.dispose();");
             _environment.Dispose();
+            _environment = null;
             s_scriptUpdate = null;
             s_scriptFixedUpdate = null;
             s_scriptLateUpdate = null;

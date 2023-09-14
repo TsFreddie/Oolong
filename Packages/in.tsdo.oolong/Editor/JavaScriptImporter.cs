@@ -9,13 +9,20 @@ namespace TSF.Oolong.Editor
     {
         public bool ExcludeInAddressable;
 
+        protected virtual Texture2D Icon => Icons.JavaScriptIcon;
+
         public override void OnImportAsset(AssetImportContext ctx)
         {
-            var text = File.ReadAllText(ctx.assetPath);
+            var text = Compile(ctx);
+            if (text == null) return;
             var asset = new TextAsset(text);
-            var icon = Icons.JavaScriptIcon;
-            ctx.AddObjectToAsset("text", asset, icon);
+            ctx.AddObjectToAsset("text", asset, Icon);
             ctx.SetMainObject(asset);
+        }
+
+        protected virtual string Compile(AssetImportContext ctx)
+        {
+            return File.ReadAllText(ctx.assetPath);
         }
     }
 }

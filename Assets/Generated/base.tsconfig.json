@@ -13,7 +13,7 @@
       ],
       "jsx": "react",
       "jsxFactory": "m",
-      "jsxFragmentFactory": "Fragment",
+      "jsxFragmentFactory": "m.Fragment",
       "skipLibCheck": true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,

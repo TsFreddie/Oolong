@@ -12,6 +12,8 @@ namespace TSF.Oolong.Editor
     [ScriptedImporter(1, "ts", AllowCaching = true)]
     public class TypeScriptImporter : JavaScriptImporter
     {
+        protected override Texture2D Icon => Icons.TypeScriptIcon;
+
         private static string s_compilerPath = null;
 
         public static string SwcConfig = Path.GetFullPath("Packages/in.tsdo.oolong/Support~/.swcrc");
@@ -112,10 +114,11 @@ namespace TSF.Oolong.Editor
             }
         }
 
-        public override void OnImportAsset(AssetImportContext ctx)
+        protected override string Compile(AssetImportContext ctx)
         {
             // Do not import definitions
-            if (ctx.assetPath.EndsWith(".d.ts")) return;
+            if (ctx.assetPath.EndsWith(".d.ts")) return null;
+
             var cachePath = GetCachePath();
             var path = ctx.assetPath;
             var dir = Path.GetDirectoryName(path) ?? string.Empty;
@@ -125,12 +128,7 @@ namespace TSF.Oolong.Editor
             if (File.Exists(targetFilename)) File.Delete(targetFilename);
 
             CompileFile(cachePath, ctx.assetPath);
-
-            var body = File.ReadAllText(targetFilename);
-            var asset = new TextAsset(body);
-            var icon = Icons.TypeScriptIcon;
-            ctx.AddObjectToAsset("text", asset, icon);
-            ctx.SetMainObject(asset);
+            return File.ReadAllText(targetFilename);
         }
     }
 }

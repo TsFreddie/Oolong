@@ -21,5 +21,15 @@ abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {
     abstract view(vnode: m.Vnode<A, this>): m.Children | null | void;
 }
 
-globalThis.MithrilComponents = MithrilComponent;
+globalThis.MithrilComponent = MithrilComponent;
 globalThis.m = m;
+
+globalThis.MithrilMount = (element: CS.TSF.Oolong.UI.IOolongElement, component: MithrilComponent) => {
+    var el = new UnityElement(element);
+    m.mount(el, component);
+    return el;
+}
+
+globalThis.MithrilUnmount = (element: UnityElement) => {
+    m.mount(element, null);
+}

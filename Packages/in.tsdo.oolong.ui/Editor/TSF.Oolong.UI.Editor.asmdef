@@ -1,0 +1,16 @@
+{
+    "name": "TSF.Oolong.UI.Editor",
+    "rootNamespace": "TSF.Oolong.UI.Editor",
+    "references": [
+        "GUID:4b2c933c7aef601448a2dbdd00e77d86"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
