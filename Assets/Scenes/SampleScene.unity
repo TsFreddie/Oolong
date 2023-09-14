@@ -260,15 +260,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AddressableScript:
-    m_AssetGUID: fd59637a74b6b9148af66facb5b0f31d
+    m_AssetGUID: d8850bcac7ba52e48bdcff240b0fdd9c
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  References: []
-  Strings: []
-  Numbers: []
-  BigInts: []
-  Booleans: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

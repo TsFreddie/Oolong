@@ -57,7 +57,8 @@ namespace PuertsConfig
                     "UnityEngine.UI",
                     "TMPro",
                     "UnityEngine.Networking",
-                    "TSF.Oolong"
+                    "TSF.Oolong",
+                    "TSF.Oolong.UI"
                 };
                 var unityTypes = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
                                   where !(assembly.ManifestModule is System.Reflection.Emit.ModuleBuilder)

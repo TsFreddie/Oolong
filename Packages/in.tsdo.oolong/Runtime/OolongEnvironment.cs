@@ -28,8 +28,7 @@ namespace TSF.Oolong
         public static JsEnv JsEnv => s_instance?._environment;
         public static OolongEnvironment Instance => s_instance;
 
-
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
         public static void Initialize()
         {
             s_instance ??= new OolongEnvironment();

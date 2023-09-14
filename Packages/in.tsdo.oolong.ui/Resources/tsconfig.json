@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "ES2021",
+        "noImplicitAny": false,
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "outDir": "dist",
+        "sourceRoot": "src",
+        "typeRoots": [
+            "../../../Library/PackageCache/com.tencent.puerts.core@2.0.2/Typing",
+            "../../../Assets/Generated/Puerts/Typing",
+            "../../../Packages/in.tsdo.oolong/Typings",
+            "../Typings"
+        ]
+    }
+}

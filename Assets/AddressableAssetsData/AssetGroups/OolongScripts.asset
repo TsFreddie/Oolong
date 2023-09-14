@@ -41,6 +41,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - OolongScripts
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8850bcac7ba52e48bdcff240b0fdd9c
+    m_Address: _oolong_/MithrilTest
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - OolongScripts
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 7bba7266a312a9e47b59491c70f9c2e7, type: 2}
   m_SchemaSet:
