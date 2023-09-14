@@ -4,6 +4,7 @@ export class HttpRequest {
     private request: CS.UnityEngine.Networking.UnityWebRequest;
     public responseType: string;
     public withCredentials: boolean;
+
     public constructor() {
         this.request = new CS.UnityEngine.Networking.UnityWebRequest();
     }
@@ -47,7 +48,7 @@ export class HttpRequest {
             this.request,
             () => {
                 if (this.onreadystatechange) {
-                    this.onreadystatechange({ target: this });
+                    this.onreadystatechange({target: this});
                 }
             }
         );
@@ -157,7 +158,7 @@ export abstract class UnityNode {
         for (let nodes = 0; nodes < this.children.length; nodes++) {
             const child = this.children[nodes];
             if (child === element) {
-                return { nodes, elements };
+                return {nodes, elements};
             }
             if (child instanceof UnityElement) {
                 elements++;
@@ -300,9 +301,13 @@ export abstract class UnityNode {
     }
 
     public abstract setAttribute(name: string, value: string): void;
+
     public abstract removeAttribute(name: string): void;
+
     public abstract attachChildInternal(child: UnityElement): void;
+
     public abstract removeChildInternal(child: UnityElement): void;
+
     public abstract insertChildInternal(child: UnityElement, pos: number): void;
 }
 
@@ -312,11 +317,20 @@ export class UnityFragment extends UnityNode {
         this.tag = "";
     }
 
-    public setAttribute() {}
-    public removeAttribute() {}
-    public attachChildInternal() {}
-    public removeChildInternal() {}
-    public insertChildInternal() {}
+    public setAttribute() {
+    }
+
+    public removeAttribute() {
+    }
+
+    public attachChildInternal() {
+    }
+
+    public removeChildInternal() {
+    }
+
+    public insertChildInternal() {
+    }
 }
 
 type Event = { type: string; target: UnityElement };
@@ -326,9 +340,9 @@ type EventHandler =
 
 const runEvent = (target: UnityElement, event: string, cb: EventHandler) => {
     if (typeof cb === "function") {
-        cb({ target, type: event });
+        cb({target, type: event});
     } else if (typeof cb === "object") {
-        cb.handleEvent({ target, type: event });
+        cb.handleEvent({target, type: event});
     }
 };
 
@@ -467,7 +481,7 @@ export class UnityHistory {
 
     public pushState(state: string, title: string, url?: string) {
         url = url ?? window.location.href;
-        this.historyStack.push({ state, title, url });
+        this.historyStack.push({state, title, url});
         window.location.hash = url;
         window.location.href = url;
     }
@@ -482,7 +496,7 @@ export class UnityHistory {
             };
             if (url) window.location.hash = url;
         } else {
-            this.historyStack.push({ state, title, url });
+            this.historyStack.push({state, title, url});
             if (url) window.location.hash = url;
         }
         window.location.hash = url;
@@ -491,8 +505,11 @@ export class UnityHistory {
 }
 
 // Stub 类，避免 Mithril 报错
-export class UnimplementedFormData {}
-export class UnimlementedURLSearchParams {}
+export class UnimplementedFormData {
+}
+
+export class UnimlementedURLSearchParams {
+}
 
 export class UnityWindow {
     // Mithril 渲染时使用
@@ -508,7 +525,12 @@ export class UnityWindow {
         this.animationFrameQueue.push(cb);
     }
 
-    public addEventListener(event: string, cb: (e: any) => void) {}
+    // TODO: handle popstate
+    public addEventListener(event: string, cb: (e: any) => void) {
+    }
+
+    public removeEventListener(event: string, cb: (e: any) => void) {
+    }
 
     public tick() {
         const tmp = this.animationFrameQueue;
@@ -526,6 +548,8 @@ export class UnityWindow {
     public XMLHttpRequest = HttpRequest;
     public FormData = UnimplementedFormData;
     public URLSearchParams = UnimlementedURLSearchParams;
+
+    public setTimeout = globalThis.setTimeout;
 }
 
 globalThis.UnityElement = UnityElement;

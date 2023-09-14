@@ -10,12 +10,39 @@ namespace TSF.Oolong
 {
     public class OolongEnvironment : ILoader, IResolvableLoader
     {
+        internal class OolongUpdate : OolongSubSystem
+        {
+            protected override void Invoke()
+            {
+                JsEnv?.Tick();
+                OnTick?.Invoke();
+                OnUpdate?.Invoke();
+            }
+        }
+
+        internal class OolongFixedUpdate : OolongSubSystem
+        {
+            protected override void Invoke()
+            {
+                OnFixedUpdate?.Invoke();
+            }
+        }
+
+        internal class OolongLateUpdate : OolongSubSystem
+        {
+            protected override void Invoke()
+            {
+                OnLateUpdate?.Invoke();
+            }
+        }
+
         private static OolongEnvironment s_instance;
 
-        internal delegate void JsUpdate();
-        internal static JsUpdate s_scriptUpdate;
-        internal static JsUpdate s_scriptFixedUpdate;
-        internal static JsUpdate s_scriptLateUpdate;
+        public delegate void JsUpdate();
+        public static event JsUpdate OnTick;
+        public static event JsUpdate OnUpdate;
+        public static event JsUpdate OnFixedUpdate;
+        public static event JsUpdate OnLateUpdate;
 
         internal delegate void JsAttach(ScriptBehaviour instanceId, JSObject scriptClass, string jsonData);
         private JsAttach _scriptAttach;
@@ -82,9 +109,9 @@ namespace TSF.Oolong
             _environment.UsingAction<int>();
             _scriptAttach = _environment.Eval<JsAttach>("Oolong.attach.bind(Oolong)");
             _scriptDetach = _environment.Eval<JsDetach>("Oolong.detach.bind(Oolong)");
-            s_scriptUpdate = _environment.Eval<JsUpdate>("Oolong.update.bind(Oolong)");
-            s_scriptFixedUpdate = _environment.Eval<JsUpdate>("Oolong.fixedUpdate.bind(Oolong)");
-            s_scriptLateUpdate = _environment.Eval<JsUpdate>("Oolong.lateUpdate.bind(Oolong)");
+            OnUpdate += _environment.Eval<JsUpdate>("Oolong.update.bind(Oolong)");
+            OnFixedUpdate += _environment.Eval<JsUpdate>("Oolong.fixedUpdate.bind(Oolong)");
+            OnLateUpdate += _environment.Eval<JsUpdate>("Oolong.lateUpdate.bind(Oolong)");
         }
 
         public bool FileExists(string filePath)
@@ -148,9 +175,9 @@ namespace TSF.Oolong
             _environment.Eval("Oolong.dispose();");
             _environment.Dispose();
             _environment = null;
-            s_scriptUpdate = null;
-            s_scriptFixedUpdate = null;
-            s_scriptLateUpdate = null;
+            OnUpdate = null;
+            OnFixedUpdate = null;
+            OnLateUpdate = null;
             _scriptAttach = null;
             _scriptDetach = null;
             Resources.UnloadUnusedAssets();

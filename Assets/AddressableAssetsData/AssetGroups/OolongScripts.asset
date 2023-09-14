@@ -48,7 +48,19 @@ MonoBehaviour:
     - OolongScripts
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb0c252d55894fd4a8b0dc18a74b9101
-    m_Address: _oolong_/Page
+    m_Address: _oolong_/Pages/Main
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - OolongScripts
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d91a3c1ce3d3bbe409dc6d6ba26fdc79
+    m_Address: _oolong_/Pages/Home
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - OolongScripts
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60762f1f9fb83a34e9c105866d2b5b33
+    m_Address: _oolong_/Pages/Menu
     m_ReadOnly: 1
     m_SerializedLabels:
     - OolongScripts

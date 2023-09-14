@@ -10,6 +10,8 @@ public static class OolongUI
     private delegate void MithrilUnmount(JSObject element);
     private static MithrilUnmount s_mithrilUnmount;
 
+    private static OolongEnvironment.JsUpdate s_tick;
+
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void Initialize()
@@ -20,8 +22,18 @@ public static class OolongUI
 
         s_mithrilMount = env.Eval<MithrilMount>("MithrilMount");
         s_mithrilUnmount = env.Eval<MithrilUnmount>("MithrilUnmount");
+        // TODO: I want to move window to MithrilComponent so we can technically have multiple routes
+        s_tick = env.Eval<OolongEnvironment.JsUpdate>("() => {window.tick();}");
 
+        OolongEnvironment.OnTick += Tick;
+        OolongEnvironment.OnUpdate += DocumentUtils.UpdateLayout;
+        OolongEnvironment.OnLateUpdate += DocumentUtils.LateUpdateLayout;
         OolongEnvironment.OnDispose += Dispose;
+    }
+
+    public static void Tick()
+    {
+        s_tick?.Invoke();
     }
 
     public static JSObject Mount(IOolongElement element, JSObject component)

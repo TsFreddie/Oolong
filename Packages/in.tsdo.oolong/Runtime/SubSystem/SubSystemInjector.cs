@@ -5,30 +5,6 @@ using UnityEngine.PlayerLoop;
 
 namespace TSF.Oolong
 {
-    public class OolongUpdate : OolongSubSystem
-    {
-        protected override void Invoke()
-        {
-            OolongEnvironment.s_scriptUpdate?.Invoke();
-        }
-    }
-
-    public class OolongFixedUpdate : OolongSubSystem
-    {
-        protected override void Invoke()
-        {
-            OolongEnvironment.s_scriptFixedUpdate?.Invoke();
-        }
-    }
-
-    public class OolongLateUpdate : OolongSubSystem
-    {
-        protected override void Invoke()
-        {
-            OolongEnvironment.s_scriptLateUpdate?.Invoke();
-        }
-    }
-
     public static class SubSystemInjector
     {
 #if UNITY_EDITOR
@@ -39,9 +15,9 @@ namespace TSF.Oolong
         public static void InjectSubSystem()
         {
             var loop = new MutableLoopSystem(PlayerLoop.GetCurrentPlayerLoop());
-            loop.InsertAfter<Update.ScriptRunBehaviourUpdate>(new OolongUpdate());
-            loop.InsertAfter<FixedUpdate.ScriptRunBehaviourFixedUpdate>(new OolongFixedUpdate());
-            loop.InsertAfter<PreLateUpdate.ScriptRunBehaviourLateUpdate>(new OolongLateUpdate());
+            loop.InsertAfter<Update.ScriptRunBehaviourUpdate>(new OolongEnvironment.OolongUpdate());
+            loop.InsertAfter<FixedUpdate.ScriptRunBehaviourFixedUpdate>(new OolongEnvironment.OolongFixedUpdate());
+            loop.InsertAfter<PreLateUpdate.ScriptRunBehaviourLateUpdate>(new OolongEnvironment.OolongLateUpdate());
             PlayerLoop.SetPlayerLoop(loop.ToPlayerLoopSystem());
         }
     }

@@ -299,7 +299,7 @@ namespace TSF.Oolong.UI
             }
         }
 
-        public async void SetImage(string address)
+        public void SetImage(string address)
         {
             _address = address;
             DocumentUtils.OnDocumentUpdate += ProcessImage;

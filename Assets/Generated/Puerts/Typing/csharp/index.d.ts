@@ -25,8 +25,8 @@
         {
         }
         interface MulticastDelegate
-        { 
-        (...args:any[]) : any; 
+        {
+        (...args:any[]) : any;
         Invoke?: (...args:any[]) => any;
         }
         var MulticastDelegate: { new (func: (...args:any[]) => any): MulticastDelegate; }
@@ -42,8 +42,8 @@
         {
         }
         interface AsyncCallback
-        { 
-        (ar: System.IAsyncResult) : void; 
+        {
+        (ar: System.IAsyncResult) : void;
         Invoke?: (ar: System.IAsyncResult) => void;
         }
         var AsyncCallback: { new (func: (ar: System.IAsyncResult) => void): AsyncCallback; }
@@ -229,8 +229,8 @@
         {
         }
         interface Action$1<T>
-        { 
-        (obj: T) : void; 
+        {
+        (obj: T) : void;
         Invoke?: (obj: T) => void;
         }
         class Nullable$1<T> extends System.ValueType
@@ -238,19 +238,19 @@
             protected [__keep_incompatibility]: never;
         }
         interface Func$1<TResult>
-        { 
-        () : TResult; 
+        {
+        () : TResult;
         Invoke?: () => TResult;
         }
         interface Action
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var Action: { new (func: () => void): Action; }
         interface Action$2<T1, T2>
-        { 
-        (arg1: T1, arg2: T2) : void; 
+        {
+        (arg1: T1, arg2: T2) : void;
         Invoke?: (arg1: T1, arg2: T2) => void;
         }
         class DateTime extends System.ValueType implements System.IFormattable, System.Runtime.Serialization.ISerializable, System.ISpanFormattable, System.IComparable, System.IComparable$1<Date>, System.IConvertible, System.IEquatable$1<Date>
@@ -273,8 +273,8 @@
             protected [__keep_incompatibility]: never;
         }
         interface Action$3<T1, T2, T3>
-        { 
-        (arg1: T1, arg2: T2, arg3: T3) : void; 
+        {
+        (arg1: T1, arg2: T2, arg3: T3) : void;
         Invoke?: (arg1: T1, arg2: T2, arg3: T3) => void;
         }
         class Uri extends System.Object implements System.Runtime.Serialization.ISerializable
@@ -282,28 +282,28 @@
             protected [__keep_incompatibility]: never;
         }
         interface Func$3<T1, T2, TResult>
-        { 
-        (arg1: T1, arg2: T2) : TResult; 
+        {
+        (arg1: T1, arg2: T2) : TResult;
         Invoke?: (arg1: T1, arg2: T2) => TResult;
         }
         interface Func$2<T, TResult>
-        { 
-        (arg: T) : TResult; 
+        {
+        (arg: T) : TResult;
         Invoke?: (arg: T) => TResult;
         }
         interface Converter$2<TInput, TOutput>
-        { 
-        (input: TInput) : TOutput; 
+        {
+        (input: TInput) : TOutput;
         Invoke?: (input: TInput) => TOutput;
         }
         interface Predicate$1<T>
-        { 
-        (obj: T) : boolean; 
+        {
+        (obj: T) : boolean;
         Invoke?: (obj: T) => boolean;
         }
         interface Comparison$1<T>
-        { 
-        (x: T, y: T) : number; 
+        {
+        (x: T, y: T) : number;
         Invoke?: (x: T, y: T) => number;
         }
         class ArraySegment$1<T> extends System.ValueType implements System.Collections.Generic.IReadOnlyList$1<T>, System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable, System.Collections.Generic.IList$1<T>, System.Collections.Generic.IReadOnlyCollection$1<T>, System.Collections.Generic.ICollection$1<T>
@@ -361,8 +361,8 @@
         /** AndroidJavaRunnable is the Unity representation of a java.lang.Runnable object.
         */
         interface AndroidJavaRunnable
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var AndroidJavaRunnable: { new (func: () => void): AndroidJavaRunnable; }
@@ -408,7 +408,7 @@
             */
             public GetRawClass () : System.IntPtr
             /** Creates a clone of the C# object that references the same Java object.
-            * @returns A new C# object which references the same Java object as the original instance. 
+            * @returns A new C# object which references the same Java object as the original instance.
             */
             public CloneReference () : UnityEngine.AndroidJavaObject
             public constructor ($className: string, $args: System.Array$1<string>)
@@ -574,17 +574,17 @@
             public static GetSignature ($args: System.Array$1<any>) : string
             /** Convert primitive to it's object counterpart.
             * @param $value Primitive value to be boxed.
-            * @returns A local reference to Java object. 
+            * @returns A local reference to Java object.
             */
             public static Box ($value: number) : System.IntPtr
             /** Convert primitive to it's object counterpart.
             * @param $value Primitive value to be boxed.
-            * @returns A local reference to Java object. 
+            * @returns A local reference to Java object.
             */
             public static Box ($value: bigint) : System.IntPtr
             /** Convert primitive to it's object counterpart.
             * @param $value Primitive value to be boxed.
-            * @returns A local reference to Java object. 
+            * @returns A local reference to Java object.
             */
             public static Box ($value: boolean) : System.IntPtr
             /** Converts Java object of a boxed type to its primitive counterpart.
@@ -1074,11 +1074,11 @@
             */
             public static GetDirectSByteBuffer ($buffer: System.IntPtr) : Unity.Collections.NativeArray$1<number>
             /** Registers native methods with the class specified by the clazz argument.
-            * @returns Zero on success, negative value on error. Falsely succeeds in Editor. 
+            * @returns Zero on success, negative value on error. Falsely succeeds in Editor.
             */
             public static RegisterNatives ($clazz: System.IntPtr, $methods: System.Array$1<UnityEngine.JNINativeMethod>) : number
             /** Unregisters native methods of a class. The class goes back to the state before it was linked or registered with its native method functions.
-            * @returns Zero on success, negative value on error. Falsely succeeds in Editor. 
+            * @returns Zero on success, negative value on error. Falsely succeeds in Editor.
             */
             public static UnregisterNatives ($clazz: System.IntPtr) : number
         }
@@ -1096,7 +1096,7 @@
             public get hideFlags(): UnityEngine.HideFlags;
             public set hideFlags(value: UnityEngine.HideFlags);
             /** Gets  the instance ID of the object.
-            * @returns Returns the instance ID of the object. 
+            * @returns Returns the instance ID of the object.
             */
             public GetInstanceID () : number
             public static op_Implicit ($exists: UnityEngine.Object) : boolean
@@ -1106,7 +1106,7 @@
             * @param $rotation Orientation of the new object.
             * @param $parent Parent that will be assigned to the new object.
             * @param $instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
+            * @returns The instantiated clone.
             */
             public static Instantiate ($original: UnityEngine.Object, $position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion) : UnityEngine.Object
             /** Clones the object original and returns the clone.
@@ -1115,7 +1115,7 @@
             * @param $rotation Orientation of the new object.
             * @param $parent Parent that will be assigned to the new object.
             * @param $instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
+            * @returns The instantiated clone.
             */
             public static Instantiate ($original: UnityEngine.Object, $position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion, $parent: UnityEngine.Transform) : UnityEngine.Object
             /** Clones the object original and returns the clone.
@@ -1124,7 +1124,7 @@
             * @param $rotation Orientation of the new object.
             * @param $parent Parent that will be assigned to the new object.
             * @param $instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
+            * @returns The instantiated clone.
             */
             public static Instantiate ($original: UnityEngine.Object) : UnityEngine.Object
             /** Clones the object original and returns the clone.
@@ -1133,7 +1133,7 @@
             * @param $rotation Orientation of the new object.
             * @param $parent Parent that will be assigned to the new object.
             * @param $instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
+            * @returns The instantiated clone.
             */
             public static Instantiate ($original: UnityEngine.Object, $parent: UnityEngine.Transform) : UnityEngine.Object
             /** Clones the object original and returns the clone.
@@ -1142,7 +1142,7 @@
             * @param $rotation Orientation of the new object.
             * @param $parent Parent that will be assigned to the new object.
             * @param $instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
+            * @returns The instantiated clone.
             */
             public static Instantiate ($original: UnityEngine.Object, $parent: UnityEngine.Transform, $instantiateInWorldSpace: boolean) : UnityEngine.Object
             public static Instantiate ($original: UnityEngine.Object, $parent: UnityEngine.Transform, $worldPositionStays: boolean) : UnityEngine.Object
@@ -1169,27 +1169,27 @@
             /** Gets a list of all loaded objects of Type type.
             * @param $type The type of object to find.
             * @param $includeInactive If true, components attached to inactive GameObjects are also included.
-            * @returns The array of objects found matching the type specified. 
+            * @returns The array of objects found matching the type specified.
             */
             public static FindObjectsOfType ($type: System.Type) : System.Array$1<UnityEngine.Object>
             /** Gets a list of all loaded objects of Type type.
             * @param $type The type of object to find.
             * @param $includeInactive If true, components attached to inactive GameObjects are also included.
-            * @returns The array of objects found matching the type specified. 
+            * @returns The array of objects found matching the type specified.
             */
             public static FindObjectsOfType ($type: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Object>
             /** Retrieves a list of all loaded objects of Type type.
             * @param $type The type of object to find.
             * @param $findObjectsInactive Whether to include components attached to inactive GameObjects. If you don't specify this parameter, this function doesn't include inactive objects in the results.
             * @param $sortMode Whether and how to sort the returned array. Not sorting the array makes this function run significantly faster.
-            * @returns The array of objects found matching the type specified. 
+            * @returns The array of objects found matching the type specified.
             */
             public static FindObjectsByType ($type: System.Type, $sortMode: UnityEngine.FindObjectsSortMode) : System.Array$1<UnityEngine.Object>
             /** Retrieves a list of all loaded objects of Type type.
             * @param $type The type of object to find.
             * @param $findObjectsInactive Whether to include components attached to inactive GameObjects. If you don't specify this parameter, this function doesn't include inactive objects in the results.
             * @param $sortMode Whether and how to sort the returned array. Not sorting the array makes this function run significantly faster.
-            * @returns The array of objects found matching the type specified. 
+            * @returns The array of objects found matching the type specified.
             */
             public static FindObjectsByType ($type: System.Type, $findObjectsInactive: UnityEngine.FindObjectsInactive, $sortMode: UnityEngine.FindObjectsSortMode) : System.Array$1<UnityEngine.Object>
             /** Do not destroy the target Object when loading a new Scene.
@@ -1198,36 +1198,36 @@
             public static DontDestroyOnLoad ($target: UnityEngine.Object) : void
             /** Returns the first active loaded object of Type type.
             * @param $type The type of object to find.
-            * @returns Object The first active loaded object that matches the specified type. It returns null if no Object matches the type. 
+            * @returns Object The first active loaded object that matches the specified type. It returns null if no Object matches the type.
             */
             public static FindObjectOfType ($type: System.Type) : UnityEngine.Object
             /** Retrieves the first active loaded object of Type type.
             * @param $type The type of object to find.
             * @param $findObjectsInactive Whether to include components attached to inactive GameObjects. If you don't specify this parameter, this function doesn't include inactive objects in the results.
-            * @returns Returns the first active loaded object that matches the specified type. If no object matches the specified type, returns null. 
+            * @returns Returns the first active loaded object that matches the specified type. If no object matches the specified type, returns null.
             */
             public static FindFirstObjectByType ($type: System.Type) : UnityEngine.Object
             /** Retrieves any active loaded object of Type type.
             * @param $type The type of object to find.
             * @param $findObjectsInactive Whether to include components attached to inactive GameObjects. If you don't specify this parameter, this function doesn't include inactive objects in the results.
-            * @returns Returns an arbitrary active loaded object that matches the specified type. If no object matches the specified type, returns null. 
+            * @returns Returns an arbitrary active loaded object that matches the specified type. If no object matches the specified type, returns null.
             */
             public static FindAnyObjectByType ($type: System.Type) : UnityEngine.Object
             /** Returns the first active loaded object of Type type.
             * @param $type The type of object to find.
-            * @returns Object The first active loaded object that matches the specified type. It returns null if no Object matches the type. 
+            * @returns Object The first active loaded object that matches the specified type. It returns null if no Object matches the type.
             */
             public static FindObjectOfType ($type: System.Type, $includeInactive: boolean) : UnityEngine.Object
             /** Retrieves the first active loaded object of Type type.
             * @param $type The type of object to find.
             * @param $findObjectsInactive Whether to include components attached to inactive GameObjects. If you don't specify this parameter, this function doesn't include inactive objects in the results.
-            * @returns Returns the first active loaded object that matches the specified type. If no object matches the specified type, returns null. 
+            * @returns Returns the first active loaded object that matches the specified type. If no object matches the specified type, returns null.
             */
             public static FindFirstObjectByType ($type: System.Type, $findObjectsInactive: UnityEngine.FindObjectsInactive) : UnityEngine.Object
             /** Retrieves any active loaded object of Type type.
             * @param $type The type of object to find.
             * @param $findObjectsInactive Whether to include components attached to inactive GameObjects. If you don't specify this parameter, this function doesn't include inactive objects in the results.
-            * @returns Returns an arbitrary active loaded object that matches the specified type. If no object matches the specified type, returns null. 
+            * @returns Returns an arbitrary active loaded object that matches the specified type. If no object matches the specified type, returns null.
             */
             public static FindAnyObjectByType ($type: System.Type, $findObjectsInactive: UnityEngine.FindObjectsInactive) : UnityEngine.Object
             public static op_Equality ($x: UnityEngine.Object, $y: UnityEngine.Object) : boolean
@@ -1251,67 +1251,67 @@
             public set tag(value: string);
             /** The non-generic version of this method.
             * @param $type The type of Component to retrieve.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponent ($type: System.Type) : UnityEngine.Component
             /** The non-generic version of this method.
             * @param $type The type of component to search for.
             * @param $component The output argument that will contain the component or null.
-            * @returns Returns true if the component is found, false otherwise. 
+            * @returns Returns true if the component is found, false otherwise.
             */
             public TryGetComponent ($type: System.Type, $component: $Ref<UnityEngine.Component>) : boolean
             /** The string-based version of this method.
             * @param $type The name of the type of Component to get.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponent ($type: string) : UnityEngine.Component
             /** This is the non-generic version of this method.
             * @param $t The type of component to search for.
             * @param $includeInactive Whether to include inactive child GameObjects in the search.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponentInChildren ($t: System.Type, $includeInactive: boolean) : UnityEngine.Component
             /** This is the non-generic version of this method.
             * @param $t The type of component to search for.
             * @param $includeInactive Whether to include inactive child GameObjects in the search.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponentInChildren ($t: System.Type) : UnityEngine.Component
             /** The non-generic version of this method.
             * @param $t The type of component to search for.
             * @param $includeInactive Whether to include inactive child GameObjects in the search.
-            * @returns An array of all found components matching the specified type. 
+            * @returns An array of all found components matching the specified type.
             */
             public GetComponentsInChildren ($t: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Component>
             public GetComponentsInChildren ($t: System.Type) : System.Array$1<UnityEngine.Component>
             /** The non-generic version of this method.
             * @param $t The type of component to search for.
             * @param $includeInactive Whether to include inactive parent GameObjects in the search.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponentInParent ($t: System.Type, $includeInactive: boolean) : UnityEngine.Component
             /** The non-generic version of this method.
             * @param $t The type of component to search for.
             * @param $includeInactive Whether to include inactive parent GameObjects in the search.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponentInParent ($t: System.Type) : UnityEngine.Component
             /** The non-generic version of this method.
             * @param $t The type of component to search for.
             * @param $includeInactive Whether to include inactive parent GameObjects in the search.
-            * @returns An array of all found components matching the specified type. 
+            * @returns An array of all found components matching the specified type.
             */
             public GetComponentsInParent ($t: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Component>
             public GetComponentsInParent ($t: System.Type) : System.Array$1<UnityEngine.Component>
             /** The non-generic version of this method.
             * @param $type The type of component to search for.
-            * @returns An array containing all matching components of type type. 
+            * @returns An array containing all matching components of type type.
             */
             public GetComponents ($type: System.Type) : System.Array$1<UnityEngine.Component>
             public GetComponents ($type: System.Type, $results: System.Collections.Generic.List$1<UnityEngine.Component>) : void
             /** Checks the GameObject's tag against the defined tag.
             * @param $tag The tag to compare.
-            * @returns Returns true if GameObject has same tag. Returns false otherwise. 
+            * @returns Returns true if GameObject has same tag. Returns false otherwise.
             */
             public CompareTag ($tag: string) : boolean
             /** Calls the method named methodName on every MonoBehaviour in this game object and on every ancestor of the behaviour.
@@ -1563,13 +1563,13 @@
             /** Returns the value of the given float parameter.
             * @param $name The parameter name.
             * @param $id The parameter ID.
-            * @returns The value of the parameter. 
+            * @returns The value of the parameter.
             */
             public GetFloat ($name: string) : number
             /** Returns the value of the given float parameter.
             * @param $name The parameter name.
             * @param $id The parameter ID.
-            * @returns The value of the parameter. 
+            * @returns The value of the parameter.
             */
             public GetFloat ($id: number) : number
             /** Send float values to the Animator to affect transitions.
@@ -1607,13 +1607,13 @@
             /** Returns the value of the given boolean parameter.
             * @param $name The parameter name.
             * @param $id The parameter ID.
-            * @returns The value of the parameter. 
+            * @returns The value of the parameter.
             */
             public GetBool ($name: string) : boolean
             /** Returns the value of the given boolean parameter.
             * @param $name The parameter name.
             * @param $id The parameter ID.
-            * @returns The value of the parameter. 
+            * @returns The value of the parameter.
             */
             public GetBool ($id: number) : boolean
             /** Sets the value of the given boolean parameter.
@@ -1631,13 +1631,13 @@
             /** Returns the value of the given integer parameter.
             * @param $name The parameter name.
             * @param $id The parameter ID.
-            * @returns The value of the parameter. 
+            * @returns The value of the parameter.
             */
             public GetInteger ($name: string) : number
             /** Returns the value of the given integer parameter.
             * @param $name The parameter name.
             * @param $id The parameter ID.
-            * @returns The value of the parameter. 
+            * @returns The value of the parameter.
             */
             public GetInteger ($id: number) : number
             /** Sets the value of the given integer parameter.
@@ -1675,18 +1675,18 @@
             /** Returns true if the parameter is controlled by a curve, false otherwise.
             * @param $name The parameter name.
             * @param $id The parameter ID.
-            * @returns True if the parameter is controlled by a curve, false otherwise. 
+            * @returns True if the parameter is controlled by a curve, false otherwise.
             */
             public IsParameterControlledByCurve ($name: string) : boolean
             /** Returns true if the parameter is controlled by a curve, false otherwise.
             * @param $name The parameter name.
             * @param $id The parameter ID.
-            * @returns True if the parameter is controlled by a curve, false otherwise. 
+            * @returns True if the parameter is controlled by a curve, false otherwise.
             */
             public IsParameterControlledByCurve ($id: number) : boolean
             /** Gets the position of an IK goal.
             * @param $goal The AvatarIKGoal that is queried.
-            * @returns Return the current position of this IK goal in world space. 
+            * @returns Return the current position of this IK goal in world space.
             */
             public GetIKPosition ($goal: UnityEngine.AvatarIKGoal) : UnityEngine.Vector3
             /** Sets the position of an IK goal.
@@ -1723,7 +1723,7 @@
             public SetIKRotationWeight ($goal: UnityEngine.AvatarIKGoal, $value: number) : void
             /** Gets the position of an IK hint.
             * @param $hint The AvatarIKHint that is queried.
-            * @returns Return the current position of this IK hint in world space. 
+            * @returns Return the current position of this IK hint in world space.
             */
             public GetIKHintPosition ($hint: UnityEngine.AvatarIKHint) : UnityEngine.Vector3
             /** Sets the position of an IK hint.
@@ -1733,7 +1733,7 @@
             public SetIKHintPosition ($hint: UnityEngine.AvatarIKHint, $hintPosition: UnityEngine.Vector3) : void
             /** Gets the translative weight of an IK Hint (0 = at the original animation before IK, 1 = at the hint).
             * @param $hint The AvatarIKHint that is queried.
-            * @returns Return translative weight. 
+            * @returns Return translative weight.
             */
             public GetIKHintPositionWeight ($hint: UnityEngine.AvatarIKHint) : number
             /** Sets the translative weight of an IK hint (0 = at the original animation before IK, 1 = at the hint).
@@ -1793,17 +1793,17 @@
             public GetBehaviours ($fullPathHash: number, $layerIndex: number) : System.Array$1<UnityEngine.StateMachineBehaviour>
             /** Returns the layer name.
             * @param $layerIndex The layer index.
-            * @returns The layer name. 
+            * @returns The layer name.
             */
             public GetLayerName ($layerIndex: number) : string
             /** Returns the index of the layer with the given name.
             * @param $layerName The layer name.
-            * @returns The layer index. 
+            * @returns The layer index.
             */
             public GetLayerIndex ($layerName: string) : number
             /** Returns the weight of the layer at the specified index.
             * @param $layerIndex The layer index.
-            * @returns The layer weight. 
+            * @returns The layer weight.
             */
             public GetLayerWeight ($layerIndex: number) : number
             /** Sets the weight of the layer at the given index.
@@ -1813,44 +1813,44 @@
             public SetLayerWeight ($layerIndex: number, $weight: number) : void
             /** Returns an AnimatorStateInfo with the information on the current state.
             * @param $layerIndex The layer index.
-            * @returns An AnimatorStateInfo with the information on the current state. 
+            * @returns An AnimatorStateInfo with the information on the current state.
             */
             public GetCurrentAnimatorStateInfo ($layerIndex: number) : UnityEngine.AnimatorStateInfo
             /** Returns an AnimatorStateInfo with the information on the next state.
             * @param $layerIndex The layer index.
-            * @returns An AnimatorStateInfo with the information on the next state. 
+            * @returns An AnimatorStateInfo with the information on the next state.
             */
             public GetNextAnimatorStateInfo ($layerIndex: number) : UnityEngine.AnimatorStateInfo
             /** Returns an AnimatorTransitionInfo with the informations on the current transition.
             * @param $layerIndex The layer's index.
-            * @returns An AnimatorTransitionInfo with the informations on the current transition. 
+            * @returns An AnimatorTransitionInfo with the informations on the current transition.
             */
             public GetAnimatorTransitionInfo ($layerIndex: number) : UnityEngine.AnimatorTransitionInfo
             /** Returns the number of AnimatorClipInfo in the current state.
             * @param $layerIndex The layer index.
-            * @returns The number of AnimatorClipInfo in the current state. 
+            * @returns The number of AnimatorClipInfo in the current state.
             */
             public GetCurrentAnimatorClipInfoCount ($layerIndex: number) : number
             /** Returns the number of AnimatorClipInfo in the next state.
             * @param $layerIndex The layer index.
-            * @returns The number of AnimatorClipInfo in the next state. 
+            * @returns The number of AnimatorClipInfo in the next state.
             */
             public GetNextAnimatorClipInfoCount ($layerIndex: number) : number
             /** Returns an array of all the AnimatorClipInfo in the current state of the given layer.
             * @param $layerIndex The layer index.
-            * @returns An array of all the AnimatorClipInfo in the current state. 
+            * @returns An array of all the AnimatorClipInfo in the current state.
             */
             public GetCurrentAnimatorClipInfo ($layerIndex: number) : System.Array$1<UnityEngine.AnimatorClipInfo>
             /** Returns an array of all the AnimatorClipInfo in the next state of the given layer.
             * @param $layerIndex The layer index.
-            * @returns An array of all the AnimatorClipInfo in the next state. 
+            * @returns An array of all the AnimatorClipInfo in the next state.
             */
             public GetNextAnimatorClipInfo ($layerIndex: number) : System.Array$1<UnityEngine.AnimatorClipInfo>
             public GetCurrentAnimatorClipInfo ($layerIndex: number, $clips: System.Collections.Generic.List$1<UnityEngine.AnimatorClipInfo>) : void
             public GetNextAnimatorClipInfo ($layerIndex: number, $clips: System.Collections.Generic.List$1<UnityEngine.AnimatorClipInfo>) : void
             /** Returns true if there is a transition on the given layer, false otherwise.
             * @param $layerIndex The layer index.
-            * @returns True if there is a transition on the given layer, false otherwise. 
+            * @returns True if there is a transition on the given layer, false otherwise.
             */
             public IsInTransition ($layerIndex: number) : boolean
             /** See AnimatorController.parameters.
@@ -1968,7 +1968,7 @@
             public SetTarget ($targetIndex: UnityEngine.AvatarTarget, $targetNormalizedTime: number) : void
             /** Retrieves the Transform mapped to a human bone based on its id.
             * @param $humanBoneId The human bone to be queried. See the HumanBodyBones enum for a list of possible values.
-            * @returns Returns the Transform mapped to the human bone. Returns null if the human bone has no Transform. 
+            * @returns Returns the Transform mapped to the human bone. Returns null if the human bone has no Transform.
             */
             public GetBoneTransform ($humanBoneId: UnityEngine.HumanBodyBones) : UnityEngine.Transform
             /** Sets the animator in playback mode.
@@ -1987,7 +1987,7 @@
             /** Returns true if the state exists in this layer, false otherwise.
             * @param $layerIndex The layer index.
             * @param $stateID The state ID.
-            * @returns True if the state exists in this layer, false otherwise. 
+            * @returns True if the state exists in this layer, false otherwise.
             */
             public HasState ($layerIndex: number, $stateID: number) : boolean
             /** Generates an parameter id from a string.
@@ -2084,14 +2084,14 @@
             * @param $target The vector.
             * @param $maxRadiansDelta The maximum angle in radians allowed for this rotation.
             * @param $maxMagnitudeDelta The maximum allowed change in vector magnitude for this rotation.
-            * @returns The location that RotateTowards generates. 
+            * @returns The location that RotateTowards generates.
             */
             public static RotateTowards ($current: UnityEngine.Vector3, $target: UnityEngine.Vector3, $maxRadiansDelta: number, $maxMagnitudeDelta: number) : UnityEngine.Vector3
             /** Linearly interpolates between two points.
             * @param $a Start value, returned when t = 0.
             * @param $b End value, returned when t = 1.
             * @param $t Value used to interpolate between a and b.
-            * @returns Interpolated value, equals to a + (b - a) * t. 
+            * @returns Interpolated value, equals to a + (b - a) * t.
             */
             public static Lerp ($a: UnityEngine.Vector3, $b: UnityEngine.Vector3, $t: number) : UnityEngine.Vector3
             /** Linearly interpolates between two vectors.
@@ -2101,7 +2101,7 @@
             * @param $current The position to move from.
             * @param $target The position to move towards.
             * @param $maxDistanceDelta Distance to move current per call.
-            * @returns The new position. 
+            * @returns The new position.
             */
             public static MoveTowards ($current: UnityEngine.Vector3, $target: UnityEngine.Vector3, $maxDistanceDelta: number) : UnityEngine.Vector3
             /** Gradually changes a vector towards a desired goal over time.
@@ -2165,20 +2165,20 @@
             /** Projects a vector onto a plane defined by a normal orthogonal to the plane.
             * @param $planeNormal The direction from the vector towards the plane.
             * @param $vector The location of the vector above the plane.
-            * @returns The location of the vector on the plane. 
+            * @returns The location of the vector on the plane.
             */
             public static ProjectOnPlane ($vector: UnityEngine.Vector3, $planeNormal: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Calculates the angle between vectors from and.
             * @param $from The vector from which the angular difference is measured.
             * @param $to The vector to which the angular difference is measured.
-            * @returns The angle in degrees between the two vectors. 
+            * @returns The angle in degrees between the two vectors.
             */
             public static Angle ($from: UnityEngine.Vector3, $to: UnityEngine.Vector3) : number
             /** Calculates the signed angle between vectors from and to in relation to axis.
             * @param $from The vector from which the angular difference is measured.
             * @param $to The vector to which the angular difference is measured.
             * @param $axis A vector around which the other vectors are rotated.
-            * @returns Returns the signed angle between from and to in degrees. 
+            * @returns Returns the signed angle between from and to in degrees.
             */
             public static SignedAngle ($from: UnityEngine.Vector3, $to: UnityEngine.Vector3, $axis: UnityEngine.Vector3) : number
             /** Returns the distance between a and b.
@@ -2264,7 +2264,7 @@
             * @param $a Start value, returned when t = 0.
             * @param $b End value, returned when t = 1.
             * @param $t Interpolation ratio.
-            * @returns A quaternion spherically interpolated between quaternions a and b. 
+            * @returns A quaternion spherically interpolated between quaternions a and b.
             */
             public static Slerp ($a: UnityEngine.Quaternion, $b: UnityEngine.Quaternion, $t: number) : UnityEngine.Quaternion
             /** Spherically interpolates between a and b by t. The parameter t is not clamped.
@@ -2274,7 +2274,7 @@
             * @param $a Start value, returned when t = 0.
             * @param $b End value, returned when t = 1.
             * @param $t Interpolation ratio.
-            * @returns A quaternion interpolated between quaternions a and b. 
+            * @returns A quaternion interpolated between quaternions a and b.
             */
             public static Lerp ($a: UnityEngine.Quaternion, $b: UnityEngine.Quaternion, $t: number) : UnityEngine.Quaternion
             /** Interpolates between a and b by t and normalizes the result afterwards. The parameter t is not clamped.
@@ -2385,13 +2385,13 @@
             /** Creates an instance of a scriptable object.
             * @param $className The type of the ScriptableObject to create, as the name of the type.
             * @param $type The type of the ScriptableObject to create, as a System.Type instance.
-            * @returns The created ScriptableObject. 
+            * @returns The created ScriptableObject.
             */
             public static CreateInstance ($className: string) : UnityEngine.ScriptableObject
             /** Creates an instance of a scriptable object.
             * @param $className The type of the ScriptableObject to create, as the name of the type.
             * @param $type The type of the ScriptableObject to create, as a System.Type instance.
-            * @returns The created ScriptableObject. 
+            * @returns The created ScriptableObject.
             */
             public static CreateInstance ($type: System.Type) : UnityEngine.ScriptableObject
             public constructor ()
@@ -2779,7 +2779,7 @@
             public GetSiblingIndex () : number
             /** Finds a child by name n and returns it.
             * @param $n Name of child to be found.
-            * @returns The found child transform. Null if child with matching name isn't found. 
+            * @returns The found child transform. Null if child with matching name isn't found.
             */
             public Find ($n: string) : UnityEngine.Transform
             /** Is this transform a child of parent?
@@ -2788,7 +2788,7 @@
             public GetEnumerator () : System.Collections.IEnumerator
             /** Returns a transform child by index.
             * @param $index Index of the child transform to return. Must be smaller than Transform.childCount.
-            * @returns Transform child by index. 
+            * @returns Transform child by index.
             */
             public GetChild ($index: number) : UnityEngine.Transform
         }
@@ -3214,7 +3214,7 @@
             public SqrDistance ($point: UnityEngine.Vector3) : number
             /** The closest point on the bounding box.
             * @param $point Arbitrary point.
-            * @returns The point on the bounding box or inside the bounding box. 
+            * @returns The point on the bounding box or inside the bounding box.
             */
             public ClosestPoint ($point: UnityEngine.Vector3) : UnityEngine.Vector3
             public constructor ($center: UnityEngine.Vector3, $size: UnityEngine.Vector3)
@@ -3312,67 +3312,67 @@
             public static CreatePrimitive ($type: UnityEngine.PrimitiveType) : UnityEngine.GameObject
             /** The non-generic version of this method.
             * @param $type The type of Component to search for.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponent ($type: System.Type) : UnityEngine.Component
             /** The string-based version of this method.
             * @param $type The name of the type of Component to search for.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponent ($type: string) : UnityEngine.Component
             /** This is the non-generic version of this method.
             * @param $type The type of Component to retrieve.
             * @param $includeInactive Whether to include inactive child GameObjects in the search.
-            * @returns A component of the matching type, if found. 
+            * @returns A component of the matching type, if found.
             */
             public GetComponentInChildren ($type: System.Type, $includeInactive: boolean) : UnityEngine.Component
             /** This is the non-generic version of this method.
             * @param $type The type of Component to retrieve.
             * @param $includeInactive Whether to include inactive child GameObjects in the search.
-            * @returns A component of the matching type, if found. 
+            * @returns A component of the matching type, if found.
             */
             public GetComponentInChildren ($type: System.Type) : UnityEngine.Component
             /** The non-generic version of this method.
             * @param $type The type of component to search for.
             * @param $includeInactive Whether to include inactive parent GameObjects in the search.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponentInParent ($type: System.Type, $includeInactive: boolean) : UnityEngine.Component
             /** The non-generic version of this method.
             * @param $type The type of component to search for.
             * @param $includeInactive Whether to include inactive parent GameObjects in the search.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            * @returns A Component of the matching type, otherwise null if no Component is found.
             */
             public GetComponentInParent ($type: System.Type) : UnityEngine.Component
             /** The non-generic version of this method.
             * @param $type The type of component to search for.
-            * @returns An array containing all matching components of type type. 
+            * @returns An array containing all matching components of type type.
             */
             public GetComponents ($type: System.Type) : System.Array$1<UnityEngine.Component>
             public GetComponents ($type: System.Type, $results: System.Collections.Generic.List$1<UnityEngine.Component>) : void
             /** The non-generic version of this method.
             * @param $type The type of component to search for.
             * @param $includeInactive Whether to include inactive child GameObjects in the search.
-            * @returns An array of all found components matching the specified type. 
+            * @returns An array of all found components matching the specified type.
             */
             public GetComponentsInChildren ($type: System.Type) : System.Array$1<UnityEngine.Component>
             /** The non-generic version of this method.
             * @param $type The type of component to search for.
             * @param $includeInactive Whether to include inactive child GameObjects in the search.
-            * @returns An array of all found components matching the specified type. 
+            * @returns An array of all found components matching the specified type.
             */
             public GetComponentsInChildren ($type: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Component>
             public GetComponentsInParent ($type: System.Type) : System.Array$1<UnityEngine.Component>
             /** The non-generic version of this method.
             * @param $type The type of component to search for.
             * @param $includeInactive Whether to include inactive parent GameObjects in the search.
-            * @returns An array of all found components matching the specified type. 
+            * @returns An array of all found components matching the specified type.
             */
             public GetComponentsInParent ($type: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Component>
             /** The non-generic version of this method.
             * @param $type The type of component to search for.
             * @param $component The output argument that will contain the component or null.
-            * @returns Returns true if the component is found, false otherwise. 
+            * @returns Returns true if the component is found, false otherwise.
             */
             public TryGetComponent ($type: System.Type, $component: $Ref<UnityEngine.Component>) : boolean
             /** Returns one active GameObject tagged tag. Returns null if no GameObject was found.
@@ -3478,24 +3478,24 @@
             public set postWrapMode(value: UnityEngine.WrapMode);
             /** Evaluate the curve at time.
             * @param $time The time within the curve you want to evaluate (the horizontal axis in the curve graph).
-            * @returns The value of the curve, at the point in time specified. 
+            * @returns The value of the curve, at the point in time specified.
             */
             public Evaluate ($time: number) : number
             /** Add a new key to the curve.
             * @param $time The time at which to add the key (horizontal axis in the curve graph).
             * @param $value The value for the key (vertical axis in the curve graph).
-            * @returns The index of the added key, or -1 if the key could not be added. 
+            * @returns The index of the added key, or -1 if the key could not be added.
             */
             public AddKey ($time: number, $value: number) : number
             /** Add a new key to the curve.
             * @param $key The key to add to the curve.
-            * @returns The index of the added key, or -1 if the key could not be added. 
+            * @returns The index of the added key, or -1 if the key could not be added.
             */
             public AddKey ($key: UnityEngine.Keyframe) : number
             /** Removes the keyframe at index and inserts key.
             * @param $index The index of the key to move.
             * @param $key The key (with its new time) to insert.
-            * @returns The index of the keyframe after moving it. 
+            * @returns The index of the keyframe after moving it.
             */
             public MoveKey ($index: number, $key: UnityEngine.Keyframe) : number
             /** Erases all KeyFrame from this instance of the AnimationCurve.
@@ -3515,7 +3515,7 @@
             * @param $timeStart The start time for the constant curve.
             * @param $timeEnd The end time for the constant curve.
             * @param $value The value for the constant curve.
-            * @returns The constant curve created from the specified values. 
+            * @returns The constant curve created from the specified values.
             */
             public static Constant ($timeStart: number, $timeEnd: number, $value: number) : UnityEngine.AnimationCurve
             /** A straight Line starting at timeStart, valueStart and ending at timeEnd, valueEnd.
@@ -3523,7 +3523,7 @@
             * @param $valueStart The start value for the linear curve.
             * @param $timeEnd The end time for the linear curve.
             * @param $valueEnd The end value for the linear curve.
-            * @returns The linear curve created from the specified values. 
+            * @returns The linear curve created from the specified values.
             */
             public static Linear ($timeStart: number, $valueStart: number, $timeEnd: number, $valueEnd: number) : UnityEngine.AnimationCurve
             /** Creates an ease-in and out curve starting at timeStart, valueStart and ending at timeEnd, valueEnd.
@@ -3531,7 +3531,7 @@
             * @param $valueStart The start value for the ease curve.
             * @param $timeEnd The end time for the ease curve.
             * @param $valueEnd The end value for the ease curve.
-            * @returns The ease-in and out curve generated from the specified values. 
+            * @returns The ease-in and out curve generated from the specified values.
             */
             public static EaseInOut ($timeStart: number, $valueStart: number, $timeEnd: number, $valueEnd: number) : UnityEngine.AnimationCurve
             public Equals ($o: any) : boolean
@@ -3731,7 +3731,7 @@
             /** Create a humanoid avatar.
             * @param $go Root object of your transform hierachy. It must be the top most gameobject when you create the avatar.
             * @param $humanDescription Humanoid description of the avatar.
-            * @returns Returns the Avatar, you must always always check the avatar is valid before using it with Avatar.isValid. 
+            * @returns Returns the Avatar, you must always always check the avatar is valid before using it with Avatar.isValid.
             */
             public static BuildHumanAvatar ($go: UnityEngine.GameObject, $humanDescription: UnityEngine.HumanDescription) : UnityEngine.Avatar
             /** Create a new generic avatar.
@@ -3880,12 +3880,12 @@
             public static GetMuscleDefaultMax ($i: number) : number
             /** Gets the bone hierarchy mass.
             * @param $i The humanoid bone index.
-            * @returns The bone hierarchy mass. 
+            * @returns The bone hierarchy mass.
             */
             public static GetBoneDefaultHierarchyMass ($i: number) : number
             /** Returns parent humanoid bone index of a bone.
             * @param $i Humanoid bone index to get parent from.
-            * @returns Humanoid bone index of parent. 
+            * @returns Humanoid bone index of parent.
             */
             public static GetParentBone ($i: number) : number
             public constructor ()
@@ -3902,7 +3902,7 @@
             /** Return true if the AssetBundle is a streamed Scene AssetBundle.
             */
             public get isStreamedSceneAssetBundle(): boolean;
-            /** Controls the size of the shared AssetBundle loading cache. Default value is 1MB. 
+            /** Controls the size of the shared AssetBundle loading cache. Default value is 1MB.
             */
             public static get memoryBudgetKB(): number;
             public static set memoryBudgetKB(value: number);
@@ -3911,7 +3911,7 @@
             */
             public static UnloadAllAssetBundles ($unloadAllObjects: boolean) : void
             /** To use when you need to get a list of all the currently loaded Asset Bundles.
-            * @returns Returns IEnumerable<AssetBundle> of all currently loaded Asset Bundles. 
+            * @returns Returns IEnumerable<AssetBundle> of all currently loaded Asset Bundles.
             */
             public static GetAllLoadedAssetBundles () : System.Collections.Generic.IEnumerable$1<UnityEngine.AssetBundle>
             public static LoadFromFileAsync ($path: string) : UnityEngine.AssetBundleCreateRequest
@@ -3920,7 +3920,7 @@
             * @param $path Path of the file on disk.
             * @param $crc An optional CRC-32 checksum of the uncompressed content. If this is non-zero, then the content will be compared against the checksum before loading it, and give an error if it does not match.
             * @param $offset An optional byte offset. This value specifies where to start reading the AssetBundle from.
-            * @returns Asynchronous create request for an AssetBundle. Use AssetBundleCreateRequest.assetBundle property to get an AssetBundle once it is loaded. 
+            * @returns Asynchronous create request for an AssetBundle. Use AssetBundleCreateRequest.assetBundle property to get an AssetBundle once it is loaded.
             */
             public static LoadFromFileAsync ($path: string, $crc: number, $offset: bigint) : UnityEngine.AssetBundleCreateRequest
             public static LoadFromFile ($path: string) : UnityEngine.AssetBundle
@@ -3929,28 +3929,28 @@
             * @param $path Path of the file on disk.
             * @param $crc An optional CRC-32 checksum of the uncompressed content. If this is non-zero, then the content will be compared against the checksum before loading it, and give an error if it does not match.
             * @param $offset An optional byte offset. This value specifies where to start reading the AssetBundle from.
-            * @returns Loaded AssetBundle object or null if failed. 
+            * @returns Loaded AssetBundle object or null if failed.
             */
             public static LoadFromFile ($path: string, $crc: number, $offset: bigint) : UnityEngine.AssetBundle
             public static LoadFromMemoryAsync ($binary: System.Array$1<number>) : UnityEngine.AssetBundleCreateRequest
             /** Asynchronously create an AssetBundle from a memory region.
             * @param $binary Array of bytes with the AssetBundle data.
             * @param $crc An optional CRC-32 checksum of the uncompressed content. If this is non-zero, then the content will be compared against the checksum before loading it, and give an error if it does not match.
-            * @returns Asynchronous create request for an AssetBundle. Use AssetBundleCreateRequest.assetBundle property to get an AssetBundle once it is loaded. 
+            * @returns Asynchronous create request for an AssetBundle. Use AssetBundleCreateRequest.assetBundle property to get an AssetBundle once it is loaded.
             */
             public static LoadFromMemoryAsync ($binary: System.Array$1<number>, $crc: number) : UnityEngine.AssetBundleCreateRequest
             public static LoadFromMemory ($binary: System.Array$1<number>) : UnityEngine.AssetBundle
             /** Synchronously create an AssetBundle from a memory region.
             * @param $binary Array of bytes with the AssetBundle data.
             * @param $crc An optional CRC-32 checksum of the uncompressed content. If this is non-zero, then the content will be compared against the checksum before loading it, and give an error if it does not match.
-            * @returns Loaded AssetBundle object or null if failed. 
+            * @returns Loaded AssetBundle object or null if failed.
             */
             public static LoadFromMemory ($binary: System.Array$1<number>, $crc: number) : UnityEngine.AssetBundle
             /** Asynchronously loads an AssetBundle from a managed Stream.
             * @param $stream The managed Stream object. Unity calls Read(), Seek() and the Length property on this object to load the AssetBundle data.
             * @param $crc An optional CRC-32 checksum of the uncompressed content.
             * @param $managedReadBufferSize You can use this to override the size of the read buffer Unity uses while loading data. The default size is 32KB.
-            * @returns Asynchronous create request for an AssetBundle. Use AssetBundleCreateRequest.assetBundle property to get an AssetBundle once it is loaded. 
+            * @returns Asynchronous create request for an AssetBundle. Use AssetBundleCreateRequest.assetBundle property to get an AssetBundle once it is loaded.
             */
             public static LoadFromStreamAsync ($stream: System.IO.Stream, $crc: number, $managedReadBufferSize: number) : UnityEngine.AssetBundleCreateRequest
             public static LoadFromStreamAsync ($stream: System.IO.Stream, $crc: number) : UnityEngine.AssetBundleCreateRequest
@@ -3959,7 +3959,7 @@
             * @param $stream The managed Stream object. Unity calls Read(), Seek() and the Length property on this object to load the AssetBundle data.
             * @param $crc An optional CRC-32 checksum of the uncompressed content.
             * @param $managedReadBufferSize You can use this to override the size of the read buffer Unity uses while loading data. The default size is 32KB.
-            * @returns The loaded AssetBundle object or null when the object fails to load. 
+            * @returns The loaded AssetBundle object or null when the object fails to load.
             */
             public static LoadFromStream ($stream: System.IO.Stream, $crc: number, $managedReadBufferSize: number) : UnityEngine.AssetBundle
             public static LoadFromStream ($stream: System.IO.Stream, $crc: number) : UnityEngine.AssetBundle
@@ -4008,7 +4008,7 @@
             */
             public Unload ($unloadAllLoadedObjects: boolean) : void
             /** Unloads assets in the bundle.
-            * @returns Asynchronous unload request for an AssetBundle. 
+            * @returns Asynchronous unload request for an AssetBundle.
             */
             public UnloadAsync ($unloadAllLoadedObjects: boolean) : UnityEngine.AssetBundleUnloadOperation
             /** Return all asset names in the AssetBundle.
@@ -4155,21 +4155,21 @@
         {
             protected [__keep_incompatibility]: never;
             /** Get all the AssetBundles in the manifest.
-            * @returns An array of asset bundle names. 
+            * @returns An array of asset bundle names.
             */
             public GetAllAssetBundles () : System.Array$1<string>
             /** Get all the AssetBundles with variant in the manifest.
-            * @returns An array of asset bundle names. 
+            * @returns An array of asset bundle names.
             */
             public GetAllAssetBundlesWithVariant () : System.Array$1<string>
             /** Get the hash for the given AssetBundle.
             * @param $assetBundleName Name of the asset bundle.
-            * @returns The 128-bit hash for the asset bundle. 
+            * @returns The 128-bit hash for the asset bundle.
             */
             public GetAssetBundleHash ($assetBundleName: string) : UnityEngine.Hash128
             /** Get the direct dependent AssetBundles for the given AssetBundle.
             * @param $assetBundleName Name of the asset bundle.
-            * @returns Array of asset bundle names this asset bundle depends on. 
+            * @returns Array of asset bundle names this asset bundle depends on.
             */
             public GetDirectDependencies ($assetBundleName: string) : System.Array$1<string>
             /** Get all the dependent AssetBundles for the given AssetBundle.
@@ -4188,17 +4188,17 @@
             public CompareTo ($rhs: UnityEngine.Hash128) : number
             /** Convert a hex-encoded string into Hash128 value.
             * @param $hashString A hexadecimal-encoded hash string.
-            * @returns The 128-bit hash. 
+            * @returns The 128-bit hash.
             */
             public static Parse ($hashString: string) : UnityEngine.Hash128
             /** Compute a hash of input data string.
             * @param $data Input data string. Note that Unity interprets the string as UTF-8 data, even if internally in C# strings are UTF-16.
-            * @returns The 128-bit hash. 
+            * @returns The 128-bit hash.
             */
             public static Compute ($data: string) : UnityEngine.Hash128
             /** Compute a hash of input data.
             * @param $val Input value.
-            * @returns The 128-bit hash. 
+            * @returns The 128-bit hash.
             */
             public static Compute ($val: number) : UnityEngine.Hash128
             /** Hash new input string and combine with the current hash value.
@@ -4244,11 +4244,11 @@
             */
             public static GetDSPBufferSize ($bufferLength: $Ref<number>, $numBuffers: $Ref<number>) : void
             /** Returns an array with the names of all the available spatializer plugins.
-            * @returns An array of spatializer names. 
+            * @returns An array of spatializer names.
             */
             public static GetSpatializerPluginNames () : System.Array$1<string>
             /** Returns the name of the spatializer selected on the currently-running platform.
-            * @returns The spatializer plugin name. 
+            * @returns The spatializer plugin name.
             */
             public static GetSpatializerPluginName () : string
             /** Sets the spatializer plugin for all platform groups. If a null or empty string is passed in, the existing spatializer plugin will be cleared.
@@ -4256,12 +4256,12 @@
             */
             public static SetSpatializerPluginName ($pluginName: string) : void
             /** Returns the current configuration of the audio device and system. The values in the struct may then be modified and reapplied via AudioSettings.Reset.
-            * @returns The new configuration to be applied. 
+            * @returns The new configuration to be applied.
             */
             public static GetConfiguration () : UnityEngine.AudioConfiguration
             /** Performs a change of the device configuration. In response to this the AudioSettings.OnAudioConfigurationChanged delegate is invoked with the argument deviceWasChanged=false. It cannot be guaranteed that the exact settings specified can be used, but an attempt is made to use the closest match supported by the system.
             * @param $config The new configuration to be used.
-            * @returns True if all settings could be successfully applied. 
+            * @returns True if all settings could be successfully applied.
             */
             public static Reset ($config: UnityEngine.AudioConfiguration) : boolean
             public static add_OnAudioConfigurationChanged ($value: UnityEngine.AudioSettings.AudioConfigurationChangeHandler) : void
@@ -4419,11 +4419,11 @@
             public set rolloffMode(value: UnityEngine.AudioRolloffMode);
             /** Enable playing of audio source though a specfic gamepad.
             * @param $slot Slot number of the gamepad (0-3).
-            * @returns Returns TRUE if enabling audio output through this users controller was successful. 
+            * @returns Returns TRUE if enabling audio output through this users controller was successful.
             */
             public PlayOnGamepad ($slot: number) : boolean
             /** Disables audio output to a gamepad for this audio source.
-            * @returns Returns true if successful. 
+            * @returns Returns true if successful.
             */
             public DisableGamepadOutput () : boolean
             public SetGamepadSpeakerMixLevel ($slot: number, $mixLevel: number) : boolean
@@ -4431,7 +4431,7 @@
             public SetGamepadSpeakerRestrictedAudio ($slot: number, $restricted: boolean) : boolean
             /** Check if the platform supports an audio output type  on gamepads.
             * @param $outputType The desired output type.
-            * @returns Returns true if the gamepad supports the specified audio output type. 
+            * @returns Returns true if the gamepad supports the specified audio output type.
             */
             public static GamepadSpeakerSupportsOutputType ($outputType: UnityEngine.GamepadSpeakerOutputType) : boolean
             public Play () : void
@@ -4493,7 +4493,7 @@
             public SetCustomCurve ($type: UnityEngine.AudioSourceCurveType, $curve: UnityEngine.AnimationCurve) : void
             /** Get the current custom curve for the given AudioSourceCurveType.
             * @param $type The curve type to get.
-            * @returns The custom AnimationCurve corresponding to the given curve type. 
+            * @returns The custom AnimationCurve corresponding to the given curve type.
             */
             public GetCustomCurve ($type: UnityEngine.AudioSourceCurveType) : UnityEngine.AnimationCurve
             /** Provides a block of the currently playing source's output data.
@@ -4510,25 +4510,25 @@
             /** Sets a user-defined parameter of a custom spatializer effect that is attached to an AudioSource.
             * @param $index Zero-based index of user-defined parameter to be set.
             * @param $value New value of the user-defined parameter.
-            * @returns True, if the parameter could be set. 
+            * @returns True, if the parameter could be set.
             */
             public SetSpatializerFloat ($index: number, $value: number) : boolean
             /** Reads a user-defined parameter of a custom spatializer effect that is attached to an AudioSource.
             * @param $index Zero-based index of user-defined parameter to be read.
             * @param $value Return value of the user-defined parameter that is read.
-            * @returns True, if the parameter could be read. 
+            * @returns True, if the parameter could be read.
             */
             public GetSpatializerFloat ($index: number, $value: $Ref<number>) : boolean
             /** Reads a user-defined parameter of a custom ambisonic decoder effect that is attached to an AudioSource.
             * @param $index Zero-based index of user-defined parameter to be read.
             * @param $value Return value of the user-defined parameter that is read.
-            * @returns True, if the parameter could be read. 
+            * @returns True, if the parameter could be read.
             */
             public GetAmbisonicDecoderFloat ($index: number, $value: $Ref<number>) : boolean
             /** Sets a user-defined parameter of a custom ambisonic decoder effect that is attached to an AudioSource.
             * @param $index Zero-based index of user-defined parameter to be set.
             * @param $value New value of the user-defined parameter.
-            * @returns True, if the parameter could be set. 
+            * @returns True, if the parameter could be set.
             */
             public SetAmbisonicDecoderFloat ($index: number, $value: number) : boolean
             public constructor ()
@@ -4566,11 +4566,11 @@
             */
             public get loadState(): UnityEngine.AudioDataLoadState;
             /** Loads the audio data of a clip. Clips that have "Preload Audio Data" set will load the audio data automatically.
-            * @returns Returns true if loading succeeded. 
+            * @returns Returns true if loading succeeded.
             */
             public LoadAudioData () : boolean
             /** Unloads the audio data associated with the clip. This works only for AudioClips that are based on actual sound file assets.
-            * @returns Returns false if unloading failed. 
+            * @returns Returns false if unloading failed.
             */
             public UnloadAudioData () : boolean
             /** Fills an array with sample data from the clip.
@@ -4588,7 +4588,7 @@
             * @param $stream True if clip is streamed, that is if the pcmreadercallback generates data on the fly.
             * @param $pcmreadercallback This callback is invoked to generate a block of sample data. Non-streamed clips call this only once at creation time while streamed clips call this continuously.
             * @param $pcmsetpositioncallback This callback is invoked whenever the clip loops or changes playback position.
-            * @returns A reference to the created AudioClip. 
+            * @returns A reference to the created AudioClip.
             */
             public static Create ($name: string, $lengthSamples: number, $channels: number, $frequency: number, $stream: boolean) : UnityEngine.AudioClip
             public static Create ($name: string, $lengthSamples: number, $channels: number, $frequency: number, $stream: boolean, $pcmreadercallback: UnityEngine.AudioClip.PCMReaderCallback) : UnityEngine.AudioClip
@@ -4914,7 +4914,7 @@
             * @param $loop Indicates whether the recording should continue recording if lengthSec is reached, and wrap around and record from the beginning of the AudioClip.
             * @param $lengthSec Is the length of the AudioClip produced by the recording.
             * @param $frequency The sample rate of the AudioClip produced by the recording.
-            * @returns The function returns null if the recording fails to start. 
+            * @returns The function returns null if the recording fails to start.
             */
             public static Start ($deviceName: string, $loop: boolean, $lengthSec: number, $frequency: number) : UnityEngine.AudioClip
             /** Stops recording.
@@ -4943,15 +4943,15 @@
         {
             protected [__keep_incompatibility]: never;
             /** Enters audio recording mode. After this Unity will output silence until AudioRenderer.Stop is called.
-            * @returns True if the engine was switched into output recording mode. False if it is already recording. 
+            * @returns True if the engine was switched into output recording mode. False if it is already recording.
             */
             public static Start () : boolean
             /** Exits audio recording mode. After this audio output will be audible again.
-            * @returns True if the engine was recording when this function was called. 
+            * @returns True if the engine was recording when this function was called.
             */
             public static Stop () : boolean
             /** Returns the number of samples available since the last time AudioRenderer.Render was called. This is dependent on the frame capture rate.
-            * @returns Number of samples available since last recorded frame. 
+            * @returns Number of samples available since last recorded frame.
             */
             public static GetSampleCountForCaptureFrame () : number
             public static Render ($buffer: Unity.Collections.NativeArray$1<number>) : boolean
@@ -5075,9 +5075,9 @@
             */
             public get imageContentsHash(): UnityEngine.Hash128;
             public set imageContentsHash(value: UnityEngine.Hash128);
-            /** The total amount of Texture memory that Unity would use if it loads all Textures at mipmap level 0. 
-            This is a theoretical value that does not take into account any input from the streaming system or any other input, for example when you set the`Texture2D.requestedMipmapLevel` manually. 
-            To see a Texture memory value that takes inputs into account, use `desiredTextureMemory`. 
+            /** The total amount of Texture memory that Unity would use if it loads all Textures at mipmap level 0.
+            This is a theoretical value that does not take into account any input from the streaming system or any other input, for example when you set the`Texture2D.requestedMipmapLevel` manually.
+            To see a Texture memory value that takes inputs into account, use `desiredTextureMemory`.
             `totalTextureMemory` only includes instances of Texture2D and CubeMap Textures. This value does not include any other Texture types, or 2D and CubeMap Textures that Unity creates internally.
             */
             public static get totalTextureMemory(): bigint;
@@ -5129,7 +5129,7 @@
             */
             public static SetGlobalAnisotropicFilteringLimits ($forcedMin: number, $globalMax: number) : void
             /** Retrieve a native (underlying graphics API) pointer to the Texture resource.
-            * @returns Pointer to an underlying graphics API Texture resource. 
+            * @returns Pointer to an underlying graphics API Texture resource.
             */
             public GetNativeTexturePtr () : System.IntPtr
             /** Increment the update counter.
@@ -5194,11 +5194,11 @@
             /** Gets the pixel color at coordinates (x, y).
             * @param $x The x coordinate of the pixel to get. The range is 0 through the (texture width - 1).
             * @param $y The y coordinate of the pixel to get. The range is 0 through the (texture height - 1).
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixel ($x: number, $y: number) : UnityEngine.Color
             /** Gets the pixel color data for a mipmap level as Color structs.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels () : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for part of the texture as Color structs.
@@ -5206,13 +5206,13 @@
             * @param $y The starting y position of the section to fetch.
             * @param $blockWidth The width of the section to fetch.
             * @param $blockHeight The height of the section to fetch.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($x: number, $y: number, $blockWidth: number, $blockHeight: number) : System.Array$1<UnityEngine.Color>
             public GetPixels32 () : System.Array$1<UnityEngine.Color32>
             /** Gets the pixel color data for a mipmap level as Color32 structs.
             * @param $colors An optional array to write the pixel data to.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels32 ($colors: System.Array$1<UnityEngine.Color32>) : System.Array$1<UnityEngine.Color32>
             public constructor ($deviceName: string, $requestedWidth: number, $requestedHeight: number, $requestedFPS: number)
@@ -5334,7 +5334,7 @@
             * @param $S Saturation [0..1].
             * @param $V Brightness value [0..1].
             * @param $hdr Output HDR colours. If true, the returned colour will not be clamped to [0..1].
-            * @returns An opaque colour with HSV matching the input. 
+            * @returns An opaque colour with HSV matching the input.
             */
             public static HSVToRGB ($H: number, $S: number, $V: number) : UnityEngine.Color
             /** Creates an RGB colour from HSV input.
@@ -5342,7 +5342,7 @@
             * @param $S Saturation [0..1].
             * @param $V Brightness value [0..1].
             * @param $hdr Output HDR colours. If true, the returned colour will not be clamped to [0..1].
-            * @returns An opaque colour with HSV matching the input. 
+            * @returns An opaque colour with HSV matching the input.
             */
             public static HSVToRGB ($H: number, $S: number, $V: number, $hdr: boolean) : UnityEngine.Color
             public constructor ($r: number, $g: number, $b: number, $a: number)
@@ -5501,7 +5501,7 @@
             public static Reflect ($inDirection: UnityEngine.Vector2, $inNormal: UnityEngine.Vector2) : UnityEngine.Vector2
             /** Returns the 2D vector perpendicular to this 2D vector. The result is always rotated 90-degrees in a counter-clockwise direction for a 2D coordinate system where the positive Y axis goes up.
             * @param $inDirection The input direction.
-            * @returns The perpendicular direction. 
+            * @returns The perpendicular direction.
             */
             public static Perpendicular ($inDirection: UnityEngine.Vector2) : UnityEngine.Vector2
             /** Dot Product of two vectors.
@@ -5510,13 +5510,13 @@
             /** Gets the unsigned angle in degrees between from and to.
             * @param $from The vector from which the angular difference is measured.
             * @param $to The vector to which the angular difference is measured.
-            * @returns The unsigned angle in degrees between the two vectors. 
+            * @returns The unsigned angle in degrees between the two vectors.
             */
             public static Angle ($from: UnityEngine.Vector2, $to: UnityEngine.Vector2) : number
             /** Gets the signed angle in degrees between from and to.
             * @param $from The vector from which the angular difference is measured.
             * @param $to The vector to which the angular difference is measured.
-            * @returns The signed angle in degrees between the two vectors. 
+            * @returns The signed angle in degrees between the two vectors.
             */
             public static SignedAngle ($from: UnityEngine.Vector2, $to: UnityEngine.Vector2) : number
             /** Returns the distance between a and b.
@@ -5646,14 +5646,14 @@
             public set material(value: UnityEngine.PhysicMaterial);
             /** Returns a point on the collider that is closest to a given location.
             * @param $position Location you want to find the closest point to.
-            * @returns The point on the collider that is closest to the specified location. 
+            * @returns The point on the collider that is closest to the specified location.
             */
             public ClosestPoint ($position: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Casts a Ray that ignores all Colliders except this one.
             * @param $ray The starting point and direction of the ray.
             * @param $hitInfo If true is returned, hitInfo will contain more information about where the collider was hit.
             * @param $maxDistance The max length of the ray.
-            * @returns True when the ray intersects the collider, otherwise false. 
+            * @returns True when the ray intersects the collider, otherwise false.
             */
             public Raycast ($ray: UnityEngine.Ray, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance: number) : boolean
             /** The closest point to the bounding box of the attached collider.
@@ -5855,27 +5855,27 @@
             public static get layers(): System.Array$1<UnityEngine.SortingLayer>;
             /** Returns the final sorting layer value. To determine the sorting order between the various sorting layers, use this method to retrieve the final sorting value and use CompareTo to determine the order.
             * @param $id The unique value of the sorting layer as returned by any renderer's sortingLayerID property.
-            * @returns The final sorting value of the layer relative to other layers. 
+            * @returns The final sorting value of the layer relative to other layers.
             */
             public static GetLayerValueFromID ($id: number) : number
             /** Returns the final sorting layer value. See Also: GetLayerValueFromID.
             * @param $name The unique value of the sorting layer as returned by any renderer's sortingLayerID property.
-            * @returns The final sorting value of the layer relative to other layers. 
+            * @returns The final sorting value of the layer relative to other layers.
             */
             public static GetLayerValueFromName ($name: string) : number
             /** Returns the id given the name. Will return 0 if an invalid name was given.
             * @param $name The name of the layer.
-            * @returns Returns the unique id of the layer with name. 
+            * @returns Returns the unique id of the layer with name.
             */
             public static NameToID ($name: string) : number
             /** Returns the unique id of the layer. Will return "<unknown layer>" if an invalid id is given.
             * @param $id The unique id of the layer.
-            * @returns The name of the layer with id or "<unknown layer>" for invalid id. 
+            * @returns The name of the layer with id or "<unknown layer>" for invalid id.
             */
             public static IDToName ($id: number) : string
             /** Returns true if the id provided is a valid layer id.
             * @param $id The unique id of a layer.
-            * @returns True if the id provided is valid and assigned to a layer. 
+            * @returns True if the id provided is valid and assigned to a layer.
             */
             public static IsValid ($id: number) : boolean
         }
@@ -5965,7 +5965,7 @@
             /** Returns the name of the store or package that installed the application (Read Only).
             */
             public static get installerName(): string;
-            /** Returns the application identifier at runtime. 
+            /** Returns the application identifier at runtime.
             */
             public static get identifier(): string;
             /** Returns application install mode (Read Only).
@@ -6037,14 +6037,14 @@
             public static CanStreamedLevelBeLoaded ($levelName: string) : boolean
             /** Returns true if the given object is part of the playing world either in any kind of built Player or in Play Mode.
             * @param $obj The object to test.
-            * @returns True if the object is part of the playing world. 
+            * @returns True if the object is part of the playing world.
             */
             public static IsPlaying ($obj: UnityEngine.Object) : boolean
             /** Is Unity activated with the Pro license?
             */
             public static HasProLicense () : boolean
             public static RequestAdvertisingIdentifierAsync ($delegateMethod: UnityEngine.Application.AdvertisingIdentifierCallback) : boolean
-            /** Opens the URL specified, subject to the permissions and limitations of your app’s current platform and environment. 
+            /** Opens the URL specified, subject to the permissions and limitations of your app’s current platform and environment.
             * @param $url The URL to open.
             */
             public static OpenURL ($url: string) : void
@@ -6199,12 +6199,12 @@
             public Equals ($other: UnityEngine.Cache) : boolean
             /** Removes all cached content in the cache that has been cached by the current application.
             * @param $expiration The number of seconds that AssetBundles may remain unused in the cache.
-            * @returns Returns True when cache clearing succeeded. 
+            * @returns Returns True when cache clearing succeeded.
             */
             public ClearCache () : boolean
             /** Removes all cached content in the cache that has been cached by the current application.
             * @param $expiration The number of seconds that AssetBundles may remain unused in the cache.
-            * @returns Returns True when cache clearing succeeded. 
+            * @returns Returns True when cache clearing succeeded.
             */
             public ClearCache ($expiration: number) : boolean
         }
@@ -6516,16 +6516,16 @@
             /** Remove shader replacement from camera.
             */
             public ResetReplacementShader () : void
-            /** 
+            /**
             Retrieves the effective vertical field of view of the camera, including GateFit.
             Fitting the sensor gate and the resolution gate has an impact on the final field of view. If the sensor gate aspect ratio is the same as the resolution gate aspect ratio or if the camera is not in physical mode, then this method returns the same value as the fieldofview property.
-            * @returns Returns the effective vertical field of view. 
+            * @returns Returns the effective vertical field of view.
             */
             public GetGateFittedFieldOfView () : number
-            /** 
+            /**
             Retrieves the effective lens offset of the camera, including GateFit.
             Fitting the sensor gate and the resolution gate has an impact on the final obliqueness of the projection. If the sensor gate aspect ratio is the same as the resolution gate aspect ratio, then this method returns the same value as the lenshift property. If the camera is not in physical mode, then this methods returns Vector2.zero.
-            * @returns Returns the effective lens shift value. 
+            * @returns Returns the effective lens shift value.
             */
             public GetGateFittedLensShift () : UnityEngine.Vector2
             /** Sets the Camera to render to the chosen buffers of one or more RenderTextures.
@@ -6546,7 +6546,7 @@
             public ResetProjectionMatrix () : void
             /** Calculates and returns oblique near-plane projection matrix.
             * @param $clipPlane Vector4 that describes a clip plane.
-            * @returns Oblique near-plane projection matrix. 
+            * @returns Oblique near-plane projection matrix.
             */
             public CalculateObliqueMatrix ($clipPlane: UnityEngine.Vector4) : UnityEngine.Matrix4x4
             public WorldToScreenPoint ($position: UnityEngine.Vector3, $eye: UnityEngine.Camera.MonoOrStereoscopicEye) : UnityEngine.Vector3
@@ -6563,13 +6563,13 @@
             public WorldToViewportPoint ($position: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Transforms position from viewport space into world space.
             * @param $position The 3d vector in Viewport space.
-            * @returns The 3d vector in World space. 
+            * @returns The 3d vector in World space.
             */
             public ViewportToWorldPoint ($position: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Transforms a point from screen space into world space, where world space is defined as the coordinate system at the very top of your game's hierarchy.
             * @param $position A screen space position (often mouse x, y), plus a z position for depth (for example, a camera clipping plane).
             * @param $eye By default, Camera.MonoOrStereoscopicEye.Mono. Can be set to Camera.MonoOrStereoscopicEye.Left or Camera.MonoOrStereoscopicEye.Right for use in stereoscopic rendering (e.g., for VR).
-            * @returns The worldspace point created by converting the screen space point at the provided distance z from the camera plane. 
+            * @returns The worldspace point created by converting the screen space point at the provided distance z from the camera plane.
             */
             public ScreenToWorldPoint ($position: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Transforms position from screen space into viewport space.
@@ -6594,13 +6594,13 @@
             /** Converts focal length to field of view.
             * @param $focalLength Focal length in millimeters.
             * @param $sensorSize Sensor size in millimeters. Use the sensor height to get the vertical field of view. Use the sensor width to get the horizontal field of view.
-            * @returns field of view in degrees. 
+            * @returns field of view in degrees.
             */
             public static FocalLengthToFieldOfView ($focalLength: number, $sensorSize: number) : number
             /** Converts field of view to focal length. Use either sensor height and vertical field of view or sensor width and horizontal field of view.
             * @param $fieldOfView field of view in degrees.
             * @param $sensorSize Sensor size in millimeters.
-            * @returns Focal length in millimeters. 
+            * @returns Focal length in millimeters.
             */
             public static FieldOfViewToFocalLength ($fieldOfView: number, $sensorSize: number) : number
             /** Converts the horizontal field of view (FOV) to the vertical FOV, based on the value of the aspect ratio parameter.
@@ -6632,14 +6632,14 @@
             /** Render into a static cubemap from this camera.
             * @param $cubemap The cube map to render to.
             * @param $faceMask A bitmask which determines which of the six faces are rendered to.
-            * @returns False if rendering fails, else true. 
+            * @returns False if rendering fails, else true.
             */
             public RenderToCubemap ($cubemap: UnityEngine.Cubemap, $faceMask: number) : boolean
             public RenderToCubemap ($cubemap: UnityEngine.Cubemap) : boolean
             /** Render into a cubemap from this camera.
             * @param $faceMask A bitfield indicating which cubemap faces should be rendered into.
             * @param $cubemap The texture to render to.
-            * @returns False if rendering fails, else true. 
+            * @returns False if rendering fails, else true.
             */
             public RenderToCubemap ($cubemap: UnityEngine.RenderTexture, $faceMask: number) : boolean
             public RenderToCubemap ($cubemap: UnityEngine.RenderTexture) : boolean
@@ -6681,19 +6681,19 @@
             public RemoveCommandBuffer ($evt: UnityEngine.Rendering.CameraEvent, $buffer: UnityEngine.Rendering.CommandBuffer) : void
             /** Get command buffers to be executed at a specified place.
             * @param $evt When to execute the command buffer during rendering.
-            * @returns Array of command buffers. 
+            * @returns Array of command buffers.
             */
             public GetCommandBuffers ($evt: UnityEngine.Rendering.CameraEvent) : System.Array$1<UnityEngine.Rendering.CommandBuffer>
             /** Get culling parameters for a camera.
             * @param $cullingParameters Resultant culling parameters.
             * @param $stereoAware Generate single-pass stereo aware culling parameters.
-            * @returns Flag indicating whether culling parameters are valid. 
+            * @returns Flag indicating whether culling parameters are valid.
             */
             public TryGetCullingParameters ($cullingParameters: $Ref<UnityEngine.Rendering.ScriptableCullingParameters>) : boolean
             /** Get culling parameters for a camera.
             * @param $cullingParameters Resultant culling parameters.
             * @param $stereoAware Generate single-pass stereo aware culling parameters.
-            * @returns Flag indicating whether culling parameters are valid. 
+            * @returns Flag indicating whether culling parameters are valid.
             */
             public TryGetCullingParameters ($stereoAware: boolean, $cullingParameters: $Ref<UnityEngine.Rendering.ScriptableCullingParameters>) : boolean
             public constructor ()
@@ -6771,7 +6771,7 @@
             /** Computes the inverse of a 3D affine matrix.
             * @param $input Input matrix to invert.
             * @param $result The result of the inversion. Equal to the input matrix if the function fails.
-            * @returns Returns true and a valid result if the function succeeds, false and a copy of the input matrix if the function fails. 
+            * @returns Returns true and a valid result if the function succeeds, false and a copy of the input matrix if the function fails.
             */
             public static Inverse3DAffine ($input: UnityEngine.Matrix4x4, $result: $Ref<UnityEngine.Matrix4x4>) : boolean
             public static Inverse ($m: UnityEngine.Matrix4x4) : UnityEngine.Matrix4x4
@@ -6783,7 +6783,7 @@
             * @param $top Top y-coordinate.
             * @param $zNear Near depth clipping plane value.
             * @param $zFar Far depth clipping plane value.
-            * @returns The projection matrix. 
+            * @returns The projection matrix.
             */
             public static Ortho ($left: number, $right: number, $bottom: number, $top: number, $zNear: number, $zFar: number) : UnityEngine.Matrix4x4
             /** Create a perspective projection matrix.
@@ -6791,14 +6791,14 @@
             * @param $aspect Aspect ratio (width divided by height).
             * @param $zNear Near depth clipping plane value.
             * @param $zFar Far depth clipping plane value.
-            * @returns The projection matrix. 
+            * @returns The projection matrix.
             */
             public static Perspective ($fov: number, $aspect: number, $zNear: number, $zFar: number) : UnityEngine.Matrix4x4
             /** Create a "look at" matrix.
             * @param $from The source point.
             * @param $to The target point.
             * @param $up The vector describing the up direction (typically Vector3.up).
-            * @returns The resulting transformation matrix. 
+            * @returns The resulting transformation matrix.
             */
             public static LookAt ($from: UnityEngine.Vector3, $to: UnityEngine.Vector3, $up: UnityEngine.Vector3) : UnityEngine.Matrix4x4
             /** This function returns a projection matrix with viewing frustum that has a near plane defined by the coordinates that were passed in.
@@ -6809,7 +6809,7 @@
             * @param $zNear Z distance to the near plane from the origin in view space.
             * @param $zFar Z distance to the far plane from the origin in view space.
             * @param $frustumPlanes Frustum planes struct that contains the view space coordinates of that define a viewing frustum.
-            * @returns A projection matrix with a viewing frustum defined by the plane coordinates passed in. 
+            * @returns A projection matrix with a viewing frustum defined by the plane coordinates passed in.
             */
             public static Frustum ($left: number, $right: number, $bottom: number, $top: number, $zNear: number, $zFar: number) : UnityEngine.Matrix4x4
             /** This function returns a projection matrix with viewing frustum that has a near plane defined by the coordinates that were passed in.
@@ -6820,7 +6820,7 @@
             * @param $zNear Z distance to the near plane from the origin in view space.
             * @param $zFar Z distance to the far plane from the origin in view space.
             * @param $frustumPlanes Frustum planes struct that contains the view space coordinates of that define a viewing frustum.
-            * @returns A projection matrix with a viewing frustum defined by the plane coordinates passed in. 
+            * @returns A projection matrix with a viewing frustum defined by the plane coordinates passed in.
             */
             public static Frustum ($fp: UnityEngine.FrustumPlanes) : UnityEngine.Matrix4x4
             public get_Item ($index: number) : number
@@ -6947,7 +6947,7 @@
             public static DisableKeyword ($keyword: string) : void
             /** Checks whether a global shader keyword is enabled.
             * @param $keyword The name of the Rendering.GlobalKeyword to check.
-            * @returns Returns true if a global shader keyword with the given name exists, and is enabled. Otherwise, returns false. 
+            * @returns Returns true if a global shader keyword with the given name exists, and is enabled. Otherwise, returns false.
             */
             public static IsKeywordEnabled ($keyword: string) : boolean
             /** Enables a global shader keyword.
@@ -6965,7 +6965,7 @@
             public static SetKeyword ($keyword: $Ref<UnityEngine.Rendering.GlobalKeyword>, $value: boolean) : void
             /** Checks whether a global shader keyword is enabled.
             * @param $keyword The Rendering.GlobalKeyword to check.
-            * @returns Returns true if the given global shader keyword is enabled. Otherwise, returns false. 
+            * @returns Returns true if the given global shader keyword is enabled. Otherwise, returns false.
             */
             public static IsKeywordEnabled ($keyword: $Ref<UnityEngine.Rendering.GlobalKeyword>) : boolean
             /** Prewarms all shader variants of all Shaders currently in memory.
@@ -6973,7 +6973,7 @@
             public static WarmupAllShaders () : void
             /** Gets unique identifier for a shader property name.
             * @param $name Shader property name.
-            * @returns Unique integer for the name. 
+            * @returns Unique integer for the name.
             */
             public static PropertyToID ($name: string) : number
             /** Returns the dependency shader.
@@ -7345,7 +7345,7 @@
             * @param $propertyIndex Index of the property.
             * @param $stackName On exit, contanis the name of the stack if one was found.
             * @param $layerIndex On exit, contains the stack layer index of the texture property.
-            * @returns True, if a stack was found for the given texture property, false if not. 
+            * @returns True, if a stack was found for the given texture property, false if not.
             */
             public FindTextureStack ($propertyIndex: number, $stackName: $Ref<string>, $layerIndex: $Ref<number>) : boolean
         }
@@ -7414,7 +7414,7 @@
             * @param $ymin The minimum Y coordinate.
             * @param $xmax The maximum X coordinate.
             * @param $ymax The maximum Y coordinate.
-            * @returns A rectangle matching the specified coordinates. 
+            * @returns A rectangle matching the specified coordinates.
             */
             public static MinMaxRect ($xmin: number, $ymin: number, $xmax: number, $ymax: number) : UnityEngine.Rect
             /** Set components of an existing Rect.
@@ -7423,19 +7423,19 @@
             /** Returns true if the x and y components of point is a point inside this rectangle. If allowInverse is present and true, the width and height of the Rect are allowed to take negative values (ie, the min value is greater than the max), and the test will still work.
             * @param $point Point to test.
             * @param $allowInverse Does the test allow the Rect's width and height to be negative?
-            * @returns True if the point lies within the specified rectangle. 
+            * @returns True if the point lies within the specified rectangle.
             */
             public Contains ($point: UnityEngine.Vector2) : boolean
             /** Returns true if the x and y components of point is a point inside this rectangle. If allowInverse is present and true, the width and height of the Rect are allowed to take negative values (ie, the min value is greater than the max), and the test will still work.
             * @param $point Point to test.
             * @param $allowInverse Does the test allow the Rect's width and height to be negative?
-            * @returns True if the point lies within the specified rectangle. 
+            * @returns True if the point lies within the specified rectangle.
             */
             public Contains ($point: UnityEngine.Vector3) : boolean
             /** Returns true if the x and y components of point is a point inside this rectangle. If allowInverse is present and true, the width and height of the Rect are allowed to take negative values (ie, the min value is greater than the max), and the test will still work.
             * @param $point Point to test.
             * @param $allowInverse Does the test allow the Rect's width and height to be negative?
-            * @returns True if the point lies within the specified rectangle. 
+            * @returns True if the point lies within the specified rectangle.
             */
             public Contains ($point: UnityEngine.Vector3, $allowInverse: boolean) : boolean
             /** Returns true if the other rectangle overlaps this one. If allowInverse is present and true, the widths and heights of the Rects are allowed to take negative values (ie, the min value is greater than the max), and the test will still work.
@@ -7576,7 +7576,7 @@
             public get descriptor(): UnityEngine.RenderTextureDescriptor;
             public set descriptor(value: UnityEngine.RenderTextureDescriptor);
             /** Retrieve a native (underlying graphics API) pointer to the depth buffer resource.
-            * @returns Pointer to an underlying graphics API depth buffer resource. 
+            * @returns Pointer to an underlying graphics API depth buffer resource.
             */
             public GetNativeDepthBufferPtr () : System.IntPtr
             /** Hint the GPU driver that the contents of the RenderTexture will not be used.
@@ -7601,7 +7601,7 @@
             */
             public SetGlobalShaderProperty ($propertyName: string) : void
             /** Actually creates the RenderTexture.
-            * @returns True if the texture is created, else false. 
+            * @returns True if the texture is created, else false.
             */
             public Create () : boolean
             /** Releases the RenderTexture.
@@ -7874,13 +7874,13 @@
             /** Gets the pixel color data for a mipmap level of a face as Color structs.
             * @param $face The CubemapFace to read from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($face: UnityEngine.CubemapFace, $miplevel: number) : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for a mipmap level of a face as Color structs.
             * @param $face The CubemapFace to read from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($face: UnityEngine.CubemapFace) : System.Array$1<UnityEngine.Color>
             /** Sets the pixel colors of an entire mipmap level of a face.
@@ -7899,7 +7899,7 @@
             */
             public ClearRequestedMipmapLevel () : void
             /** Checks to see whether the mipmap level set by requestedMipmapLevel has finished loading.
-            * @returns True if the mipmap level requested by requestedMipmapLevel has finished loading. 
+            * @returns True if the mipmap level requested by requestedMipmapLevel has finished loading.
             */
             public IsRequestedMipmapLevelLoaded () : boolean
             /** Creates a Unity cubemap out of externally created native cubemap object.
@@ -7930,7 +7930,7 @@
             * @param $y The y coordinate of the pixel to get. The range is 0 through (texture height - 1).
             * @param $mip The mipmap level to sample. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
             * @param $face The CubemapFace to sample.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixel ($face: UnityEngine.CubemapFace, $x: number, $y: number) : UnityEngine.Color
             /** Gets the pixel color at coordinates (x, y).
@@ -7938,7 +7938,7 @@
             * @param $y The y coordinate of the pixel to get. The range is 0 through (texture height - 1).
             * @param $mip The mipmap level to sample. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
             * @param $face The CubemapFace to sample.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixel ($face: UnityEngine.CubemapFace, $x: number, $y: number, $mip: number) : UnityEngine.Color
             /** Copies changes you've made in a CPU texture to the GPU.
@@ -8036,7 +8036,7 @@
             * @param $distanceIndex The distance band that retrieved spheres must be in.
             * @param $result An array that will be filled with the retrieved sphere indices.
             * @param $firstIndex The index of the sphere to begin searching at.
-            * @returns The number of sphere indices found and written into the result array. 
+            * @returns The number of sphere indices found and written into the result array.
             */
             public QueryIndices ($visible: boolean, $result: System.Array$1<number>, $firstIndex: number) : number
             /** Retrieve the indices of spheres that have particular visibility and/or distance states.
@@ -8044,7 +8044,7 @@
             * @param $distanceIndex The distance band that retrieved spheres must be in.
             * @param $result An array that will be filled with the retrieved sphere indices.
             * @param $firstIndex The index of the sphere to begin searching at.
-            * @returns The number of sphere indices found and written into the result array. 
+            * @returns The number of sphere indices found and written into the result array.
             */
             public QueryIndices ($distanceIndex: number, $result: System.Array$1<number>, $firstIndex: number) : number
             /** Retrieve the indices of spheres that have particular visibility and/or distance states.
@@ -8052,17 +8052,17 @@
             * @param $distanceIndex The distance band that retrieved spheres must be in.
             * @param $result An array that will be filled with the retrieved sphere indices.
             * @param $firstIndex The index of the sphere to begin searching at.
-            * @returns The number of sphere indices found and written into the result array. 
+            * @returns The number of sphere indices found and written into the result array.
             */
             public QueryIndices ($visible: boolean, $distanceIndex: number, $result: System.Array$1<number>, $firstIndex: number) : number
             /** Returns true if the bounding sphere at index is currently visible from any of the contributing cameras.
             * @param $index The index of the bounding sphere.
-            * @returns True if the sphere is visible; false if it is invisible. 
+            * @returns True if the sphere is visible; false if it is invisible.
             */
             public IsVisible ($index: number) : boolean
             /** Get the current distance band index of a given sphere.
             * @param $index The index of the sphere.
-            * @returns The sphere's current distance band index. 
+            * @returns The sphere's current distance band index.
             */
             public GetDistance ($index: number) : number
             /** Set bounding distances for 'distance bands' the group should compute, as well as options for how spheres falling into each distance band should be treated.
@@ -8201,7 +8201,7 @@
             public RenderProbe () : number
             /** Refreshes the probe's cubemap.
             * @param $targetTexture Target RenderTexture in which rendering should be done. Specifying null will update the probe's default texture.
-            * @returns 
+            * @returns
             An integer representing a RenderID which can subsequently be used to check if the probe has finished rendering while rendering in time-slice mode.
             See Also: IsFinishedRendering
             See Also: timeSlicingMode
@@ -8209,7 +8209,7 @@
             public RenderProbe ($targetTexture: UnityEngine.RenderTexture) : number
             /** Checks if a probe has finished a time-sliced render.
             * @param $renderId An integer representing the RenderID as returned by the RenderProbe method.
-            * @returns 
+            * @returns
             True if the render has finished, false otherwise.
             See Also: timeSlicingMode
             */
@@ -8219,7 +8219,7 @@
             * @param $dst Cubemap to blend to.
             * @param $blend Blend weight.
             * @param $target RenderTexture which will hold the result of the blend.
-            * @returns Returns trues if cubemaps were blended, false otherwise. 
+            * @returns Returns trues if cubemaps were blended, false otherwise.
             */
             public static BlendCubemap ($src: UnityEngine.Texture, $dst: UnityEngine.Texture, $blend: number, $target: UnityEngine.RenderTexture) : boolean
             /** Updates the culling system with the ReflectionProbe's current state. This ensures that Unity correctly culls the ReflectionProbe during rendering if you implement your own runtime reflection system.
@@ -8511,7 +8511,7 @@
             */
             filterLogType : UnityEngine.LogType
             /** Check logging is enabled based on the LogType.
-            * @returns Retrun true in case logs of LogType will be logged otherwise returns false. 
+            * @returns Retrun true in case logs of LogType will be logged otherwise returns false.
             */
             IsLogTypeAllowed ($logType: UnityEngine.LogType) : boolean
             /** Logs message to the Unity Console using default logger.
@@ -8597,7 +8597,7 @@
             /** Retrieves a value for the given identifier.
             * @param $id Identifier of the ExposedReference.
             * @param $idValid Is the identifier valid?
-            * @returns The value stored in the table. 
+            * @returns The value stored in the table.
             */
             GetReferenceValue ($id: UnityEngine.PropertyName, $idValid: $Ref<boolean>) : UnityEngine.Object
             /** Remove a value for the given reference.
@@ -8715,7 +8715,7 @@
             public ClampToBounds ($bounds: UnityEngine.BoundsInt) : void
             /** Is point contained in the bounding box?
             * @param $position Point to check.
-            * @returns Is point contained in the bounding box? 
+            * @returns Is point contained in the bounding box?
             */
             public Contains ($position: UnityEngine.Vector3Int) : boolean
             /** Returns a formatted string for the bounds.
@@ -8859,12 +8859,12 @@
             protected [__keep_incompatibility]: never;
             /** Calculates frustum planes.
             * @param $camera The camera with the view frustum that you want to calculate planes from.
-            * @returns The planes that form the camera's view frustum. 
+            * @returns The planes that form the camera's view frustum.
             */
             public static CalculateFrustumPlanes ($camera: UnityEngine.Camera) : System.Array$1<UnityEngine.Plane>
             /** Calculates frustum planes.
             * @param $worldToProjectionMatrix A matrix that transforms from world space to projection space, from which the planes will be calculated.
-            * @returns The planes that enclose the projection space described by the matrix. 
+            * @returns The planes that enclose the projection space described by the matrix.
             */
             public static CalculateFrustumPlanes ($worldToProjectionMatrix: UnityEngine.Matrix4x4) : System.Array$1<UnityEngine.Plane>
             /** Calculates frustum planes.
@@ -8880,13 +8880,13 @@
             /** Calculates the bounding box from the given array of positions and the transformation matrix.
             * @param $positions An array that stores the location of 3d positions.
             * @param $transform A matrix that changes the position, rotation and size of the bounds calculation.
-            * @returns Calculates the axis-aligned bounding box. 
+            * @returns Calculates the axis-aligned bounding box.
             */
             public static CalculateBounds ($positions: System.Array$1<UnityEngine.Vector3>, $transform: UnityEngine.Matrix4x4) : UnityEngine.Bounds
             /** GeometryUtility.TryCreatePlaneFromPolygon creates a plane from the given list of vertices that define the polygon, as long as they do not characterize a straight line or zero area.
             * @param $vertices An array of vertex positions that define the shape of a polygon.
             * @param $plane A valid plane that goes through the vertices.
-            * @returns Returns true on success, false if Unity did not create a plane from the vertices. 
+            * @returns Returns true on success, false if Unity did not create a plane from the vertices.
             */
             public static TryCreatePlaneFromPolygon ($vertices: System.Array$1<UnityEngine.Vector3>, $plane: $Ref<UnityEngine.Plane>) : boolean
             /** Returns true if bounds are inside the plane array.
@@ -8931,12 +8931,12 @@
             /** Returns a copy of the given plane that is moved in space by the given translation.
             * @param $plane The plane to move in space.
             * @param $translation The offset in space to move the plane with.
-            * @returns The translated plane. 
+            * @returns The translated plane.
             */
             public static Translate ($plane: UnityEngine.Plane, $translation: UnityEngine.Vector3) : UnityEngine.Plane
             /** For a given point returns the closest point on the plane.
             * @param $point The point to project onto the plane.
-            * @returns A point on the plane that is closest to point. 
+            * @returns A point on the plane that is closest to point.
             */
             public ClosestPointOnPlane ($point: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Returns a signed distance from plane to point.
@@ -9060,12 +9060,12 @@
             public ClampToBounds ($bounds: UnityEngine.RectInt) : void
             /** Returns true if the given position is within the RectInt.
             * @param $position Position to check.
-            * @returns Whether the position is within the RectInt. 
+            * @returns Whether the position is within the RectInt.
             */
             public Contains ($position: UnityEngine.Vector2Int) : boolean
             /** RectInts overlap if each RectInt Contains a shared point.
             * @param $other Other rectangle to test overlapping with.
-            * @returns True if the other rectangle overlaps this one. 
+            * @returns True if the other rectangle overlaps this one.
             */
             public Overlaps ($other: UnityEngine.RectInt) : boolean
             /** Returns the x, y, width and height of the RectInt.
@@ -9900,46 +9900,46 @@
             public SetIndexBufferParams ($indexCount: number, $format: UnityEngine.Rendering.IndexFormat) : void
             /** Returns information about a vertex attribute based on its index.
             * @param $index The vertex attribute index (0 to vertexAttributeCount-1).
-            * @returns Information about the vertex attribute. 
+            * @returns Information about the vertex attribute.
             */
             public GetVertexAttribute ($index: number) : UnityEngine.Rendering.VertexAttributeDescriptor
             /** Checks if a specific vertex data attribute exists on this Mesh.
             * @param $attr Vertex data attribute to check for.
-            * @returns Returns true if the data attribute is present in the mesh. 
+            * @returns Returns true if the data attribute is present in the mesh.
             */
             public HasVertexAttribute ($attr: UnityEngine.Rendering.VertexAttribute) : boolean
             /** Get dimension of a specific vertex data attribute on this Mesh.
             * @param $attr Vertex data attribute to check for.
-            * @returns Dimensionality of the data attribute, or zero if it is not present. 
+            * @returns Dimensionality of the data attribute, or zero if it is not present.
             */
             public GetVertexAttributeDimension ($attr: UnityEngine.Rendering.VertexAttribute) : number
             /** Get format of a specific vertex data attribute on this Mesh.
             * @param $attr Vertex data attribute to check for.
-            * @returns Format of the data attribute. 
+            * @returns Format of the data attribute.
             */
             public GetVertexAttributeFormat ($attr: UnityEngine.Rendering.VertexAttribute) : UnityEngine.Rendering.VertexAttributeFormat
             /** Gets the vertex buffer stream index of a specific vertex data attribute on this Mesh.
             * @param $attr The vertex data attribute to check for.
-            * @returns Stream index of the data attribute, or -1 if it is not present. 
+            * @returns Stream index of the data attribute, or -1 if it is not present.
             */
             public GetVertexAttributeStream ($attr: UnityEngine.Rendering.VertexAttribute) : number
             /** Get offset within a vertex buffer stream of a specific vertex data attribute on this Mesh.
             * @param $attr The vertex data attribute to check for.
-            * @returns The byte offset within a atream of the data attribute, or -1 if it is not present. 
+            * @returns The byte offset within a atream of the data attribute, or -1 if it is not present.
             */
             public GetVertexAttributeOffset ($attr: UnityEngine.Rendering.VertexAttribute) : number
             /** Get vertex buffer stream stride in bytes.
             * @param $stream Vertex data stream index to check for.
-            * @returns Vertex data size in bytes in this stream, or zero if the stream is not present. 
+            * @returns Vertex data size in bytes in this stream, or zero if the stream is not present.
             */
             public GetVertexBufferStride ($stream: number) : number
             /** Retrieves a native (underlying graphics API) pointer to the vertex buffer.
             * @param $index Which vertex buffer to get (some Meshes might have more than one). See vertexBufferCount.
-            * @returns Pointer to the underlying graphics API vertex buffer. 
+            * @returns Pointer to the underlying graphics API vertex buffer.
             */
             public GetNativeVertexBufferPtr ($index: number) : System.IntPtr
             /** Retrieves a native (underlying graphics API) pointer to the index buffer.
-            * @returns Pointer to the underlying graphics API index buffer. 
+            * @returns Pointer to the underlying graphics API index buffer.
             */
             public GetNativeIndexBufferPtr () : System.IntPtr
             /** Clears all blend shapes from Mesh.
@@ -9978,15 +9978,15 @@
             public AddBlendShapeFrame ($shapeName: string, $frameWeight: number, $deltaVertices: System.Array$1<UnityEngine.Vector3>, $deltaNormals: System.Array$1<UnityEngine.Vector3>, $deltaTangents: System.Array$1<UnityEngine.Vector3>) : void
             public SetBoneWeights ($bonesPerVertex: Unity.Collections.NativeArray$1<number>, $weights: Unity.Collections.NativeArray$1<UnityEngine.BoneWeight1>) : void
             /** Gets the bone weights for the Mesh.
-            * @returns Returns all non-zero bone weights for the Mesh, in vertex index order. 
+            * @returns Returns all non-zero bone weights for the Mesh, in vertex index order.
             */
             public GetAllBoneWeights () : Unity.Collections.NativeArray$1<UnityEngine.BoneWeight1>
             /** The number of non-zero bone weights for each vertex.
-            * @returns Returns the number of non-zero bone weights for each vertex. 
+            * @returns Returns the number of non-zero bone weights for each vertex.
             */
             public GetBonesPerVertex () : Unity.Collections.NativeArray$1<number>
             /** Gets the bind poses of the Mesh.
-            * @returns The array of bindposes belonging to the Mesh. 
+            * @returns The array of bindposes belonging to the Mesh.
             */
             public GetBindposes () : Unity.Collections.NativeArray$1<UnityEngine.Matrix4x4>
             /** Sets the information about a sub-mesh of the Mesh.
@@ -9997,7 +9997,7 @@
             public SetSubMesh ($index: number, $desc: UnityEngine.Rendering.SubMeshDescriptor, $flags?: UnityEngine.Rendering.MeshUpdateFlags) : void
             /** Get information about a sub-mesh of the Mesh.
             * @param $index Sub-mesh index. See subMeshCount. Out of range indices throw an exception.
-            * @returns Sub-mesh data. 
+            * @returns Sub-mesh data.
             */
             public GetSubMesh ($index: number) : UnityEngine.Rendering.SubMeshDescriptor
             /** Notify Renderer components of mesh geometry change.
@@ -10005,7 +10005,7 @@
             public MarkModified () : void
             /** The UV distribution metric can be used to calculate the desired mipmap level based on the position of the camera.
             * @param $uvSetIndex UV set index to return the UV distibution metric for. 0 for first.
-            * @returns Average of triangle area / uv area. 
+            * @returns Average of triangle area / uv area.
             */
             public GetUVDistributionMetric ($uvSetIndex: number) : number
             public GetVertices ($vertices: System.Collections.Generic.List$1<UnityEngine.Vector3>) : void
@@ -10194,12 +10194,12 @@
             public GetUVs ($channel: number, $uvs: System.Collections.Generic.List$1<UnityEngine.Vector3>) : void
             public GetUVs ($channel: number, $uvs: System.Collections.Generic.List$1<UnityEngine.Vector4>) : void
             /** Get information about vertex attributes of a Mesh.
-            * @returns Array of vertex attribute information. 
+            * @returns Array of vertex attribute information.
             */
             public GetVertexAttributes () : System.Array$1<UnityEngine.Rendering.VertexAttributeDescriptor>
             /** Get information about vertex attributes of a Mesh, without memory allocations.
             * @param $attributes Collection of vertex attributes to receive the results.
-            * @returns The number of vertex attributes returned in the attributes container. 
+            * @returns The number of vertex attributes returned in the attributes container.
             */
             public GetVertexAttributes ($attributes: System.Array$1<UnityEngine.Rendering.VertexAttributeDescriptor>) : number
             public GetVertexAttributes ($attributes: System.Collections.Generic.List$1<UnityEngine.Rendering.VertexAttributeDescriptor>) : number
@@ -10212,19 +10212,19 @@
             /** Gets a snapshot of Mesh data for read-only access.
             * @param $mesh The input mesh.
             * @param $meshes The input meshes.
-            * @returns Returns a MeshDataArray containing read-only MeshData structs. See Mesh.MeshDataArray and Mesh.MeshData. 
+            * @returns Returns a MeshDataArray containing read-only MeshData structs. See Mesh.MeshDataArray and Mesh.MeshData.
             */
             public static AcquireReadOnlyMeshData ($mesh: UnityEngine.Mesh) : UnityEngine.Mesh.MeshDataArray
             /** Gets a snapshot of Mesh data for read-only access.
             * @param $mesh The input mesh.
             * @param $meshes The input meshes.
-            * @returns Returns a MeshDataArray containing read-only MeshData structs. See Mesh.MeshDataArray and Mesh.MeshData. 
+            * @returns Returns a MeshDataArray containing read-only MeshData structs. See Mesh.MeshDataArray and Mesh.MeshData.
             */
             public static AcquireReadOnlyMeshData ($meshes: System.Array$1<UnityEngine.Mesh>) : UnityEngine.Mesh.MeshDataArray
             public static AcquireReadOnlyMeshData ($meshes: System.Collections.Generic.List$1<UnityEngine.Mesh>) : UnityEngine.Mesh.MeshDataArray
             /** Allocates data structures for Mesh creation using C# Jobs.
             * @param $meshCount The amount of meshes that will be created.
-            * @returns Returns a MeshDataArray containing writeable MeshData structs. See Mesh.MeshDataArray and Mesh.MeshData. 
+            * @returns Returns a MeshDataArray containing writeable MeshData structs. See Mesh.MeshDataArray and Mesh.MeshData.
             */
             public static AllocateWritableMeshData ($meshCount: number) : UnityEngine.Mesh.MeshDataArray
             public static ApplyAndDisposeWritableMeshData ($data: UnityEngine.Mesh.MeshDataArray, $mesh: UnityEngine.Mesh, $flags?: UnityEngine.Rendering.MeshUpdateFlags) : void
@@ -10232,31 +10232,31 @@
             public static ApplyAndDisposeWritableMeshData ($data: UnityEngine.Mesh.MeshDataArray, $meshes: System.Collections.Generic.List$1<UnityEngine.Mesh>, $flags?: UnityEngine.Rendering.MeshUpdateFlags) : void
             /** Retrieves a GraphicsBuffer that provides direct acces to the GPU vertex buffer.
             * @param $index Vertex data stream index to get the buffer for.
-            * @returns The mesh vertex buffer as a GraphicsBuffer. 
+            * @returns The mesh vertex buffer as a GraphicsBuffer.
             */
             public GetVertexBuffer ($index: number) : UnityEngine.GraphicsBuffer
             /** Retrieves a GraphicsBuffer to the GPU index buffer.
-            * @returns The mesh index buffer as a GraphicsBuffer. 
+            * @returns The mesh index buffer as a GraphicsBuffer.
             */
             public GetIndexBuffer () : UnityEngine.GraphicsBuffer
             /** Retrieves a GraphicsBuffer that provides direct read and write access to GPU bone weight data.
             * @param $layout Which buffer to access, based on maximum bones per vertex.
-            * @returns The bone weight data as a GraphicsBuffer. 
+            * @returns The bone weight data as a GraphicsBuffer.
             */
             public GetBoneWeightBuffer ($layout: UnityEngine.SkinWeights) : UnityEngine.GraphicsBuffer
             /** Retrieves a GraphicsBuffer that provides direct read and write access to GPU blend shape vertex data.
             * @param $layout Which buffer to access. The default value is Rendering.BlendShapeBufferLayout.PerShape.
-            * @returns The blend shape vertex data as a GraphicsBuffer. 
+            * @returns The blend shape vertex data as a GraphicsBuffer.
             */
             public GetBlendShapeBuffer ($layout: UnityEngine.Rendering.BlendShapeBufferLayout) : UnityEngine.GraphicsBuffer
             /** Retrieves a GraphicsBuffer that provides direct read and write access to GPU blend shape vertex data.
             * @param $layout Which buffer to access. The default value is Rendering.BlendShapeBufferLayout.PerShape.
-            * @returns The blend shape vertex data as a GraphicsBuffer. 
+            * @returns The blend shape vertex data as a GraphicsBuffer.
             */
             public GetBlendShapeBuffer () : UnityEngine.GraphicsBuffer
             /** Get the location of blend shape vertex data for a given blend shape.
             * @param $blendShapeIndex Which blend shape to locate the data for.
-            * @returns A struct that describes the start and end index of the data for the given blend shape. 
+            * @returns A struct that describes the start and end index of the data for the given blend shape.
             */
             public GetBlendShapeBufferRange ($blendShapeIndex: number) : UnityEngine.BlendShapeBufferRange
             /** Fetches the triangle list for the specified sub-mesh on this object.
@@ -10277,13 +10277,13 @@
             /** Fetches the index list for the specified sub-mesh.
             * @param $submesh The sub-mesh index. See subMeshCount.
             * @param $applyBaseVertex True (default value) will apply base vertex offset to returned indices.
-            * @returns Array with face indices. 
+            * @returns Array with face indices.
             */
             public GetIndices ($submesh: number) : System.Array$1<number>
             /** Fetches the index list for the specified sub-mesh.
             * @param $submesh The sub-mesh index. See subMeshCount.
             * @param $applyBaseVertex True (default value) will apply base vertex offset to returned indices.
-            * @returns Array with face indices. 
+            * @returns Array with face indices.
             */
             public GetIndices ($submesh: number, $applyBaseVertex: boolean) : System.Array$1<number>
             public GetIndices ($indices: System.Collections.Generic.List$1<number>, $submesh: number) : void
@@ -10297,7 +10297,7 @@
             public GetIndexCount ($submesh: number) : number
             /** Gets the base vertex index of the given sub-mesh.
             * @param $submesh The sub-mesh index. See subMeshCount.
-            * @returns The offset applied to all vertex indices of this sub-mesh. 
+            * @returns The offset applied to all vertex indices of this sub-mesh.
             */
             public GetBaseVertex ($submesh: number) : number
             /** Sets the triangle list for the sub-mesh.
@@ -10549,127 +10549,127 @@
             public get parent(): UnityEngine.Material;
             public set parent(value: UnityEngine.Material);
             /** Returns true if this material is a material variant.
-            * @returns True if the material is a variant. 
+            * @returns True if the material is a variant.
             */
             public get isVariant(): boolean;
             /** Checks if the ShaderLab file assigned to the Material has a property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasProperty ($nameID: number) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasProperty ($name: string) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Float property with the given name. This also works with the Float Array property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasFloat ($name: string) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Float property with the given name. This also works with the Float Array property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasFloat ($nameID: number) : boolean
             /** This method is deprecated. Use HasFloat or HasInteger instead.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasInt ($name: string) : boolean
             /** This method is deprecated. Use HasFloat or HasInteger instead.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasInt ($nameID: number) : boolean
             /** Checks if the ShaderLab file assigned to the Material has an Integer property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasInteger ($name: string) : boolean
             /** Checks if the ShaderLab file assigned to the Material has an Integer property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasInteger ($nameID: number) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Texture property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasTexture ($name: string) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Texture property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasTexture ($nameID: number) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Matrix property with the given name. This also works with the Matrix Array property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasMatrix ($name: string) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Matrix property with the given name. This also works with the Matrix Array property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasMatrix ($nameID: number) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Vector property with the given name. This also works with the Vector Array property.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasVector ($name: string) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Vector property with the given name. This also works with the Vector Array property.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasVector ($nameID: number) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Color property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasColor ($name: string) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a Color property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasColor ($nameID: number) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a ComputeBuffer property with the given name.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasBuffer ($name: string) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a ComputeBuffer property with the given name.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasBuffer ($nameID: number) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a ConstantBuffer property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasConstantBuffer ($name: string) : boolean
             /** Checks if the ShaderLab file assigned to the Material has a ConstantBuffer property with the given name.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+            * @returns Returns true if the ShaderLab file assigned to the Material has this property.
             */
             public HasConstantBuffer ($nameID: number) : boolean
             /** Enables a local shader keyword for this material.
@@ -10682,7 +10682,7 @@
             public DisableKeyword ($keyword: string) : void
             /** Checks whether a local shader keyword is enabled for this material.
             * @param $keyword The name of the Rendering.LocalKeyword to check.
-            * @returns Returns true if a Rendering.LocalKeyword with the given name is enabled  for this material. 
+            * @returns Returns true if a Rendering.LocalKeyword with the given name is enabled  for this material.
             */
             public IsKeywordEnabled ($keyword: string) : boolean
             /** Enables a local shader keyword for this material.
@@ -10700,7 +10700,7 @@
             public SetKeyword ($keyword: $Ref<UnityEngine.Rendering.LocalKeyword>, $value: boolean) : void
             /** Checks whether a local shader keyword is enabled for this material.
             * @param $keyword The name of the Rendering.LocalKeyword to check.
-            * @returns Returns true if a Rendering.LocalKeyword with the given name is enabled  for this material. 
+            * @returns Returns true if a Rendering.LocalKeyword with the given name is enabled  for this material.
             */
             public IsKeywordEnabled ($keyword: $Ref<UnityEngine.Rendering.LocalKeyword>) : boolean
             /** Enables or disables a Shader pass on a per-Material level.
@@ -10710,7 +10710,7 @@
             public SetShaderPassEnabled ($passName: string, $enabled: boolean) : void
             /** Checks whether a given Shader pass is enabled on this Material.
             * @param $passName Shader pass name (case insensitive).
-            * @returns True if the Shader pass is enabled. 
+            * @returns True if the Shader pass is enabled.
             */
             public GetShaderPassEnabled ($passName: string) : boolean
             /** Returns the name of the shader pass at index pass.
@@ -10735,7 +10735,7 @@
             public Lerp ($start: UnityEngine.Material, $end: UnityEngine.Material, $t: number) : void
             /** Activate the given pass for rendering.
             * @param $pass Shader pass number to setup.
-            * @returns If false is returned, no rendering should be done. 
+            * @returns If false is returned, no rendering should be done.
             */
             public SetPass ($pass: number) : boolean
             /** Copy properties from other material into this material.
@@ -10750,19 +10750,19 @@
             public ComputeCRC () : number
             /** Returns the names of all texture properties exposed on this material.
             * @param $outNames Names of all texture properties exposed on this material.
-            * @returns Names of all texture properties exposed on this material. 
+            * @returns Names of all texture properties exposed on this material.
             */
             public GetTexturePropertyNames () : System.Array$1<string>
             /** Return the name IDs of all texture properties exposed on this material.
             * @param $outNames IDs of all texture properties exposed on this material.
-            * @returns IDs of all texture properties exposed on this material. 
+            * @returns IDs of all texture properties exposed on this material.
             */
             public GetTexturePropertyNameIDs () : System.Array$1<number>
             public GetTexturePropertyNames ($outNames: System.Collections.Generic.List$1<string>) : void
             public GetTexturePropertyNameIDs ($outNames: System.Collections.Generic.List$1<number>) : void
             /** Returns True if the given material is an ancestor of this Material.
             * @param $ancestor The specific ancestor to find in the hierarchy.
-            * @returns True if the given material is an ancestor of this Material. 
+            * @returns True if the given material is an ancestor of this Material.
             */
             public IsChildOf ($ancestor: UnityEngine.Material) : boolean
             /** Removes all property overrides on this material.
@@ -10771,37 +10771,37 @@
             /** Checks whether a property is overriden by this material.
             * @param $nameID Property name ID, use Shader.PropertyToID to get it.
             * @param $name Property name, e.g. "_SrcBlend".
-            * @returns Returns true if the property you pass in is overriden by this material. Otherwise, returns false. 
+            * @returns Returns true if the property you pass in is overriden by this material. Otherwise, returns false.
             */
             public IsPropertyOverriden ($nameID: number) : boolean
             /** Checks whether a property is locked by this material.
             * @param $nameID Property name ID, use Shader.PropertyToID to get it.
             * @param $name Property name, e.g. "_SrcBlend".
-            * @returns Returns true if the property you pass in is locked by this material. Otherwise, returns false. 
+            * @returns Returns true if the property you pass in is locked by this material. Otherwise, returns false.
             */
             public IsPropertyLocked ($nameID: number) : boolean
             /** Checks whether a property is locked by any of ancestor of this material.
             * @param $nameID Property name ID, use Shader.PropertyToID to get it.
             * @param $name Property name, e.g. "_SrcBlend".
-            * @returns Returns true if the property you pass in is locked by any of ancestor of this material. Otherwise, returns false. 
+            * @returns Returns true if the property you pass in is locked by any of ancestor of this material. Otherwise, returns false.
             */
             public IsPropertyLockedByAncestor ($nameID: number) : boolean
             /** Checks whether a property is overriden by this material.
             * @param $nameID Property name ID, use Shader.PropertyToID to get it.
             * @param $name Property name, e.g. "_SrcBlend".
-            * @returns Returns true if the property you pass in is overriden by this material. Otherwise, returns false. 
+            * @returns Returns true if the property you pass in is overriden by this material. Otherwise, returns false.
             */
             public IsPropertyOverriden ($name: string) : boolean
             /** Checks whether a property is locked by this material.
             * @param $nameID Property name ID, use Shader.PropertyToID to get it.
             * @param $name Property name, e.g. "_SrcBlend".
-            * @returns Returns true if the property you pass in is locked by this material. Otherwise, returns false. 
+            * @returns Returns true if the property you pass in is locked by this material. Otherwise, returns false.
             */
             public IsPropertyLocked ($name: string) : boolean
             /** Checks whether a property is locked by any of ancestor of this material.
             * @param $nameID Property name ID, use Shader.PropertyToID to get it.
             * @param $name Property name, e.g. "_SrcBlend".
-            * @returns Returns true if the property you pass in is locked by any of ancestor of this material. Otherwise, returns false. 
+            * @returns Returns true if the property you pass in is locked by any of ancestor of this material. Otherwise, returns false.
             */
             public IsPropertyLockedByAncestor ($name: string) : boolean
             /** Sets the lock state of a property for this material.
@@ -11124,12 +11124,12 @@
             public GetTexture ($nameID: number) : UnityEngine.Texture
             /** Get a named Graphics Buffer value.
             * @param $name The name of the graphics buffer resource property to return.
-            * @returns Returns the handle of the graphics buffer resource property. 
+            * @returns Returns the handle of the graphics buffer resource property.
             */
             public GetBuffer ($name: string) : UnityEngine.GraphicsBufferHandle
             /** Get a named Constant Buffer value.
             * @param $name The name of the constant buffer property to return.
-            * @returns Returns the handle of the constant buffer graphics resource. 
+            * @returns Returns the handle of the constant buffer graphics resource.
             */
             public GetConstantBuffer ($name: string) : UnityEngine.GraphicsBufferHandle
             /** Get a named float array.
@@ -11400,7 +11400,7 @@
             public ClearUpdateZones () : void
             public GetUpdateZones ($updateZones: System.Collections.Generic.List$1<UnityEngine.CustomRenderTextureUpdateZone>) : void
             /** Gets the Render Texture that this Custom Render Texture uses for double buffering.
-            * @returns If CustomRenderTexture. doubleBuffered is true, this returns the Render Texture that this Custom Render Texture uses for double buffering. If CustomRenderTexture. doubleBuffered is false, this returns null. 
+            * @returns If CustomRenderTexture. doubleBuffered is true, this returns the Render Texture that this Custom Render Texture uses for double buffering. If CustomRenderTexture. doubleBuffered is false, this returns null.
             */
             public GetDoubleBufferRenderTexture () : UnityEngine.RenderTexture
             /** Updates the internal Render Texture that a Custom Render Texture uses for double buffering, so that it matches the size and format of the Custom Render Texture.
@@ -11655,7 +11655,7 @@
             /** Moves the main window to the specified position relative to the top left corner of the specified display. Position value is represented in pixels. Moving the window is an asynchronous operation, which can take multiple frames.
             * @param $display The target display where the window should move to.
             * @param $position The position the window moves to. Relative to the top left corner of the specified display in pixels.
-            * @returns Returns AsyncOperation that represents moving the window. 
+            * @returns Returns AsyncOperation that represents moving the window.
             */
             public static MoveMainWindowTo ($display: $Ref<UnityEngine.DisplayInfo>, $position: UnityEngine.Vector2Int) : UnityEngine.AsyncOperation
             public constructor ()
@@ -11817,7 +11817,7 @@
             * @param $dst The destination texture. The texture must be a Texture2D, Texture2DArray, Cubemap, or CubemapArray. The texture must also be uncompressed and correspond to a supported RenderTextureFormat.
             * @param $srcElement The element in the source texture to copy from. Use CubemapFace if src is a Cubemap. Set the value to 0 if src is a 2D texture.
             * @param $dstElement The element in the source texture to copy to. For example, the CubemapFace in a Cubemap or the slice in a texture array. Set the value to 0 if `dst` is a 2D texture.
-            * @returns true if the method succeeded. 
+            * @returns true if the method succeeded.
             */
             public static ConvertTexture ($src: UnityEngine.Texture, $dst: UnityEngine.Texture) : boolean
             /** Copies the pixel data from one texture, converts the data into a different format, and copies it into another texture.
@@ -11825,23 +11825,23 @@
             * @param $dst The destination texture. The texture must be a Texture2D, Texture2DArray, Cubemap, or CubemapArray. The texture must also be uncompressed and correspond to a supported RenderTextureFormat.
             * @param $srcElement The element in the source texture to copy from. Use CubemapFace if src is a Cubemap. Set the value to 0 if src is a 2D texture.
             * @param $dstElement The element in the source texture to copy to. For example, the CubemapFace in a Cubemap or the slice in a texture array. Set the value to 0 if `dst` is a 2D texture.
-            * @returns true if the method succeeded. 
+            * @returns true if the method succeeded.
             */
             public static ConvertTexture ($src: UnityEngine.Texture, $srcElement: number, $dst: UnityEngine.Texture, $dstElement: number) : boolean
             /** Shortcut for calling Graphics.CreateGraphicsFence with Rendering.GraphicsFenceType.AsyncQueueSynchronisation as the first parameter.
             * @param $stage Which SynchronisationStage to insert the fence after.
-            * @returns Returns a new GraphicsFence. 
+            * @returns Returns a new GraphicsFence.
             */
             public static CreateAsyncGraphicsFence ($stage: UnityEngine.Rendering.SynchronisationStage) : UnityEngine.Rendering.GraphicsFence
             /** Shortcut for calling Graphics.CreateGraphicsFence with Rendering.GraphicsFenceType.AsyncQueueSynchronisation as the first parameter.
             * @param $stage Which SynchronisationStage to insert the fence after.
-            * @returns Returns a new GraphicsFence. 
+            * @returns Returns a new GraphicsFence.
             */
             public static CreateAsyncGraphicsFence () : UnityEngine.Rendering.GraphicsFence
             /** Creates a GraphicsFence.
             * @param $fenceType The Rendering.GraphicsFenceType to create. Currently the only supported value is Rendering.GraphicsFenceType.AsyncQueueSynchronisation.
             * @param $stage Which SynchronisationStage to insert the fence after.
-            * @returns Returns a new GraphicsFence. 
+            * @returns Returns a new GraphicsFence.
             */
             public static CreateGraphicsFence ($fenceType: UnityEngine.Rendering.GraphicsFenceType, $stage: UnityEngine.Rendering.SynchronisationStageFlags) : UnityEngine.Rendering.GraphicsFence
             /** Instructs the GPU to pause processing of the queue until it passes through the GraphicsFence fence.
@@ -12573,7 +12573,7 @@
             */
             public static CopyCount ($src: UnityEngine.ComputeBuffer, $dst: UnityEngine.ComputeBuffer, $dstOffsetBytes: number) : void
             /** Retrieve a native (underlying graphics API) pointer to the buffer.
-            * @returns Pointer to the underlying graphics API buffer. 
+            * @returns Pointer to the underlying graphics API buffer.
             */
             public GetNativeBufferPtr () : System.IntPtr
             public constructor ($count: number, $stride: number)
@@ -12634,7 +12634,7 @@
             */
             public GetData ($data: System.Array, $managedBufferStartIndex: number, $computeBufferStartIndex: number, $count: number) : void
             /** Retrieve a native (underlying graphics API) pointer to the buffer.
-            * @returns Pointer to the underlying graphics API buffer. 
+            * @returns Pointer to the underlying graphics API buffer.
             */
             public GetNativeBufferPtr () : System.IntPtr
             /** Sets counter value of append/consume buffer.
@@ -12943,121 +12943,121 @@
             /** Checks if MaterialPropertyBlock has the property with the given name or name ID. To set the property, use one of the Set methods for MaterialPropertyBlock.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasProperty ($name: string) : boolean
             /** Checks if MaterialPropertyBlock has the property with the given name or name ID. To set the property, use one of the Set methods for MaterialPropertyBlock.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasProperty ($nameID: number) : boolean
             /** This method is deprecated. Use HasFloat or HasInteger instead.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasInt ($name: string) : boolean
             /** This method is deprecated. Use HasFloat or HasInteger instead.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasInt ($nameID: number) : boolean
             /** Checks if MaterialPropertyBlock has the Float property with the given name or name ID. To set the property, use SetFloat.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasFloat ($name: string) : boolean
             /** Checks if MaterialPropertyBlock has the Float property with the given name or name ID. To set the property, use SetFloat.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasFloat ($nameID: number) : boolean
             /** Checks if MaterialPropertyBlock has the Integer property with the given name or name ID. To set the property, use SetInteger.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasInteger ($name: string) : boolean
             /** Checks if MaterialPropertyBlock has the Integer property with the given name or name ID. To set the property, use SetInteger.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasInteger ($nameID: number) : boolean
             /** Checks if MaterialPropertyBlock has the Texture property with the given name or name ID. To set the property, use SetTexture.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasTexture ($name: string) : boolean
             /** Checks if MaterialPropertyBlock has the Texture property with the given name or name ID. To set the property, use SetTexture.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasTexture ($nameID: number) : boolean
             /** Checks if MaterialPropertyBlock has the Matrix property with the given name or name ID. This also works with the Matrix Array property. To set the property, use SetMatrix.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasMatrix ($name: string) : boolean
             /** Checks if MaterialPropertyBlock has the Matrix property with the given name or name ID. This also works with the Matrix Array property. To set the property, use SetMatrix.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasMatrix ($nameID: number) : boolean
             /** Checks if MaterialPropertyBlock has the Vector property with the given name or name ID. This also works with the Vector Array property. To set the property, use SetVector.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasVector ($name: string) : boolean
             /** Checks if MaterialPropertyBlock has the Vector property with the given name or name ID. This also works with the Vector Array property. To set the property, use SetVector.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasVector ($nameID: number) : boolean
             /** Checks if MaterialPropertyBlock has the Color property with the given name or name ID. To set the property, use SetColor.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasColor ($name: string) : boolean
             /** Checks if MaterialPropertyBlock has the Color property with the given name or name ID. To set the property, use SetColor.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasColor ($nameID: number) : boolean
             /** Checks if MaterialPropertyBlock has the ComputeBuffer property with the given name or name ID. To set the property, use SetBuffer.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasBuffer ($name: string) : boolean
             /** Checks if MaterialPropertyBlock has the ComputeBuffer property with the given name or name ID. To set the property, use SetBuffer.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
             * @param $name The name of the property.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasBuffer ($nameID: number) : boolean
             /** Checks if MaterialPropertyBlock has the ConstantBuffer property with the given name or name ID. To set the property, use SetConstantBuffer.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasConstantBuffer ($name: string) : boolean
             /** Checks if MaterialPropertyBlock has the ConstantBuffer property with the given name or name ID. To set the property, use SetConstantBuffer.
             * @param $name The name of the property.
             * @param $nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
-            * @returns Returns true if MaterialPropertyBlock has this property. 
+            * @returns Returns true if MaterialPropertyBlock has this property.
             */
             public HasConstantBuffer ($nameID: number) : boolean
             /** Get a float from the property block.
@@ -13354,7 +13354,7 @@
             /** Compute GPU projection matrix from camera's projection matrix.
             * @param $proj Source projection matrix.
             * @param $renderIntoTexture Will this projection be used for rendering into a RenderTexture?
-            * @returns Adjusted projection matrix for the current graphics API. 
+            * @returns Adjusted projection matrix for the current graphics API.
             */
             public static GetGPUProjectionMatrix ($proj: UnityEngine.Matrix4x4, $renderIntoTexture: boolean) : UnityEngine.Matrix4x4
             /** Setup a matrix for pixel-correct rendering.
@@ -13457,7 +13457,7 @@
         {
             protected [__keep_incompatibility]: never;
             /** Check if frame timing statistics are enabled.
-            * @returns Whether frame timing statistics are enabled. 
+            * @returns Whether frame timing statistics are enabled.
             */
             public static IsFeatureEnabled () : boolean
             /** This function triggers the FrameTimingManager to capture a snapshot of FrameTiming's data, that can then be accessed by the user.
@@ -13466,19 +13466,19 @@
             /** Allows the user to access the currently captured FrameTimings.
             * @param $numFrames User supplies a desired number of frames they would like FrameTimings for. This should be equal to or less than the maximum FrameTimings the platform can capture.
             * @param $timings An array of FrameTiming structs that is passed in by the user and will be filled with data as requested. It is the users job to make sure the array that is passed is large enough to hold the requested number of FrameTimings.
-            * @returns Returns the number of FrameTimings it actually was able to get. This will always be equal to or less than the requested numFrames depending on availability of captured FrameTimings. 
+            * @returns Returns the number of FrameTimings it actually was able to get. This will always be equal to or less than the requested numFrames depending on availability of captured FrameTimings.
             */
             public static GetLatestTimings ($numFrames: number, $timings: System.Array$1<UnityEngine.FrameTiming>) : number
             /** This returns the number of vsyncs per second on the current platform, used to interpret timing results. If the platform does not support returning this value it will return 0.
-            * @returns Number of vsyncs per second of the current platform. 
+            * @returns Number of vsyncs per second of the current platform.
             */
             public static GetVSyncsPerSecond () : number
             /** This returns the frequency of GPU timer on the current platform, used to interpret timing results. If the platform does not support returning this value it will return 0.
-            * @returns GPU timer frequency for current platform. 
+            * @returns GPU timer frequency for current platform.
             */
             public static GetGpuTimerFrequency () : bigint
             /** This returns the frequency of CPU timer on the current platform, used to interpret timing results. If the platform does not support returning this value it will return 0.
-            * @returns CPU timer frequency for current platform. 
+            * @returns CPU timer frequency for current platform.
             */
             public static GetCpuTimerFrequency () : bigint
         }
@@ -13578,7 +13578,7 @@
             */
             public ClearRequestedMipmapLevel () : void
             /** Checks to see whether the mipmap level set by requestedMipmapLevel has finished loading.
-            * @returns True if the mipmap level requested by requestedMipmapLevel has finished loading. 
+            * @returns True if the mipmap level requested by requestedMipmapLevel has finished loading.
             */
             public IsRequestedMipmapLevelLoaded () : boolean
             /** Resets the minimumMipmapLevel field.
@@ -13589,7 +13589,7 @@
             */
             public UpdateExternalTexture ($nativeTex: System.IntPtr) : void
             /** Gets the raw data from a texture, as a copy.
-            * @returns A byte array that contains raw texture data. 
+            * @returns A byte array that contains raw texture data.
             */
             public GetRawTextureData () : System.Array$1<number>
             /** Gets the pixel color data for part of a mipmap level as Color structs.
@@ -13598,7 +13598,7 @@
             * @param $blockWidth The width of the section to fetch.
             * @param $blockHeight The height of the section to fetch.
             * @param $miplevel The mipmap level to read from. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($x: number, $y: number, $blockWidth: number, $blockHeight: number, $miplevel: number) : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for part of a mipmap level as Color structs.
@@ -13607,12 +13607,12 @@
             * @param $blockWidth The width of the section to fetch.
             * @param $blockHeight The height of the section to fetch.
             * @param $miplevel The mipmap level to read from. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($x: number, $y: number, $blockWidth: number, $blockHeight: number) : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for a mipmap level as Color32 structs.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels32 ($miplevel: number) : System.Array$1<UnityEngine.Color32>
             public GetPixels32 () : System.Array$1<UnityEngine.Color32>
@@ -13621,7 +13621,7 @@
             * @param $padding Padding in pixels between the packed textures.
             * @param $maximumAtlasSize Maximum size of the resulting texture.
             * @param $makeNoLongerReadable Should the texture be marked as no longer readable?
-            * @returns An array of rectangles containing the UV coordinates in the atlas for each input texture, or null if packing fails. 
+            * @returns An array of rectangles containing the UV coordinates in the atlas for each input texture, or null if packing fails.
             */
             public PackTextures ($textures: System.Array$1<UnityEngine.Texture2D>, $padding: number, $maximumAtlasSize: number, $makeNoLongerReadable: boolean) : System.Array$1<UnityEngine.Rect>
             public PackTextures ($textures: System.Array$1<UnityEngine.Texture2D>, $padding: number, $maximumAtlasSize: number) : System.Array$1<UnityEngine.Rect>
@@ -13669,28 +13669,28 @@
             * @param $x The x coordinate of the pixel to get. The range is 0 through (texture width - 1).
             * @param $y The y coordinate of the pixel to get. The range is 0 through (texture height - 1).
             * @param $mipLevel The mipmap level to sample. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixel ($x: number, $y: number) : UnityEngine.Color
             /** Gets the pixel color at coordinates (x, y).
             * @param $x The x coordinate of the pixel to get. The range is 0 through (texture width - 1).
             * @param $y The y coordinate of the pixel to get. The range is 0 through (texture height - 1).
             * @param $mipLevel The mipmap level to sample. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixel ($x: number, $y: number, $mipLevel: number) : UnityEngine.Color
             /** Gets the filtered pixel color at the normalized coordinates (u, v).
             * @param $u The u coordinate of the pixel to get.
             * @param $v The v coordinate of the pixel to get.
             * @param $mipLevel The mipmap level to read from. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixelBilinear ($u: number, $v: number) : UnityEngine.Color
             /** Gets the filtered pixel color at the normalized coordinates (u, v).
             * @param $u The u coordinate of the pixel to get.
             * @param $v The v coordinate of the pixel to get.
             * @param $mipLevel The mipmap level to read from. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixelBilinear ($u: number, $v: number, $mipLevel: number) : UnityEngine.Color
             /** Sets the raw data of an entire texture in CPU memory.
@@ -13715,7 +13715,7 @@
             * @param $height New height of the Texture.
             * @param $format New format of the Texture.
             * @param $hasMipMap Indicates if the Texture should reserve memory for a full mip map chain.
-            * @returns Returns true if the reinitialization was a success. 
+            * @returns Returns true if the reinitialization was a success.
             */
             public Reinitialize ($width: number, $height: number) : boolean
             /** Reinitializes a Texture2D, making it possible for you to replace width, height, textureformat, and graphicsformat data for that texture.
@@ -13723,7 +13723,7 @@
             * @param $height New height of the Texture.
             * @param $format New format of the Texture.
             * @param $hasMipMap Indicates if the Texture should reserve memory for a full mip map chain.
-            * @returns Returns true if the reinitialization was a success. 
+            * @returns Returns true if the reinitialization was a success.
             */
             public Reinitialize ($width: number, $height: number, $format: UnityEngine.TextureFormat, $hasMipMap: boolean) : boolean
             /** Reinitializes a Texture2D, making it possible for you to replace width, height, textureformat, and graphicsformat data for that texture.
@@ -13731,7 +13731,7 @@
             * @param $height New height of the Texture.
             * @param $format New format of the Texture.
             * @param $hasMipMap Indicates if the Texture should reserve memory for a full mip map chain.
-            * @returns Returns true if the reinitialization was a success. 
+            * @returns Returns true if the reinitialization was a success.
             */
             public Reinitialize ($width: number, $height: number, $format: UnityEngine.Experimental.Rendering.GraphicsFormat, $hasMipMap: boolean) : boolean
             /** Reads pixels from the current render target and writes them to a texture.
@@ -13773,7 +13773,7 @@
             public SetPixels32 ($x: number, $y: number, $blockWidth: number, $blockHeight: number, $colors: System.Array$1<UnityEngine.Color32>) : void
             /** Gets the pixel color data for a mipmap level as Color structs.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($miplevel: number) : System.Array$1<UnityEngine.Color>
             public GetPixels () : System.Array$1<UnityEngine.Color>
@@ -13819,7 +13819,7 @@
             * @param $tex The texture to load the image into.
             * @param $data The byte array containing the image data to load.
             * @param $markNonReadable Set to false by default, pass true to optionally mark the texture as non-readable.
-            * @returns Returns true if the data can be loaded, false otherwise. 
+            * @returns Returns true if the data can be loaded, false otherwise.
             */
             LoadImage ($data: System.Array$1<number>, $markNonReadable: boolean) : boolean;
             LoadImage ($data: System.Array$1<number>) : boolean;
@@ -13957,17 +13957,17 @@
             protected [__keep_incompatibility]: never;
             /** Returns the color primaries mapped to the color space used by the given gamut.
             * @param $gamut The color gamut to look up.
-            * @returns Color primaries for the given gamut. 
+            * @returns Color primaries for the given gamut.
             */
             public static GetColorPrimaries ($gamut: UnityEngine.ColorGamut) : UnityEngine.ColorPrimaries
             /** Returns the white point that the given gamut uses.
             * @param $gamut The color gamut to look up.
-            * @returns The white point that the given gamut uses. 
+            * @returns The white point that the given gamut uses.
             */
             public static GetWhitePoint ($gamut: UnityEngine.ColorGamut) : UnityEngine.WhitePoint
             /** Returns the transfer function that the given gamut uses on the current platform.
             * @param $gamut The color gamut to look up.
-            * @returns The transfer function that the given gamut uses. 
+            * @returns The transfer function that the given gamut uses.
             */
             public static GetTransferFunction ($gamut: UnityEngine.ColorGamut) : UnityEngine.TransferFunction
             public constructor ()
@@ -14226,19 +14226,19 @@
             public static SetTextureMipmapLimitSettings ($groupName: string, $textureMipmapLimitSettings: UnityEngine.TextureMipmapLimitSettings) : void
             /** Retrieves a copy of the TextureMipmapLimitSettings from a texture mipmap limit group.
             * @param $groupName Name of the texture mipmap limit group to scan.
-            * @returns Structure containing the settings for the indicated groupName. 
+            * @returns Structure containing the settings for the indicated groupName.
             */
             public static GetTextureMipmapLimitSettings ($groupName: string) : UnityEngine.TextureMipmapLimitSettings
-            /** Provides a reference to the RenderPipelineAsset that defines the override render pipeline for a given quality level. 
+            /** Provides a reference to the RenderPipelineAsset that defines the override render pipeline for a given quality level.
             * @param $index Index of the quality level.
-            * @returns Returns null if the quality level does not exist, or if no asset is assigned to that quality level. Otherwise, returns the RenderPipelineAsset that defines the override render pipeline for the quality level. 
+            * @returns Returns null if the quality level does not exist, or if no asset is assigned to that quality level. Otherwise, returns the RenderPipelineAsset that defines the override render pipeline for the quality level.
             */
             public static GetRenderPipelineAssetAt ($index: number) : UnityEngine.Rendering.RenderPipelineAsset
             /** Returns the current graphics quality level.
             */
             public static GetQualityLevel () : number
             /** Provides a reference to the QualitySettings object.
-            * @returns Returns the QualitySettings object. 
+            * @returns Returns the QualitySettings object.
             */
             public static GetQualitySettings () : UnityEngine.Object
             /** Sets a new graphics quality level.
@@ -14249,31 +14249,31 @@
             /** [Editor Only] Returns if the given platform is included by the Quality Level.
             * @param $buildTargetGroupName The platform name.
             * @param $index The index of the Quality Level, must be positive and lower than the count of Quality Levels.
-            * @returns If the platform is included. 
+            * @returns If the platform is included.
             */
             public static IsPlatformIncluded ($buildTargetGroupName: string, $index: number) : boolean
             /** [Editor Only] Includes a platform to be supported by the Quality Level.
             * @param $buildTargetGroupName The platform name.
             * @param $index The index of the Quality Level, must be positive and lower than the count of Quality Levels.
             * @param $error The error found by the API.
-            * @returns If errors were found. 
+            * @returns If errors were found.
             */
             public static TryIncludePlatformAt ($buildTargetGroupName: string, $index: number, $error: $Ref<System.Exception>) : boolean
             /** [Editor Only] Excludes a platfor for the given Quality Level.
             * @param $buildTargetGroupName The platform name.
             * @param $index The index of the Quality Level, must be positive and lower than the count of Quality Levels.
             * @param $error The error raised by the API.
-            * @returns True if no errors were found. 
+            * @returns True if no errors were found.
             */
             public static TryExcludePlatformAt ($buildTargetGroupName: string, $index: number, $error: $Ref<System.Exception>) : boolean
             /** [Editor Only] Obtains an array with the Quality Level indexes that are selected for the given platform.
             * @param $buildTargetGroupName The platform target.
-            * @returns The array with the Quality Level indexes that are selected for the given platform. 
+            * @returns The array with the Quality Level indexes that are selected for the given platform.
             */
             public static GetActiveQualityLevelsForPlatform ($buildTargetGroupName: string) : System.Array$1<number>
             /** [Editor Only] Obtains the number of Quality Levels that are selected for a given platform.
             * @param $buildTargetGroupName The platform to obtain the number of selected Quality Levels.
-            * @returns The total amount of Quality Levels active for the given platform. 
+            * @returns The total amount of Quality Levels active for the given platform.
             */
             public static GetActiveQualityLevelsForPlatformCount ($buildTargetGroupName: string) : number
             public static GetAllRenderPipelineAssetsForPlatform ($buildTargetGroupName: string, $renderPipelineAssets: $Ref<System.Collections.Generic.List$1<UnityEngine.Rendering.RenderPipelineAsset>>) : void
@@ -14314,7 +14314,7 @@
             public get limitBias(): number;
             public set limitBias(value: number);
         }
-        /** Flags used by QualitySettings to specify which Terrain fields the quality settings should override. 
+        /** Flags used by QualitySettings to specify which Terrain fields the quality settings should override.
         */
         enum TerrainQualityOverrides
         { None = 0, PixelError = 1, BasemapDistance = 2, DetailDensity = 4, DetailDistance = 8, TreeDistance = 16, BillboardStart = 32, FadeLength = 64, MaxTrees = 128 }
@@ -14598,7 +14598,7 @@
             public SetPosition ($index: number, $position: UnityEngine.Vector3) : void
             /** Get the position of a vertex in the trail.
             * @param $index The index of the position to retrieve.
-            * @returns The position at the specified index in the array. 
+            * @returns The position at the specified index in the array.
             */
             public GetPosition ($index: number) : UnityEngine.Vector3
             /** Removes all points from the TrailRenderer.
@@ -14619,12 +14619,12 @@
             public BakeMesh ($mesh: UnityEngine.Mesh, $camera: UnityEngine.Camera, $useTransform?: boolean) : void
             /** Get the positions of all vertices in the trail.
             * @param $positions The array of positions to retrieve.
-            * @returns How many positions were actually stored in the output array. 
+            * @returns How many positions were actually stored in the output array.
             */
             public GetPositions ($positions: System.Array$1<UnityEngine.Vector3>) : number
             /** Get the visible positions of all vertices in the trail.
             * @param $positions The array of positions to retrieve.
-            * @returns How many positions were actually stored in the output array. 
+            * @returns How many positions were actually stored in the output array.
             */
             public GetVisiblePositions ($positions: System.Array$1<UnityEngine.Vector3>) : number
             /** Sets the positions of all vertices in the trail.
@@ -14779,7 +14779,7 @@
             public SetPosition ($index: number, $position: UnityEngine.Vector3) : void
             /** Get the position of a vertex in the line.
             * @param $index The index of the position to retrieve.
-            * @returns The position at the specified index in the array. 
+            * @returns The position at the specified index in the array.
             */
             public GetPosition ($index: number) : UnityEngine.Vector3
             /** Generates a simplified version of the original line by removing points that fall within the specified tolerance.
@@ -14800,7 +14800,7 @@
             public BakeMesh ($mesh: UnityEngine.Mesh, $camera: UnityEngine.Camera, $useTransform?: boolean) : void
             /** Get the positions of all vertices in the line.
             * @param $positions The array of positions to retrieve. The array passed should be of at least positionCount in size.
-            * @returns How many positions were actually stored in the output array. 
+            * @returns How many positions were actually stored in the output array.
             */
             public GetPositions ($positions: System.Array$1<UnityEngine.Vector3>) : number
             /** Set the positions of all vertices in the line.
@@ -14942,7 +14942,7 @@
             */
             public get color(): UnityEngine.Color;
             public set color(value: UnityEngine.Color);
-            /** 
+            /**
             The color temperature of the light.
             Correlated Color Temperature (abbreviated as CCT) is multiplied with the color filter when calculating the final color of a light source. The color temperature of the electromagnetic radiation emitted from an ideal black body is defined as its surface temperature in Kelvin. White is 6500K according to the D65 standard. A candle light is 1800K and a soft warm light bulb is 2700K.
             If you want to use colorTemperature, GraphicsSettings.lightsUseLinearIntensity and Light.useColorTemperature has to be enabled.
@@ -15042,7 +15042,7 @@
             */
             public get shadowResolution(): UnityEngine.Rendering.LightShadowResolution;
             public set shadowResolution(value: UnityEngine.Rendering.LightShadowResolution);
-            /** Per-light, per-layer shadow culling distances. Directional lights only. 
+            /** Per-light, per-layer shadow culling distances. Directional lights only.
             */
             public get layerShadowCullDistances(): System.Array$1<number>;
             public set layerShadowCullDistances(value: System.Array$1<number>);
@@ -15115,7 +15115,7 @@
             public RemoveAllCommandBuffers () : void
             /** Get command buffers to be executed at a specified place.
             * @param $evt When to execute the command buffer during rendering.
-            * @returns Array of command buffers. 
+            * @returns Array of command buffers.
             */
             public GetCommandBuffers ($evt: UnityEngine.Rendering.LightEvent) : System.Array$1<UnityEngine.Rendering.CommandBuffer>
             public constructor ()
@@ -15355,12 +15355,12 @@
             */
             public static RemoveGroup ($groupName: string) : void
             /** Retrieves a string array containing the name of all texture mipmap limit groups available in the project.
-            * @returns String array of texture mipmap limit group names. 
+            * @returns String array of texture mipmap limit group names.
             */
             public static GetGroups () : System.Array$1<string>
             /** Checks whether a texture mipmap limit group with the indicated groupName exists in the project. This operation fails and throws an exception if groupName is null.
             * @param $groupName Name of the texture mipmap limit group to verify.
-            * @returns Returns true if a texture mipmap limit group named groupName exists in the project. If that is not the case, returns false. 
+            * @returns Returns true if a texture mipmap limit group named groupName exists in the project. If that is not the case, returns false.
             */
             public static HasGroup ($groupName: string) : boolean
         }
@@ -15401,7 +15401,7 @@
             public set vertexBufferTarget(value: UnityEngine.GraphicsBuffer.Target);
             /** Returns the weight of a BlendShape for this Renderer.
             * @param $index The index of the BlendShape whose weight you want to retrieve. Index must be smaller than the Mesh.blendShapeCount of the Mesh attached to this Renderer.
-            * @returns The weight of the BlendShape. 
+            * @returns The weight of the BlendShape.
             */
             public GetBlendShapeWeight ($index: number) : number
             /** Sets the weight of a BlendShape for this Renderer.
@@ -15420,11 +15420,11 @@
             */
             public BakeMesh ($mesh: UnityEngine.Mesh, $useScale: boolean) : void
             /** Retrieves a GraphicsBuffer that provides direct access to the GPU vertex buffer for this skinned mesh, for the current frame.
-            * @returns The skinned mesh vertex buffer as a GraphicsBuffer. 
+            * @returns The skinned mesh vertex buffer as a GraphicsBuffer.
             */
             public GetVertexBuffer () : UnityEngine.GraphicsBuffer
             /** Retrieves a GraphicsBuffer that provides direct access to the GPU vertex buffer for this skinned mesh, for the previous frame.
-            * @returns The skinned mesh vertex buffer as a GraphicsBuffer. 
+            * @returns The skinned mesh vertex buffer as a GraphicsBuffer.
             */
             public GetPreviousVertexBuffer () : UnityEngine.GraphicsBuffer
             public constructor ()
@@ -15515,7 +15515,7 @@
             */
             public RecalculateBounds () : void
             /** Returns the array of LODs.
-            * @returns The LOD array. 
+            * @returns The LOD array.
             */
             public GetLODs () : System.Array$1<UnityEngine.LOD>
             /** Set the LODs for the LOD group. This will remove any existing LODs configured on the LODGroup.
@@ -15545,22 +15545,22 @@
             public UpdateExternalTexture ($nativeTex: System.IntPtr) : void
             /** Gets the pixel color data for a mipmap level as Color structs.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($miplevel: number) : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for a mipmap level as Color structs.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels () : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for a mipmap level as Color32 structs.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels32 ($miplevel: number) : System.Array$1<UnityEngine.Color32>
             /** Gets the pixel color data for a mipmap level as Color32 structs.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels32 () : System.Array$1<UnityEngine.Color32>
             /** Sets the pixel colors of an entire mipmap level.
@@ -15620,7 +15620,7 @@
             * @param $y The y coordinate of the pixel to get. The range is 0 through the (texture height - 1).
             * @param $z The z coordinate of the pixel to get. The range is 0 through the (texture depth - 1).
             * @param $mipLevel The mipmap level to sample. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixel ($x: number, $y: number, $z: number) : UnityEngine.Color
             /** Gets the pixel color at coordinates (x, y, z).
@@ -15628,7 +15628,7 @@
             * @param $y The y coordinate of the pixel to get. The range is 0 through the (texture height - 1).
             * @param $z The z coordinate of the pixel to get. The range is 0 through the (texture depth - 1).
             * @param $mipLevel The mipmap level to sample. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixel ($x: number, $y: number, $z: number, $mipLevel: number) : UnityEngine.Color
             /** Gets the filtered pixel color at the normalized coordinates (u, v, w).
@@ -15636,7 +15636,7 @@
             * @param $v The v coordinate of the pixel to get.
             * @param $w The w coordinate of the pixel to get.
             * @param $mipLevel The mipmap level to read from. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixelBilinear ($u: number, $v: number, $w: number) : UnityEngine.Color
             /** Gets the filtered pixel color at the normalized coordinates (u, v, w).
@@ -15644,7 +15644,7 @@
             * @param $v The v coordinate of the pixel to get.
             * @param $w The w coordinate of the pixel to get.
             * @param $mipLevel The mipmap level to read from. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns The pixel color. 
+            * @returns The pixel color.
             */
             public GetPixelBilinear ($u: number, $v: number, $w: number, $mipLevel: number) : UnityEngine.Color
             public constructor ($width: number, $height: number, $depth: number, $format: UnityEngine.Experimental.Rendering.DefaultFormat, $flags: UnityEngine.Experimental.Rendering.TextureCreationFlags)
@@ -15677,25 +15677,25 @@
             /** Gets the pixel color data for a mipmap level of a slice as Color structs.
             * @param $arrayElement The array slice to read pixel data from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($arrayElement: number, $miplevel: number) : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for a mipmap level of a slice as Color structs.
             * @param $arrayElement The array slice to read pixel data from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($arrayElement: number) : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for a mipmap level of a slice as Color32 structs.
             * @param $arrayElement The array slice to read pixel data from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels32 ($arrayElement: number, $miplevel: number) : System.Array$1<UnityEngine.Color32>
             /** Gets the pixel color data for a mipmap level of a slice as Color32 structs.
             * @param $arrayElement The array slice to read pixel data from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels32 ($arrayElement: number) : System.Array$1<UnityEngine.Color32>
             /** Sets the pixel colors of an entire mipmap level of a slice.
@@ -15756,28 +15756,28 @@
             * @param $face The CubemapFace to read from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
             * @param $arrayElement The array slice to read pixel data from.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($face: UnityEngine.CubemapFace, $arrayElement: number, $miplevel: number) : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for a mipmap level of a face of a slice as Color structs.
             * @param $face The CubemapFace to read from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
             * @param $arrayElement The array slice to read pixel data from.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels ($face: UnityEngine.CubemapFace, $arrayElement: number) : System.Array$1<UnityEngine.Color>
             /** Gets the pixel color data for a mipmap level of a face of a slice as Color32 structs.
             * @param $face The CubemapFace to read pixel data from.
             * @param $arrayElement The array slice to read pixel data from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels32 ($face: UnityEngine.CubemapFace, $arrayElement: number, $miplevel: number) : System.Array$1<UnityEngine.Color32>
             /** Gets the pixel color data for a mipmap level of a face of a slice as Color32 structs.
             * @param $face The CubemapFace to read pixel data from.
             * @param $arrayElement The array slice to read pixel data from.
             * @param $miplevel The mipmap level to get. The range is 0 through the texture's Texture.mipmapCount. The default value is 0.
-            * @returns An array that contains the pixel colors. 
+            * @returns An array that contains the pixel colors.
             */
             public GetPixels32 ($face: UnityEngine.CubemapFace, $arrayElement: number) : System.Array$1<UnityEngine.Color32>
             /** Sets the pixel colors of an entire mipmap level of a face of a slice.
@@ -16109,7 +16109,7 @@
             public set filterLogType(value: UnityEngine.LogType);
             /** Check logging is enabled based on the LogType.
             * @param $logType The type of the log message.
-            * @returns Retrun true in case logs of LogType will be logged otherwise returns false. 
+            * @returns Retrun true in case logs of LogType will be logged otherwise returns false.
             */
             public IsLogTypeAllowed ($logType: UnityEngine.LogType) : boolean
             /** Logs message to the Unity Console using default logger.
@@ -16219,17 +16219,17 @@
             /** Attempts to convert a html color string.
             * @param $htmlString Case insensitive html string to be converted into a color.
             * @param $color The converted color.
-            * @returns True if the string was successfully converted else false. 
+            * @returns True if the string was successfully converted else false.
             */
             public static TryParseHtmlString ($htmlString: string, $color: $Ref<UnityEngine.Color>) : boolean
             /** Returns the color as a hexadecimal string in the format "RRGGBB".
             * @param $color The color to be converted.
-            * @returns Hexadecimal string representing the color. 
+            * @returns Hexadecimal string representing the color.
             */
             public static ToHtmlStringRGB ($color: UnityEngine.Color) : string
             /** Returns the color as a hexadecimal string in the format "RRGGBBAA".
             * @param $color The color to be converted.
-            * @returns Hexadecimal string representing the color. 
+            * @returns Hexadecimal string representing the color.
             */
             public static ToHtmlStringRGBA ($color: UnityEngine.Color) : string
             public constructor ()
@@ -16328,38 +16328,38 @@
             public static LinearToGammaSpace ($value: number) : number
             /** Convert a color temperature in Kelvin to RGB color.
             * @param $kelvin Temperature in Kelvin. Range 1000 to 40000 Kelvin.
-            * @returns Correlated Color Temperature as floating point RGB color. 
+            * @returns Correlated Color Temperature as floating point RGB color.
             */
             public static CorrelatedColorTemperatureToRGB ($kelvin: number) : UnityEngine.Color
             /** Encode a floating point value into a 16-bit representation.
             * @param $val The floating point value to convert.
-            * @returns The converted half-precision float, stored in a 16-bit unsigned integer. 
+            * @returns The converted half-precision float, stored in a 16-bit unsigned integer.
             */
             public static FloatToHalf ($val: number) : number
             /** Convert a half precision float to a 32-bit floating point value.
             * @param $val The half precision value to convert.
-            * @returns The decoded 32-bit float. 
+            * @returns The decoded 32-bit float.
             */
             public static HalfToFloat ($val: number) : number
             /** Generate 2D Perlin noise.
             * @param $x X-coordinate of sample point.
             * @param $y Y-coordinate of sample point.
-            * @returns Value between 0.0 and 1.0. (Return value might be slightly below 0.0 or beyond 1.0.) 
+            * @returns Value between 0.0 and 1.0. (Return value might be slightly below 0.0 or beyond 1.0.)
             */
             public static PerlinNoise ($x: number, $y: number) : number
             /** Generates a 1D pseudo-random pattern of float values across a 2D plane.
             * @param $x The X-coordinate of the given sample point.
-            * @returns A value in the range of 0.0 and 1.0. The value might be slightly higher or lower than this range. 
+            * @returns A value in the range of 0.0 and 1.0. The value might be slightly higher or lower than this range.
             */
             public static PerlinNoise1D ($x: number) : number
             /** Returns the sine of angle f.
             * @param $f The input angle, in radians.
-            * @returns The return value between -1 and +1. 
+            * @returns The return value between -1 and +1.
             */
             public static Sin ($f: number) : number
             /** Returns the cosine of angle f.
             * @param $f The input angle, in radians.
-            * @returns The return value between -1 and 1. 
+            * @returns The return value between -1 and 1.
             */
             public static Cos ($f: number) : number
             /** Returns the tangent of angle f in radians.
@@ -16438,7 +16438,7 @@
             * @param $value The floating point value to restrict inside the range defined by the minimum and maximum values.
             * @param $min The minimum floating point value to compare against.
             * @param $max The maximum floating point value to compare against.
-            * @returns The float result between the minimum and maximum values. 
+            * @returns The float result between the minimum and maximum values.
             */
             public static Clamp ($value: number, $min: number, $max: number) : number
             /** Clamps value between 0 and 1 and returns value.
@@ -16448,21 +16448,21 @@
             * @param $a The start value.
             * @param $b The end value.
             * @param $t The interpolation value between the two floats.
-            * @returns The interpolated float result between the two float values. 
+            * @returns The interpolated float result between the two float values.
             */
             public static Lerp ($a: number, $b: number, $t: number) : number
             /** Linearly interpolates between a and b by t with no limit to t.
             * @param $a The start value.
             * @param $b The end value.
             * @param $t The interpolation between the two floats.
-            * @returns The float value as a result from the linear interpolation. 
+            * @returns The float value as a result from the linear interpolation.
             */
             public static LerpUnclamped ($a: number, $b: number, $t: number) : number
             /** Same as Lerp but makes sure the values interpolate correctly when they wrap around 360 degrees.
             * @param $a The start angle. A float expressed in degrees.
             * @param $b The end angle. A float expressed in degrees.
             * @param $t The interpolation value between the start and end angles. This value is clamped to the range [0, 1].
-            * @returns Returns the interpolated float result between angle a and angle b, based on the interpolation value t. 
+            * @returns Returns the interpolated float result between angle a and angle b, based on the interpolation value t.
             */
             public static LerpAngle ($a: number, $b: number, $t: number) : number
             /** Moves a value current towards target.
@@ -16545,7 +16545,7 @@
             * @param $a The start of the range.
             * @param $b The end of the range.
             * @param $value The point within the range you want to calculate.
-            * @returns A value between zero and one, representing where the "value" parameter falls within the range defined by a and b. 
+            * @returns A value between zero and one, representing where the "value" parameter falls within the range defined by a and b.
             */
             public static InverseLerp ($a: number, $b: number, $value: number) : number
             /** Calculates the shortest difference between two given angles given in degrees.
@@ -16631,7 +16631,7 @@
             /** Returns the value corresponding to key in the preference file if it exists.
             */
             public static GetFloat ($key: string) : number
-            /** Sets a single string value for the preference identified by the given key. You can use PlayerPrefs.GetString to retrieve this value. 
+            /** Sets a single string value for the preference identified by the given key. You can use PlayerPrefs.GetString to retrieve this value.
             */
             public static SetString ($key: string, $value: string) : void
             /** Returns the value corresponding to key in the preference file if it exists.
@@ -16848,7 +16848,7 @@
             * @param $valueMax Maximum value [0..1].
             * @param $alphaMin Minimum alpha [0..1].
             * @param $alphaMax Maximum alpha [0..1].
-            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value. 
+            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value.
             */
             public static ColorHSV () : UnityEngine.Color
             /** Generates a random color from HSV and alpha ranges.
@@ -16860,7 +16860,7 @@
             * @param $valueMax Maximum value [0..1].
             * @param $alphaMin Minimum alpha [0..1].
             * @param $alphaMax Maximum alpha [0..1].
-            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value. 
+            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value.
             */
             public static ColorHSV ($hueMin: number, $hueMax: number) : UnityEngine.Color
             /** Generates a random color from HSV and alpha ranges.
@@ -16872,7 +16872,7 @@
             * @param $valueMax Maximum value [0..1].
             * @param $alphaMin Minimum alpha [0..1].
             * @param $alphaMax Maximum alpha [0..1].
-            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value. 
+            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value.
             */
             public static ColorHSV ($hueMin: number, $hueMax: number, $saturationMin: number, $saturationMax: number) : UnityEngine.Color
             /** Generates a random color from HSV and alpha ranges.
@@ -16884,7 +16884,7 @@
             * @param $valueMax Maximum value [0..1].
             * @param $alphaMin Minimum alpha [0..1].
             * @param $alphaMax Maximum alpha [0..1].
-            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value. 
+            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value.
             */
             public static ColorHSV ($hueMin: number, $hueMax: number, $saturationMin: number, $saturationMax: number, $valueMin: number, $valueMax: number) : UnityEngine.Color
             /** Generates a random color from HSV and alpha ranges.
@@ -16896,7 +16896,7 @@
             * @param $valueMax Maximum value [0..1].
             * @param $alphaMin Minimum alpha [0..1].
             * @param $alphaMax Maximum alpha [0..1].
-            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value. 
+            * @returns A random color with HSV and alpha values in the (inclusive) input ranges. Values for each component are derived via linear interpolation of value.
             */
             public static ColorHSV ($hueMin: number, $hueMax: number, $saturationMin: number, $saturationMax: number, $valueMin: number, $valueMax: number, $alphaMin: number, $alphaMax: number) : UnityEngine.Color
         }
@@ -16931,13 +16931,13 @@
             /** Loads an asset stored at path in a Resources folder using an optional systemTypeInstance filter.
             * @param $path Path to the target resource to load.
             * @param $systemTypeInstance Type filter for objects returned.
-            * @returns The requested asset returned as an Object. 
+            * @returns The requested asset returned as an Object.
             */
             public static Load ($path: string) : UnityEngine.Object
             /** Loads an asset stored at path in a Resources folder using an optional systemTypeInstance filter.
             * @param $path Path to the target resource to load.
             * @param $systemTypeInstance Type filter for objects returned.
-            * @returns The requested asset returned as an Object. 
+            * @returns The requested asset returned as an Object.
             */
             public static Load ($path: string, $systemTypeInstance: System.Type) : UnityEngine.Object
             /** Asynchronously loads an asset stored at path in a Resources folder.
@@ -16963,12 +16963,12 @@
             */
             public static UnloadAsset ($assetToUnload: UnityEngine.Object) : void
             /** Unloads assets that are not used.
-            * @returns Object on which you can yield to wait until the operation completes. 
+            * @returns Object on which you can yield to wait until the operation completes.
             */
             public static UnloadUnusedAssets () : UnityEngine.AsyncOperation
             /** Translates an instance ID to an object reference.
             * @param $instanceID Instance ID of an Object.
-            * @returns Resolved reference or null if the instance ID didn't match anything. 
+            * @returns Resolved reference or null if the instance ID didn't match anything.
             */
             public static InstanceIDToObject ($instanceID: number) : UnityEngine.Object
             public static InstanceIDToObjectList ($instanceIDs: Unity.Collections.NativeArray$1<number>, $objects: System.Collections.Generic.List$1<UnityEngine.Object>) : void
@@ -17154,7 +17154,7 @@
             public static NameToLayer ($layerName: string) : number
             /** Given a set of layer names as defined by either a Builtin or a User Layer in the, returns the equivalent layer mask for all of them.
             * @param $layerNames List of layer names to convert to a layer mask.
-            * @returns The layer mask created from the layerNames. 
+            * @returns The layer mask created from the layerNames.
             */
             public static GetMask (...layerNames: string[]) : number
         }
@@ -17448,12 +17448,12 @@
             public set enabledKeywords(value: System.Array$1<UnityEngine.Rendering.LocalKeyword>);
             /** Find ComputeShader kernel index.
             * @param $name Name of kernel function.
-            * @returns The Kernel index. If the kernel is not found, Unity logs a "FindKernel failed" error message and raises an ArgumentException. 
+            * @returns The Kernel index. If the kernel is not found, Unity logs a "FindKernel failed" error message and raises an ArgumentException.
             */
             public FindKernel ($name: string) : number
             /** Checks whether a shader contains a given kernel.
             * @param $name The name of the kernel to look for.
-            * @returns True if the kernel is found, false otherwise. 
+            * @returns True if the kernel is found, false otherwise.
             */
             public HasKernel ($name: string) : boolean
             /** Set a float parameter.
@@ -17547,7 +17547,7 @@
             public DisableKeyword ($keyword: string) : void
             /** Checks whether a local shader keyword is enabled for this compute shader.
             * @param $keyword The name of the Rendering.LocalKeyword to check.
-            * @returns Returns true if the given Rendering.LocalKeyword is enabled for this compute shader. Otherwise, returns false. 
+            * @returns Returns true if the given Rendering.LocalKeyword is enabled for this compute shader. Otherwise, returns false.
             */
             public IsKeywordEnabled ($keyword: string) : boolean
             /** Enables a local shader keyword for this compute shader.
@@ -17565,12 +17565,12 @@
             public SetKeyword ($keyword: $Ref<UnityEngine.Rendering.LocalKeyword>, $value: boolean) : void
             /** Checks whether a local shader keyword is enabled for this compute shader.
             * @param $keyword The name of the Rendering.LocalKeyword to check.
-            * @returns Returns true if the given Rendering.LocalKeyword is enabled for this compute shader. Otherwise, returns false. 
+            * @returns Returns true if the given Rendering.LocalKeyword is enabled for this compute shader. Otherwise, returns false.
             */
             public IsKeywordEnabled ($keyword: $Ref<UnityEngine.Rendering.LocalKeyword>) : boolean
             /** Allows you to check whether the current end user device supports the features required to run the specified compute shader kernel.
             * @param $kernelIndex Which kernel to query.
-            * @returns True if the specified compute kernel is able to run on the current end user device, false otherwise. 
+            * @returns True if the specified compute kernel is able to run on the current end user device, false otherwise.
             */
             public IsSupported ($kernelIndex: number) : boolean
             /** Set a float parameter.
@@ -17784,7 +17784,7 @@
             public WarmUp () : void
             /** Prewarms the given number of shader variants in this shader variant collection.
             * @param $variantCount The maximum number of variants to warm up.
-            * @returns True if all variants in this shader variant collection have been warmed up, false otherwise. 
+            * @returns True if all variants in this shader variant collection have been warmed up, false otherwise.
             */
             public WarmUpProgressively ($variantCount: number) : boolean
             public Add ($variant: UnityEngine.ShaderVariantCollection.ShaderVariant) : boolean
@@ -17804,20 +17804,20 @@
             /** Rounds value to the closest multiple of snap.
             * @param $val The value to round.
             * @param $snap The increment to round to.
-            * @returns The rounded value. 
+            * @returns The rounded value.
             */
             public static Snap ($val: number, $snap: number) : number
             /** Rounds value to the closest multiple of snap.
             * @param $val The value to round.
             * @param $snap The increment to round to.
-            * @returns The rounded value. 
+            * @returns The rounded value.
             */
             public static Snap ($val: UnityEngine.Vector2, $snap: UnityEngine.Vector2) : UnityEngine.Vector2
             /** Rounds value to the closest multiple of snap.
             * @param $val The value to round.
             * @param $snap The increment to round to.
             * @param $axis Restrict snapping to the components on these axes.
-            * @returns The rounded value. 
+            * @returns The rounded value.
             */
             public static Snap ($val: UnityEngine.Vector3, $snap: UnityEngine.Vector3, $axis?: UnityEngine.SnapAxis) : UnityEngine.Vector3
         }
@@ -18132,28 +18132,28 @@
             public static get supportsIndirectArgumentsBuffer(): boolean;
             /** Is render texture format supported?
             * @param $format The format to look up.
-            * @returns True if the format is supported. 
+            * @returns True if the format is supported.
             */
             public static SupportsRenderTextureFormat ($format: UnityEngine.RenderTextureFormat) : boolean
             /** Is blending supported on render texture format?
             * @param $format The format to look up.
-            * @returns True if blending is supported on the given format. 
+            * @returns True if blending is supported on the given format.
             */
             public static SupportsBlendingOnRenderTextureFormat ($format: UnityEngine.RenderTextureFormat) : boolean
             /** Tests if a RenderTextureFormat can be used with RenderTexture.enableRandomWrite.
             * @param $format The format to look up.
-            * @returns True if the format can be used for random access writes. 
+            * @returns True if the format can be used for random access writes.
             */
             public static SupportsRandomWriteOnRenderTextureFormat ($format: UnityEngine.RenderTextureFormat) : boolean
             /** Is texture format supported on this device?
             * @param $format The TextureFormat format to look up.
-            * @returns True if the format is supported. 
+            * @returns True if the format is supported.
             */
             public static SupportsTextureFormat ($format: UnityEngine.TextureFormat) : boolean
             /** Indicates whether the given combination of a vertex attribute format and dimension is supported on this device.
             * @param $format The VertexAttributeFormat format to look up.
             * @param $dimension The dimension of vertex data to check for.
-            * @returns True if the format with the given dimension is supported. 
+            * @returns True if the format with the given dimension is supported.
             */
             public static SupportsVertexAttributeFormat ($format: UnityEngine.Rendering.VertexAttributeFormat, $dimension: number) : boolean
             public static IsFormatSupported ($format: UnityEngine.Experimental.Rendering.GraphicsFormat, $usage: UnityEngine.Experimental.Rendering.FormatUsage) : boolean
@@ -18164,7 +18164,7 @@
             public static GetGraphicsFormat ($format: UnityEngine.Experimental.Rendering.DefaultFormat) : UnityEngine.Experimental.Rendering.GraphicsFormat
             /** Checks if the target platform supports the MSAA samples count in the RenderTextureDescriptor argument.
             * @param $desc The RenderTextureDescriptor to check.
-            * @returns If the target platform supports the given MSAA samples count of RenderTextureDescriptor, returns the given MSAA samples count. Otherwise returns a lower fallback MSAA samples count value that the target platform supports. 
+            * @returns If the target platform supports the given MSAA samples count of RenderTextureDescriptor, returns the given MSAA samples count. Otherwise returns a lower fallback MSAA samples count value that the target platform supports.
             */
             public static GetRenderTextureSupportedMSAASampleCount ($desc: UnityEngine.RenderTextureDescriptor) : number
             public constructor ()
@@ -18239,7 +18239,7 @@
             /** The real time in seconds since the game started (Read Only).
             */
             public static get realtimeSinceStartup(): number;
-            /** The real time in seconds since the game started (Read Only). Double precision version of Time.realtimeSinceStartup. 
+            /** The real time in seconds since the game started (Read Only). Double precision version of Time.realtimeSinceStartup.
             */
             public static get realtimeSinceStartupAsDouble(): number;
             /** Slows your application’s playback time to allow Unity to save screenshots in between frames.
@@ -18264,7 +18264,7 @@
             */
             public static get isSupported(): boolean;
             /** Checks if the text within an input field can be selected and modified while TouchScreenKeyboard is open.
-            * @returns Returns true when you are able to select and modify the input field, returns false otherwise. 
+            * @returns Returns true when you are able to select and modify the input field, returns false otherwise.
             */
             public static get isInPlaceEditingAllowed(): boolean;
             /** Returns the text displayed by the input field of the keyboard.
@@ -18653,21 +18653,21 @@
             */
             public get uv(): System.Array$1<UnityEngine.Vector2>;
             /** Gets the number of Secondary Textures that the Sprite is using.
-            * @returns Returns the number of Secondary Textures that the Sprite is using. 
+            * @returns Returns the number of Secondary Textures that the Sprite is using.
             */
             public GetSecondaryTextureCount () : number
             /** Retrieves an array of SecondarySpriteTexture used by the Sprite.
             * @param $secondaryTexture The array of SecondarySpriteTexture to contain the Secondary Textures properties used by the Sprite.
-            * @returns Returns the number of Secondary Textures properties retrieved. 
+            * @returns Returns the number of Secondary Textures properties retrieved.
             */
             public GetSecondaryTextures ($secondaryTexture: System.Array$1<UnityEngine.SecondarySpriteTexture>) : number
             /** The number of physics shapes for the Sprite.
-            * @returns The number of physics shapes for the Sprite. 
+            * @returns The number of physics shapes for the Sprite.
             */
             public GetPhysicsShapeCount () : number
             /** The number of points in the selected physics shape for the Sprite.
             * @param $shapeIdx The index of the physics shape to retrieve the number of points from.
-            * @returns The number of points in the selected physics shape for the Sprite. 
+            * @returns The number of points in the selected physics shape for the Sprite.
             */
             public GetPhysicsShapePointCount ($shapeIdx: number) : number
             public GetPhysicsShape ($shapeIdx: number, $physicsShape: System.Collections.Generic.List$1<UnityEngine.Vector2>) : number
@@ -18799,7 +18799,7 @@
         class Social extends System.Object
         {
             protected [__keep_incompatibility]: never;
-            /** This is the currently active social platform. 
+            /** This is the currently active social platform.
             */
             public static get Active(): UnityEngine.SocialPlatforms.ISocialPlatform;
             public static set Active(value: UnityEngine.SocialPlatforms.ISocialPlatform);
@@ -18844,57 +18844,57 @@
             public get cellSwizzle(): UnityEngine.GridLayout.CellSwizzle;
             /** Returns the local bounds for a cell at the location.
             * @param $cellPosition Location of the cell.
-            * @returns Local bounds of cell at the location. 
+            * @returns Local bounds of cell at the location.
             */
             public GetBoundsLocal ($cellPosition: UnityEngine.Vector3Int) : UnityEngine.Bounds
             /** Returns the local bounds for the groups of cells at the location.
             * @param $origin Origin of the group of cells.
             * @param $size Size of the group of cells.
-            * @returns Local bounds of the group of cells at the location. 
+            * @returns Local bounds of the group of cells at the location.
             */
             public GetBoundsLocal ($origin: UnityEngine.Vector3, $size: UnityEngine.Vector3) : UnityEngine.Bounds
             /** Converts a cell position to local position space.
             * @param $cellPosition Cell position to convert.
-            * @returns Local position of the cell position. 
+            * @returns Local position of the cell position.
             */
             public CellToLocal ($cellPosition: UnityEngine.Vector3Int) : UnityEngine.Vector3
             /** Converts a local position to cell position.
             * @param $localPosition Local Position to convert.
-            * @returns Cell position of the local position. 
+            * @returns Cell position of the local position.
             */
             public LocalToCell ($localPosition: UnityEngine.Vector3) : UnityEngine.Vector3Int
             /** Converts an interpolated cell position in floats to local position space.
             * @param $cellPosition Interpolated cell position to convert.
-            * @returns Local position of the cell position. 
+            * @returns Local position of the cell position.
             */
             public CellToLocalInterpolated ($cellPosition: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Converts a local position to cell position.
             * @param $localPosition Local Position to convert.
-            * @returns Interpolated cell position of the local position. 
+            * @returns Interpolated cell position of the local position.
             */
             public LocalToCellInterpolated ($localPosition: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Converts a cell position to world position space.
             * @param $cellPosition Cell position to convert.
-            * @returns World position of the cell position. 
+            * @returns World position of the cell position.
             */
             public CellToWorld ($cellPosition: UnityEngine.Vector3Int) : UnityEngine.Vector3
             /** Converts a world position to cell position.
             * @param $worldPosition World Position to convert.
-            * @returns Cell position of the world position. 
+            * @returns Cell position of the world position.
             */
             public WorldToCell ($worldPosition: UnityEngine.Vector3) : UnityEngine.Vector3Int
             /** Converts a local position to world position.
             * @param $localPosition Local Position to convert.
-            * @returns World position of the local position. 
+            * @returns World position of the local position.
             */
             public LocalToWorld ($localPosition: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Converts a world position to local position.
             * @param $worldPosition World Position to convert.
-            * @returns Local position of the world position. 
+            * @returns Local position of the world position.
             */
             public WorldToLocal ($worldPosition: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Get the default center coordinate of a cell for the set layout of the Grid.
-            * @returns Cell Center coordinate. 
+            * @returns Cell Center coordinate.
             */
             public GetLayoutCellCenter () : UnityEngine.Vector3
             public constructor ()
@@ -18922,12 +18922,12 @@
             public set cellSwizzle(value: UnityEngine.GridLayout.CellSwizzle);
             /** Get the logical center coordinate of a grid cell in local space.
             * @param $position Grid cell position.
-            * @returns Center of the cell transformed into local space coordinates. 
+            * @returns Center of the cell transformed into local space coordinates.
             */
             public GetCellCenterLocal ($position: UnityEngine.Vector3Int) : UnityEngine.Vector3
             /** Get the logical center coordinate of a grid cell in world space.
             * @param $position Grid cell position.
-            * @returns Center of the cell transformed into world space coordinates. 
+            * @returns Center of the cell transformed into world space coordinates.
             */
             public GetCellCenterWorld ($position: UnityEngine.Vector3Int) : UnityEngine.Vector3
             public static Swizzle ($swizzle: UnityEngine.GridLayout.CellSwizzle, $position: UnityEngine.Vector3) : UnityEngine.Vector3
@@ -19047,7 +19047,7 @@
             */
             public static PopEvent ($outEvent: UnityEngine.Event) : boolean
             /** Returns the current number of events that are stored in the event queue.
-            * @returns Current number of events currently in the event queue. 
+            * @returns Current number of events currently in the event queue.
             */
             public static GetEventCount () : number
             /** Create a keyboard event.
@@ -19321,7 +19321,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($position: UnityEngine.Rect, $text: string) : boolean
             /** Make a single press button. The user clicks them and something happens immediately.
@@ -19330,7 +19330,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($position: UnityEngine.Rect, $image: UnityEngine.Texture) : boolean
             /** Make a single press button. The user clicks them and something happens immediately.
@@ -19339,7 +19339,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($position: UnityEngine.Rect, $content: UnityEngine.GUIContent) : boolean
             /** Make a single press button. The user clicks them and something happens immediately.
@@ -19348,7 +19348,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($position: UnityEngine.Rect, $text: string, $style: UnityEngine.GUIStyle) : boolean
             /** Make a single press button. The user clicks them and something happens immediately.
@@ -19357,7 +19357,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($position: UnityEngine.Rect, $image: UnityEngine.Texture, $style: UnityEngine.GUIStyle) : boolean
             /** Make a single press button. The user clicks them and something happens immediately.
@@ -19366,7 +19366,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($position: UnityEngine.Rect, $content: UnityEngine.GUIContent, $style: UnityEngine.GUIStyle) : boolean
             /** Make a button that is active as long as the user holds it down.
@@ -19375,7 +19375,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns True when the users clicks the button. 
+            * @returns True when the users clicks the button.
             */
             public static RepeatButton ($position: UnityEngine.Rect, $text: string) : boolean
             /** Make a button that is active as long as the user holds it down.
@@ -19384,7 +19384,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns True when the users clicks the button. 
+            * @returns True when the users clicks the button.
             */
             public static RepeatButton ($position: UnityEngine.Rect, $image: UnityEngine.Texture) : boolean
             /** Make a button that is active as long as the user holds it down.
@@ -19393,7 +19393,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns True when the users clicks the button. 
+            * @returns True when the users clicks the button.
             */
             public static RepeatButton ($position: UnityEngine.Rect, $content: UnityEngine.GUIContent) : boolean
             /** Make a button that is active as long as the user holds it down.
@@ -19402,7 +19402,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns True when the users clicks the button. 
+            * @returns True when the users clicks the button.
             */
             public static RepeatButton ($position: UnityEngine.Rect, $text: string, $style: UnityEngine.GUIStyle) : boolean
             /** Make a button that is active as long as the user holds it down.
@@ -19411,7 +19411,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns True when the users clicks the button. 
+            * @returns True when the users clicks the button.
             */
             public static RepeatButton ($position: UnityEngine.Rect, $image: UnityEngine.Texture, $style: UnityEngine.GUIStyle) : boolean
             /** Make a button that is active as long as the user holds it down.
@@ -19420,7 +19420,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns True when the users clicks the button. 
+            * @returns True when the users clicks the button.
             */
             public static RepeatButton ($position: UnityEngine.Rect, $content: UnityEngine.GUIContent, $style: UnityEngine.GUIStyle) : boolean
             /** Make a single-line text field where the user can edit a string.
@@ -19428,7 +19428,7 @@
             * @param $text Text to edit. The return value of this function should be assigned back to the string as shown in the example.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextField ($position: UnityEngine.Rect, $text: string) : string
             /** Make a single-line text field where the user can edit a string.
@@ -19436,7 +19436,7 @@
             * @param $text Text to edit. The return value of this function should be assigned back to the string as shown in the example.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextField ($position: UnityEngine.Rect, $text: string, $maxLength: number) : string
             /** Make a single-line text field where the user can edit a string.
@@ -19444,7 +19444,7 @@
             * @param $text Text to edit. The return value of this function should be assigned back to the string as shown in the example.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextField ($position: UnityEngine.Rect, $text: string, $style: UnityEngine.GUIStyle) : string
             /** Make a single-line text field where the user can edit a string.
@@ -19452,7 +19452,7 @@
             * @param $text Text to edit. The return value of this function should be assigned back to the string as shown in the example.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextField ($position: UnityEngine.Rect, $text: string, $maxLength: number, $style: UnityEngine.GUIStyle) : string
             /** Make a text field where the user can enter a password.
@@ -19461,7 +19461,7 @@
             * @param $maskChar Character to mask the password with.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited password. 
+            * @returns The edited password.
             */
             public static PasswordField ($position: UnityEngine.Rect, $password: string, $maskChar: number) : string
             /** Make a text field where the user can enter a password.
@@ -19470,7 +19470,7 @@
             * @param $maskChar Character to mask the password with.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited password. 
+            * @returns The edited password.
             */
             public static PasswordField ($position: UnityEngine.Rect, $password: string, $maskChar: number, $maxLength: number) : string
             /** Make a text field where the user can enter a password.
@@ -19479,7 +19479,7 @@
             * @param $maskChar Character to mask the password with.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited password. 
+            * @returns The edited password.
             */
             public static PasswordField ($position: UnityEngine.Rect, $password: string, $maskChar: number, $style: UnityEngine.GUIStyle) : string
             /** Make a text field where the user can enter a password.
@@ -19488,7 +19488,7 @@
             * @param $maskChar Character to mask the password with.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited password. 
+            * @returns The edited password.
             */
             public static PasswordField ($position: UnityEngine.Rect, $password: string, $maskChar: number, $maxLength: number, $style: UnityEngine.GUIStyle) : string
             /** Make a Multi-line text area where the user can edit a string.
@@ -19496,7 +19496,7 @@
             * @param $text Text to edit. The return value of this function should be assigned back to the string as shown in the example.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textArea style from the current GUISkin is used.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextArea ($position: UnityEngine.Rect, $text: string) : string
             /** Make a Multi-line text area where the user can edit a string.
@@ -19504,7 +19504,7 @@
             * @param $text Text to edit. The return value of this function should be assigned back to the string as shown in the example.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textArea style from the current GUISkin is used.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextArea ($position: UnityEngine.Rect, $text: string, $maxLength: number) : string
             /** Make a Multi-line text area where the user can edit a string.
@@ -19512,7 +19512,7 @@
             * @param $text Text to edit. The return value of this function should be assigned back to the string as shown in the example.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textArea style from the current GUISkin is used.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextArea ($position: UnityEngine.Rect, $text: string, $style: UnityEngine.GUIStyle) : string
             /** Make a Multi-line text area where the user can edit a string.
@@ -19520,7 +19520,7 @@
             * @param $text Text to edit. The return value of this function should be assigned back to the string as shown in the example.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textArea style from the current GUISkin is used.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextArea ($position: UnityEngine.Rect, $text: string, $maxLength: number, $style: UnityEngine.GUIStyle) : string
             /** Make an on/off toggle button.
@@ -19530,7 +19530,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the toggle style from the current GUISkin is used.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($position: UnityEngine.Rect, $value: boolean, $text: string) : boolean
             /** Make an on/off toggle button.
@@ -19540,7 +19540,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the toggle style from the current GUISkin is used.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($position: UnityEngine.Rect, $value: boolean, $image: UnityEngine.Texture) : boolean
             /** Make an on/off toggle button.
@@ -19550,7 +19550,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the toggle style from the current GUISkin is used.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($position: UnityEngine.Rect, $value: boolean, $content: UnityEngine.GUIContent) : boolean
             /** Make an on/off toggle button.
@@ -19560,7 +19560,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the toggle style from the current GUISkin is used.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($position: UnityEngine.Rect, $value: boolean, $text: string, $style: UnityEngine.GUIStyle) : boolean
             /** Make an on/off toggle button.
@@ -19570,7 +19570,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the toggle style from the current GUISkin is used.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($position: UnityEngine.Rect, $value: boolean, $image: UnityEngine.Texture, $style: UnityEngine.GUIStyle) : boolean
             /** Make an on/off toggle button.
@@ -19580,7 +19580,7 @@
             * @param $image Texture to display on the button.
             * @param $content Text, image and tooltip for this button.
             * @param $style The style to use. If left out, the toggle style from the current GUISkin is used.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($position: UnityEngine.Rect, $value: boolean, $content: UnityEngine.GUIContent, $style: UnityEngine.GUIStyle) : boolean
             public static Toggle ($position: UnityEngine.Rect, $id: number, $value: boolean, $content: UnityEngine.GUIContent, $style: UnityEngine.GUIStyle) : boolean
@@ -19592,7 +19592,7 @@
             * @param $contents An array of text, image and tooltips for the toolbar buttons.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($position: UnityEngine.Rect, $selected: number, $texts: System.Array$1<string>) : number
             /** Make a toolbar.
@@ -19603,7 +19603,7 @@
             * @param $contents An array of text, image and tooltips for the toolbar buttons.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($position: UnityEngine.Rect, $selected: number, $images: System.Array$1<UnityEngine.Texture>) : number
             /** Make a toolbar.
@@ -19614,7 +19614,7 @@
             * @param $contents An array of text, image and tooltips for the toolbar buttons.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($position: UnityEngine.Rect, $selected: number, $contents: System.Array$1<UnityEngine.GUIContent>) : number
             /** Make a toolbar.
@@ -19625,7 +19625,7 @@
             * @param $contents An array of text, image and tooltips for the toolbar buttons.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($position: UnityEngine.Rect, $selected: number, $texts: System.Array$1<string>, $style: UnityEngine.GUIStyle) : number
             /** Make a toolbar.
@@ -19636,7 +19636,7 @@
             * @param $contents An array of text, image and tooltips for the toolbar buttons.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($position: UnityEngine.Rect, $selected: number, $images: System.Array$1<UnityEngine.Texture>, $style: UnityEngine.GUIStyle) : number
             /** Make a toolbar.
@@ -19647,7 +19647,7 @@
             * @param $contents An array of text, image and tooltips for the toolbar buttons.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($position: UnityEngine.Rect, $selected: number, $contents: System.Array$1<UnityEngine.GUIContent>, $style: UnityEngine.GUIStyle) : number
             public static Toolbar ($position: UnityEngine.Rect, $selected: number, $contents: System.Array$1<UnityEngine.GUIContent>, $style: UnityEngine.GUIStyle, $buttonSize: UnityEngine.GUI.ToolbarButtonSize) : number
@@ -19659,7 +19659,7 @@
             * @param $contents An array of text, image and tooltips for the grid button.
             * @param $xCount How many elements to fit in the horizontal direction. The controls will be scaled to fit unless the style defines a fixedWidth to use.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($position: UnityEngine.Rect, $selected: number, $texts: System.Array$1<string>, $xCount: number) : number
             /** Make a grid of buttons.
@@ -19670,7 +19670,7 @@
             * @param $contents An array of text, image and tooltips for the grid button.
             * @param $xCount How many elements to fit in the horizontal direction. The controls will be scaled to fit unless the style defines a fixedWidth to use.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($position: UnityEngine.Rect, $selected: number, $images: System.Array$1<UnityEngine.Texture>, $xCount: number) : number
             /** Make a grid of buttons.
@@ -19681,7 +19681,7 @@
             * @param $contents An array of text, image and tooltips for the grid button.
             * @param $xCount How many elements to fit in the horizontal direction. The controls will be scaled to fit unless the style defines a fixedWidth to use.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($position: UnityEngine.Rect, $selected: number, $content: System.Array$1<UnityEngine.GUIContent>, $xCount: number) : number
             /** Make a grid of buttons.
@@ -19692,7 +19692,7 @@
             * @param $contents An array of text, image and tooltips for the grid button.
             * @param $xCount How many elements to fit in the horizontal direction. The controls will be scaled to fit unless the style defines a fixedWidth to use.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($position: UnityEngine.Rect, $selected: number, $texts: System.Array$1<string>, $xCount: number, $style: UnityEngine.GUIStyle) : number
             /** Make a grid of buttons.
@@ -19703,7 +19703,7 @@
             * @param $contents An array of text, image and tooltips for the grid button.
             * @param $xCount How many elements to fit in the horizontal direction. The controls will be scaled to fit unless the style defines a fixedWidth to use.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($position: UnityEngine.Rect, $selected: number, $images: System.Array$1<UnityEngine.Texture>, $xCount: number, $style: UnityEngine.GUIStyle) : number
             /** Make a grid of buttons.
@@ -19714,7 +19714,7 @@
             * @param $contents An array of text, image and tooltips for the grid button.
             * @param $xCount How many elements to fit in the horizontal direction. The controls will be scaled to fit unless the style defines a fixedWidth to use.
             * @param $style The style to use. If left out, the button style from the current GUISkin is used.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($position: UnityEngine.Rect, $selected: number, $contents: System.Array$1<UnityEngine.GUIContent>, $xCount: number, $style: UnityEngine.GUIStyle) : number
             /** A horizontal slider the user can drag to change a value between a min and a max.
@@ -19724,7 +19724,7 @@
             * @param $rightValue The value at the right end of the slider.
             * @param $slider The GUIStyle to use for displaying the dragging area. If left out, the horizontalSlider style from the current GUISkin is used.
             * @param $thumb The GUIStyle to use for displaying draggable thumb. If left out, the horizontalSliderThumb style from the current GUISkin is used.
-            * @returns The value that has been set by the user. 
+            * @returns The value that has been set by the user.
             */
             public static HorizontalSlider ($position: UnityEngine.Rect, $value: number, $leftValue: number, $rightValue: number) : number
             /** A horizontal slider the user can drag to change a value between a min and a max.
@@ -19734,7 +19734,7 @@
             * @param $rightValue The value at the right end of the slider.
             * @param $slider The GUIStyle to use for displaying the dragging area. If left out, the horizontalSlider style from the current GUISkin is used.
             * @param $thumb The GUIStyle to use for displaying draggable thumb. If left out, the horizontalSliderThumb style from the current GUISkin is used.
-            * @returns The value that has been set by the user. 
+            * @returns The value that has been set by the user.
             */
             public static HorizontalSlider ($position: UnityEngine.Rect, $value: number, $leftValue: number, $rightValue: number, $slider: UnityEngine.GUIStyle, $thumb: UnityEngine.GUIStyle) : number
             public static HorizontalSlider ($position: UnityEngine.Rect, $value: number, $leftValue: number, $rightValue: number, $slider: UnityEngine.GUIStyle, $thumb: UnityEngine.GUIStyle, $thumbExtent: UnityEngine.GUIStyle) : number
@@ -19745,7 +19745,7 @@
             * @param $bottomValue The value at the bottom end of the slider.
             * @param $slider The GUIStyle to use for displaying the dragging area. If left out, the horizontalSlider style from the current GUISkin is used.
             * @param $thumb The GUIStyle to use for displaying draggable thumb. If left out, the horizontalSliderThumb style from the current GUISkin is used.
-            * @returns The value that has been set by the user. 
+            * @returns The value that has been set by the user.
             */
             public static VerticalSlider ($position: UnityEngine.Rect, $value: number, $topValue: number, $bottomValue: number) : number
             /** A vertical slider the user can drag to change a value between a min and a max.
@@ -19755,7 +19755,7 @@
             * @param $bottomValue The value at the bottom end of the slider.
             * @param $slider The GUIStyle to use for displaying the dragging area. If left out, the horizontalSlider style from the current GUISkin is used.
             * @param $thumb The GUIStyle to use for displaying draggable thumb. If left out, the horizontalSliderThumb style from the current GUISkin is used.
-            * @returns The value that has been set by the user. 
+            * @returns The value that has been set by the user.
             */
             public static VerticalSlider ($position: UnityEngine.Rect, $value: number, $topValue: number, $bottomValue: number, $slider: UnityEngine.GUIStyle, $thumb: UnityEngine.GUIStyle) : number
             public static VerticalSlider ($position: UnityEngine.Rect, $value: number, $topValue: number, $bottomValue: number, $slider: UnityEngine.GUIStyle, $thumb: UnityEngine.GUIStyle, $thumbExtent: UnityEngine.GUIStyle) : number
@@ -19767,7 +19767,7 @@
             * @param $leftValue The value at the left end of the scrollbar.
             * @param $rightValue The value at the right end of the scrollbar.
             * @param $style The style to use for the scrollbar background. If left out, the horizontalScrollbar style from the current GUISkin is used.
-            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end. 
+            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.
             */
             public static HorizontalScrollbar ($position: UnityEngine.Rect, $value: number, $size: number, $leftValue: number, $rightValue: number) : number
             /** Make a horizontal scrollbar. Scrollbars are what you use to scroll through a document. Most likely, you want to use scrollViews instead.
@@ -19777,7 +19777,7 @@
             * @param $leftValue The value at the left end of the scrollbar.
             * @param $rightValue The value at the right end of the scrollbar.
             * @param $style The style to use for the scrollbar background. If left out, the horizontalScrollbar style from the current GUISkin is used.
-            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end. 
+            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.
             */
             public static HorizontalScrollbar ($position: UnityEngine.Rect, $value: number, $size: number, $leftValue: number, $rightValue: number, $style: UnityEngine.GUIStyle) : number
             /** Make a vertical scrollbar. Scrollbars are what you use to scroll through a document. Most likely, you want to use scrollViews instead.
@@ -19787,7 +19787,7 @@
             * @param $topValue The value at the top of the scrollbar.
             * @param $bottomValue The value at the bottom of the scrollbar.
             * @param $style The style to use for the scrollbar background. If left out, the horizontalScrollbar style from the current GUISkin is used.
-            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end. 
+            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.
             */
             public static VerticalScrollbar ($position: UnityEngine.Rect, $value: number, $size: number, $topValue: number, $bottomValue: number) : number
             /** Make a vertical scrollbar. Scrollbars are what you use to scroll through a document. Most likely, you want to use scrollViews instead.
@@ -19797,7 +19797,7 @@
             * @param $topValue The value at the top of the scrollbar.
             * @param $bottomValue The value at the bottom of the scrollbar.
             * @param $style The style to use for the scrollbar background. If left out, the horizontalScrollbar style from the current GUISkin is used.
-            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end. 
+            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.
             */
             public static VerticalScrollbar ($position: UnityEngine.Rect, $value: number, $size: number, $topValue: number, $bottomValue: number, $style: UnityEngine.GUIStyle) : number
             public static BeginClip ($position: UnityEngine.Rect, $scrollOffset: UnityEngine.Vector2, $renderOffset: UnityEngine.Vector2, $resetOffset: boolean) : void
@@ -19878,7 +19878,7 @@
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
             * @param $alwaysShowHorizontal Optional parameter to always show the horizontal scrollbar. If false or left out, it is only shown when viewRect is wider than position.
             * @param $alwaysShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when viewRect is taller than position.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($position: UnityEngine.Rect, $scrollPosition: UnityEngine.Vector2, $viewRect: UnityEngine.Rect) : UnityEngine.Vector2
             /** Begin a scrolling view inside your GUI.
@@ -19889,7 +19889,7 @@
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
             * @param $alwaysShowHorizontal Optional parameter to always show the horizontal scrollbar. If false or left out, it is only shown when viewRect is wider than position.
             * @param $alwaysShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when viewRect is taller than position.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($position: UnityEngine.Rect, $scrollPosition: UnityEngine.Vector2, $viewRect: UnityEngine.Rect, $alwaysShowHorizontal: boolean, $alwaysShowVertical: boolean) : UnityEngine.Vector2
             /** Begin a scrolling view inside your GUI.
@@ -19900,7 +19900,7 @@
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
             * @param $alwaysShowHorizontal Optional parameter to always show the horizontal scrollbar. If false or left out, it is only shown when viewRect is wider than position.
             * @param $alwaysShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when viewRect is taller than position.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($position: UnityEngine.Rect, $scrollPosition: UnityEngine.Vector2, $viewRect: UnityEngine.Rect, $horizontalScrollbar: UnityEngine.GUIStyle, $verticalScrollbar: UnityEngine.GUIStyle) : UnityEngine.Vector2
             /** Begin a scrolling view inside your GUI.
@@ -19911,7 +19911,7 @@
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
             * @param $alwaysShowHorizontal Optional parameter to always show the horizontal scrollbar. If false or left out, it is only shown when viewRect is wider than position.
             * @param $alwaysShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when viewRect is taller than position.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($position: UnityEngine.Rect, $scrollPosition: UnityEngine.Vector2, $viewRect: UnityEngine.Rect, $alwaysShowHorizontal: boolean, $alwaysShowVertical: boolean, $horizontalScrollbar: UnityEngine.GUIStyle, $verticalScrollbar: UnityEngine.GUIStyle) : UnityEngine.Vector2
             /** Ends a scrollview started with a call to BeginScrollView.
@@ -20379,7 +20379,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($image: UnityEngine.Texture, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a single press button.
@@ -20390,7 +20390,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($text: string, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a single press button.
@@ -20401,7 +20401,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($content: UnityEngine.GUIContent, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a single press button.
@@ -20412,7 +20412,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($image: UnityEngine.Texture, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a single press button.
@@ -20423,7 +20423,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($text: string, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a single press button.
@@ -20434,7 +20434,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the users clicks the button. 
+            * @returns true when the users clicks the button.
             */
             public static Button ($content: UnityEngine.GUIContent, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a repeating button. The button returns true as long as the user holds down the mouse.
@@ -20445,7 +20445,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the holds down the mouse. 
+            * @returns true when the holds down the mouse.
             */
             public static RepeatButton ($image: UnityEngine.Texture, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a repeating button. The button returns true as long as the user holds down the mouse.
@@ -20456,7 +20456,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the holds down the mouse. 
+            * @returns true when the holds down the mouse.
             */
             public static RepeatButton ($text: string, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a repeating button. The button returns true as long as the user holds down the mouse.
@@ -20467,7 +20467,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the holds down the mouse. 
+            * @returns true when the holds down the mouse.
             */
             public static RepeatButton ($content: UnityEngine.GUIContent, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a repeating button. The button returns true as long as the user holds down the mouse.
@@ -20478,7 +20478,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the holds down the mouse. 
+            * @returns true when the holds down the mouse.
             */
             public static RepeatButton ($image: UnityEngine.Texture, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a repeating button. The button returns true as long as the user holds down the mouse.
@@ -20489,7 +20489,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the holds down the mouse. 
+            * @returns true when the holds down the mouse.
             */
             public static RepeatButton ($text: string, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a repeating button. The button returns true as long as the user holds down the mouse.
@@ -20500,7 +20500,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns true when the holds down the mouse. 
+            * @returns true when the holds down the mouse.
             */
             public static RepeatButton ($content: UnityEngine.GUIContent, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a single-line text field where the user can edit a string.
@@ -20510,7 +20510,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextField ($text: string, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a single-line text field where the user can edit a string.
@@ -20520,7 +20520,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextField ($text: string, $maxLength: number, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a single-line text field where the user can edit a string.
@@ -20530,7 +20530,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextField ($text: string, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a single-line text field where the user can edit a string.
@@ -20540,7 +20540,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextField ($text: string, $maxLength: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a text field where the user can enter a password.
@@ -20548,7 +20548,7 @@
             * @param $maskChar Character to mask the password with.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited password. 
+            * @returns The edited password.
             */
             public static PasswordField ($password: string, $maskChar: number, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a text field where the user can enter a password.
@@ -20556,7 +20556,7 @@
             * @param $maskChar Character to mask the password with.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited password. 
+            * @returns The edited password.
             */
             public static PasswordField ($password: string, $maskChar: number, $maxLength: number, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a text field where the user can enter a password.
@@ -20564,7 +20564,7 @@
             * @param $maskChar Character to mask the password with.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited password. 
+            * @returns The edited password.
             */
             public static PasswordField ($password: string, $maskChar: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a text field where the user can enter a password.
@@ -20572,7 +20572,7 @@
             * @param $maskChar Character to mask the password with.
             * @param $maxLength The maximum length of the string. If left out, the user can type for ever and ever.
             * @param $style The style to use. If left out, the textField style from the current GUISkin is used.
-            * @returns The edited password. 
+            * @returns The edited password.
             */
             public static PasswordField ($password: string, $maskChar: number, $maxLength: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a multi-line text field where the user can edit a string.
@@ -20582,7 +20582,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.&amp;lt;br&amp;gt;
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextArea ($text: string, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a multi-line text field where the user can edit a string.
@@ -20592,7 +20592,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.&amp;lt;br&amp;gt;
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextArea ($text: string, $maxLength: number, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a multi-line text field where the user can edit a string.
@@ -20602,7 +20602,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.&amp;lt;br&amp;gt;
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextArea ($text: string, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make a multi-line text field where the user can edit a string.
@@ -20612,7 +20612,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.&amp;lt;br&amp;gt;
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The edited string. 
+            * @returns The edited string.
             */
             public static TextArea ($text: string, $maxLength: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : string
             /** Make an on/off toggle button.
@@ -20624,7 +20624,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($value: boolean, $image: UnityEngine.Texture, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make an on/off toggle button.
@@ -20636,7 +20636,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($value: boolean, $text: string, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make an on/off toggle button.
@@ -20648,7 +20648,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($value: boolean, $content: UnityEngine.GUIContent, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make an on/off toggle button.
@@ -20660,7 +20660,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($value: boolean, $image: UnityEngine.Texture, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make an on/off toggle button.
@@ -20672,7 +20672,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($value: boolean, $text: string, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make an on/off toggle button.
@@ -20684,7 +20684,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The new value of the button. 
+            * @returns The new value of the button.
             */
             public static Toggle ($value: boolean, $content: UnityEngine.GUIContent, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : boolean
             /** Make a toolbar.
@@ -20697,7 +20697,7 @@
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($selected: number, $texts: System.Array$1<string>, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a toolbar.
@@ -20710,7 +20710,7 @@
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($selected: number, $images: System.Array$1<UnityEngine.Texture>, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a toolbar.
@@ -20723,7 +20723,7 @@
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($selected: number, $contents: System.Array$1<UnityEngine.GUIContent>, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a toolbar.
@@ -20736,7 +20736,7 @@
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($selected: number, $texts: System.Array$1<string>, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a toolbar.
@@ -20749,7 +20749,7 @@
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($selected: number, $images: System.Array$1<UnityEngine.Texture>, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             public static Toolbar ($selected: number, $texts: System.Array$1<string>, $style: UnityEngine.GUIStyle, $buttonSize: UnityEngine.GUI.ToolbarButtonSize, ...options: UnityEngine.GUILayoutOption[]) : number
@@ -20764,7 +20764,7 @@
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
             * @param $buttonSize Determines how toolbar button size is calculated.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static Toolbar ($selected: number, $contents: System.Array$1<UnityEngine.GUIContent>, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             public static Toolbar ($selected: number, $contents: System.Array$1<UnityEngine.GUIContent>, $style: UnityEngine.GUIStyle, $buttonSize: UnityEngine.GUI.ToolbarButtonSize, ...options: UnityEngine.GUILayoutOption[]) : number
@@ -20780,7 +20780,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($selected: number, $texts: System.Array$1<string>, $xCount: number, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a Selection Grid.
@@ -20793,7 +20793,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($selected: number, $images: System.Array$1<UnityEngine.Texture>, $xCount: number, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a Selection Grid.
@@ -20806,7 +20806,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($selected: number, $content: System.Array$1<UnityEngine.GUIContent>, $xCount: number, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a Selection Grid.
@@ -20819,7 +20819,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($selected: number, $texts: System.Array$1<string>, $xCount: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a Selection Grid.
@@ -20832,7 +20832,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($selected: number, $images: System.Array$1<UnityEngine.Texture>, $xCount: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a Selection Grid.
@@ -20845,7 +20845,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The index of the selected button. 
+            * @returns The index of the selected button.
             */
             public static SelectionGrid ($selected: number, $contents: System.Array$1<UnityEngine.GUIContent>, $xCount: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             /** A horizontal slider the user can drag to change a value between a min and a max.
@@ -20855,7 +20855,7 @@
             * @param $slider The GUIStyle to use for displaying the dragging area. If left out, the horizontalSlider style from the current GUISkin is used.
             * @param $thumb The GUIStyle to use for displaying draggable thumb. If left out, the horizontalSliderThumb style from the current GUISkin is used.
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.
-            * @returns The value that has been set by the user. 
+            * @returns The value that has been set by the user.
             */
             public static HorizontalSlider ($value: number, $leftValue: number, $rightValue: number, ...options: UnityEngine.GUILayoutOption[]) : number
             /** A horizontal slider the user can drag to change a value between a min and a max.
@@ -20865,7 +20865,7 @@
             * @param $slider The GUIStyle to use for displaying the dragging area. If left out, the horizontalSlider style from the current GUISkin is used.
             * @param $thumb The GUIStyle to use for displaying draggable thumb. If left out, the horizontalSliderThumb style from the current GUISkin is used.
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.
-            * @returns The value that has been set by the user. 
+            * @returns The value that has been set by the user.
             */
             public static HorizontalSlider ($value: number, $leftValue: number, $rightValue: number, $slider: UnityEngine.GUIStyle, $thumb: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             /** A vertical slider the user can drag to change a value between a min and a max.
@@ -20875,7 +20875,7 @@
             * @param $slider The GUIStyle to use for displaying the dragging area. If left out, the horizontalSlider style from the current GUISkin is used.
             * @param $thumb The GUIStyle to use for displaying draggable thumb. If left out, the horizontalSliderThumb style from the current GUISkin is used.
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.
-            * @returns The value that has been set by the user. 
+            * @returns The value that has been set by the user.
             */
             public static VerticalSlider ($value: number, $leftValue: number, $rightValue: number, ...options: UnityEngine.GUILayoutOption[]) : number
             /** A vertical slider the user can drag to change a value between a min and a max.
@@ -20885,7 +20885,7 @@
             * @param $slider The GUIStyle to use for displaying the dragging area. If left out, the horizontalSlider style from the current GUISkin is used.
             * @param $thumb The GUIStyle to use for displaying draggable thumb. If left out, the horizontalSliderThumb style from the current GUISkin is used.
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.
-            * @returns The value that has been set by the user. 
+            * @returns The value that has been set by the user.
             */
             public static VerticalSlider ($value: number, $leftValue: number, $rightValue: number, $slider: UnityEngine.GUIStyle, $thumb: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a horizontal scrollbar.
@@ -20895,7 +20895,7 @@
             * @param $rightValue The value at the right end of the scrollbar.
             * @param $style The style to use for the scrollbar background. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.
-            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end. 
+            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.
             */
             public static HorizontalScrollbar ($value: number, $size: number, $leftValue: number, $rightValue: number, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a horizontal scrollbar.
@@ -20905,7 +20905,7 @@
             * @param $rightValue The value at the right end of the scrollbar.
             * @param $style The style to use for the scrollbar background. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.
-            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end. 
+            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.
             */
             public static HorizontalScrollbar ($value: number, $size: number, $leftValue: number, $rightValue: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a vertical scrollbar.
@@ -20915,7 +20915,7 @@
             * @param $bottomValue The value at the bottom end of the scrollbar.
             * @param $style The style to use for the scrollbar background. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.
-            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end. 
+            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.
             */
             public static VerticalScrollbar ($value: number, $size: number, $topValue: number, $bottomValue: number, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Make a vertical scrollbar.
@@ -20925,7 +20925,7 @@
             * @param $bottomValue The value at the bottom end of the scrollbar.
             * @param $style The style to use for the scrollbar background. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.
-            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end. 
+            * @returns The modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.
             */
             public static VerticalScrollbar ($value: number, $size: number, $topValue: number, $bottomValue: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : number
             /** Insert a space in the current layout group.
@@ -21105,7 +21105,7 @@
             * @param $alwayShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when content inside the ScrollView is taller than the scrollview itself.
             * @param $horizontalScrollbar Optional GUIStyle to use for the horizontal scrollbar. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($scrollPosition: UnityEngine.Vector2, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Vector2
             /** Begin an automatically laid out scrollview.
@@ -21114,7 +21114,7 @@
             * @param $alwayShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when content inside the ScrollView is taller than the scrollview itself.
             * @param $horizontalScrollbar Optional GUIStyle to use for the horizontal scrollbar. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($scrollPosition: UnityEngine.Vector2, $alwaysShowHorizontal: boolean, $alwaysShowVertical: boolean, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Vector2
             /** Begin an automatically laid out scrollview.
@@ -21123,7 +21123,7 @@
             * @param $alwayShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when content inside the ScrollView is taller than the scrollview itself.
             * @param $horizontalScrollbar Optional GUIStyle to use for the horizontal scrollbar. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($scrollPosition: UnityEngine.Vector2, $horizontalScrollbar: UnityEngine.GUIStyle, $verticalScrollbar: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Vector2
             /** Begin an automatically laid out scrollview.
@@ -21132,7 +21132,7 @@
             * @param $alwayShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when content inside the ScrollView is taller than the scrollview itself.
             * @param $horizontalScrollbar Optional GUIStyle to use for the horizontal scrollbar. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($scrollPosition: UnityEngine.Vector2, $style: UnityEngine.GUIStyle) : UnityEngine.Vector2
             /** Begin an automatically laid out scrollview.
@@ -21141,7 +21141,7 @@
             * @param $alwayShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when content inside the ScrollView is taller than the scrollview itself.
             * @param $horizontalScrollbar Optional GUIStyle to use for the horizontal scrollbar. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($scrollPosition: UnityEngine.Vector2, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Vector2
             /** Begin an automatically laid out scrollview.
@@ -21150,7 +21150,7 @@
             * @param $alwayShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when content inside the ScrollView is taller than the scrollview itself.
             * @param $horizontalScrollbar Optional GUIStyle to use for the horizontal scrollbar. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($scrollPosition: UnityEngine.Vector2, $alwaysShowHorizontal: boolean, $alwaysShowVertical: boolean, $horizontalScrollbar: UnityEngine.GUIStyle, $verticalScrollbar: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Vector2
             /** Begin an automatically laid out scrollview.
@@ -21159,7 +21159,7 @@
             * @param $alwayShowVertical Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when content inside the ScrollView is taller than the scrollview itself.
             * @param $horizontalScrollbar Optional GUIStyle to use for the horizontal scrollbar. If left out, the horizontalScrollbar style from the current GUISkin is used.
             * @param $verticalScrollbar Optional GUIStyle to use for the vertical scrollbar. If left out, the verticalScrollbar style from the current GUISkin is used.
-            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example. 
+            * @returns The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.
             */
             public static BeginScrollView ($scrollPosition: UnityEngine.Vector2, $alwaysShowHorizontal: boolean, $alwaysShowVertical: boolean, $horizontalScrollbar: UnityEngine.GUIStyle, $verticalScrollbar: UnityEngine.GUIStyle, $background: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Vector2
             /** End a scroll view begun with a call to BeginScrollView.
@@ -21214,7 +21214,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns A rectangle that is large enough to contain content when rendered in style. 
+            * @returns A rectangle that is large enough to contain content when rendered in style.
             */
             public static GetRect ($content: UnityEngine.GUIContent, $style: UnityEngine.GUIStyle) : UnityEngine.Rect
             /** Reserve layout space for a rectangle for displaying some contents with a specific style.
@@ -21223,7 +21223,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns A rectangle that is large enough to contain content when rendered in style. 
+            * @returns A rectangle that is large enough to contain content when rendered in style.
             */
             public static GetRect ($content: UnityEngine.GUIContent, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Rect
             /** Reserve layout space for a rectangle with a fixed content area.
@@ -21233,7 +21233,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The rectangle to put your control in. 
+            * @returns The rectangle to put your control in.
             */
             public static GetRect ($width: number, $height: number) : UnityEngine.Rect
             /** Reserve layout space for a rectangle with a fixed content area.
@@ -21243,7 +21243,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The rectangle to put your control in. 
+            * @returns The rectangle to put your control in.
             */
             public static GetRect ($width: number, $height: number, $style: UnityEngine.GUIStyle) : UnityEngine.Rect
             /** Reserve layout space for a rectangle with a fixed content area.
@@ -21253,7 +21253,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The rectangle to put your control in. 
+            * @returns The rectangle to put your control in.
             */
             public static GetRect ($width: number, $height: number, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Rect
             /** Reserve layout space for a rectangle with a fixed content area.
@@ -21263,7 +21263,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The rectangle to put your control in. 
+            * @returns The rectangle to put your control in.
             */
             public static GetRect ($width: number, $height: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Rect
             /** Reserve layout space for a flexible rect.
@@ -21275,7 +21275,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns A rectangle with size between minWidth & maxWidth on both axes. 
+            * @returns A rectangle with size between minWidth & maxWidth on both axes.
             */
             public static GetRect ($minWidth: number, $maxWidth: number, $minHeight: number, $maxHeight: number) : UnityEngine.Rect
             /** Reserve layout space for a flexible rect.
@@ -21287,7 +21287,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns A rectangle with size between minWidth & maxWidth on both axes. 
+            * @returns A rectangle with size between minWidth & maxWidth on both axes.
             */
             public static GetRect ($minWidth: number, $maxWidth: number, $minHeight: number, $maxHeight: number, $style: UnityEngine.GUIStyle) : UnityEngine.Rect
             /** Reserve layout space for a flexible rect.
@@ -21299,7 +21299,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns A rectangle with size between minWidth & maxWidth on both axes. 
+            * @returns A rectangle with size between minWidth & maxWidth on both axes.
             */
             public static GetRect ($minWidth: number, $maxWidth: number, $minHeight: number, $maxHeight: number, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Rect
             /** Reserve layout space for a flexible rect.
@@ -21311,11 +21311,11 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns A rectangle with size between minWidth & maxWidth on both axes. 
+            * @returns A rectangle with size between minWidth & maxWidth on both axes.
             */
             public static GetRect ($minWidth: number, $maxWidth: number, $minHeight: number, $maxHeight: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Rect
             /** Get the rectangle last used by GUILayout for a control.
-            * @returns The last used rectangle. 
+            * @returns The last used rectangle.
             */
             public static GetLastRect () : UnityEngine.Rect
             /** Reserve layout space for a rectangle with a specific aspect ratio.
@@ -21324,7 +21324,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The rect for the control. 
+            * @returns The rect for the control.
             */
             public static GetAspectRect ($aspect: number) : UnityEngine.Rect
             /** Reserve layout space for a rectangle with a specific aspect ratio.
@@ -21333,7 +21333,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The rect for the control. 
+            * @returns The rect for the control.
             */
             public static GetAspectRect ($aspect: number, $style: UnityEngine.GUIStyle) : UnityEngine.Rect
             /** Reserve layout space for a rectangle with a specific aspect ratio.
@@ -21342,7 +21342,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The rect for the control. 
+            * @returns The rect for the control.
             */
             public static GetAspectRect ($aspect: number, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Rect
             /** Reserve layout space for a rectangle with a specific aspect ratio.
@@ -21351,7 +21351,7 @@
             * @param $options An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the style.<br>
             See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
             GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.
-            * @returns The rect for the control. 
+            * @returns The rect for the control.
             */
             public static GetAspectRect ($aspect: number, $style: UnityEngine.GUIStyle, ...options: UnityEngine.GUILayoutOption[]) : UnityEngine.Rect
             public constructor ()
@@ -21416,14 +21416,14 @@
             * @param $fontname The name of the OS font to use for this font object.
             * @param $size The default character size of the generated font.
             * @param $fontnames Am array of names of OS fonts to use for this font object. When rendering characters using this font object, the first font which is installed on the machine, which contains the requested character will be used.
-            * @returns The generate Font object. 
+            * @returns The generate Font object.
             */
             public static CreateDynamicFontFromOSFont ($fontname: string, $size: number) : UnityEngine.Font
             /** Creates a Font object which lets you render a font installed on the user machine.
             * @param $fontname The name of the OS font to use for this font object.
             * @param $size The default character size of the generated font.
             * @param $fontnames Am array of names of OS fonts to use for this font object. When rendering characters using this font object, the first font which is installed on the machine, which contains the requested character will be used.
-            * @returns The generate Font object. 
+            * @returns The generate Font object.
             */
             public static CreateDynamicFontFromOSFont ($fontnames: System.Array$1<string>, $size: number) : UnityEngine.Font
             /** Returns the maximum number of verts that the text generator may return for a given string.
@@ -21432,15 +21432,15 @@
             public static GetMaxVertsForString ($str: string) : number
             /** Does this font have a specific character?
             * @param $c The character to check for.
-            * @returns Whether or not the font has the character specified. 
+            * @returns Whether or not the font has the character specified.
             */
             public HasCharacter ($c: number) : boolean
             /** Get names of fonts installed on the machine.
-            * @returns An array of the names of all fonts installed on the machine. 
+            * @returns An array of the names of all fonts installed on the machine.
             */
             public static GetOSInstalledFontNames () : System.Array$1<string>
             /** Gets the file paths of the fonts that are installed on the operating system.
-            * @returns An array of the file paths of all fonts installed on the machine. 
+            * @returns An array of the file paths of all fonts installed on the machine.
             */
             public static GetPathsToOSFonts () : System.Array$1<string>
             /** Get rendering info for a specific character.
@@ -21547,7 +21547,7 @@
             * @param $local The local space rectangle that needs to be processed.
             * @param $widthInPixels Width, in pixel units, of the axis-aligned bounding box that encompasses the aligned points.
             * @param $heightInPixels Height, in pixel units, of the axis-aligned bounding box that encompasses the aligned points.
-            * @returns The aligned rectangle in local space. 
+            * @returns The aligned rectangle in local space.
             */
             public static AlignRectToDevice ($rect: UnityEngine.Rect, $widthInPixels: $Ref<number>, $heightInPixels: $Ref<number>) : UnityEngine.Rect
             /** Get a unique ID for a control.
@@ -21596,7 +21596,7 @@
             * @param $local The local space rectangle that needs to be processed.
             * @param $widthInPixels Width, in pixel units, of the axis-aligned bounding box that encompasses the aligned points.
             * @param $heightInPixels Height, in pixel units, of the axis-aligned bounding box that encompasses the aligned points.
-            * @returns The aligned rectangle in local space. 
+            * @returns The aligned rectangle in local space.
             */
             public static AlignRectToDevice ($rect: UnityEngine.Rect) : UnityEngine.Rect
             public constructor ()
@@ -21733,7 +21733,7 @@
             * @param $tex The texture to load the image into.
             * @param $data The byte array containing the image data to load.
             * @param $markNonReadable Set to false by default, pass true to optionally mark the texture as non-readable.
-            * @returns Returns true if the data can be loaded, false otherwise. 
+            * @returns Returns true if the data can be loaded, false otherwise.
             */
             public static LoadImage ($tex: UnityEngine.Texture2D, $data: System.Array$1<number>, $markNonReadable: boolean) : boolean
             public static LoadImage ($tex: UnityEngine.Texture2D, $data: System.Array$1<number>) : boolean
@@ -21957,26 +21957,26 @@
             */
             public get lastData(): UnityEngine.LocationInfo;
             /** Starts location service updates.
-            * @param $desiredAccuracyInMeters 
+            * @param $desiredAccuracyInMeters
             The service accuracy you want to use, in meters. This determines the accuracy of the device's last location coordinates. Higher values like 500 don't require the device to use its GPS chip and
             thus save battery power. Lower values like 5-10 provide the best accuracy but require the GPS chip and thus use more battery power. The default value is 10 meters.
-            * @param $updateDistanceInMeters 
+            * @param $updateDistanceInMeters
             The minimum distance, in meters, that the device must move laterally before Unity updates Input.location. Higher values like 500 produce fewer updates and are less resource intensive to process. The default is 10 meters.
             */
             public Start ($desiredAccuracyInMeters: number, $updateDistanceInMeters: number) : void
             /** Starts location service updates.
-            * @param $desiredAccuracyInMeters 
+            * @param $desiredAccuracyInMeters
             The service accuracy you want to use, in meters. This determines the accuracy of the device's last location coordinates. Higher values like 500 don't require the device to use its GPS chip and
             thus save battery power. Lower values like 5-10 provide the best accuracy but require the GPS chip and thus use more battery power. The default value is 10 meters.
-            * @param $updateDistanceInMeters 
+            * @param $updateDistanceInMeters
             The minimum distance, in meters, that the device must move laterally before Unity updates Input.location. Higher values like 500 produce fewer updates and are less resource intensive to process. The default is 10 meters.
             */
             public Start ($desiredAccuracyInMeters: number) : void
             /** Starts location service updates.
-            * @param $desiredAccuracyInMeters 
+            * @param $desiredAccuracyInMeters
             The service accuracy you want to use, in meters. This determines the accuracy of the device's last location coordinates. Higher values like 500 don't require the device to use its GPS chip and
             thus save battery power. Lower values like 5-10 provide the best accuracy but require the GPS chip and thus use more battery power. The default value is 10 meters.
-            * @param $updateDistanceInMeters 
+            * @param $updateDistanceInMeters
             The minimum distance, in meters, that the device must move laterally before Unity updates Input.location. Higher values like 500 produce fewer updates and are less resource intensive to process. The default is 10 meters.
             */
             public Start () : void
@@ -22112,7 +22112,7 @@
             public static GetAxisRaw ($axisName: string) : number
             /** Returns true while the virtual button identified by buttonName is held down.
             * @param $buttonName The name of the button such as Jump.
-            * @returns True when an axis has been pressed and not released. 
+            * @returns True when an axis has been pressed and not released.
             */
             public static GetButton ($buttonName: string) : boolean
             /** Returns true during the frame the user pressed down the virtual button identified by buttonName.
@@ -22135,24 +22135,24 @@
             public static ResetInputAxes () : void
             /** Determine whether a particular joystick model has been preconfigured by Unity. (Linux-only).
             * @param $joystickName The name of the joystick to check (returned by Input.GetJoystickNames).
-            * @returns True if the joystick layout has been preconfigured; false otherwise. 
+            * @returns True if the joystick layout has been preconfigured; false otherwise.
             */
             public static IsJoystickPreconfigured ($joystickName: string) : boolean
             /** Retrieves a list of input device names corresponding to the index of an Axis configured within Input Manager.
-            * @returns Returns an array of joystick and gamepad device names. 
+            * @returns Returns an array of joystick and gamepad device names.
             */
             public static GetJoystickNames () : System.Array$1<string>
             /** Call Input.GetTouch to obtain a Touch struct.
             * @param $index The touch input on the device screen.
-            * @returns Touch details in the struct. 
+            * @returns Touch details in the struct.
             */
             public static GetTouch ($index: number) : UnityEngine.Touch
             /** Returns the PenData for the pen event at the given index in the pen event queue.
-            * @returns Pen event details in the struct. 
+            * @returns Pen event details in the struct.
             */
             public static GetPenEvent ($index: number) : UnityEngine.PenData
             /** Returns the PenData for the last stored pen up or down event.
-            * @returns Pen event details in the struct. 
+            * @returns Pen event details in the struct.
             */
             public static GetLastPenContactEvent () : UnityEngine.PenData
             /** Clears the pen event queue.
@@ -22193,19 +22193,19 @@
             /** Generate a JSON representation of the public fields of an object.
             * @param $obj The object to convert to JSON form.
             * @param $prettyPrint If true, format the output for readability. If false, format the output for minimum size. Default is false.
-            * @returns The object's data in JSON format. 
+            * @returns The object's data in JSON format.
             */
             public static ToJson ($obj: any) : string
             /** Generate a JSON representation of the public fields of an object.
             * @param $obj The object to convert to JSON form.
             * @param $prettyPrint If true, format the output for readability. If false, format the output for minimum size. Default is false.
-            * @returns The object's data in JSON format. 
+            * @returns The object's data in JSON format.
             */
             public static ToJson ($obj: any, $prettyPrint: boolean) : string
             /** Create an object from its JSON representation.
             * @param $json The JSON representation of the object.
             * @param $type The type of object represented by the Json.
-            * @returns An instance of the object. 
+            * @returns An instance of the object.
             */
             public static FromJson ($json: string, $type: System.Type) : any
             /** Overwrite data in an object by reading from its JSON representation.
@@ -22234,7 +22234,7 @@
             public SetLocalizedString ($original: string, $localized: string) : void
             /** Get the localized string for the specified key.
             * @param $original Original string acting as key.
-            * @returns Localized string matching the original in the LocalizationAsset locale 
+            * @returns Localized string matching the original in the LocalizationAsset locale
             */
             public GetLocalizedString ($original: string) : string
             public constructor ()
@@ -22287,7 +22287,7 @@
             /** Script interface for the EmissionModule of a Particle System.
             */
             public get emission(): UnityEngine.ParticleSystem.EmissionModule;
-            /** Script interface for the ShapeModule of a Particle System. 
+            /** Script interface for the ShapeModule of a Particle System.
             */
             public get shape(): UnityEngine.ParticleSystem.ShapeModule;
             /** Script interface for the VelocityOverLifetimeModule of a Particle System.
@@ -22311,7 +22311,7 @@
             /** Script interface for the ColorByLifetimeModule of a Particle System.
             */
             public get colorBySpeed(): UnityEngine.ParticleSystem.ColorBySpeedModule;
-            /** Script interface for the SizeOverLifetimeModule of a Particle System. 
+            /** Script interface for the SizeOverLifetimeModule of a Particle System.
             */
             public get sizeOverLifetime(): UnityEngine.ParticleSystem.SizeOverLifetimeModule;
             /** Script interface for the SizeBySpeedModule of a Particle System.
@@ -22365,12 +22365,12 @@
             public SetCustomParticleData ($customData: System.Collections.Generic.List$1<UnityEngine.Vector4>, $streamIndex: UnityEngine.ParticleSystemCustomData) : void
             public GetCustomParticleData ($customData: System.Collections.Generic.List$1<UnityEngine.Vector4>, $streamIndex: UnityEngine.ParticleSystemCustomData) : number
             /** Returns all the data that relates to the current internal state of the Particle System.
-            * @returns The current internal state of the Particle System. 
+            * @returns The current internal state of the Particle System.
             */
             public GetPlaybackState () : UnityEngine.ParticleSystem.PlaybackState
             public SetPlaybackState ($playbackState: UnityEngine.ParticleSystem.PlaybackState) : void
             /** Returns all the data relating to the current internal state of the Particle System Trails.
-            * @returns The variable to populate with the Trails that currently belong to the Particle System.. 
+            * @returns The variable to populate with the Trails that currently belong to the Particle System..
             */
             public GetTrails () : UnityEngine.ParticleSystem.Trails
             public GetTrails ($trailData: $Ref<UnityEngine.ParticleSystem.Trails>) : number
@@ -22444,12 +22444,12 @@
             public Clear () : void
             /** Does the Particle System contain any live particles, or will it produce more?
             * @param $withChildren Check all child Particle Systems as well.
-            * @returns True if the Particle System contains live particles or is still creating new particles. False if the Particle System has stopped emitting particles and all particles are dead. 
+            * @returns True if the Particle System contains live particles or is still creating new particles. False if the Particle System has stopped emitting particles and all particles are dead.
             */
             public IsAlive ($withChildren: boolean) : boolean
             /** Does the Particle System contain any live particles, or will it produce more?
             * @param $withChildren Check all child Particle Systems as well.
-            * @returns True if the Particle System contains live particles or is still creating new particles. False if the Particle System has stopped emitting particles and all particles are dead. 
+            * @returns True if the Particle System contains live particles or is still creating new particles. False if the Particle System has stopped emitting particles and all particles are dead.
             */
             public IsAlive () : boolean
             /** Emit count particles immediately.
@@ -22493,7 +22493,7 @@
             /** Safe array size for use with ParticleSystem.GetTriggerParticles.
             * @param $ps Particle system.
             * @param $type Type of trigger to return size for.
-            * @returns Number of particles with this trigger event type. 
+            * @returns Number of particles with this trigger event type.
             */
             GetSafeTriggerParticlesSize ($type: UnityEngine.ParticleSystemTriggerEventType) : number;
             GetTriggerParticles ($type: UnityEngine.ParticleSystemTriggerEventType, $particles: System.Collections.Generic.List$1<UnityEngine.ParticleSystem.Particle>) : number;
@@ -22727,7 +22727,7 @@
             /** Safe array size for use with ParticleSystem.GetTriggerParticles.
             * @param $ps Particle system.
             * @param $type Type of trigger to return size for.
-            * @returns Number of particles with this trigger event type. 
+            * @returns Number of particles with this trigger event type.
             */
             public static GetSafeTriggerParticlesSize ($ps: UnityEngine.ParticleSystem, $type: UnityEngine.ParticleSystemTriggerEventType) : number
             public static GetTriggerParticles ($ps: UnityEngine.ParticleSystem, $type: UnityEngine.ParticleSystemTriggerEventType, $particles: System.Collections.Generic.List$1<UnityEngine.ParticleSystem.Particle>) : number
@@ -23196,13 +23196,13 @@
             public GetPointVelocity ($worldPoint: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Returns the force that the Rigidbody has accumulated before the simulation step.
             * @param $step The timestep of the next physics simulation.
-            * @returns Accumulated force expressed in ForceMode.Force. 
+            * @returns Accumulated force expressed in ForceMode.Force.
             */
             public GetAccumulatedForce ($step: number) : UnityEngine.Vector3
             public GetAccumulatedForce () : UnityEngine.Vector3
             /** Returns the torque that the Rigidbody has accumulated before the simulation step.
             * @param $step The timestep of the next physics simulation.
-            * @returns Accumulated torque expressed in ForceMode.Force. 
+            * @returns Accumulated torque expressed in ForceMode.Force.
             */
             public GetAccumulatedTorque ($step: number) : UnityEngine.Vector3
             public GetAccumulatedTorque () : UnityEngine.Vector3
@@ -23336,7 +23336,7 @@
             * @param $hitInfo If true is returned, hitInfo will contain more information about where the collider was hit (See Also: RaycastHit).
             * @param $maxDistance The length of the sweep.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True when the rigidbody sweep intersects any collider, otherwise false. 
+            * @returns True when the rigidbody sweep intersects any collider, otherwise false.
             */
             public SweepTest ($direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public SweepTest ($direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance: number) : boolean
@@ -23345,7 +23345,7 @@
             * @param $direction The direction into which to sweep the rigidbody.
             * @param $maxDistance The length of the sweep.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns An array of all colliders hit in the sweep. 
+            * @returns An array of all colliders hit in the sweep.
             */
             public SweepTestAll ($direction: UnityEngine.Vector3, $maxDistance: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : System.Array$1<UnityEngine.RaycastHit>
             public SweepTestAll ($direction: UnityEngine.Vector3, $maxDistance: number) : System.Array$1<UnityEngine.RaycastHit>
@@ -23396,12 +23396,12 @@
             public get contacts(): System.Array$1<UnityEngine.ContactPoint>;
             /** Gets the contact point at the specified index.
             * @param $index The index of the contact to retrieve.
-            * @returns The contact at the specified index. 
+            * @returns The contact at the specified index.
             */
             public GetContact ($index: number) : UnityEngine.ContactPoint
             /** Retrieves all contact points for this collision.
             * @param $contacts An array of ContactPoint used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public GetContacts ($contacts: System.Array$1<UnityEngine.ContactPoint>) : number
             public GetContacts ($contacts: System.Collections.Generic.List$1<UnityEngine.ContactPoint>) : number
@@ -23597,13 +23597,13 @@
             public set collisionDetectionMode(value: UnityEngine.CollisionDetectionMode);
             /** Returns the force that the ArticulationBody has accumulated before the simulation step.
             * @param $step The timestep of the next physics simulation.
-            * @returns Accumulated force expressed in ForceMode.Force. 
+            * @returns Accumulated force expressed in ForceMode.Force.
             */
             public GetAccumulatedForce ($step: number) : UnityEngine.Vector3
             public GetAccumulatedForce () : UnityEngine.Vector3
             /** Returns the torque that the ArticulationBody has accumulated before the simulation step.
             * @param $step The timestep of the next physics simulation.
-            * @returns Accumulated torque expressed in ForceMode.Force. 
+            * @returns Accumulated torque expressed in ForceMode.Force.
             */
             public GetAccumulatedTorque ($step: number) : UnityEngine.Vector3
             public GetAccumulatedTorque () : UnityEngine.Vector3
@@ -23681,7 +23681,7 @@
             public TeleportRoot ($position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion) : void
             /** Return the point on the articulation body that is closest to a given one.
             * @param $point The point of interest.
-            * @returns The point on the surfaces of all Colliders attached to this articulation body that is closest to the given one. 
+            * @returns The point on the surfaces of all Colliders attached to this articulation body that is closest to the given one.
             */
             public GetClosestPoint ($point: UnityEngine.Vector3) : UnityEngine.Vector3
             /** The velocity relative to the articulation body at the point relativePoint.
@@ -23691,8 +23691,8 @@
             */
             public GetPointVelocity ($worldPoint: UnityEngine.Vector3) : UnityEngine.Vector3
             /** Calculates and writes dense Jacobian matrix of the articulation body hierarchy to the supplied struct.
-            * @param $jacobian Supplied struct to read back and store Jacobian matrix values. 
-            * @returns Number of elements in Jacobian matrix. 
+            * @param $jacobian Supplied struct to read back and store Jacobian matrix values.
+            * @returns Number of elements in Jacobian matrix.
             */
             public GetDenseJacobian ($jacobian: $Ref<UnityEngine.ArticulationJacobian>) : number
             public GetJointPositions ($positions: System.Collections.Generic.List$1<number>) : number
@@ -23704,7 +23704,7 @@
             public SetJointForces ($forces: System.Collections.Generic.List$1<number>) : void
             /** Returns the forces required for the body to reach the provided acceleration in reduced space.
             * @param $acceleration The desired acceleration in reduced space.
-            * @returns The forces needed for the body to reach the desired acceleration in reduced space. 
+            * @returns The forces needed for the body to reach the desired acceleration in reduced space.
             */
             public GetJointForcesForAcceleration ($acceleration: UnityEngine.ArticulationReducedSpace) : UnityEngine.ArticulationReducedSpace
             public GetDriveForces ($forces: System.Collections.Generic.List$1<number>) : number
@@ -23989,7 +23989,7 @@
             /** Checks whether the collision detection system will ignore all collisionstriggers between collider1 and collider2/ or not.
             * @param $collider1 The first collider to compare to collider2.
             * @param $collider2 The second collider to compare to collider1.
-            * @returns Whether the collision detection system will ignore all collisionstriggers between collider1 and collider2/ or not. 
+            * @returns Whether the collision detection system will ignore all collisionstriggers between collider1 and collider2/ or not.
             */
             public static GetIgnoreCollision ($collider1: UnityEngine.Collider, $collider2: UnityEngine.Collider) : boolean
             /** Casts a ray, from point origin, in direction direction, of length maxDistance, against all colliders in the Scene.
@@ -23998,7 +23998,7 @@
             * @param $maxDistance The max distance the ray should check for collisions.
             * @param $layerMask A that is used to selectively ignore Colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns Returns true if the ray intersects with a Collider, otherwise false. 
+            * @returns Returns true if the ray intersects with a Collider, otherwise false.
             */
             public static Raycast ($origin: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static Raycast ($origin: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $maxDistance: number, $layerMask: number) : boolean
@@ -24011,7 +24011,7 @@
             * @param $maxDistance The max distance the ray should check for collisions.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns Returns true when the ray intersects any collider, otherwise false. 
+            * @returns Returns true when the ray intersects any collider, otherwise false.
             */
             public static Raycast ($origin: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static Raycast ($origin: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number) : boolean
@@ -24022,7 +24022,7 @@
             * @param $maxDistance The max distance the ray should check for collisions.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns Returns true when the ray intersects any collider, otherwise false. 
+            * @returns Returns true when the ray intersects any collider, otherwise false.
             */
             public static Raycast ($ray: UnityEngine.Ray, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static Raycast ($ray: UnityEngine.Ray, $maxDistance: number, $layerMask: number) : boolean
@@ -24034,7 +24034,7 @@
             * @param $maxDistance The max distance the ray should check for collisions.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns Returns true when the ray intersects any collider, otherwise false. 
+            * @returns Returns true when the ray intersects any collider, otherwise false.
             */
             public static Raycast ($ray: UnityEngine.Ray, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static Raycast ($ray: UnityEngine.Ray, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number) : boolean
@@ -24067,7 +24067,7 @@
             * @param $maxDistance The max length of the sweep.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True when the capsule sweep intersects any collider, otherwise false. 
+            * @returns True when the capsule sweep intersects any collider, otherwise false.
             */
             public static CapsuleCast ($point1: UnityEngine.Vector3, $point2: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static CapsuleCast ($point1: UnityEngine.Vector3, $point2: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $maxDistance: number, $layerMask: number) : boolean
@@ -24094,7 +24094,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True when the sphere sweep intersects any collider, otherwise false. 
+            * @returns True when the sphere sweep intersects any collider, otherwise false.
             */
             public static SphereCast ($origin: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static SphereCast ($origin: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number) : boolean
@@ -24106,7 +24106,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True when the sphere sweep intersects any collider, otherwise false. 
+            * @returns True when the sphere sweep intersects any collider, otherwise false.
             */
             public static SphereCast ($ray: UnityEngine.Ray, $radius: number, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static SphereCast ($ray: UnityEngine.Ray, $radius: number, $maxDistance: number, $layerMask: number) : boolean
@@ -24131,7 +24131,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True, if any intersections were found. 
+            * @returns True, if any intersections were found.
             */
             public static BoxCast ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $orientation: UnityEngine.Quaternion, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static BoxCast ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $orientation: UnityEngine.Quaternion, $maxDistance: number, $layerMask: number) : boolean
@@ -24147,7 +24147,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True, if any intersections were found. 
+            * @returns True, if any intersections were found.
             */
             public static BoxCast ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $orientation: UnityEngine.Quaternion, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static BoxCast ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $orientation: UnityEngine.Quaternion, $maxDistance: number, $layerMask: number) : boolean
@@ -24170,7 +24170,7 @@
             * @param $maxDistance The max distance the rayhit is allowed to be from the start of the ray.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns An array of RaycastHit objects. Note that the order of the results is undefined. 
+            * @returns An array of RaycastHit objects. Note that the order of the results is undefined.
             */
             public static RaycastAll ($ray: UnityEngine.Ray, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : System.Array$1<UnityEngine.RaycastHit>
             public static RaycastAll ($ray: UnityEngine.Ray, $maxDistance: number, $layerMask: number) : System.Array$1<UnityEngine.RaycastHit>
@@ -24182,7 +24182,7 @@
             * @param $maxDistance The max distance the rayhit is allowed to be from the start of the ray.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of hits stored into the results buffer. 
+            * @returns The amount of hits stored into the results buffer.
             */
             public static RaycastNonAlloc ($ray: UnityEngine.Ray, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             public static RaycastNonAlloc ($ray: UnityEngine.Ray, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number) : number
@@ -24195,7 +24195,7 @@
             * @param $maxDistance The max distance the rayhit is allowed to be from the start of the ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
-            * @returns The amount of hits stored into the results buffer. 
+            * @returns The amount of hits stored into the results buffer.
             */
             public static RaycastNonAlloc ($origin: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             public static RaycastNonAlloc ($origin: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number) : number
@@ -24209,7 +24209,7 @@
             * @param $maxDistance The max length of the sweep.
             * @param $layermask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns An array of all colliders hit in the sweep. 
+            * @returns An array of all colliders hit in the sweep.
             */
             public static CapsuleCastAll ($point1: UnityEngine.Vector3, $point2: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : System.Array$1<UnityEngine.RaycastHit>
             public static CapsuleCastAll ($point1: UnityEngine.Vector3, $point2: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $maxDistance: number, $layerMask: number) : System.Array$1<UnityEngine.RaycastHit>
@@ -24222,7 +24222,7 @@
             * @param $maxDistance The max length of the sweep.
             * @param $layerMask A that is used to selectively ignore colliders when casting a sphere.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns An array of all colliders hit in the sweep. 
+            * @returns An array of all colliders hit in the sweep.
             */
             public static SphereCastAll ($origin: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : System.Array$1<UnityEngine.RaycastHit>
             public static SphereCastAll ($origin: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $maxDistance: number, $layerMask: number) : System.Array$1<UnityEngine.RaycastHit>
@@ -24245,7 +24245,7 @@
             * @param $radius The radius of the capsule.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns Colliders touching or inside the capsule. 
+            * @returns Colliders touching or inside the capsule.
             */
             public static OverlapCapsule ($point0: UnityEngine.Vector3, $point1: UnityEngine.Vector3, $radius: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : System.Array$1<UnityEngine.Collider>
             public static OverlapCapsule ($point0: UnityEngine.Vector3, $point1: UnityEngine.Vector3, $radius: number, $layerMask: number) : System.Array$1<UnityEngine.Collider>
@@ -24255,7 +24255,7 @@
             * @param $radius Radius of the sphere.
             * @param $layerMask A defines which layers of colliders to include in the query.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns Returns an array with all colliders touching or inside the sphere. 
+            * @returns Returns an array with all colliders touching or inside the sphere.
             */
             public static OverlapSphere ($position: UnityEngine.Vector3, $radius: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : System.Array$1<UnityEngine.Collider>
             public static OverlapSphere ($position: UnityEngine.Vector3, $radius: number, $layerMask: number) : System.Array$1<UnityEngine.Collider>
@@ -24276,7 +24276,7 @@
             * @param $rotationB Rotation of the second collider.
             * @param $direction Direction along which the translation required to separate the colliders apart is minimal.
             * @param $distance The distance along direction that is required to separate the colliders apart.
-            * @returns True, if the colliders overlap at the given poses. 
+            * @returns True, if the colliders overlap at the given poses.
             */
             public static ComputePenetration ($colliderA: UnityEngine.Collider, $positionA: UnityEngine.Vector3, $rotationA: UnityEngine.Quaternion, $colliderB: UnityEngine.Collider, $positionB: UnityEngine.Vector3, $rotationB: UnityEngine.Quaternion, $direction: $Ref<UnityEngine.Vector3>, $distance: $Ref<number>) : boolean
             /** Returns a point on the given collider that is closest to the specified location.
@@ -24284,7 +24284,7 @@
             * @param $collider The collider that you find the closest point on.
             * @param $position The position of the collider.
             * @param $rotation The rotation of the collider.
-            * @returns The point on the collider that is closest to the specified location. 
+            * @returns The point on the collider that is closest to the specified location.
             */
             public static ClosestPoint ($point: UnityEngine.Vector3, $collider: UnityEngine.Collider, $position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion) : UnityEngine.Vector3
             /** Computes and stores colliders touching or inside the sphere into the provided buffer.
@@ -24293,7 +24293,7 @@
             * @param $results The buffer to store the results into.
             * @param $layerMask A defines which layers of colliders to include in the query.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns Returns the amount of colliders stored into the results buffer. 
+            * @returns Returns the amount of colliders stored into the results buffer.
             */
             public static OverlapSphereNonAlloc ($position: UnityEngine.Vector3, $radius: number, $results: System.Array$1<UnityEngine.Collider>, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             public static OverlapSphereNonAlloc ($position: UnityEngine.Vector3, $radius: number, $results: System.Array$1<UnityEngine.Collider>, $layerMask: number) : number
@@ -24316,7 +24316,7 @@
             * @param $maxDistance The max length of the sweep.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of hits stored into the buffer. 
+            * @returns The amount of hits stored into the buffer.
             */
             public static CapsuleCastNonAlloc ($point1: UnityEngine.Vector3, $point2: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             public static CapsuleCastNonAlloc ($point1: UnityEngine.Vector3, $point2: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number) : number
@@ -24330,7 +24330,7 @@
             * @param $maxDistance The max length of the sweep.
             * @param $layerMask A that is used to selectively ignore colliders when casting a sphere.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of hits stored into the results buffer. 
+            * @returns The amount of hits stored into the results buffer.
             */
             public static SphereCastNonAlloc ($origin: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             public static SphereCastNonAlloc ($origin: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number) : number
@@ -24343,7 +24343,7 @@
             * @param $maxDistance The max length of the sweep.
             * @param $layerMask A that is used to selectively ignore colliders when casting a sphere.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of hits stored into the results buffer. 
+            * @returns The amount of hits stored into the results buffer.
             */
             public static SphereCastNonAlloc ($ray: UnityEngine.Ray, $radius: number, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             public static SphereCastNonAlloc ($ray: UnityEngine.Ray, $radius: number, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance: number, $layerMask: number) : number
@@ -24365,7 +24365,7 @@
             * @param $orientation Rotation of the box.
             * @param $layermask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True, if the box overlaps with any colliders. 
+            * @returns True, if the box overlaps with any colliders.
             */
             public static CheckBox ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $orientation: UnityEngine.Quaternion, $layermask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : boolean
             public static CheckBox ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $orientation: UnityEngine.Quaternion, $layerMask: number) : boolean
@@ -24377,7 +24377,7 @@
             * @param $orientation Rotation of the box.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns Colliders that overlap with the given box. 
+            * @returns Colliders that overlap with the given box.
             */
             public static OverlapBox ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $orientation: UnityEngine.Quaternion, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : System.Array$1<UnityEngine.Collider>
             public static OverlapBox ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $orientation: UnityEngine.Quaternion, $layerMask: number) : System.Array$1<UnityEngine.Collider>
@@ -24390,7 +24390,7 @@
             * @param $orientation Rotation of the box.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of colliders stored in results. 
+            * @returns The amount of colliders stored in results.
             */
             public static OverlapBoxNonAlloc ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.Collider>, $orientation: UnityEngine.Quaternion, $mask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             public static OverlapBoxNonAlloc ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.Collider>, $orientation: UnityEngine.Quaternion, $mask: number) : number
@@ -24405,7 +24405,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layermask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of hits stored to the results buffer. 
+            * @returns The amount of hits stored to the results buffer.
             */
             public static BoxCastNonAlloc ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $orientation: UnityEngine.Quaternion, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             public static BoxCastNonAlloc ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $orientation: UnityEngine.Quaternion) : number
@@ -24420,7 +24420,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layermask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns All colliders that were hit. 
+            * @returns All colliders that were hit.
             */
             public static BoxCastAll ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $orientation: UnityEngine.Quaternion, $maxDistance: number, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : System.Array$1<UnityEngine.RaycastHit>
             public static BoxCastAll ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $orientation: UnityEngine.Quaternion, $maxDistance: number, $layerMask: number) : System.Array$1<UnityEngine.RaycastHit>
@@ -24434,7 +24434,7 @@
             * @param $results The buffer to store the results into.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of entries written to the buffer. 
+            * @returns The amount of entries written to the buffer.
             */
             public static OverlapCapsuleNonAlloc ($point0: UnityEngine.Vector3, $point1: UnityEngine.Vector3, $radius: number, $results: System.Array$1<UnityEngine.Collider>, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             public static OverlapCapsuleNonAlloc ($point0: UnityEngine.Vector3, $point1: UnityEngine.Vector3, $radius: number, $results: System.Array$1<UnityEngine.Collider>, $layerMask: number) : number
@@ -24469,16 +24469,16 @@
             public Equals ($other: any) : boolean
             public Equals ($other: UnityEngine.PhysicsScene) : boolean
             /** Gets whether the physics Scene is valid or not.
-            * @returns Is the physics scene valid? 
+            * @returns Is the physics scene valid?
             */
             public IsValid () : boolean
             /** Gets whether the physics Scene is empty or not.
-            * @returns Is the physics Scene is empty? 
+            * @returns Is the physics Scene is empty?
             */
             public IsEmpty () : boolean
             /** Simulate physics associated with this PhysicsScene.
             * @param $step The time to advance physics by.
-            * @returns Whether the simulation was run or not.  Running the simulation during physics callbacks will always fail. 
+            * @returns Whether the simulation was run or not.  Running the simulation during physics callbacks will always fail.
             */
             public Simulate ($step: number) : void
             /** Interpolates Rigidbodies in this PhysicsScene.
@@ -24493,7 +24493,7 @@
             * @param $maxDistance The max distance the ray should check for collisions.
             * @param $layerMask A that is used to selectively ignore Colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True if the ray intersects with a Collider, otherwise false. 
+            * @returns True if the ray intersects with a Collider, otherwise false.
             */
             public Raycast ($origin: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $maxDistance?: number, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : boolean
             /** Casts a ray, from point origin, in direction direction, of length maxDistance, against all colliders in the Scene.
@@ -24503,7 +24503,7 @@
             * @param $maxDistance The max distance the ray should check for collisions.
             * @param $layerMask A that is used to selectively ignore Colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True if the ray intersects with a Collider, otherwise false. 
+            * @returns True if the ray intersects with a Collider, otherwise false.
             */
             public Raycast ($origin: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance?: number, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : boolean
             /** Casts a ray, from point origin, in direction direction, of length maxDistance, against all colliders in the Scene.
@@ -24513,7 +24513,7 @@
             * @param $maxDistance The max distance the rayhit is allowed to be from the start of the ray.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction The amount of hits stored into the results buffer.
-            * @returns True if the ray intersects with a Collider, otherwise false. 
+            * @returns True if the ray intersects with a Collider, otherwise false.
             */
             public Raycast ($origin: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $raycastHits: System.Array$1<UnityEngine.RaycastHit>, $maxDistance?: number, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : number
             /** Casts a capsule against all colliders in this physics scene and returns detailed information on what was hit.
@@ -24525,7 +24525,7 @@
             * @param $maxDistance The max length of the sweep.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True when the capsule sweep intersects any collider, otherwise false. 
+            * @returns True when the capsule sweep intersects any collider, otherwise false.
             */
             public CapsuleCast ($point1: UnityEngine.Vector3, $point2: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance?: number, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : boolean
             /** Casts a capsule against all colliders in this physics scene and returns detailed information on what was hit.
@@ -24537,7 +24537,7 @@
             * @param $maxDistance The max length of the sweep.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of hits stored to the results buffer. 
+            * @returns The amount of hits stored to the results buffer.
             */
             public CapsuleCast ($point1: UnityEngine.Vector3, $point2: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance?: number, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : number
             /** Check the given capsule against the physics world and return all overlapping colliders in the user-provided buffer.
@@ -24547,7 +24547,7 @@
             * @param $results The buffer to store the results into.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of entries written to the buffer. 
+            * @returns The amount of entries written to the buffer.
             */
             public OverlapCapsule ($point0: UnityEngine.Vector3, $point1: UnityEngine.Vector3, $radius: number, $results: System.Array$1<UnityEngine.Collider>, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : number
             /** Casts a sphere along a ray and returns detailed information on what was hit.
@@ -24558,7 +24558,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True when the sphere sweep intersects any collider, otherwise false. 
+            * @returns True when the sphere sweep intersects any collider, otherwise false.
             */
             public SphereCast ($origin: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $maxDistance?: number, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : boolean
             /** Cast sphere along the direction and store the results into buffer.
@@ -24569,7 +24569,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction A that is used to selectively ignore colliders when casting a capsule.
-            * @returns The amount of hits stored into the results buffer. 
+            * @returns The amount of hits stored into the results buffer.
             */
             public SphereCast ($origin: UnityEngine.Vector3, $radius: number, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $maxDistance?: number, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : number
             /** Computes and stores colliders touching or inside the sphere into the provided buffer.
@@ -24578,7 +24578,7 @@
             * @param $results The buffer to store the results into.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of colliders stored into the results buffer. 
+            * @returns The amount of colliders stored into the results buffer.
             */
             public OverlapSphere ($position: UnityEngine.Vector3, $radius: number, $results: System.Array$1<UnityEngine.Collider>, $layerMask: number, $queryTriggerInteraction: UnityEngine.QueryTriggerInteraction) : number
             /** Casts the box along a ray and returns detailed information on what was hit.
@@ -24590,7 +24590,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns True, if any intersections were found. 
+            * @returns True, if any intersections were found.
             */
             public BoxCast ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>, $orientation: UnityEngine.Quaternion, $maxDistance?: number, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : boolean
             public BoxCast ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $hitInfo: $Ref<UnityEngine.RaycastHit>) : boolean
@@ -24601,7 +24601,7 @@
             * @param $orientation Rotation of the box.
             * @param $layerMask A that is used to selectively ignore colliders when casting a ray.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of colliders stored in results. 
+            * @returns The amount of colliders stored in results.
             */
             public OverlapBox ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.Collider>, $orientation: UnityEngine.Quaternion, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : number
             public OverlapBox ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.Collider>) : number
@@ -24614,7 +24614,7 @@
             * @param $maxDistance The max length of the cast.
             * @param $layerMask A that is used to selectively ignore colliders when casting a capsule.
             * @param $queryTriggerInteraction Specifies whether this query should hit Triggers.
-            * @returns The amount of hits stored to the results buffer. 
+            * @returns The amount of hits stored to the results buffer.
             */
             public BoxCast ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>, $orientation: UnityEngine.Quaternion, $maxDistance?: number, $layerMask?: number, $queryTriggerInteraction?: UnityEngine.QueryTriggerInteraction) : number
             public BoxCast ($center: UnityEngine.Vector3, $halfExtents: UnityEngine.Vector3, $direction: UnityEngine.Vector3, $results: System.Array$1<UnityEngine.RaycastHit>) : number
@@ -24669,7 +24669,7 @@
             public set massProperties(value: UnityEngine.ModifiableMassProperties);
             /** Get the location of a particular contact point in this contact pair.
             * @param $i Index of the contact point.
-            * @returns The location of a contact point. 
+            * @returns The location of a contact point.
             */
             public GetPoint ($i: number) : UnityEngine.Vector3
             /** Set the location of a particular contact point in this contact pair.
@@ -24679,7 +24679,7 @@
             public SetPoint ($i: number, $v: UnityEngine.Vector3) : void
             /** Get the normal at a particular contact point in this contact pair.
             * @param $i Index of the contact point.
-            * @returns Normal at the contact point. 
+            * @returns Normal at the contact point.
             */
             public GetNormal ($i: number) : UnityEngine.Vector3
             /** Set the normal at a particular contact point in this contact pair.
@@ -24689,7 +24689,7 @@
             public SetNormal ($i: number, $normal: UnityEngine.Vector3) : void
             /** Get the separation value at a particular contact point in this contact pair.
             * @param $i Index of the contact point.
-            * @returns The separation at a contact point. 
+            * @returns The separation at a contact point.
             */
             public GetSeparation ($i: number) : number
             /** Set the separation value at a particular contact point in this contact pair.
@@ -24699,7 +24699,7 @@
             public SetSeparation ($i: number, $separation: number) : void
             /** Get the target velocity the solver should aim reaching at a particular contact point in this contact pair.
             * @param $i Index of the contact point.
-            * @returns The target velocity at a contact point. 
+            * @returns The target velocity at a contact point.
             */
             public GetTargetVelocity ($i: number) : UnityEngine.Vector3
             /** Set the target velocity the solver should aim reaching at a particular contact point in this contact pair.
@@ -24709,7 +24709,7 @@
             public SetTargetVelocity ($i: number, $velocity: UnityEngine.Vector3) : void
             /** Get the restitution value for the specified contact point in this contact pair.
             * @param $i Index of the contact point.
-            * @returns Bounciness value for the specified contact point. 
+            * @returns Bounciness value for the specified contact point.
             */
             public GetBounciness ($i: number) : number
             /** Set the restitution value for the specified contact point in this contact pair.
@@ -24719,7 +24719,7 @@
             public SetBounciness ($i: number, $bounciness: number) : void
             /** Get the static friction coefficient at a particular point of the contact pair.
             * @param $i Index of the contact point.
-            * @returns The static friction coefficient at a contact point. 
+            * @returns The static friction coefficient at a contact point.
             */
             public GetStaticFriction ($i: number) : number
             /** Set the static friction coefficient at a particular point of the contact pair.
@@ -24729,7 +24729,7 @@
             public SetStaticFriction ($i: number, $staticFriction: number) : void
             /** Get the value of the dynamic friction for a specified contact point in this contact pair.
             * @param $i Index of the contact point.
-            * @returns Dynamic friction coefficient. 
+            * @returns Dynamic friction coefficient.
             */
             public GetDynamicFriction ($i: number) : number
             /** Set the value of the dynamic friction for a specified contact point in this contact pair.
@@ -24739,7 +24739,7 @@
             public SetDynamicFriction ($i: number, $dynamicFriction: number) : void
             /** Get the maximum impulse that the solver can apply at a particular contact point in this contact pair.
             * @param $i Index of the contact point.
-            * @returns The maximum impulse that can be applied. 
+            * @returns The maximum impulse that can be applied.
             */
             public GetMaxImpulse ($i: number) : number
             /** Set the maximum impulse that the solver can apply at a particular contact point in this contact pair.
@@ -24753,7 +24753,7 @@
             public IgnoreContact ($i: number) : void
             /** Get the index of a face a particular contact point belongs to in this contact pair. Use this with Mesh.triangles.
             * @param $i Index of the contact point.
-            * @returns Index of a face this contact point belongs to. 
+            * @returns Index of a face this contact point belongs to.
             */
             public GetFaceIndex ($i: number) : number
         }
@@ -24832,7 +24832,7 @@
             public get PairCount(): number;
             /** Gets the ContactPair at index of this pair header.
             * @param $index The ContactPair index.
-            * @returns A reference or a copy of the ContactPair struct at index. 
+            * @returns A reference or a copy of the ContactPair struct at index.
             */
             public GetContactPair ($index: number) : $Ref<UnityEngine.ContactPair>
         }
@@ -25272,7 +25272,7 @@
             protected [__keep_incompatibility]: never;
             /** An extension method that returns the 3D physics Scene from the Scene.
             * @param $scene The Scene from which to return the 3D physics Scene.
-            * @returns The 3D physics Scene used by the Scene. 
+            * @returns The 3D physics Scene used by the Scene.
             */
             public static GetPhysicsScene ($scene: UnityEngine.SceneManagement.Scene) : UnityEngine.PhysicsScene
         }
@@ -25311,12 +25311,12 @@
             public CopyToNativeArray ($buffer: Unity.Collections.NativeArray$1<UnityEngine.ContactPairPoint>) : void
             /** Gets the ContactPairPoint at the provided index of this pair.
             * @param $index The ContactPairPoint index.
-            * @returns A reference or a copy of the ContactPairPoint struct at index. 
+            * @returns A reference or a copy of the ContactPairPoint struct at index.
             */
             public GetContactPoint ($index: number) : $Ref<UnityEngine.ContactPairPoint>
             /** Get the index of a face that a particular contact point belongs to in this ContactPairPoint.
             * @param $contactIndex The ContactPairPoint index.
-            * @returns Index of a face this contact point belongs to. 
+            * @returns Index of a face this contact point belongs to.
             */
             public GetContactPointFaceIndex ($contactIndex: number) : number
         }
@@ -25629,16 +25629,16 @@
             public Equals ($other: any) : boolean
             public Equals ($other: UnityEngine.PhysicsScene2D) : boolean
             /** Determines whether the physics Scene is valid or not.
-            * @returns True when the physics Scene valid. 
+            * @returns True when the physics Scene valid.
             */
             public IsValid () : boolean
             /** Determines whether the physics Scene is empty or not.
-            * @returns True when the physics Scene is empty. 
+            * @returns True when the physics Scene is empty.
             */
             public IsEmpty () : boolean
             /** Simulate physics associated with this PhysicsScene.
             * @param $step The time to advance physics by.
-            * @returns Whether the simulation was run or not.  Running the simulation during physics callbacks will always fail. 
+            * @returns Whether the simulation was run or not.  Running the simulation during physics callbacks will always fail.
             */
             public Simulate ($step: number) : boolean
             /** Casts a line segment against colliders in the PhysicsScene2D, returning the first intersection only.
@@ -25646,7 +25646,7 @@
             * @param $end The end point of the line in world space.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public Linecast ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $layerMask?: number) : UnityEngine.RaycastHit2D
             /** Casts a line segment against colliders in the PhysicsScene2D, returning the first intersection only.
@@ -25654,7 +25654,7 @@
             * @param $end The end point of the line in world space.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public Linecast ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.RaycastHit2D
             /** Casts a line segment against colliders in the PhysicsScene2D.
@@ -25663,7 +25663,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public Linecast ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>, $layerMask?: number) : number
             /** Casts a line segment against colliders in the PhysicsScene2D.
@@ -25672,7 +25672,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public Linecast ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
             public Linecast ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>) : number
@@ -25682,7 +25682,7 @@
             * @param $distance Maximum distance over which to cast the ray.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $distance: number, $layerMask?: number) : UnityEngine.RaycastHit2D
             /** Casts a ray against colliders in the PhysicsScene2D, returning the first intersection only.
@@ -25691,7 +25691,7 @@
             * @param $distance Maximum distance over which to cast the ray.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.RaycastHit2D
             /** Casts a ray against colliders the PhysicsScene2D, returning all intersections.
@@ -25701,7 +25701,7 @@
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth, or normal angle.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $distance: number, $results: System.Array$1<UnityEngine.RaycastHit2D>, $layerMask?: number) : number
             /** Casts a ray against colliders the PhysicsScene2D, returning all intersections.
@@ -25711,7 +25711,7 @@
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth, or normal angle.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
             public Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>) : number
@@ -25722,7 +25722,7 @@
             * @param $distance Maximum distance over which to cast the circle.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $distance: number, $layerMask?: number) : UnityEngine.RaycastHit2D
             /** Casts a circle against colliders in the PhysicsScene2D, returning the first intersection only.
@@ -25732,7 +25732,7 @@
             * @param $distance Maximum distance over which to cast the circle.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.RaycastHit2D
             /** Casts a circle against the colliders in the PhysicsScene2D, returning all intersections.
@@ -25743,7 +25743,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $distance: number, $results: System.Array$1<UnityEngine.RaycastHit2D>, $layerMask?: number) : number
             /** Casts a circle against the colliders in the PhysicsScene2D, returning all intersections.
@@ -25754,7 +25754,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
             public CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>) : number
@@ -25766,7 +25766,7 @@
             * @param $distance Maximum distance over which to cast the box.
             * @param $layerMask Filter to detect colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $layerMask?: number) : UnityEngine.RaycastHit2D
             /** Casts a box against colliders in the PhysicsScene2D, returning the first intersection only.
@@ -25777,7 +25777,7 @@
             * @param $distance Maximum distance over which to cast the box.
             * @param $layerMask Filter to detect colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.RaycastHit2D
             /** Casts a box against the colliders in the PhysicsScene2D, returning all intersections.
@@ -25789,7 +25789,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to detect colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $results: System.Array$1<UnityEngine.RaycastHit2D>, $layerMask?: number) : number
             /** Casts a box against the colliders in the PhysicsScene2D, returning all intersections.
@@ -25801,7 +25801,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to detect colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
             public BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>) : number
@@ -25814,7 +25814,7 @@
             * @param $distance Maximum distance over which to cast the capsule.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $layerMask?: number) : UnityEngine.RaycastHit2D
             /** Casts a capsule against colliders in the PhysicsScene2D, returning the first intersection only.
@@ -25826,7 +25826,7 @@
             * @param $distance Maximum distance over which to cast the capsule.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.RaycastHit2D
             /** Casts a capsule against the Colliders in the PhysicsScene2D, returning all intersections.
@@ -25839,7 +25839,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $results: System.Array$1<UnityEngine.RaycastHit2D>, $layerMask?: number) : number
             /** Casts a capsule against the Colliders in the PhysicsScene2D, returning all intersections.
@@ -25852,7 +25852,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask The filter used to detect Colliders only on certain layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
             public CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>) : number
@@ -25860,7 +25860,7 @@
             * @param $ray The 3D ray defining origin and direction to test.
             * @param $distance Maximum distance over which to cast the ray.
             * @param $layerMask Filter to detect colliders only on certain layers.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public GetRayIntersection ($ray: UnityEngine.Ray, $distance: number, $layerMask?: number) : UnityEngine.RaycastHit2D
             /** Cast a 3D ray against the colliders in the PhysicsScene2D, returning all intersections.
@@ -25868,21 +25868,21 @@
             * @param $distance Maximum distance over which to cast the ray.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to detect colliders only on certain layers.
-            * @returns The number of results returned. 
+            * @returns The number of results returned.
             */
             public GetRayIntersection ($ray: UnityEngine.Ray, $distance: number, $results: System.Array$1<UnityEngine.RaycastHit2D>, $layerMask?: number) : number
             /** Checks a point against Colliders in the PhysicsScene2D, returning the first intersection only.
             * @param $point A point in world space.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the point. 
+            * @returns The collider overlapping the point.
             */
             public OverlapPoint ($point: UnityEngine.Vector2, $layerMask?: number) : UnityEngine.Collider2D
             /** Checks a point against Colliders in the PhysicsScene2D, returning the first intersection only.
             * @param $point A point in world space.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the point. 
+            * @returns The collider overlapping the point.
             */
             public OverlapPoint ($point: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.Collider2D
             /** Checks a point against Colliders in the PhysicsScene2D, returning all intersections.
@@ -25890,7 +25890,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapPoint ($point: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask?: number) : number
             /** Checks a point against Colliders in the PhysicsScene2D, returning all intersections.
@@ -25898,7 +25898,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapPoint ($point: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public OverlapPoint ($point: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -25907,7 +25907,7 @@
             * @param $radius The radius of the circle.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the circle. 
+            * @returns The collider overlapping the circle.
             */
             public OverlapCircle ($point: UnityEngine.Vector2, $radius: number, $layerMask?: number) : UnityEngine.Collider2D
             /** Checks a circle against Colliders in the PhysicsScene2D, returning the first intersection only.
@@ -25915,7 +25915,7 @@
             * @param $radius The radius of the circle.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the circle. 
+            * @returns The collider overlapping the circle.
             */
             public OverlapCircle ($point: UnityEngine.Vector2, $radius: number, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.Collider2D
             /** Checks a circle against Colliders in the PhysicsScene2D, returning all intersections.
@@ -25924,7 +25924,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapCircle ($point: UnityEngine.Vector2, $radius: number, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask?: number) : number
             /** Checks a circle against Colliders in the PhysicsScene2D, returning all intersections.
@@ -25933,7 +25933,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapCircle ($point: UnityEngine.Vector2, $radius: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public OverlapCircle ($point: UnityEngine.Vector2, $radius: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -25943,7 +25943,7 @@
             * @param $angle The angle of the box.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the box. 
+            * @returns The collider overlapping the box.
             */
             public OverlapBox ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $layerMask?: number) : UnityEngine.Collider2D
             /** Checks a box against Colliders in the PhysicsScene2D, returning the first intersection only.
@@ -25952,7 +25952,7 @@
             * @param $angle The angle of the box.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the box. 
+            * @returns The collider overlapping the box.
             */
             public OverlapBox ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.Collider2D
             /** Checks a box against Colliders in the PhysicsScene2D, returning all intersections.
@@ -25962,7 +25962,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapBox ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask?: number) : number
             /** Checks a box against Colliders in the PhysicsScene2D, returning all intersections.
@@ -25972,7 +25972,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapBox ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public OverlapBox ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -25981,7 +25981,7 @@
             * @param $pointB The corner of the rectangle diagonally opposite the pointA corner.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the area. 
+            * @returns The collider overlapping the area.
             */
             public OverlapArea ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $layerMask?: number) : UnityEngine.Collider2D
             /** Checks an area (non-rotated box) against Colliders in the PhysicsScene2D, returning the first intersection only.
@@ -25989,7 +25989,7 @@
             * @param $pointB The corner of the rectangle diagonally opposite the pointA corner.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the area. 
+            * @returns The collider overlapping the area.
             */
             public OverlapArea ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.Collider2D
             /** Checks an area (non-rotated box) against Colliders in the PhysicsScene2D, returning all intersections.
@@ -25998,7 +25998,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapArea ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask?: number) : number
             /** Checks an area (non-rotated box) against Colliders in the PhysicsScene2D, returning all intersections.
@@ -26007,7 +26007,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapArea ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public OverlapArea ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -26018,7 +26018,7 @@
             * @param $angle The angle of the capsule.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the capsule. 
+            * @returns The collider overlapping the capsule.
             */
             public OverlapCapsule ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $layerMask?: number) : UnityEngine.Collider2D
             /** Checks a capsule against Colliders in the PhysicsScene2D, returning the first intersection only.
@@ -26028,7 +26028,7 @@
             * @param $angle The angle of the capsule.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns The collider overlapping the capsule. 
+            * @returns The collider overlapping the capsule.
             */
             public OverlapCapsule ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $contactFilter: UnityEngine.ContactFilter2D) : UnityEngine.Collider2D
             /** Checks a capsule against Colliders in the PhysicsScene2D, returning all intersections.
@@ -26039,7 +26039,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapCapsule ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask?: number) : number
             /** Checks a capsule against Colliders in the PhysicsScene2D, returning all intersections.
@@ -26050,7 +26050,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapCapsule ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public OverlapCapsule ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -26059,7 +26059,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapCollider ($collider: UnityEngine.Collider2D, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask?: number) : number
             /** Checks a Collider against Colliders in the PhysicsScene2D, returning all intersections.
@@ -26067,7 +26067,7 @@
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask and Z depth. Note that the normal angle is not used for overlap testing.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapCollider ($collider: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public static OverlapCollider ($collider: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -26152,7 +26152,7 @@
             */
             public get isFiltering(): boolean;
             /** Sets the contact filter to not filter any ContactPoint2D.
-            * @returns A copy of the contact filter set to not filter any ContactPoint2D. 
+            * @returns A copy of the contact filter set to not filter any ContactPoint2D.
             */
             public NoFilter () : UnityEngine.ContactFilter2D
             /** Turns off layer mask filtering by setting useLayerMask to false.  The associated value of layerMask is not changed.
@@ -26180,27 +26180,27 @@
             public SetNormalAngle ($minNormalAngle: number, $maxNormalAngle: number) : void
             /** Checks if the collider is a trigger and should be filtered by the useTriggers to be filtered.
             * @param $collider The Collider2D used to check for a trigger.
-            * @returns Returns true when collider is excluded by the filter and false if otherwise. 
+            * @returns Returns true when collider is excluded by the filter and false if otherwise.
             */
             public IsFilteringTrigger ($collider: UnityEngine.Collider2D) : boolean
             /** Checks if the GameObject.layer for obj is included in the layerMask to be filtered.
             * @param $obj The GameObject used to check the GameObject.layer.
-            * @returns Returns true when obj is excluded by the filter and false if otherwise. 
+            * @returns Returns true when obj is excluded by the filter and false if otherwise.
             */
             public IsFilteringLayerMask ($obj: UnityEngine.GameObject) : boolean
             /** Checks if the Transform for obj is within the depth range to be filtered.
             * @param $obj The GameObject used to check the z-position (depth) of Transform.position.
-            * @returns Returns true when obj is excluded by the filter and false if otherwise. 
+            * @returns Returns true when obj is excluded by the filter and false if otherwise.
             */
             public IsFilteringDepth ($obj: UnityEngine.GameObject) : boolean
             /** Checks if the angle of normal is within the normal angle range to be filtered.
             * @param $normal The normal used to calculate an angle.
-            * @returns Returns true when normal is excluded by the filter and false if otherwise. 
+            * @returns Returns true when normal is excluded by the filter and false if otherwise.
             */
             public IsFilteringNormalAngle ($normal: UnityEngine.Vector2) : boolean
             /** Checks if the angle is within the normal angle range to be filtered.
             * @param $angle The angle used for comparison in the filter.
-            * @returns Returns true when angle is excluded by the filter and false if otherwise. 
+            * @returns Returns true when angle is excluded by the filter and false if otherwise.
             */
             public IsFilteringNormalAngle ($angle: number) : boolean
         }
@@ -26289,87 +26289,87 @@
             /** Creates a planar Mesh that is identical to the area defined by the Collider2D geometry.
             * @param $useBodyPosition Should the mesh be transformed by the position of the attached Rigidbody2D?
             * @param $useBodyRotation Should the mesh be transformed by the rotation of the attached Rigidbody2D?
-            * @returns The planar Mesh created that matches the collider geometry or NULL if no Mesh could be created. 
+            * @returns The planar Mesh created that matches the collider geometry or NULL if no Mesh could be created.
             */
             public CreateMesh ($useBodyPosition: boolean, $useBodyRotation: boolean) : UnityEngine.Mesh
             /** Generates a simple hash value based upon the geometry of the Collider2D.
-            * @returns A hash value that uniquely identifies the configured geometry of the Collider2D. 
+            * @returns A hash value that uniquely identifies the configured geometry of the Collider2D.
             */
             public GetShapeHash () : number
             /** Gets all the PhysicsShape2D used by the Collider2D.
             * @param $physicsShapeGroup The PhysicsShapeGroup2D to store the retrieved PhysicsShape2D in.
-            * @returns Returns the number of PhysicsShape2D retrieved from the Collider2D. 
+            * @returns Returns the number of PhysicsShape2D retrieved from the Collider2D.
             */
             public GetShapes ($physicsShapeGroup: UnityEngine.PhysicsShapeGroup2D) : number
             /** Gets the specified range of the PhysicsShape2D used by the Collider2D.
             * @param $physicsShapeGroup The PhysicsShapeGroup2D to store the retrieved PhysicsShape2D in.
             * @param $shapeIndex The index of the first shape to retrieve. This should be in the range of 0 to Collider2D.shapeCount-1.
             * @param $shapeCount The number of shapes to retrieve. The shapeIndex + shapeCount must be less than or equal to Collider2D.shapeCount.
-            * @returns Returns the number of PhysicsShape2D retrieved from the Collider2D. In all cases this should be the same number as shapeCount . 
+            * @returns Returns the number of PhysicsShape2D retrieved from the Collider2D. In all cases this should be the same number as shapeCount .
             */
             public GetShapes ($physicsShapeGroup: UnityEngine.PhysicsShapeGroup2D, $shapeIndex: number, $shapeCount?: number) : number
             /** Check whether this collider is touching the collider or not.
             * @param $collider The collider to check if it is touching this collider.
-            * @returns Whether this collider is touching the collider or not. 
+            * @returns Whether this collider is touching the collider or not.
             */
             public IsTouching ($collider: UnityEngine.Collider2D) : boolean
             /** Check whether this collider is touching the collider or not with the results filtered by the contactFilter.
             * @param $collider The collider to check if it is touching this collider.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Whether this collider is touching the collider or not. 
+            * @returns Whether this collider is touching the collider or not.
             */
             public IsTouching ($collider: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D) : boolean
             /** Check whether this collider is touching other colliders or not with the results filtered by the contactFilter.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Whether this collider is touching the collider or not. 
+            * @returns Whether this collider is touching the collider or not.
             */
             public IsTouching ($contactFilter: UnityEngine.ContactFilter2D) : boolean
             public IsTouchingLayers () : boolean
             /** Checks whether this collider is touching any colliders on the specified layerMask or not.
             * @param $layerMask Any colliders on any of these layers count as touching.
-            * @returns Whether this collider is touching any collider on the specified layerMask or not. 
+            * @returns Whether this collider is touching any collider on the specified layerMask or not.
             */
             public IsTouchingLayers ($layerMask: number) : boolean
             /** Check if a collider overlaps a point in space.
             * @param $point A point in world space.
-            * @returns Does point overlap the collider? 
+            * @returns Does point overlap the collider?
             */
             public OverlapPoint ($point: UnityEngine.Vector2) : boolean
             /** Calculates the minimum separation of this collider against another collider.
             * @param $collider A collider used to calculate the minimum separation against this collider.
-            * @returns The minimum separation of collider and this collider. 
+            * @returns The minimum separation of collider and this collider.
             */
             public Distance ($collider: UnityEngine.Collider2D) : UnityEngine.ColliderDistance2D
             /** Get a list of all colliders that overlap this collider.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth.  Note that normal angle is not used for overlap testing.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapCollider ($contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public OverlapCollider ($contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
             /** Retrieves all contact points for this Collider.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public GetContacts ($contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             public GetContacts ($contacts: System.Collections.Generic.List$1<UnityEngine.ContactPoint2D>) : number
             /** Retrieves all contact points for this Collider, with the results filtered by the contactFilter.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public GetContacts ($contactFilter: UnityEngine.ContactFilter2D, $contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             public GetContacts ($contactFilter: UnityEngine.ContactFilter2D, $contacts: System.Collections.Generic.List$1<UnityEngine.ContactPoint2D>) : number
             /** Retrieves all colliders in contact with this Collider.
             * @param $colliders An array of Collider2D used to receive the results.
-            * @returns Returns the number of contacts placed in the colliders array. 
+            * @returns Returns the number of contacts placed in the colliders array.
             */
             public GetContacts ($colliders: System.Array$1<UnityEngine.Collider2D>) : number
             public GetContacts ($colliders: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
             /** Retrieves all colliders in contact with this Collider, with the results filtered by the contactFilter.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $colliders An array of Collider2D used to receive the results.
-            * @returns Returns the number of colliders placed in the colliders array. 
+            * @returns Returns the number of colliders placed in the colliders array.
             */
             public GetContacts ($contactFilter: UnityEngine.ContactFilter2D, $colliders: System.Array$1<UnityEngine.Collider2D>) : number
             public GetContacts ($contactFilter: UnityEngine.ContactFilter2D, $colliders: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -26380,7 +26380,7 @@
             * @param $results Array to receive results.
             * @param $distance Maximum distance over which to cast the shape.
             * @param $ignoreSiblingColliders Determines whether the cast should ignore Colliders attached to the same Rigidbody2D (known as sibling Colliders).
-            * @returns The number of results returned. 
+            * @returns The number of results returned.
             */
             public Cast ($direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number, $ignoreSiblingColliders: boolean) : number
             public Cast ($direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26391,7 +26391,7 @@
             * @param $results Array to receive results.
             * @param $distance Maximum distance over which to cast the shape.
             * @param $ignoreSiblingColliders Determines whether the cast should ignore Colliders attached to the same Rigidbody2D (known as sibling Colliders).
-            * @returns The number of results returned. 
+            * @returns The number of results returned.
             */
             public Cast ($direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number, $ignoreSiblingColliders: boolean) : number
             public Cast ($direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>, $distance?: number, $ignoreSiblingColliders?: boolean) : number
@@ -26407,7 +26407,7 @@
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
             * @param $contactFilter Filter results defined by the contact filter.
-            * @returns The number of results returned. 
+            * @returns The number of results returned.
             */
             public Raycast ($direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public Raycast ($direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26419,13 +26419,13 @@
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
             * @param $contactFilter Filter results defined by the contact filter.
-            * @returns The number of results returned. 
+            * @returns The number of results returned.
             */
             public Raycast ($direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number) : number
             public Raycast ($direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>, $distance?: number) : number
             /** Returns a point on the perimeter of this Collider that is closest to the specified position.
             * @param $position The position from which to find the closest point on this Collider.
-            * @returns A point on the perimeter of this Collider that is closest to the specified position. 
+            * @returns A point on the perimeter of this Collider that is closest to the specified position.
             */
             public ClosestPoint ($position: UnityEngine.Vector2) : UnityEngine.Vector2
             public constructor ()
@@ -26437,7 +26437,7 @@
             protected [__keep_incompatibility]: never;
             /** An extension method that returns the 2D physics Scene from the Scene.
             * @param $scene The Scene from which to return the 2D physics Scene.
-            * @returns The 2D physics Scene used by the Scene. 
+            * @returns The 2D physics Scene used by the Scene.
             */
             public static GetPhysicsScene2D ($scene: UnityEngine.SceneManagement.Scene) : UnityEngine.PhysicsScene2D
         }
@@ -26547,7 +26547,7 @@
             public static set angularSleepTolerance(value: number);
             /** Simulate physics in the Scene.
             * @param $step The time to advance physics by.
-            * @returns Whether the simulation was run or not.  Running the simulation during physics callbacks will always fail. 
+            * @returns Whether the simulation was run or not.  Running the simulation during physics callbacks will always fail.
             */
             public static Simulate ($step: number) : boolean
             /** Synchronizes.
@@ -26563,7 +26563,7 @@
             /** Checks whether the collision detection system will ignore all collisionstriggers between collider1 and collider2/ or not.
             * @param $collider1 The first Collider to compare to collider2.
             * @param $collider2 The second Collider to compare to collider1.
-            * @returns Whether the collision detection system will ignore all collisionstriggers between collider1 and collider2/ or not. 
+            * @returns Whether the collision detection system will ignore all collisionstriggers between collider1 and collider2/ or not.
             */
             public static GetIgnoreCollision ($collider1: UnityEngine.Collider2D, $collider2: UnityEngine.Collider2D) : boolean
             public static IgnoreLayerCollision ($layer1: number, $layer2: number) : void
@@ -26576,7 +26576,7 @@
             /** Checks whether collisions between the specified layers be ignored or not.
             * @param $layer1 ID of first layer.
             * @param $layer2 ID of second layer.
-            * @returns Whether collisions between the specified layers be ignored or not. 
+            * @returns Whether collisions between the specified layers be ignored or not.
             */
             public static GetIgnoreLayerCollision ($layer1: number, $layer2: number) : boolean
             /** Set the collision layer mask that indicates which layer(s) the specified layer can collide with.
@@ -26586,51 +26586,51 @@
             public static SetLayerCollisionMask ($layer: number, $layerMask: number) : void
             /** Get the collision layer mask that indicates which layer(s) the specified layer can collide with.
             * @param $layer The layer to retrieve the collision layer mask for.
-            * @returns A mask where each bit indicates a layer and whether it can collide with layer or not. 
+            * @returns A mask where each bit indicates a layer and whether it can collide with layer or not.
             */
             public static GetLayerCollisionMask ($layer: number) : number
             /** Checks whether the passed Colliders are in contact or not.
             * @param $collider1 The Collider to check if it is touching collider2.
             * @param $collider2 The Collider to check if it is touching collider1.
-            * @returns Whether collider1 is touching collider2 or not. 
+            * @returns Whether collider1 is touching collider2 or not.
             */
             public static IsTouching ($collider1: UnityEngine.Collider2D, $collider2: UnityEngine.Collider2D) : boolean
             /** Checks whether the passed Colliders are in contact or not.
             * @param $collider1 The Collider to check if it is touching collider2.
             * @param $collider2 The Collider to check if it is touching collider1.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Whether collider1 is touching collider2 or not. 
+            * @returns Whether collider1 is touching collider2 or not.
             */
             public static IsTouching ($collider1: UnityEngine.Collider2D, $collider2: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D) : boolean
             /** Checks whether the passed Colliders are in contact or not.
             * @param $Collider The Collider to check if it is touching any other Collider filtered by the contactFilter.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Whether the Collider is touching any other Collider filtered by the contactFilter or not. 
+            * @returns Whether the Collider is touching any other Collider filtered by the contactFilter or not.
             */
             public static IsTouching ($collider: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D) : boolean
             public static IsTouchingLayers ($collider: UnityEngine.Collider2D) : boolean
             /** Checks whether the Collider is touching any Colliders on the specified layerMask or not.
             * @param $Collider The Collider to check if it is touching Colliders on the layerMask.
             * @param $layerMask Any Colliders on any of these layers count as touching.
-            * @returns Whether the Collider is touching any Colliders on the specified layerMask or not. 
+            * @returns Whether the Collider is touching any Colliders on the specified layerMask or not.
             */
             public static IsTouchingLayers ($collider: UnityEngine.Collider2D, $layerMask: number) : boolean
             /** Calculates the minimum distance between two Colliders.
             * @param $colliderA A Collider used to calculate the minimum distance against colliderB.
             * @param $colliderB A Collider used to calculate the minimum distance against colliderA.
-            * @returns The minimum distance between colliderA and colliderB. 
+            * @returns The minimum distance between colliderA and colliderB.
             */
             public static Distance ($colliderA: UnityEngine.Collider2D, $colliderB: UnityEngine.Collider2D) : UnityEngine.ColliderDistance2D
             /** Returns a point on the perimeter of the Collider that is closest to the specified position.
             * @param $position The position from which to find the closest point on the specified Collider.
             * @param $Collider The Collider on which to find the closest specified position.
-            * @returns A point on the perimeter of the Collider that is closest to the specified position. 
+            * @returns A point on the perimeter of the Collider that is closest to the specified position.
             */
             public static ClosestPoint ($position: UnityEngine.Vector2, $collider: UnityEngine.Collider2D) : UnityEngine.Vector2
             /** Returns a point on the perimeter of all enabled Colliders attached to the rigidbody that is closest to the specified position.
             * @param $position The position from which to find the closest point on the specified rigidbody.
             * @param $rigidbody The Rigidbody on which to find the closest specified position.
-            * @returns A point on the perimeter of a Collider attached to the rigidbody that is closest to the specified position. 
+            * @returns A point on the perimeter of a Collider attached to the rigidbody that is closest to the specified position.
             */
             public static ClosestPoint ($position: UnityEngine.Vector2, $rigidbody: UnityEngine.Rigidbody2D) : UnityEngine.Vector2
             public static Linecast ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2) : UnityEngine.RaycastHit2D
@@ -26642,7 +26642,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static Linecast ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.RaycastHit2D
             /** Casts a line segment against Colliders in the Scene with results filtered by ContactFilter2D.
@@ -26650,7 +26650,7 @@
             * @param $end The end point of the line in world space.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static Linecast ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
             public static Linecast ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>) : number
@@ -26663,7 +26663,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static LinecastAll ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.RaycastHit2D>
             public static LinecastNonAlloc ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26676,7 +26676,7 @@
             * @param $end The end point of the line in world space.
             * @param $results Returned array of objects that intersect the line.
             * @param $layerMask Filter to detect Colliders only on certain layers.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static LinecastNonAlloc ($start: UnityEngine.Vector2, $end: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public static Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2) : UnityEngine.RaycastHit2D
@@ -26690,7 +26690,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.RaycastHit2D
             public static Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26700,7 +26700,7 @@
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $distance The maximum distance over which to cast the ray.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number) : number
             public static Raycast ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>, $distance?: number) : number
@@ -26716,7 +26716,7 @@
             * @param $results Array to receive results.
             * @param $distance The maximum distance over which to cast the ray.
             * @param $layerMask Filter to check objects only on specific layers.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static RaycastNonAlloc ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public static RaycastAll ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2) : System.Array$1<UnityEngine.RaycastHit2D>
@@ -26730,7 +26730,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static RaycastAll ($origin: UnityEngine.Vector2, $direction: UnityEngine.Vector2, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.RaycastHit2D>
             public static CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2) : UnityEngine.RaycastHit2D
@@ -26745,7 +26745,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.RaycastHit2D
             public static CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26756,7 +26756,7 @@
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $distance The maximum distance over which to cast the circle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number) : number
             public static CircleCast ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>, $distance?: number) : number
@@ -26772,7 +26772,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static CircleCastAll ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.RaycastHit2D>
             public static CircleCastNonAlloc ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26788,7 +26788,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static CircleCastNonAlloc ($origin: UnityEngine.Vector2, $radius: number, $direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public static BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2) : UnityEngine.RaycastHit2D
@@ -26804,7 +26804,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.RaycastHit2D
             public static BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26816,7 +26816,7 @@
             * @param $distance The maximum distance over which to cast the box.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number) : number
             public static BoxCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>, $distance?: number) : number
@@ -26833,7 +26833,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static BoxCastAll ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.RaycastHit2D>
             public static BoxCastNonAlloc ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26850,7 +26850,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static BoxCastNonAlloc ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public static CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2) : UnityEngine.RaycastHit2D
@@ -26867,7 +26867,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.RaycastHit2D
             public static CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26880,7 +26880,7 @@
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
             * @param $distance The maximum distance over which to cast the capsule.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number) : number
             public static CapsuleCast ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>, $distance?: number) : number
@@ -26898,7 +26898,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static CapsuleCastAll ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.RaycastHit2D>
             public static CapsuleCastNonAlloc ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26916,7 +26916,7 @@
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static CapsuleCastNonAlloc ($origin: UnityEngine.Vector2, $size: UnityEngine.Vector2, $capsuleDirection: UnityEngine.CapsuleDirection2D, $angle: number, $direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public static GetRayIntersection ($ray: UnityEngine.Ray) : UnityEngine.RaycastHit2D
@@ -26925,7 +26925,7 @@
             * @param $ray The 3D ray defining origin and direction to test.
             * @param $distance The maximum distance over which to cast the ray.
             * @param $layerMask Filter to detect Colliders only on certain layers.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static GetRayIntersection ($ray: UnityEngine.Ray, $distance: number, $layerMask: number) : UnityEngine.RaycastHit2D
             public static GetRayIntersectionAll ($ray: UnityEngine.Ray) : System.Array$1<UnityEngine.RaycastHit2D>
@@ -26934,7 +26934,7 @@
             * @param $ray The 3D ray defining origin and direction to test.
             * @param $distance The maximum distance over which to cast the ray.
             * @param $layerMask Filter to detect Colliders only on certain layers.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static GetRayIntersectionAll ($ray: UnityEngine.Ray, $distance: number, $layerMask: number) : System.Array$1<UnityEngine.RaycastHit2D>
             public static GetRayIntersectionNonAlloc ($ray: UnityEngine.Ray, $results: System.Array$1<UnityEngine.RaycastHit2D>) : number
@@ -26944,7 +26944,7 @@
             * @param $distance The maximum distance over which to cast the ray.
             * @param $layerMask Filter to detect Colliders only on certain layers.
             * @param $results Array to receive results.
-            * @returns The number of results returned. 
+            * @returns The number of results returned.
             */
             public static GetRayIntersectionNonAlloc ($ray: UnityEngine.Ray, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number, $layerMask: number) : number
             public static OverlapPoint ($point: UnityEngine.Vector2) : UnityEngine.Collider2D
@@ -26955,14 +26955,14 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The Collider overlapping the point. 
+            * @returns The Collider overlapping the point.
             */
             public static OverlapPoint ($point: UnityEngine.Vector2, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.Collider2D
             /** Checks if a Collider overlaps a point in world space.
             * @param $point A point in world space.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth.  Note that normal angle is not used for overlap testing.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapPoint ($point: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public static OverlapPoint ($point: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -26974,7 +26974,7 @@
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
             * @param $point A point in space.
             * @param $layerMask Filter to check objects only on specific layers.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static OverlapPointAll ($point: UnityEngine.Vector2, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.Collider2D>
             public static OverlapPointNonAlloc ($point: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.Collider2D>) : number
@@ -26986,7 +26986,7 @@
             * @param $point A point in space.
             * @param $results Array to receive results.
             * @param $layerMask Filter to check objects only on specific layers.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapPointNonAlloc ($point: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public static OverlapCircle ($point: UnityEngine.Vector2, $radius: number) : UnityEngine.Collider2D
@@ -26998,7 +26998,7 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The Collider overlapping the circle. 
+            * @returns The Collider overlapping the circle.
             */
             public static OverlapCircle ($point: UnityEngine.Vector2, $radius: number, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.Collider2D
             /** Checks if a Collider is within a circular area.
@@ -27006,7 +27006,7 @@
             * @param $radius The radius of the circle.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth.  Note that normal angle is not used for overlap testing.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapCircle ($point: UnityEngine.Vector2, $radius: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public static OverlapCircle ($point: UnityEngine.Vector2, $radius: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -27019,7 +27019,7 @@
             * @param $layerMask Filter to check objects only on specified layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results. 
+            * @returns The cast results.
             */
             public static OverlapCircleAll ($point: UnityEngine.Vector2, $radius: number, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.Collider2D>
             public static OverlapCircleNonAlloc ($point: UnityEngine.Vector2, $radius: number, $results: System.Array$1<UnityEngine.Collider2D>) : number
@@ -27032,7 +27032,7 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapCircleNonAlloc ($point: UnityEngine.Vector2, $radius: number, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public static OverlapBox ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number) : UnityEngine.Collider2D
@@ -27045,7 +27045,7 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
-            * @returns The Collider overlapping the box. 
+            * @returns The Collider overlapping the box.
             */
             public static OverlapBox ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.Collider2D
             /** Checks if a Collider falls within a box area.
@@ -27054,7 +27054,7 @@
             * @param $angle The angle of the box.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth.  Note that normal angle is not used for overlap testing.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapBox ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public static OverlapBox ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -27068,7 +27068,7 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static OverlapBoxAll ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.Collider2D>
             public static OverlapBoxNonAlloc ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $results: System.Array$1<UnityEngine.Collider2D>) : number
@@ -27082,7 +27082,7 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapBoxNonAlloc ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle: number, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public static OverlapArea ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2) : UnityEngine.Collider2D
@@ -27094,7 +27094,7 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The Collider overlapping the area. 
+            * @returns The Collider overlapping the area.
             */
             public static OverlapArea ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.Collider2D
             /** Checks if a Collider falls within a rectangular area.
@@ -27102,7 +27102,7 @@
             * @param $pointB Diagonally opposite the point A corner of the rectangle.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth.  Note that normal angle is not used for overlap testing.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapArea ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public static OverlapArea ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -27115,7 +27115,7 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static OverlapAreaAll ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.Collider2D>
             public static OverlapAreaNonAlloc ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.Collider2D>) : number
@@ -27128,7 +27128,7 @@
             * @param $layerMask Filter to check objects only on specified layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than or equal to this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than or equal to this value.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapAreaNonAlloc ($pointA: UnityEngine.Vector2, $pointB: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             public static OverlapCapsule ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number) : UnityEngine.Collider2D
@@ -27142,7 +27142,7 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
-            * @returns The Collider overlapping the capsule. 
+            * @returns The Collider overlapping the capsule.
             */
             public static OverlapCapsule ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $layerMask: number, $minDepth: number, $maxDepth: number) : UnityEngine.Collider2D
             /** Checks if a Collider falls within a capsule area.
@@ -27152,7 +27152,7 @@
             * @param $angle The angle of the capsule.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth.  Note that normal angle is not used for overlap testing.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapCapsule ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public static OverlapCapsule ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -27167,7 +27167,7 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
-            * @returns The cast results returned. 
+            * @returns The cast results returned.
             */
             public static OverlapCapsuleAll ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $layerMask: number, $minDepth: number, $maxDepth: number) : System.Array$1<UnityEngine.Collider2D>
             public static OverlapCapsuleNonAlloc ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $results: System.Array$1<UnityEngine.Collider2D>) : number
@@ -27182,14 +27182,14 @@
             * @param $layerMask Filter to check objects only on specific layers.
             * @param $minDepth Only include objects with a Z coordinate (depth) greater than this value.
             * @param $maxDepth Only include objects with a Z coordinate (depth) less than this value.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapCapsuleNonAlloc ($point: UnityEngine.Vector2, $size: UnityEngine.Vector2, $direction: UnityEngine.CapsuleDirection2D, $angle: number, $results: System.Array$1<UnityEngine.Collider2D>, $layerMask: number, $minDepth: number, $maxDepth: number) : number
             /** Gets a list of all Colliders that overlap the given Collider.
             * @param $Collider The Collider that defines the area used to query for other Collider overlaps.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth.  Note that normal angle is not used for overlap testing.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public static OverlapCollider ($collider: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public static OverlapCollider ($collider: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -27198,59 +27198,59 @@
             * @param $collider2 The Collider to check if it has contacts against collider1.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public static GetContacts ($collider1: UnityEngine.Collider2D, $collider2: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D, $contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             /** Retrieves all contact points in contact with the Collider.
             * @param $Collider The Collider to retrieve contacts for.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public static GetContacts ($collider: UnityEngine.Collider2D, $contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             /** Retrieves all contact points in contact with the Collider, with the results filtered by the ContactFilter2D.
             * @param $Collider The Collider to retrieve contacts for.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public static GetContacts ($collider: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D, $contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             /** Retrieves all Colliders in contact with the Collider.
             * @param $Collider The Collider to retrieve contacts for.
             * @param $Colliders An array of Collider2D used to receive the results.
-            * @returns Returns the number of Colliders placed in the Colliders array. 
+            * @returns Returns the number of Colliders placed in the Colliders array.
             */
             public static GetContacts ($collider: UnityEngine.Collider2D, $colliders: System.Array$1<UnityEngine.Collider2D>) : number
             /** Retrieves all Colliders in contact with the Collider, with the results filtered by the ContactFilter2D.
             * @param $Collider The Collider to retrieve contacts for.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $Colliders An array of Collider2D used to receive the results.
-            * @returns Returns the number of Colliders placed in the Colliders array. 
+            * @returns Returns the number of Colliders placed in the Colliders array.
             */
             public static GetContacts ($collider: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D, $colliders: System.Array$1<UnityEngine.Collider2D>) : number
             /** Retrieves all contact points in contact with any of the Collider(s) attached to this rigidbody.
             * @param $rigidbody The rigidbody to retrieve contacts for.  All Colliders attached to this rigidbody will be checked.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public static GetContacts ($rigidbody: UnityEngine.Rigidbody2D, $contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             /** Retrieves all contact points in contact with any of the Collider(s) attached to this rigidbody, with the results filtered by the ContactFilter2D.
             * @param $rigidbody The rigidbody to retrieve contacts for.  All Colliders attached to this rigidbody will be checked.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public static GetContacts ($rigidbody: UnityEngine.Rigidbody2D, $contactFilter: UnityEngine.ContactFilter2D, $contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             /** Retrieves all Colliders in contact with any of the Collider(s) attached to this rigidbody.
             * @param $rigidbody The rigidbody to retrieve contacts for.  All Colliders attached to this rigidbody will be checked.
             * @param $Colliders An array of Collider2D used to receive the results.
-            * @returns Returns the number of Colliders placed in the Colliders array. 
+            * @returns Returns the number of Colliders placed in the Colliders array.
             */
             public static GetContacts ($rigidbody: UnityEngine.Rigidbody2D, $colliders: System.Array$1<UnityEngine.Collider2D>) : number
             /** Retrieves all Colliders in contact with any of the Collider(s) attached to this rigidbody, with the results filtered by the ContactFilter2D.
             * @param $rigidbody The rigidbody to retrieve contacts for.  All Colliders attached to this rigidbody will be checked.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $Colliders An array of Collider2D used to receive the results.
-            * @returns Returns the number of Colliders placed in the Colliders array. 
+            * @returns Returns the number of Colliders placed in the Colliders array.
             */
             public static GetContacts ($rigidbody: UnityEngine.Rigidbody2D, $contactFilter: UnityEngine.ContactFilter2D, $colliders: System.Array$1<UnityEngine.Collider2D>) : number
             public static GetContacts ($collider1: UnityEngine.Collider2D, $collider2: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D, $contacts: System.Collections.Generic.List$1<UnityEngine.ContactPoint2D>) : number
@@ -27515,39 +27515,39 @@
             public WakeUp () : void
             /** Checks whether the collider  is touching any of the collider(s) attached to this rigidbody or not.
             * @param $collider The collider to check if it is touching any of the collider(s) attached to this rigidbody.
-            * @returns Whether the collider is touching any of the collider(s) attached to this rigidbody or not. 
+            * @returns Whether the collider is touching any of the collider(s) attached to this rigidbody or not.
             */
             public IsTouching ($collider: UnityEngine.Collider2D) : boolean
             /** Checks whether the collider  is touching any of the collider(s) attached to this rigidbody or not with the results filtered by the ContactFilter2D.
             * @param $collider The collider to check if it is touching any of the collider(s) attached to this rigidbody.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Whether the collider is touching any of the collider(s) attached to this rigidbody or not. 
+            * @returns Whether the collider is touching any of the collider(s) attached to this rigidbody or not.
             */
             public IsTouching ($collider: UnityEngine.Collider2D, $contactFilter: UnityEngine.ContactFilter2D) : boolean
             /** Checks whether any collider is touching any of the collider(s) attached to this rigidbody or not with the results filtered by the ContactFilter2D.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
-            * @returns Whether any collider is touching any of the collider(s) attached to this rigidbody or not. 
+            * @returns Whether any collider is touching any of the collider(s) attached to this rigidbody or not.
             */
             public IsTouching ($contactFilter: UnityEngine.ContactFilter2D) : boolean
             public IsTouchingLayers () : boolean
             /** Checks whether any of the collider(s) attached to this rigidbody are touching any colliders on the specified layerMask or not.
             * @param $layerMask Any colliders on any of these layers count as touching.
-            * @returns Whether any of the collider(s) attached to this rigidbody are touching any colliders on the specified layerMask or not. 
+            * @returns Whether any of the collider(s) attached to this rigidbody are touching any colliders on the specified layerMask or not.
             */
             public IsTouchingLayers ($layerMask: number) : boolean
             /** Check if any of the Rigidbody2D colliders overlap a point in space.
             * @param $point A point in world space.
-            * @returns Whether the point overlapped any of the Rigidbody2D colliders. 
+            * @returns Whether the point overlapped any of the Rigidbody2D colliders.
             */
             public OverlapPoint ($point: UnityEngine.Vector2) : boolean
             /** Calculates the minimum distance of this collider against all Collider2D attached to this Rigidbody2D.
             * @param $collider A collider used to calculate the minimum distance against all colliders attached to this Rigidbody2D.
-            * @returns The minimum distance of collider against all colliders attached to this Rigidbody2D. 
+            * @returns The minimum distance of collider against all colliders attached to this Rigidbody2D.
             */
             public Distance ($collider: UnityEngine.Collider2D) : UnityEngine.ColliderDistance2D
             /** Returns a point on the perimeter of all enabled Colliders attached to this Rigidbody that is closest to the specified position.
             * @param $position The position from which to find the closest point on this Rigidbody.
-            * @returns A point on the perimeter of a Collider attached to this rigidbody that is closest to the specified position. 
+            * @returns A point on the perimeter of a Collider attached to this rigidbody that is closest to the specified position.
             */
             public ClosestPoint ($position: UnityEngine.Vector2) : UnityEngine.Vector2
             public AddForce ($force: UnityEngine.Vector2) : void
@@ -27602,39 +27602,39 @@
             /** Get a list of all Colliders that overlap all Colliders attached to this Rigidbody2D.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth.  Note that normal angle is not used for overlap testing.
             * @param $results The array to receive results.  The size of the array determines the maximum number of results that can be returned.
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public OverlapCollider ($contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.Collider2D>) : number
             public OverlapCollider ($contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
             /** Retrieves all contact points for all of the Collider(s) attached to this Rigidbody.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public GetContacts ($contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             public GetContacts ($contacts: System.Collections.Generic.List$1<UnityEngine.ContactPoint2D>) : number
             /** Retrieves all contact points for all of the Collider(s) attached to this Rigidbody, with the results filtered by the ContactFilter2D.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public GetContacts ($contactFilter: UnityEngine.ContactFilter2D, $contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             public GetContacts ($contactFilter: UnityEngine.ContactFilter2D, $contacts: System.Collections.Generic.List$1<UnityEngine.ContactPoint2D>) : number
             /** Retrieves all Colliders in contact with any of the Collider(s) attached to this Rigidbody.
             * @param $colliders An array of Collider2D used to receive the results.
-            * @returns Returns the number of colliders placed in the colliders array. 
+            * @returns Returns the number of colliders placed in the colliders array.
             */
             public GetContacts ($colliders: System.Array$1<UnityEngine.Collider2D>) : number
             public GetContacts ($colliders: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
             /** Retrieves all Colliders in contact with any of the Collider(s) attached to this rigidbody, with the results filtered by the ContactFilter2D.
             * @param $contactFilter The contact filter used to filter the results differently, such as by layer mask, Z depth, or normal angle.
             * @param $colliders An array of Collider2D used to receive the results.
-            * @returns Returns the number of colliders placed in the colliders array. 
+            * @returns Returns the number of colliders placed in the colliders array.
             */
             public GetContacts ($contactFilter: UnityEngine.ContactFilter2D, $colliders: System.Array$1<UnityEngine.Collider2D>) : number
             public GetContacts ($contactFilter: UnityEngine.ContactFilter2D, $colliders: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
             /** Returns all Collider2D that are attached to this Rigidbody2D.
             * @param $results An array of Collider2D used to receive the results.
-            * @returns Returns the number of Collider2D placed in the results array. 
+            * @returns Returns the number of Collider2D placed in the results array.
             */
             public GetAttachedColliders ($results: System.Array$1<UnityEngine.Collider2D>) : number
             public GetAttachedColliders ($results: System.Collections.Generic.List$1<UnityEngine.Collider2D>) : number
@@ -27643,7 +27643,7 @@
             * @param $direction Vector representing the direction to cast each Collider2D shape.
             * @param $results Array to receive results.
             * @param $distance Maximum distance over which to cast the Collider(s).
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public Cast ($direction: UnityEngine.Vector2, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number) : number
             public Cast ($direction: UnityEngine.Vector2, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>, $distance?: number) : number
@@ -27653,13 +27653,13 @@
             * @param $contactFilter Filter results defined by the contact filter.
             * @param $results Array to receive results.
             * @param $distance Maximum distance over which to cast the Collider(s).
-            * @returns Returns the number of results placed in the results array. 
+            * @returns Returns the number of results placed in the results array.
             */
             public Cast ($direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Array$1<UnityEngine.RaycastHit2D>, $distance: number) : number
             public Cast ($direction: UnityEngine.Vector2, $contactFilter: UnityEngine.ContactFilter2D, $results: System.Collections.Generic.List$1<UnityEngine.RaycastHit2D>, $distance: number) : number
             /** Gets all the PhysicsShape2D used by all Collider2D attached to the Rigidbody2D.
             * @param $physicsShapeGroup The PhysicsShapeGroup2D to store the retrieved PhysicsShape2D in.
-            * @returns Returns the number of PhysicsShape2D retrieved from the Rigidbody2D. 
+            * @returns Returns the number of PhysicsShape2D retrieved from the Rigidbody2D.
             */
             public GetShapes ($physicsShapeGroup: UnityEngine.PhysicsShapeGroup2D) : number
             public constructor ()
@@ -27817,7 +27817,7 @@
             /** Gets a single vertex of a shape. The vertex index is zero-based with the shape having a quantity of vertex specified by PhysicsShape2D.vertexCount.
             * @param $shapeIndex The index of the shape stored in the PhysicsShapeGroup2D. The shape index is zero-based with the shape group having a quantity of shapes specified by PhysicsShapeGroup2D.shapeCount|shapeCount.
             * @param $vertexIndex The index of the shape vertex stored in the PhysicsShapeGroup2D. The vertex index is zero-based with the shape having a quantity of vertex specified by PhysicsShape2D.vertexCount.
-            * @returns Returns the specified shape vertex. 
+            * @returns Returns the specified shape vertex.
             */
             public GetShapeVertex ($shapeIndex: number, $vertexIndex: number) : UnityEngine.Vector2
             /** Sets a single vertex of a shape.
@@ -27845,20 +27845,20 @@
             public DeleteShape ($shapeIndex: number) : void
             /** Gets the PhysicsShape2D stored at the specified shapeIndex.
             * @param $shapeIndex The index of the shape stored the PhysicsShapeGroup2D. The shape index is zero-based with the shape group having a quantity of shapes specified by PhysicsShapeGroup2D.shapeCount|shapeCount.
-            * @returns Returns the shape stored at the specified shapeIndex. 
+            * @returns Returns the shape stored at the specified shapeIndex.
             */
             public GetShape ($shapeIndex: number) : UnityEngine.PhysicsShape2D
             /** Adds a circle shape (PhysicsShapeType2D.Circle) to the shape group.
             * @param $center The center point of the circle shape. This is analogous to Collider2D.offset.
             * @param $radius The radius of the circle defining a radius around the center. This is identical to CircleCollider2D.radius.
-            * @returns Returns the shape index the shape was added to in the PhysicsShapeGroup2D. This index is used as the main reference when retrieving a shape. 
+            * @returns Returns the shape index the shape was added to in the PhysicsShapeGroup2D. This index is used as the main reference when retrieving a shape.
             */
             public AddCircle ($center: UnityEngine.Vector2, $radius: number) : number
             /** Adds a capsule shape (PhysicsShapeType2D.Capsule) to the shape group.
             * @param $vertex0 The position of one end of a capsule shape. This point represents the center point of a logical circle at the end of a capsule.
             * @param $vertex1 The position of the opposite end of a capsule shape. This point represents the  center point of a logical circle at the opposite end of a capsule.
             * @param $radius The radius of the capsule defining a radius around the vertex0 and vertex1 and the area between them.
-            * @returns Returns the shape index the shape was added to in the PhysicsShapeGroup2D. This index is used as the main reference when retrieving a shape. 
+            * @returns Returns the shape index the shape was added to in the PhysicsShapeGroup2D. This index is used as the main reference when retrieving a shape.
             */
             public AddCapsule ($vertex0: UnityEngine.Vector2, $vertex1: UnityEngine.Vector2, $radius: number) : number
             /** Adds a box shape (PhysicsShapeType2D.Polygon) to the shape group.
@@ -27866,7 +27866,7 @@
             * @param $size The size of the box. This is identical to BoxCollider2D.size.
             * @param $angle The angle in degrees the box should be rotated around the center.
             * @param $edgeRadius The radius extending around the edges of the box. This is identical to BoxCollider2D.edgeRadius.
-            * @returns Returns the shape index the shape was added to in the PhysicsShapeGroup2D. This index is used as the main reference when retrieving a shape. 
+            * @returns Returns the shape index the shape was added to in the PhysicsShapeGroup2D. This index is used as the main reference when retrieving a shape.
             */
             public AddBox ($center: UnityEngine.Vector2, $size: UnityEngine.Vector2, $angle?: number, $edgeRadius?: number) : number
             public AddPolygon ($vertices: System.Collections.Generic.List$1<UnityEngine.Vector2>) : number
@@ -27911,12 +27911,12 @@
             public get contactCount(): number;
             /** Gets the contact point at the specified index.
             * @param $index The index of the contact to retrieve.
-            * @returns The contact at the specified index. 
+            * @returns The contact at the specified index.
             */
             public GetContact ($index: number) : UnityEngine.ContactPoint2D
             /** Retrieves all contact points for contacts between collider and otherCollider.
             * @param $contacts An array of ContactPoint2D used to receive the results.
-            * @returns Returns the number of contacts placed in the contacts array. 
+            * @returns Returns the number of contacts placed in the contacts array.
             */
             public GetContacts ($contacts: System.Array$1<UnityEngine.ContactPoint2D>) : number
             public GetContacts ($contacts: System.Collections.Generic.List$1<UnityEngine.ContactPoint2D>) : number
@@ -28038,13 +28038,13 @@
             public GenerateGeometry () : void
             /** Gets the number of points in the specified path from the Collider by its index.
             * @param $index The index of the path from 0 to pathCount minus 1.
-            * @returns Returns the number of points in the path specified by index. 
+            * @returns Returns the number of points in the path specified by index.
             */
             public GetPathPointCount ($index: number) : number
             /** Gets a path from the Collider by its index.
             * @param $index The index of the path from 0 to pathCount minus 1.
             * @param $points An ordered array of the vertices (points) in the selected path.
-            * @returns Returns the number of points placed in the points array. 
+            * @returns Returns the number of points placed in the points array.
             */
             public GetPath ($index: number, $points: System.Array$1<UnityEngine.Vector2>) : number
             public GetPath ($index: number, $points: System.Collections.Generic.List$1<UnityEngine.Vector2>) : number
@@ -28063,14 +28063,14 @@
             public get customVertexCount(): number;
             /** Gets all the physics shapes and vertices in the Collider and places them in the specified PhysicsShapeGroup2D.
             * @param $physicsShapeGroup The physics shape group that will receive all the PhysicsShape2D|physics shapes and Vector2|vertices from the Collider.
-            * @returns Returns the total number of PhysicsShape2D|physics shapes placed in the specified physicsShapeGroup. 
+            * @returns Returns the total number of PhysicsShape2D|physics shapes placed in the specified physicsShapeGroup.
             */
             public GetCustomShapes ($physicsShapeGroup: UnityEngine.PhysicsShapeGroup2D) : number
             /** Gets a specified number of physics shapes defined byshapeCount starting at shapeIndex along with all associated vertices those shapes use and places them in the specified PhysicsShapeGroup2D.
             * @param $physicsShapeGroup The physics shape group that will receive the PhysicsShape2D|physics shapes and Vector2|vertices from the Collider.
             * @param $shapeIndex The shape index within the Collider to start retrieving shapes from.
             * @param $shapeCount The total number of shapes starting at the shapeIndex to retrieve.
-            * @returns The total number of PhysicsShape2D|physics shapes placed in the specified physicsShapeGroup. 
+            * @returns The total number of PhysicsShape2D|physics shapes placed in the specified physicsShapeGroup.
             */
             public GetCustomShapes ($physicsShapeGroup: UnityEngine.PhysicsShapeGroup2D, $shapeIndex: number, $shapeCount?: number) : number
             public GetCustomShapes ($shapes: Unity.Collections.NativeArray$1<UnityEngine.PhysicsShape2D>, $vertices: Unity.Collections.NativeArray$1<UnityEngine.Vector2>) : number
@@ -28209,7 +28209,7 @@
             public GetTotalPointCount () : number
             /** Gets a path from the Collider by its index.
             * @param $index The index of the path to retrieve.
-            * @returns An ordered array of the vertices (points) in the selected path. 
+            * @returns An ordered array of the vertices (points) in the selected path.
             */
             public GetPath ($index: number) : System.Array$1<UnityEngine.Vector2>
             /** Define a path by its constituent points.
@@ -28265,12 +28265,12 @@
             public get reactionTorque(): number;
             /** Gets the reaction force of the joint given the specified timeStep.
             * @param $timeStep The time to calculate the reaction force for.
-            * @returns The reaction force of the joint in the specified timeStep. 
+            * @returns The reaction force of the joint in the specified timeStep.
             */
             public GetReactionForce ($timeStep: number) : UnityEngine.Vector2
             /** Gets the reaction torque of the joint given the specified timeStep.
             * @param $timeStep The time to calculate the reaction torque for.
-            * @returns The reaction torque of the joint in the specified timeStep. 
+            * @returns The reaction torque of the joint in the specified timeStep.
             */
             public GetReactionTorque ($timeStep: number) : number
             public constructor ()
@@ -28854,7 +28854,7 @@
             */
             public CancelPreloading () : void
             /** Used to find out whether the StreamingController is currently preloading texture mipmaps.
-            * @returns True if in a preloading state, otherwise False. 
+            * @returns True if in a preloading state, otherwise False.
             */
             public IsPreloading () : boolean
             public constructor ()
@@ -28923,7 +28923,7 @@
             */
             public get id(): string;
             /** Creates an ISubsystem from this descriptor.
-            * @returns An instance of ISubsystem. 
+            * @returns An instance of ISubsystem.
             */
             public Create () : UnityEngine.ISubsystem
         }
@@ -28933,7 +28933,7 @@
             */
             id : string
             /** Creates an ISubsystem from this descriptor.
-            * @returns An instance of ISubsystem. 
+            * @returns An instance of ISubsystem.
             */
             Create () : UnityEngine.ISubsystem
         }
@@ -28943,7 +28943,7 @@
             */
             id : string
             /** Creates an ISubsystem from this descriptor.
-            * @returns An instance of ISubsystem. 
+            * @returns An instance of ISubsystem.
             */
             Create () : UnityEngine.ISubsystem
         }
@@ -28982,7 +28982,7 @@
             public get subsystemImplementationType(): System.Type;
             public set subsystemImplementationType(value: System.Type);
             /** Creates an ISubsystem from this descriptor.
-            * @returns An instance of ISubsystem. 
+            * @returns An instance of ISubsystem.
             */
             public Create () : UnityEngine.ISubsystem
         }
@@ -29141,7 +29141,7 @@
             */
             public get deringLightProbesForTrees(): boolean;
             public set deringLightProbesForTrees(value: boolean);
-            /** The motion vector rendering mode for all SpeedTree models painted on the terrain. 
+            /** The motion vector rendering mode for all SpeedTree models painted on the terrain.
             */
             public get treeMotionVectorModeOverride(): UnityEngine.TreeMotionVectorModeOverride;
             public set treeMotionVectorModeOverride(value: UnityEngine.TreeMotionVectorModeOverride);
@@ -29201,7 +29201,7 @@
             public set renderingLayerMask(value: number);
             /**
             * @param $cameraInstanceID The InstanceID of the camera being queried. See Object.GetInstanceID.
-            * @returns Returns true if all rendering resources for the given camera are saved regardless of usage. Returns false if garbage collection is allowed to free unused resources. 
+            * @returns Returns true if all rendering resources for the given camera are saved regardless of usage. Returns false if garbage collection is allowed to free unused resources.
             */
             public GetKeepUnusedCameraRenderingResources ($cameraInstanceID: number) : boolean
             /** Defines whether Unity cleans up rendering resources for a given Camera during garbage collection.
@@ -29703,20 +29703,20 @@
             /** Given a string and settings, returns the preferred width for a container that would hold this text.
             * @param $str Generation text.
             * @param $settings Settings for generation.
-            * @returns Preferred width. 
+            * @returns Preferred width.
             */
             public GetPreferredWidth ($str: string, $settings: UnityEngine.TextGenerationSettings) : number
             /** Given a string and settings, returns the preferred height for a container that would hold this text.
             * @param $str Generation text.
             * @param $settings Settings for generation.
-            * @returns Preferred height. 
+            * @returns Preferred height.
             */
             public GetPreferredHeight ($str: string, $settings: UnityEngine.TextGenerationSettings) : number
             /** Will generate the vertices and other data for the given string with the given settings.
             * @param $str String to generate.
             * @param $settings Generation settings.
             * @param $context The object used as context of the error log message, if necessary.
-            * @returns True if the generation is a success, false otherwise. 
+            * @returns True if the generation is a success, false otherwise.
             */
             public PopulateWithErrors ($str: string, $settings: UnityEngine.TextGenerationSettings, $context: UnityEngine.GameObject) : boolean
             /** Will generate the vertices and other data for the given string with the given settings.
@@ -29725,15 +29725,15 @@
             */
             public Populate ($str: string, $settings: UnityEngine.TextGenerationSettings) : boolean
             /** Returns the current UIVertex array.
-            * @returns Vertices. 
+            * @returns Vertices.
             */
             public GetVerticesArray () : System.Array$1<UnityEngine.UIVertex>
             /** Returns the current UICharInfo.
-            * @returns Character information. 
+            * @returns Character information.
             */
             public GetCharactersArray () : System.Array$1<UnityEngine.UICharInfo>
             /** Returns the current UILineInfo.
-            * @returns Line information. 
+            * @returns Line information.
             */
             public GetLinesArray () : System.Array$1<UnityEngine.UILineInfo>
             public constructor ()
@@ -30027,7 +30027,7 @@
             /** Given a point and a camera is the raycast valid.
             * @param $sp Screen position.
             * @param $eventCamera Raycast camera.
-            * @returns Valid. 
+            * @returns Valid.
             */
             IsRaycastLocationValid ($sp: UnityEngine.Vector2, $eventCamera: UnityEngine.Camera) : boolean
         }
@@ -30121,7 +30121,7 @@
             public SetMaterial ($material: UnityEngine.Material, $index: number) : void
             /** Gets the current Material assigned to the CanvasRenderer.
             * @param $index The material index to retrieve (0 if this parameter is omitted).
-            * @returns Result. 
+            * @returns Result.
             */
             public GetMaterial ($index: number) : UnityEngine.Material
             /** Set the material for the canvas renderer. Used internally for masking.
@@ -30141,7 +30141,7 @@
             */
             public SetMesh ($mesh: UnityEngine.Mesh) : void
             /** Returns the current mesh used to render the canvas content into.
-            * @returns The current mesh for the canvas. 
+            * @returns The current mesh for the canvas.
             */
             public GetMesh () : UnityEngine.Mesh
             /** Remove all cached vertices.
@@ -30155,7 +30155,7 @@
             */
             public SetAlpha ($alpha: number) : void
             /** Get the final inherited alpha calculated by including all the parent alphas from included parent CanvasGroups.
-            * @returns The calculated inherited alpha. 
+            * @returns The calculated inherited alpha.
             */
             public GetInheritedAlpha () : number
             /** Set the material for the canvas renderer. If a texture is specified then it will be used as the 'MainTex' instead of the material's 'MainTex'.
@@ -30167,7 +30167,7 @@
             public SetMaterial ($material: UnityEngine.Material, $texture: UnityEngine.Texture) : void
             /** Gets the current Material assigned to the CanvasRenderer.
             * @param $index The material index to retrieve (0 if this parameter is omitted).
-            * @returns Result. 
+            * @returns Result.
             */
             public GetMaterial () : UnityEngine.Material
             public static SplitUIVertexStreams ($verts: System.Collections.Generic.List$1<UnityEngine.UIVertex>, $positions: System.Collections.Generic.List$1<UnityEngine.Vector3>, $colors: System.Collections.Generic.List$1<UnityEngine.Color32>, $uv0S: System.Collections.Generic.List$1<UnityEngine.Vector4>, $uv1S: System.Collections.Generic.List$1<UnityEngine.Vector4>, $normals: System.Collections.Generic.List$1<UnityEngine.Vector3>, $tangents: System.Collections.Generic.List$1<UnityEngine.Vector4>, $indices: System.Collections.Generic.List$1<number>) : void
@@ -30186,11 +30186,11 @@
         {
             protected [__keep_incompatibility]: never;
             /** Convert a given point in screen space into a pixel correct point.
-            * @returns Pixel adjusted point. 
+            * @returns Pixel adjusted point.
             */
             public static PixelAdjustPoint ($point: UnityEngine.Vector2, $elementTransform: UnityEngine.Transform, $canvas: UnityEngine.Canvas) : UnityEngine.Vector2
             /** Given a rect transform, return the corner points in pixel accurate coordinates.
-            * @returns Pixel adjusted rect. 
+            * @returns Pixel adjusted rect.
             */
             public static PixelAdjustRect ($rectTransform: UnityEngine.RectTransform, $canvas: UnityEngine.Canvas) : UnityEngine.Rect
             public static RectangleContainsScreenPoint ($rect: UnityEngine.RectTransform, $screenPoint: UnityEngine.Vector2) : boolean
@@ -30198,7 +30198,7 @@
             * @param $rect The RectTransform to test with.
             * @param $screenPoint The screen point to test.
             * @param $cam The camera from which the test is performed from. (Optional)
-            * @returns True if the point is inside the rectangle. 
+            * @returns True if the point is inside the rectangle.
             */
             public static RectangleContainsScreenPoint ($rect: UnityEngine.RectTransform, $screenPoint: UnityEngine.Vector2, $cam: UnityEngine.Camera) : boolean
             public static RectangleContainsScreenPoint ($rect: UnityEngine.RectTransform, $screenPoint: UnityEngine.Vector2, $cam: UnityEngine.Camera, $offset: UnityEngine.Vector4) : boolean
@@ -30207,7 +30207,7 @@
             * @param $cam The camera associated with the screen space position.
             * @param $screenPoint Screen space position.
             * @param $worldPoint Point in world space.
-            * @returns Returns true if the plane of the RectTransform is hit, regardless of whether the point is inside the rectangle. 
+            * @returns Returns true if the plane of the RectTransform is hit, regardless of whether the point is inside the rectangle.
             */
             public static ScreenPointToWorldPointInRectangle ($rect: UnityEngine.RectTransform, $screenPoint: UnityEngine.Vector2, $cam: UnityEngine.Camera, $worldPoint: $Ref<UnityEngine.Vector3>) : boolean
             /** Transform a screen space point to a position in the local space of a RectTransform that is on the plane of its rectangle.
@@ -30215,7 +30215,7 @@
             * @param $cam The camera associated with the screen space position.
             * @param $screenPoint Screen space position.
             * @param $localPoint Point in local space of the rect transform.
-            * @returns Returns true if the plane of the RectTransform is hit, regardless of whether the point is inside the rectangle. 
+            * @returns Returns true if the plane of the RectTransform is hit, regardless of whether the point is inside the rectangle.
             */
             public static ScreenPointToLocalPointInRectangle ($rect: UnityEngine.RectTransform, $screenPoint: UnityEngine.Vector2, $cam: UnityEngine.Camera, $localPoint: $Ref<UnityEngine.Vector2>) : boolean
             public static ScreenPointToRay ($cam: UnityEngine.Camera, $screenPos: UnityEngine.Vector2) : UnityEngine.Ray
@@ -30224,14 +30224,14 @@
             * @param $root The Transform to use when converting from world to local space.
             * @param $child The parent Transform object whose RectTransform children will be encapsulated.
             * @param $trans The Transfdorm to both search for RectTransform children and convert into world to local space.
-            * @returns A Bounds object representing the encapsulated bounds in local space relative to the root Transform. 
+            * @returns A Bounds object representing the encapsulated bounds in local space relative to the root Transform.
             */
             public static CalculateRelativeRectTransformBounds ($root: UnityEngine.Transform, $child: UnityEngine.Transform) : UnityEngine.Bounds
             /** Creates a Bounds object that encapsulates all the child RectTransform objects found in the `child` parameter, and converts the resulting bounds into local space relative to the `root` transform.
             * @param $root The Transform to use when converting from world to local space.
             * @param $child The parent Transform object whose RectTransform children will be encapsulated.
             * @param $trans The Transfdorm to both search for RectTransform children and convert into world to local space.
-            * @returns A Bounds object representing the encapsulated bounds in local space relative to the root Transform. 
+            * @returns A Bounds object representing the encapsulated bounds in local space relative to the root Transform.
             */
             public static CalculateRelativeRectTransformBounds ($trans: UnityEngine.Transform) : UnityEngine.Bounds
             /** Flips the alignment of the RectTransform along the horizontal or vertical axis, and optionally its children as well.
@@ -30343,7 +30343,7 @@
             */
             public static GetDefaultCanvasMaterial () : UnityEngine.Material
             /** Gets or generates the ETC1 Material.
-            * @returns The generated ETC1 Material from the Canvas. 
+            * @returns The generated ETC1 Material from the Canvas.
             */
             public static GetETC1SupportedCanvasMaterial () : UnityEngine.Material
             /** Force all canvases to update their content.
@@ -30385,67 +30385,67 @@
             */
             public static ForceUpdate () : void
             /** Reports whether or not the settings available from the RemoteSettings object were received from the Analytics Service during the current session.
-            * @returns True, if the remote settings file was received from the Analytics Service in the current session. False, if the remote settings file was received during an earlier session and cached. 
+            * @returns True, if the remote settings file was received from the Analytics Service in the current session. False, if the remote settings file was received during an earlier session and cached.
             */
             public static WasLastUpdatedFromServer () : boolean
             /** Gets the value corresponding to remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $defaultValue The default value to use if the setting identified by the key parameter cannot be found or is unavailable.
-            * @returns The current value of the setting identified by key, or the default value. 
+            * @returns The current value of the setting identified by key, or the default value.
             */
             public static GetInt ($key: string) : number
             /** Gets the value corresponding to remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $defaultValue The default value to use if the setting identified by the key parameter cannot be found or is unavailable.
-            * @returns The current value of the setting identified by key, or the default value. 
+            * @returns The current value of the setting identified by key, or the default value.
             */
             public static GetInt ($key: string, $defaultValue: number) : number
             public static GetLong ($key: string) : bigint
             /** Gets the value corresponding to remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $defaultValue The default value to use if the setting identified by the key parameter cannot be found or is unavailable.
-            * @returns The current value of the setting identified by key, or the default value. 
+            * @returns The current value of the setting identified by key, or the default value.
             */
             public static GetLong ($key: string, $defaultValue: bigint) : bigint
             /** Gets the value corresponding to remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $defaultValue The default value to use if the setting identified by the key parameter cannot be found or is unavailable.
-            * @returns The current value of the setting identified by key, or the default value. 
+            * @returns The current value of the setting identified by key, or the default value.
             */
             public static GetFloat ($key: string) : number
             /** Gets the value corresponding to remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $defaultValue The default value to use if the setting identified by the key parameter cannot be found or is unavailable.
-            * @returns The current value of the setting identified by key, or the default value. 
+            * @returns The current value of the setting identified by key, or the default value.
             */
             public static GetFloat ($key: string, $defaultValue: number) : number
             /** Gets the value corresponding to remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $defaultValue The default value to use if the setting identified by the key parameter cannot be found or is unavailable.
-            * @returns The current value of the setting identified by key, or the default value. 
+            * @returns The current value of the setting identified by key, or the default value.
             */
             public static GetString ($key: string) : string
             /** Gets the value corresponding to remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $defaultValue The default value to use if the setting identified by the key parameter cannot be found or is unavailable.
-            * @returns The current value of the setting identified by key, or the default value. 
+            * @returns The current value of the setting identified by key, or the default value.
             */
             public static GetString ($key: string, $defaultValue: string) : string
             /** Gets the value corresponding to remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $defaultValue The default value to use if the setting identified by the key parameter cannot be found or is unavailable.
-            * @returns The current value of the setting identified by key, or the default value. 
+            * @returns The current value of the setting identified by key, or the default value.
             */
             public static GetBool ($key: string) : boolean
             /** Gets the value corresponding to remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $defaultValue The default value to use if the setting identified by the key parameter cannot be found or is unavailable.
-            * @returns The current value of the setting identified by key, or the default value. 
+            * @returns The current value of the setting identified by key, or the default value.
             */
             public static GetBool ($key: string, $defaultValue: boolean) : boolean
             /** Reports whether the specified key exists in the remote settings configuration.
             * @param $key The key identifying the setting.
-            * @returns True, if the key exists. 
+            * @returns True, if the key exists.
             */
             public static HasKey ($key: string) : boolean
             /** Gets the number of keys in the remote settings configuration.
@@ -30457,18 +30457,18 @@
             /** Gets the object corresponding to the remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
             * @param $type The type of object represented in RemoteSettings.
-            * @returns An instance of the object with fields assigned the corresponding remote values. 
+            * @returns An instance of the object with fields assigned the corresponding remote values.
             */
             public static GetObject ($type: System.Type, $key?: string) : any
             /** Gets the object corresponding to the remote setting identified by key, if it exists.
             * @param $defaultValue The object that should be for default values.
             * @param $key The key identifying the setting.
-            * @returns An instance of the object with fields assigned the corresponding remote values. 
+            * @returns An instance of the object with fields assigned the corresponding remote values.
             */
             public static GetObject ($key: string, $defaultValue: any) : any
             /** Gets a dictionary corresponding to the remote setting identified by key, if it exists.
             * @param $key The key identifying the setting.
-            * @returns An instance of Dictionary<string, object> containing the corresponding remote value or values. 
+            * @returns An instance of Dictionary<string, object> containing the corresponding remote value or values.
             */
             public static GetDictionary ($key?: string) : System.Collections.Generic.IDictionary$2<string, any>
         }
@@ -31145,8 +31145,8 @@
     }
     namespace UnityEngine.AudioSettings {
         interface AudioConfigurationChangeHandler
-        { 
-        (deviceWasChanged: boolean) : void; 
+        {
+        (deviceWasChanged: boolean) : void;
         Invoke?: (deviceWasChanged: boolean) => void;
         }
         var AudioConfigurationChangeHandler: { new (func: (deviceWasChanged: boolean) => void): AudioConfigurationChangeHandler; }
@@ -31178,48 +31178,48 @@
     }
     namespace UnityEngine.AudioClip {
         interface PCMReaderCallback
-        { 
-        (data: System.Array$1<number>) : void; 
+        {
+        (data: System.Array$1<number>) : void;
         Invoke?: (data: System.Array$1<number>) => void;
         }
         var PCMReaderCallback: { new (func: (data: System.Array$1<number>) => void): PCMReaderCallback; }
         interface PCMSetPositionCallback
-        { 
-        (position: number) : void; 
+        {
+        (position: number) : void;
         Invoke?: (position: number) => void;
         }
         var PCMSetPositionCallback: { new (func: (position: number) => void): PCMSetPositionCallback; }
     }
     namespace UnityEngine.SortingLayer {
         interface LayerCallback
-        { 
-        (layer: UnityEngine.SortingLayer) : void; 
+        {
+        (layer: UnityEngine.SortingLayer) : void;
         Invoke?: (layer: UnityEngine.SortingLayer) => void;
         }
         var LayerCallback: { new (func: (layer: UnityEngine.SortingLayer) => void): LayerCallback; }
     }
     namespace UnityEngine.Application {
         interface AdvertisingIdentifierCallback
-        { 
-        (advertisingId: string, trackingEnabled: boolean, errorMsg: string) : void; 
+        {
+        (advertisingId: string, trackingEnabled: boolean, errorMsg: string) : void;
         Invoke?: (advertisingId: string, trackingEnabled: boolean, errorMsg: string) => void;
         }
         var AdvertisingIdentifierCallback: { new (func: (advertisingId: string, trackingEnabled: boolean, errorMsg: string) => void): AdvertisingIdentifierCallback; }
         interface LowMemoryCallback
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var LowMemoryCallback: { new (func: () => void): LowMemoryCallback; }
         interface MemoryUsageChangedCallback
-        { 
-        (usage: $Ref<UnityEngine.ApplicationMemoryUsageChange>) : void; 
+        {
+        (usage: $Ref<UnityEngine.ApplicationMemoryUsageChange>) : void;
         Invoke?: (usage: $Ref<UnityEngine.ApplicationMemoryUsageChange>) => void;
         }
         var MemoryUsageChangedCallback: { new (func: (usage: $Ref<UnityEngine.ApplicationMemoryUsageChange>) => void): MemoryUsageChangedCallback; }
         interface LogCallback
-        { 
-        (condition: string, stackTrace: string, type: UnityEngine.LogType) : void; 
+        {
+        (condition: string, stackTrace: string, type: UnityEngine.LogType) : void;
         Invoke?: (condition: string, stackTrace: string, type: UnityEngine.LogType) => void;
         }
         var LogCallback: { new (func: (condition: string, stackTrace: string, type: UnityEngine.LogType) => void): LogCallback; }
@@ -31228,14 +31228,14 @@
         /** Zero argument delegate used by UnityEvents.
         */
         interface UnityAction
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var UnityAction: { new (func: () => void): UnityAction; }
         interface UnityAction$1<T0>
-        { 
-        (arg0: T0) : void; 
+        {
+        (arg0: T0) : void;
         Invoke?: (arg0: T0) => void;
         }
         /** Abstract base class for UnityEvents.
@@ -31276,8 +31276,8 @@
     }
     namespace UnityEngine.Camera {
         interface CameraCallback
-        { 
-        (cam: UnityEngine.Camera) : void; 
+        {
+        (cam: UnityEngine.Camera) : void;
         Invoke?: (cam: UnityEngine.Camera) => void;
         }
         var CameraCallback: { new (func: (cam: UnityEngine.Camera) => void): CameraCallback; }
@@ -31576,12 +31576,12 @@
         interface Scene {
             /** An extension method that returns the 3D physics Scene from the Scene.
             * @param $scene The Scene from which to return the 3D physics Scene.
-            * @returns The 3D physics Scene used by the Scene. 
+            * @returns The 3D physics Scene used by the Scene.
             */
             GetPhysicsScene () : UnityEngine.PhysicsScene;
             /** An extension method that returns the 2D physics Scene from the Scene.
             * @param $scene The Scene from which to return the 2D physics Scene.
-            * @returns The 2D physics Scene used by the Scene. 
+            * @returns The 2D physics Scene used by the Scene.
             */
             GetPhysicsScene2D () : UnityEngine.PhysicsScene2D;
         }
@@ -31602,8 +31602,8 @@
     }
     namespace UnityEngine.CullingGroup {
         interface StateChanged
-        { 
-        (sphere: UnityEngine.CullingGroupEvent) : void; 
+        {
+        (sphere: UnityEngine.CullingGroupEvent) : void;
         Invoke?: (sphere: UnityEngine.CullingGroupEvent) => void;
         }
         var StateChanged: { new (func: (sphere: UnityEngine.CullingGroupEvent) => void): StateChanged; }
@@ -31648,8 +31648,8 @@
     }
     namespace UnityEngine.Display {
         interface DisplaysUpdatedDelegate
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var DisplaysUpdatedDelegate: { new (func: () => void): DisplaysUpdatedDelegate; }
@@ -31671,7 +31671,7 @@
         */
         enum RayTracingMode
         { Off = 0, Static = 1, DynamicTransform = 2, DynamicGeometry = 3 }
-        /** 
+        /**
         Use a default format to create either Textures or RenderTextures from scripts based on platform specific capability.
         */
         enum DefaultFormat
@@ -31779,22 +31779,22 @@
         enum Type
         { Banner = 0, MediumRect = 1 }
         interface BannerWasClickedDelegate
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var BannerWasClickedDelegate: { new (func: () => void): BannerWasClickedDelegate; }
         interface BannerWasLoadedDelegate
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var BannerWasLoadedDelegate: { new (func: () => void): BannerWasLoadedDelegate; }
     }
     namespace UnityEngine.ADInterstitialAd {
         interface InterstitialWasLoadedDelegate
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var InterstitialWasLoadedDelegate: { new (func: () => void): InterstitialWasLoadedDelegate; }
@@ -31841,8 +31841,8 @@
     }
     namespace UnityEngine.RectTransform {
         interface ReapplyDrivenProperties
-        { 
-        (driven: UnityEngine.RectTransform) : void; 
+        {
+        (driven: UnityEngine.RectTransform) : void;
         Invoke?: (driven: UnityEngine.RectTransform) => void;
         }
         var ReapplyDrivenProperties: { new (func: (driven: UnityEngine.RectTransform) => void): ReapplyDrivenProperties; }
@@ -31884,8 +31884,8 @@
         enum ToolbarButtonSize
         { Fixed = 0, FitToContents = 1 }
         interface WindowFunction
-        { 
-        (id: number) : void; 
+        {
+        (id: number) : void;
         Invoke?: (id: number) => void;
         }
         var WindowFunction: { new (func: (id: number) => void): WindowFunction; }
@@ -32842,8 +32842,8 @@
     }
     namespace UnityEngine.Physics {
         interface ContactEventDelegate
-        { 
-        (scene: UnityEngine.PhysicsScene, headerArray: Unity.Collections.NativeArray$1.ReadOnly<UnityEngine.ContactPairHeader>) : void; 
+        {
+        (scene: UnityEngine.PhysicsScene, headerArray: Unity.Collections.NativeArray$1.ReadOnly<UnityEngine.ContactPairHeader>) : void;
         Invoke?: (scene: UnityEngine.PhysicsScene, headerArray: Unity.Collections.NativeArray$1.ReadOnly<UnityEngine.ContactPairHeader>) => void;
         }
         var ContactEventDelegate: { new (func: (scene: UnityEngine.PhysicsScene, headerArray: Unity.Collections.NativeArray$1.ReadOnly<UnityEngine.ContactPairHeader>) => void): ContactEventDelegate; }
@@ -32871,22 +32871,22 @@
     }
     namespace UnityEngine.TerrainCallbacks {
         interface HeightmapChangedCallback
-        { 
-        (terrain: UnityEngine.Terrain, heightRegion: UnityEngine.RectInt, synched: boolean) : void; 
+        {
+        (terrain: UnityEngine.Terrain, heightRegion: UnityEngine.RectInt, synched: boolean) : void;
         Invoke?: (terrain: UnityEngine.Terrain, heightRegion: UnityEngine.RectInt, synched: boolean) => void;
         }
         var HeightmapChangedCallback: { new (func: (terrain: UnityEngine.Terrain, heightRegion: UnityEngine.RectInt, synched: boolean) => void): HeightmapChangedCallback; }
         interface TextureChangedCallback
-        { 
-        (terrain: UnityEngine.Terrain, textureName: string, texelRegion: UnityEngine.RectInt, synched: boolean) : void; 
+        {
+        (terrain: UnityEngine.Terrain, textureName: string, texelRegion: UnityEngine.RectInt, synched: boolean) : void;
         Invoke?: (terrain: UnityEngine.Terrain, textureName: string, texelRegion: UnityEngine.RectInt, synched: boolean) => void;
         }
         var TextureChangedCallback: { new (func: (terrain: UnityEngine.Terrain, textureName: string, texelRegion: UnityEngine.RectInt, synched: boolean) => void): TextureChangedCallback; }
     }
     namespace UnityEngine.Font {
         interface FontTextureRebuildCallback
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var FontTextureRebuildCallback: { new (func: () => void): FontTextureRebuildCallback; }
@@ -32901,16 +32901,16 @@
     }
     namespace UnityEngine.CanvasRenderer {
         interface OnRequestRebuild
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var OnRequestRebuild: { new (func: () => void): OnRequestRebuild; }
     }
     namespace UnityEngine.Canvas {
         interface WillRenderCanvases
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var WillRenderCanvases: { new (func: () => void): WillRenderCanvases; }
@@ -32921,8 +32921,8 @@
     }
     namespace UnityEngine.RemoteSettings {
         interface UpdatedEventHandler
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var UpdatedEventHandler: { new (func: () => void): UpdatedEventHandler; }
@@ -32978,7 +32978,7 @@
             protected [__keep_incompatibility]: never;
             /** Returns a copy of the native-memory buffer interpreted as a UTF8 string.
             * @param $www A finished UnityWebRequest object with DownloadHandlerBuffer attached.
-            * @returns The same as DownloadHandlerBuffer.text 
+            * @returns The same as DownloadHandlerBuffer.text
             */
             public static GetContent ($www: UnityEngine.Networking.UnityWebRequest) : string
             public constructor ()
@@ -33097,7 +33097,7 @@
             public Abort () : void
             /** Retrieves the value of a custom request header.
             * @param $name Name of the custom request header. Case-insensitive.
-            * @returns The value of the custom request header. If no custom header with a matching name has been set, returns an empty string. 
+            * @returns The value of the custom request header. If no custom header with a matching name has been set, returns an empty string.
             */
             public GetRequestHeader ($name: string) : string
             /** Set a HTTP request header to a custom value.
@@ -33107,32 +33107,32 @@
             public SetRequestHeader ($name: string, $value: string) : void
             /** Retrieves the value of a response header from the latest HTTP response received.
             * @param $name The name of the HTTP header to retrieve. Case-insensitive.
-            * @returns The value of the HTTP header from the latest HTTP response. If no header with a matching name has been received, or no responses have been received, returns null. 
+            * @returns The value of the HTTP header from the latest HTTP response. If no header with a matching name has been received, or no responses have been received, returns null.
             */
             public GetResponseHeader ($name: string) : string
             /** Retrieves a dictionary containing all the response headers received by this UnityWebRequest in the latest HTTP response.
-            * @returns A dictionary containing all the response headers received in the latest HTTP response. If no responses have been received, returns null. 
+            * @returns A dictionary containing all the response headers received in the latest HTTP response. If no responses have been received, returns null.
             */
             public GetResponseHeaders () : System.Collections.Generic.Dictionary$2<string, string>
             /** Create a UnityWebRequest for HTTP GET.
             * @param $uri The URI of the resource to retrieve via HTTP GET.
-            * @returns An object that retrieves data from the uri. 
+            * @returns An object that retrieves data from the uri.
             */
             public static Get ($uri: string) : UnityEngine.Networking.UnityWebRequest
             /** Create a UnityWebRequest for HTTP GET.
             * @param $uri The URI of the resource to retrieve via HTTP GET.
-            * @returns An object that retrieves data from the uri. 
+            * @returns An object that retrieves data from the uri.
             */
             public static Get ($uri: System.Uri) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest configured for HTTP DELETE.
             * @param $uri The URI to which a DELETE request should be sent.
-            * @returns A UnityWebRequest configured to send an HTTP DELETE request. 
+            * @returns A UnityWebRequest configured to send an HTTP DELETE request.
             */
             public static Delete ($uri: string) : UnityEngine.Networking.UnityWebRequest
             public static Delete ($uri: System.Uri) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest configured to send a HTTP HEAD request.
             * @param $uri The URI to which to send a HTTP HEAD request.
-            * @returns A UnityWebRequest configured to transmit a HTTP HEAD request. 
+            * @returns A UnityWebRequest configured to transmit a HTTP HEAD request.
             */
             public static Head ($uri: string) : UnityEngine.Networking.UnityWebRequest
             public static Head ($uri: System.Uri) : UnityEngine.Networking.UnityWebRequest
@@ -33140,7 +33140,7 @@
             * @param $uri The URI to which the data will be sent.
             * @param $bodyData The data to transmit to the remote server.
             If a string, the string will be converted to raw bytes via <a href="https:msdn.microsoft.comen-uslibrarysystem.text.encoding.utf8">System.Text.Encoding.UTF8<a>.
-            * @returns A UnityWebRequest configured to transmit bodyData to uri via HTTP PUT. 
+            * @returns A UnityWebRequest configured to transmit bodyData to uri via HTTP PUT.
             */
             public static Put ($uri: string, $bodyData: System.Array$1<number>) : UnityEngine.Networking.UnityWebRequest
             public static Put ($uri: System.Uri, $bodyData: System.Array$1<number>) : UnityEngine.Networking.UnityWebRequest
@@ -33148,46 +33148,46 @@
             * @param $uri The URI to which the data will be sent.
             * @param $bodyData The data to transmit to the remote server.
             If a string, the string will be converted to raw bytes via <a href="https:msdn.microsoft.comen-uslibrarysystem.text.encoding.utf8">System.Text.Encoding.UTF8<a>.
-            * @returns A UnityWebRequest configured to transmit bodyData to uri via HTTP PUT. 
+            * @returns A UnityWebRequest configured to transmit bodyData to uri via HTTP PUT.
             */
             public static Put ($uri: string, $bodyData: string) : UnityEngine.Networking.UnityWebRequest
             public static Put ($uri: System.Uri, $bodyData: string) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest configured to send form data to a server via HTTP POST.
             * @param $uri The target URI to which form data will be transmitted.
             * @param $form An HTML form to send.
-            * @returns A UnityWebRequest configured to send form data to uri via POST. 
+            * @returns A UnityWebRequest configured to send form data to uri via POST.
             */
             public static PostWwwForm ($uri: string, $form: string) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest configured to send form data to a server via HTTP POST.
             * @param $uri The target URI to which form data will be transmitted.
             * @param $form An HTML form to send.
-            * @returns A UnityWebRequest configured to send form data to uri via POST. 
+            * @returns A UnityWebRequest configured to send form data to uri via POST.
             */
             public static PostWwwForm ($uri: System.Uri, $form: string) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest configured to send form data to a server via HTTP POST.
             * @param $uri The target URI to which the string will be transmitted.
             * @param $postData Form body data. Will be converted to UTF-8 string.
             * @param $contentType Value for the Content-Type header, for example application/json.
-            * @returns A UnityWebRequest configured to send string to uri via POST. 
+            * @returns A UnityWebRequest configured to send string to uri via POST.
             */
             public static Post ($uri: string, $postData: string, $contentType: string) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest configured to send form data to a server via HTTP POST.
             * @param $uri The target URI to which the string will be transmitted.
             * @param $postData Form body data. Will be converted to UTF-8 string.
             * @param $contentType Value for the Content-Type header, for example application/json.
-            * @returns A UnityWebRequest configured to send string to uri via POST. 
+            * @returns A UnityWebRequest configured to send string to uri via POST.
             */
             public static Post ($uri: System.Uri, $postData: string, $contentType: string) : UnityEngine.Networking.UnityWebRequest
             /** Create a UnityWebRequest configured to send form data to a server via HTTP POST.
             * @param $uri The target URI to which form data will be transmitted.
             * @param $formData Form fields or files encapsulated in a WWWForm object, for formatting and transmission to the remote server.
-            * @returns A UnityWebRequest configured to send form data to uri via POST. 
+            * @returns A UnityWebRequest configured to send form data to uri via POST.
             */
             public static Post ($uri: string, $formData: UnityEngine.WWWForm) : UnityEngine.Networking.UnityWebRequest
             /** Create a UnityWebRequest configured to send form data to a server via HTTP POST.
             * @param $uri The target URI to which form data will be transmitted.
             * @param $formData Form fields or files encapsulated in a WWWForm object, for formatting and transmission to the remote server.
-            * @returns A UnityWebRequest configured to send form data to uri via POST. 
+            * @returns A UnityWebRequest configured to send form data to uri via POST.
             */
             public static Post ($uri: System.Uri, $formData: UnityEngine.WWWForm) : UnityEngine.Networking.UnityWebRequest
             public static Post ($uri: string, $multipartFormSections: System.Collections.Generic.List$1<UnityEngine.Networking.IMultipartFormSection>) : UnityEngine.Networking.UnityWebRequest
@@ -33218,7 +33218,7 @@
             public static UnEscapeURL ($s: string, $e: System.Text.Encoding) : string
             public static SerializeFormSections ($multipartFormSections: System.Collections.Generic.List$1<UnityEngine.Networking.IMultipartFormSection>, $boundary: System.Array$1<number>) : System.Array$1<number>
             /** Generate a random 40-byte array for use as a multipart form boundary.
-            * @returns 40 random bytes, guaranteed to contain only printable ASCII values. 
+            * @returns 40 random bytes, guaranteed to contain only printable ASCII values.
             */
             public static GenerateBoundary () : System.Array$1<number>
             public static SerializeSimpleForm ($formFields: System.Collections.Generic.Dictionary$2<string, string>) : System.Array$1<number>
@@ -33259,19 +33259,19 @@
         interface IMultipartFormSection
         {
             /** Returns the name of this section, if any.
-            * @returns The section's name, or null. 
+            * @returns The section's name, or null.
             */
             sectionName : string
             /** Returns the raw binary data contained in this section. Must not return null or a zero-length array.
-            * @returns The raw binary data contained in this section. Must not be null or empty. 
+            * @returns The raw binary data contained in this section. Must not be null or empty.
             */
             sectionData : System.Array$1<number>
             /** Returns a string denoting the desired filename of this section on the destination server.
-            * @returns The desired file name of this section, or null if this is not a file section. 
+            * @returns The desired file name of this section, or null if this is not a file section.
             */
             fileName : string
             /** Returns the value to use in the Content-Type header for this form section.
-            * @returns The value to use in the Content-Type header, or null. 
+            * @returns The value to use in the Content-Type header, or null.
             */
             contentType : string
         }
@@ -33281,19 +33281,19 @@
         {
             protected [__keep_incompatibility]: never;
             /** Returns the name of this section, if any.
-            * @returns The section's name, or null. 
+            * @returns The section's name, or null.
             */
             public get sectionName(): string;
             /** Returns the raw binary data contained in this section. Will not return null or a zero-length array.
-            * @returns The raw binary data contained in this section. Will not be null or empty. 
+            * @returns The raw binary data contained in this section. Will not be null or empty.
             */
             public get sectionData(): System.Array$1<number>;
             /** Returns a string denoting the desired filename of this section on the destination server.
-            * @returns The desired file name of this section, or null if this is not a file section. 
+            * @returns The desired file name of this section, or null if this is not a file section.
             */
             public get fileName(): string;
             /** Returns the value to use in this section's Content-Type header.
-            * @returns The Content-Type header for this section, or null. 
+            * @returns The Content-Type header for this section, or null.
             */
             public get contentType(): string;
             public constructor ($name: string, $data: System.Array$1<number>, $contentType: string)
@@ -33310,19 +33310,19 @@
         {
             protected [__keep_incompatibility]: never;
             /** Returns the name of this section, if any.
-            * @returns The section's name, or null. 
+            * @returns The section's name, or null.
             */
             public get sectionName(): string;
             /** Returns the raw binary data contained in this section. Will not return null or a zero-length array.
-            * @returns The raw binary data contained in this section. Will not be null or empty. 
+            * @returns The raw binary data contained in this section. Will not be null or empty.
             */
             public get sectionData(): System.Array$1<number>;
             /** Returns a string denoting the desired filename of this section on the destination server.
-            * @returns The desired file name of this section, or null if this is not a file section. 
+            * @returns The desired file name of this section, or null if this is not a file section.
             */
             public get fileName(): string;
             /** Returns the value of the section's Content-Type header.
-            * @returns The Content-Type header for this section, or null. 
+            * @returns The Content-Type header for this section, or null.
             */
             public get contentType(): string;
             public constructor ($name: string, $data: System.Array$1<number>, $fileName: string, $contentType: string)
@@ -33390,7 +33390,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: string) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.
@@ -33400,7 +33400,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: System.Uri) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.
@@ -33410,7 +33410,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: string, $crc: number) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.
@@ -33420,7 +33420,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: System.Uri, $crc: number) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.
@@ -33430,7 +33430,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: string, $version: number, $crc: number) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.
@@ -33440,7 +33440,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: System.Uri, $version: number, $crc: number) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.
@@ -33450,7 +33450,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: string, $hash: UnityEngine.Hash128, $crc?: number) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.
@@ -33460,7 +33460,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: System.Uri, $hash: UnityEngine.Hash128, $crc?: number) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.
@@ -33470,7 +33470,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: string, $cachedAssetBundle: UnityEngine.CachedAssetBundle, $crc?: number) : UnityEngine.Networking.UnityWebRequest
             /** Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.
@@ -33480,7 +33480,7 @@
             Analogous to the version parameter for WWW.LoadFromCacheOrDownload.
             * @param $hash A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.
             * @param $cachedAssetBundle A structure used to download a given version of AssetBundle to a customized cache path.
-            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle. 
+            * @returns A UnityWebRequest configured to downloading a Unity Asset Bundle.
             */
             public static GetAssetBundle ($uri: System.Uri, $cachedAssetBundle: UnityEngine.CachedAssetBundle, $crc?: number) : UnityEngine.Networking.UnityWebRequest
         }
@@ -33501,7 +33501,7 @@
             public get isDownloadComplete(): boolean;
             /** Returns the downloaded AssetBundle, or null.
             * @param $www A finished UnityWebRequest object with DownloadHandlerAssetBundle attached.
-            * @returns The same as DownloadHandlerAssetBundle.assetBundle 
+            * @returns The same as DownloadHandlerAssetBundle.assetBundle
             */
             public static GetContent ($www: UnityEngine.Networking.UnityWebRequest) : UnityEngine.AssetBundle
             public constructor ($url: string, $crc: number)
@@ -33529,7 +33529,7 @@
             public set compressed(value: boolean);
             /** Returns the downloaded AudioClip, or null.
             * @param $www A finished UnityWebRequest object with DownloadHandlerAudioClip attached.
-            * @returns The same as DownloadHandlerAudioClip.audioClip 
+            * @returns The same as DownloadHandlerAudioClip.audioClip
             */
             public static GetContent ($www: UnityEngine.Networking.UnityWebRequest) : UnityEngine.AudioClip
             public constructor ($url: string, $audioType: UnityEngine.AudioType)
@@ -33543,7 +33543,7 @@
             /** Create a UnityWebRequest to download an audio clip via HTTP GET and create an AudioClip based on the retrieved data.
             * @param $uri The URI of the audio clip to download.
             * @param $audioType The type of audio encoding for the downloaded audio clip. See AudioType.
-            * @returns A UnityWebRequest properly configured to download an audio clip and convert it to an AudioClip. 
+            * @returns A UnityWebRequest properly configured to download an audio clip and convert it to an AudioClip.
             */
             public static GetAudioClip ($uri: string, $audioType: UnityEngine.AudioType) : UnityEngine.Networking.UnityWebRequest
             public static GetAudioClip ($uri: System.Uri, $audioType: UnityEngine.AudioType) : UnityEngine.Networking.UnityWebRequest
@@ -33558,7 +33558,7 @@
             public get texture(): UnityEngine.Texture2D;
             /** Returns the downloaded Texture, or null.
             * @param $www A finished UnityWebRequest object with DownloadHandlerTexture attached.
-            * @returns The same as DownloadHandlerTexture.texture 
+            * @returns The same as DownloadHandlerTexture.texture
             */
             public static GetContent ($www: UnityEngine.Networking.UnityWebRequest) : UnityEngine.Texture2D
             public constructor ()
@@ -33572,14 +33572,14 @@
             /** Create a UnityWebRequest intended to download an image via HTTP GET and create a Texture based on the retrieved data.
             * @param $uri The URI of the image to download.
             * @param $nonReadable If true, the texture's raw data will not be accessible to script. This can conserve memory. Default: false.
-            * @returns A UnityWebRequest properly configured to download an image and convert it to a Texture. 
+            * @returns A UnityWebRequest properly configured to download an image and convert it to a Texture.
             */
             public static GetTexture ($uri: string) : UnityEngine.Networking.UnityWebRequest
             public static GetTexture ($uri: System.Uri) : UnityEngine.Networking.UnityWebRequest
             /** Create a UnityWebRequest intended to download an image via HTTP GET and create a Texture based on the retrieved data.
             * @param $uri The URI of the image to download.
             * @param $nonReadable If true, the texture's raw data will not be accessible to script. This can conserve memory. Default: false.
-            * @returns A UnityWebRequest properly configured to download an image and convert it to a Texture. 
+            * @returns A UnityWebRequest properly configured to download an image and convert it to a Texture.
             */
             public static GetTexture ($uri: string, $nonReadable: boolean) : UnityEngine.Networking.UnityWebRequest
             public static GetTexture ($uri: System.Uri, $nonReadable: boolean) : UnityEngine.Networking.UnityWebRequest
@@ -35530,7 +35530,7 @@
             /** Given a point and a camera is the raycast valid.
             * @param $sp Screen position.
             * @param $eventCamera Raycast camera.
-            * @returns Valid. 
+            * @returns Valid.
             */
             public IsRaycastLocationValid ($sp: UnityEngine.Vector2, $eventCamera: UnityEngine.Camera) : boolean
         }
@@ -36444,8 +36444,8 @@
             public OnAfterDeserialize () : void
         }
         interface OnValidateInput
-        { 
-        (text: string, charIndex: number, addedChar: number) : number; 
+        {
+        (text: string, charIndex: number, addedChar: number) : number;
         Invoke?: (text: string, charIndex: number, addedChar: number) => number;
         }
         var OnValidateInput: { new (func: (text: string, charIndex: number, addedChar: number) => number): OnValidateInput; }
@@ -36665,8 +36665,8 @@
             public OnAfterDeserialize () : void
         }
         interface OnValidateInput
-        { 
-        (text: string, charIndex: number, addedChar: number) : number; 
+        {
+        (text: string, charIndex: number, addedChar: number) : number;
         Invoke?: (text: string, charIndex: number, addedChar: number) => number;
         }
         var OnValidateInput: { new (func: (text: string, charIndex: number, addedChar: number) => number): OnValidateInput; }
@@ -36862,7 +36862,7 @@
             public AddListener ($key: string, $callback: TSF.Oolong.UI.IOolongElement.JsCallback) : void
             public RemoveListener ($key: string) : void
         }
-        class OolongButton extends TSF.Oolong.UI.OolongElement$1<TSF.Oolong.UI.OolongButton> implements UnityEngine.EventSystems.IEventSystemHandler, TSF.Oolong.UI.IOolongElement, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerUpHandler
+        class OolongButton extends TSF.Oolong.UI.OolongElement$1<TSF.Oolong.UI.OolongButton> implements TSF.Oolong.UI.IOolongElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerUpHandler
         {
             protected [__keep_incompatibility]: never;
             public get transform(): UnityEngine.Transform;
@@ -36931,7 +36931,7 @@
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
         }
-        class OolongInputField extends TSF.Oolong.UI.OolongElement$1<TSF.Oolong.UI.OolongInputField> implements UnityEngine.EventSystems.IEventSystemHandler, TSF.Oolong.UI.IOolongElement, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler
+        class OolongInputField extends TSF.Oolong.UI.OolongElement$1<TSF.Oolong.UI.OolongInputField> implements TSF.Oolong.UI.IOolongElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler
         {
             protected [__keep_incompatibility]: never;
             public get RootTransform(): UnityEngine.Transform;
@@ -37001,7 +37001,7 @@
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
         }
-        class OolongSlider extends TSF.Oolong.UI.OolongElement$1<TSF.Oolong.UI.OolongSlider> implements UnityEngine.EventSystems.IEventSystemHandler, TSF.Oolong.UI.IOolongElement, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler
+        class OolongSlider extends TSF.Oolong.UI.OolongElement$1<TSF.Oolong.UI.OolongSlider> implements TSF.Oolong.UI.IOolongElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler
         {
             protected [__keep_incompatibility]: never;
             public get Value(): number;
@@ -37048,7 +37048,7 @@
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
         }
-        class OolongToggle extends TSF.Oolong.UI.OolongElement$1<TSF.Oolong.UI.OolongToggle> implements UnityEngine.EventSystems.IEventSystemHandler, TSF.Oolong.UI.IOolongElement, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler
+        class OolongToggle extends TSF.Oolong.UI.OolongElement$1<TSF.Oolong.UI.OolongToggle> implements TSF.Oolong.UI.IOolongElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler
         {
             protected [__keep_incompatibility]: never;
             public get IsOn(): boolean;
@@ -37163,6 +37163,30 @@
             public SetAttribute ($key: string, $value: string) : boolean
             public constructor ($text: TMPro.TextMeshProUGUI)
         }
+        class MithrilComponent extends TSF.Oolong.UI.OolongElement$1<TSF.Oolong.UI.MithrilComponent> implements UnityEngine.EventSystems.IEventSystemHandler, TSF.Oolong.UI.IOolongElement, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddressableScript : UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.TextAsset>
+            public get HasScript(): boolean;
+            public get transform(): UnityEngine.Transform;
+            public get gameObject(): UnityEngine.GameObject;
+            public get RootTransform(): UnityEngine.Transform;
+            public get ParentElement(): TSF.Oolong.UI.IOolongElement;
+            public set ParentElement(value: TSF.Oolong.UI.IOolongElement);
+            public get TagName(): string;
+            public set TagName(value: string);
+            public constructor ()
+            public AddChild ($e: TSF.Oolong.UI.IOolongElement) : void
+            public RemoveChild ($e: TSF.Oolong.UI.IOolongElement) : void
+            public OnCreate () : void
+            public OnReuse () : void
+            public OnReset () : void
+            public SetElementAttribute ($key: string, $value: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UI.IOolongElement.JsCallback) : void
+            public RemoveListener ($key: string) : void
+            public GetComponent ($type: System.Type) : UnityEngine.Component
+            public GetComponent ($type: string) : UnityEngine.Component
+        }
         class OolongMithril extends System.Object
         {
             protected [__keep_incompatibility]: never;
@@ -37214,143 +37238,11 @@
     }
     namespace TSF.Oolong.UI.IOolongElement {
         interface JsCallback
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var JsCallback: { new (func: () => void): JsCallback; }
-    }
-    namespace TSF.Oolong.UI.UnityWebRequestExtension {
-        interface JsWebCallback
-        { 
-        () : void; 
-        Invoke?: () => void;
-        }
-        var JsWebCallback: { new (func: () => void): JsWebCallback; }
-    }
-    namespace TSF.Oolong.UI.OolongRectLoader {
-        class LayoutElementData extends System.ValueType
-        {
-            protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.LayoutElement
-            public MinWidth : number
-            public MinHeight : number
-            public FlexWidth : number
-            public FlexHeight : number
-            public Priority : number
-            public IgnoreLayout : boolean
-        }
-    }
-    namespace UnityEditor.Build {
-        interface IPreprocessBuildWithReport extends UnityEditor.Build.IOrderedCallback
-        {
-        }
-        interface IOrderedCallback
-        {
-        }
-    }
-    namespace UnityEditor.Build.Reporting {
-        /** The BuildReport API gives you information about the Unity build process.
-        */
-        class BuildReport extends UnityEngine.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-    }
-    namespace TSF.Oolong {
-        class OolongEnvironment extends System.Object implements Puerts.ILoader, Puerts.IResolvableLoader
-        {
-            protected [__keep_incompatibility]: never;
-            public static get JsEnv(): Puerts.JsEnv;
-            public static get Instance(): TSF.Oolong.OolongEnvironment;
-            public static Initialize () : void
-            public static DisposeInstance () : void
-            public Attach ($behaviour: TSF.Oolong.ScriptBehaviour, $scriptClass: Puerts.JSObject, $jsonData: string) : void
-            public Detach ($behaviour: TSF.Oolong.ScriptBehaviour) : void
-            public FileExists ($filePath: string) : boolean
-            public ReadFile ($filePath: string, $debugPath: $Ref<string>) : string
-            public Resolve ($specifier: string, $referrer: string) : string
-            public FileExists ($filepath: string) : boolean
-            public ReadFile ($filepath: string, $debugpath: $Ref<string>) : string
-        }
-        class ScriptBehaviour extends UnityEngine.MonoBehaviour
-        {
-            protected [__keep_incompatibility]: never;
-            public AddressableScript : UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.TextAsset>
-            public JsAwake : System.Action
-            public JsStart : System.Action
-            public JsOnEnable : System.Action
-            public JsOnDisable : System.Action
-            public JsOnDestroy : System.Action
-            public JsCall : System.Action$1<string>
-            public get HasScript(): boolean;
-            public get EditorAsset(): UnityEngine.TextAsset;
-            public SetHooks ($awake: System.Action, $start: System.Action, $onEnable: System.Action, $onDisable: System.Action, $onDestroy: System.Action) : void
-            public Call ($func: string) : void
-            public ClearHooks () : void
-            public KeepAsset () : void
-            public constructor ()
-        }
-        class MutableLoopSystem extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            public get Type(): System.Type;
-            public get UpdateDelegate(): UnityEngine.LowLevel.PlayerLoopSystem.UpdateFunction;
-            public get UpdateFunction(): System.IntPtr;
-            public get LoopConditionFunction(): System.IntPtr;
-            public get SubSystemList(): System.Collections.Generic.List$1<TSF.Oolong.MutableLoopSystem>;
-            public ToPlayerLoopSystem () : UnityEngine.LowLevel.PlayerLoopSystem
-            public constructor ($system: UnityEngine.LowLevel.PlayerLoopSystem)
-            public constructor ($oolongSubSystem: TSF.Oolong.OolongSubSystem)
-        }
-        class OolongSubSystem extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            public GetUpdateDelegate () : UnityEngine.LowLevel.PlayerLoopSystem.UpdateFunction
-            public static op_Implicit ($oolongSubSystem: TSF.Oolong.OolongSubSystem) : TSF.Oolong.MutableLoopSystem
-        }
-        class OolongUpdate extends TSF.Oolong.OolongSubSystem
-        {
-            protected [__keep_incompatibility]: never;
-            public constructor ()
-        }
-        class OolongFixedUpdate extends TSF.Oolong.OolongSubSystem
-        {
-            protected [__keep_incompatibility]: never;
-            public constructor ()
-        }
-        class OolongLateUpdate extends TSF.Oolong.OolongSubSystem
-        {
-            protected [__keep_incompatibility]: never;
-            public constructor ()
-        }
-        class SubSystemInjector extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            public static InjectSubSystem () : void
-        }
-        class WorkflowExtensions extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            public static Test () : void
-            public static AddScript ($go: UnityEngine.GameObject, $script: UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.TextAsset>) : void
-            public static AddScript ($go: UnityEngine.GameObject, $script: string) : void
-        }
-    }
-    namespace Puerts {
-        interface ILoader
-        {
-            FileExists ($filepath: string) : boolean
-            ReadFile ($filepath: string, $debugpath: $Ref<string>) : string
-        }
-        interface IResolvableLoader
-        {
-        }
-        class JsEnv extends System.Object implements System.IDisposable
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        type JSObject = any;
     }
     namespace UnityEngine.AddressableAssets {
         class AssetReference extends System.Object implements UnityEngine.AddressableAssets.IKeyEvaluator
@@ -37445,10 +37337,143 @@
             protected [__keep_incompatibility]: never;
         }
     }
+    namespace TSF.Oolong.UI.UnityWebRequestExtension {
+        interface JsWebCallback
+        {
+        () : void;
+        Invoke?: () => void;
+        }
+        var JsWebCallback: { new (func: () => void): JsWebCallback; }
+    }
+    namespace TSF.Oolong.UI.OolongRectLoader {
+        class LayoutElementData extends System.ValueType
+        {
+            protected [__keep_incompatibility]: never;
+            public Instance : UnityEngine.UI.LayoutElement
+            public MinWidth : number
+            public MinHeight : number
+            public FlexWidth : number
+            public FlexHeight : number
+            public Priority : number
+            public IgnoreLayout : boolean
+        }
+    }
+    namespace UnityEditor.Build {
+        interface IPreprocessBuildWithReport extends UnityEditor.Build.IOrderedCallback
+        {
+        }
+        interface IOrderedCallback
+        {
+        }
+    }
+    namespace UnityEditor.Build.Reporting {
+        /** The BuildReport API gives you information about the Unity build process.
+        */
+        class BuildReport extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+    }
+    namespace TSF.Oolong {
+        class OolongEnvironment extends System.Object implements Puerts.ILoader, Puerts.IResolvableLoader
+        {
+            protected [__keep_incompatibility]: never;
+            public static OnDispose : System.Action
+            public static get JsEnv(): Puerts.JsEnv;
+            public static get Instance(): TSF.Oolong.OolongEnvironment;
+            public static Initialize () : void
+            public static DisposeInstance () : void
+            public Attach ($behaviour: TSF.Oolong.ScriptBehaviour, $scriptClass: Puerts.JSObject, $jsonData: string) : void
+            public Detach ($behaviour: TSF.Oolong.ScriptBehaviour) : void
+            public FileExists ($filePath: string) : boolean
+            public ReadFile ($filePath: string, $debugPath: $Ref<string>) : string
+            public Resolve ($specifier: string, $referrer: string) : string
+            public FileExists ($filepath: string) : boolean
+            public ReadFile ($filepath: string, $debugpath: $Ref<string>) : string
+        }
+        class ScriptBehaviour extends UnityEngine.MonoBehaviour
+        {
+            protected [__keep_incompatibility]: never;
+            public AddressableScript : UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.TextAsset>
+            public JsAwake : System.Action
+            public JsStart : System.Action
+            public JsOnEnable : System.Action
+            public JsOnDisable : System.Action
+            public JsOnDestroy : System.Action
+            public JsCall : System.Action$1<string>
+            public get HasScript(): boolean;
+            public get EditorAsset(): UnityEngine.TextAsset;
+            public SetHooks ($awake: System.Action, $start: System.Action, $onEnable: System.Action, $onDisable: System.Action, $onDestroy: System.Action) : void
+            public Call ($func: string) : void
+            public ClearHooks () : void
+            public KeepAsset () : void
+            public constructor ()
+        }
+        class MutableLoopSystem extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public get Type(): System.Type;
+            public get UpdateDelegate(): UnityEngine.LowLevel.PlayerLoopSystem.UpdateFunction;
+            public get UpdateFunction(): System.IntPtr;
+            public get LoopConditionFunction(): System.IntPtr;
+            public get SubSystemList(): System.Collections.Generic.List$1<TSF.Oolong.MutableLoopSystem>;
+            public ToPlayerLoopSystem () : UnityEngine.LowLevel.PlayerLoopSystem
+            public constructor ($system: UnityEngine.LowLevel.PlayerLoopSystem)
+            public constructor ($oolongSubSystem: TSF.Oolong.OolongSubSystem)
+        }
+        class OolongSubSystem extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public GetUpdateDelegate () : UnityEngine.LowLevel.PlayerLoopSystem.UpdateFunction
+            public static op_Implicit ($oolongSubSystem: TSF.Oolong.OolongSubSystem) : TSF.Oolong.MutableLoopSystem
+        }
+        class OolongUpdate extends TSF.Oolong.OolongSubSystem
+        {
+            protected [__keep_incompatibility]: never;
+            public constructor ()
+        }
+        class OolongFixedUpdate extends TSF.Oolong.OolongSubSystem
+        {
+            protected [__keep_incompatibility]: never;
+            public constructor ()
+        }
+        class OolongLateUpdate extends TSF.Oolong.OolongSubSystem
+        {
+            protected [__keep_incompatibility]: never;
+            public constructor ()
+        }
+        class SubSystemInjector extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public static InjectSubSystem () : void
+        }
+        class WorkflowExtensions extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public static Test () : void
+            public static AddScript ($go: UnityEngine.GameObject, $script: UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.TextAsset>) : void
+            public static AddScript ($go: UnityEngine.GameObject, $script: string) : void
+        }
+    }
+    namespace Puerts {
+        interface ILoader
+        {
+            FileExists ($filepath: string) : boolean
+            ReadFile ($filepath: string, $debugpath: $Ref<string>) : string
+        }
+        interface IResolvableLoader
+        {
+        }
+        class JsEnv extends System.Object implements System.IDisposable
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        type JSObject = any;
+    }
     namespace UnityEngine.LowLevel.PlayerLoopSystem {
         interface UpdateFunction
-        { 
-        () : void; 
+        {
+        () : void;
         Invoke?: () => void;
         }
         var UpdateFunction: { new (func: () => void): UpdateFunction; }

@@ -26,18 +26,18 @@ namespace TSF.Oolong.UI
             { "container", typeof(OolongContainer) },
         };
 
-        public static Transform s_MithrilPool = null;
+        private static Transform s_elementPoolRoot = null;
 
-        public static Transform GetPoolParent()
+        private static Transform GetPoolParent()
         {
-            if (s_MithrilPool != null)
+            if (s_elementPoolRoot != null)
             {
-                return s_MithrilPool;
+                return s_elementPoolRoot;
             }
 
-            s_MithrilPool = new GameObject("MithrilPool").transform;
-            Object.DontDestroyOnLoad(s_MithrilPool.gameObject);
-            return s_MithrilPool;
+            s_elementPoolRoot = new GameObject("ElementPool").transform;
+            Object.DontDestroyOnLoad(s_elementPoolRoot.gameObject);
+            return s_elementPoolRoot;
         }
 
         public static void AttachElement(IOolongElement parent, IOolongElement node)
@@ -78,6 +78,10 @@ namespace TSF.Oolong.UI
             node.transform.SetParent(pool);
             node.transform.localScale = scale;
             node.transform.localRotation = Quaternion.identity;
+
+            // Do not pool destroyed elements
+            if (node is MonoBehaviour behaviour && !behaviour)
+                return;
 
             if (s_pooledElements.TryGetValue(tagName, out var queue))
             {

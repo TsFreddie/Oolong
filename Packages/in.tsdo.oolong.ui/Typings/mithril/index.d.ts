@@ -140,7 +140,7 @@ declare namespace Mithril {
 
     interface Route {
         /** Creates application routes and mounts Components and/or RouteResolvers to a DOM element. */
-        (element: Element, defaultRoute: string, routes: RouteDefs): void;
+        (element: Element<any>, defaultRoute: string, routes: RouteDefs): void;
 
         /** Returns the last fully resolved routing path, without the prefix. */
         get(): string;
@@ -499,6 +499,6 @@ declare const Mithril: Mithril.Static;
 export {};
 
 declare global {
-    const m: Mithril;
+    const m: Mithril.Static;
     export import m = Mithril;
 }
