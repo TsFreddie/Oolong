@@ -1,7 +1,9 @@
 ///<reference path="./index.d.ts" />
 ///<reference path="./dom.d.ts" />
 
-declare namespace Mithril {
+export {};
+
+declare global {
     interface EventData<T = UnityElement> {
         target: T;
         type: string;
@@ -11,7 +13,7 @@ declare namespace Mithril {
     type EventHandler<T = UnityElement> = (ev: EventData<T>) => void;
 
     interface Element<T> {
-        element: T
+        element: T;
     }
 
     type UnityToggle = Element<CS.TSF.Oolong.UI.OolongToggle>;
@@ -29,7 +31,11 @@ declare namespace Mithril {
         | `${RectAlignVertical} stretch`
         | `${RectAlignHorizontal} stretch`;
 
-    type CornerAlign = "top left" | "top right" | "bottom left" | "bottom right";
+    type CornerAlign =
+        | "top left"
+        | "top right"
+        | "bottom left"
+        | "bottom right";
 
     type ChildAlign =
         | "top left"
@@ -193,16 +199,16 @@ declare namespace Mithril {
 
     type SelectableAttributes =
         | {
-        color?: string;
-        normal?: string;
-        highlight?: string;
-        press?: string;
-        select?: string;
-        disable?: string;
-        fade?: AttributeNumber;
-        disabled?: boolean;
-        async?: boolean;
-    }
+              color?: string;
+              normal?: string;
+              highlight?: string;
+              press?: string;
+              select?: string;
+              disable?: string;
+              fade?: AttributeNumber;
+              disabled?: boolean;
+              async?: boolean;
+          }
         | ImageAttributes;
 
     type ToggleAttributes = {

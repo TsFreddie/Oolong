@@ -350,9 +350,12 @@ export class UnityElement extends UnityNode {
         this.events = {};
     }
 
+    public contains(node: UnityElement) {
+        // Skip mithril's lock check
+        return false;
+    }
+
     public attachChildInternal(child: UnityElement) {
-        console.log(this.element);
-        console.log(child.element);
         CS.TSF.Oolong.UI.DocumentUtils.AttachElement(
             this.element,
             child.element
