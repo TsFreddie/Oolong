@@ -1,0 +1,5 @@
+﻿export default class #SCRIPTNAME# extends MithrilComponent {
+    view() {
+        return <panel></panel>;
+    }
+}

@@ -1,0 +1,9 @@
+export class #SCRIPTNAME# extends ScriptBehaviour {
+  start() {
+    // Start is called before the first frame update
+  }
+
+  update() {
+   // Update is called once per frame
+  }
+}
