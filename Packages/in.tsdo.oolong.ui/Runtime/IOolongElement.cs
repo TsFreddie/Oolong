@@ -27,5 +27,6 @@ namespace TSF.Oolong.UI
         public Component GetComponent(Type type);
         public Component GetComponent(string type);
         public T GetComponent<T>();
+        public int GetInstanceID();
     }
 }

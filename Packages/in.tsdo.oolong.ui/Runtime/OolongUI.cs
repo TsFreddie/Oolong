@@ -23,7 +23,7 @@ public static class OolongUI
         s_mithrilMount = env.Eval<MithrilMount>("MithrilMount");
         s_mithrilUnmount = env.Eval<MithrilUnmount>("MithrilUnmount");
         // TODO: I want to move window to MithrilComponent so we can technically have multiple routes
-        s_tick = env.Eval<OolongEnvironment.JsUpdate>("() => {window.tick();}");
+        s_tick = env.Eval<OolongEnvironment.JsUpdate>("MithrilTick");
 
         OolongEnvironment.OnTick += Tick;
         OolongEnvironment.OnUpdate += DocumentUtils.UpdateLayout;

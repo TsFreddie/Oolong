@@ -561,3 +561,6 @@ globalThis.location = globalThis.window.location;
 globalThis.history = globalThis.window.history;
 globalThis.addEventListener = (event: string, cb: (e: any) => void) =>
     globalThis.window.addEventListener(event, cb);
+globalThis.MithrilTick = () => {
+    globalThis.window.tick();
+};
