@@ -54,9 +54,10 @@ namespace TSF.Oolong
 
         public static JsEnv JsEnv => s_instance?._environment;
         public static OolongEnvironment Instance => s_instance;
+        public static Action OnInitialize;
         public static Action OnDispose;
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void Initialize()
         {
             s_instance ??= new OolongEnvironment();
@@ -65,6 +66,9 @@ namespace TSF.Oolong
             Application.quitting -= DisposeInstance;
 #endif
             Application.quitting += DisposeInstance;
+
+            OnInitialize?.Invoke();
+            OnInitialize = null;
         }
 
         public static void DisposeInstance()

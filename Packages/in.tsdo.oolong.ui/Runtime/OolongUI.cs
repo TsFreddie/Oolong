@@ -12,9 +12,25 @@ public static class OolongUI
 
     private static OolongEnvironment.JsUpdate s_tick;
 
+    private static ITextTransformer s_textTransformer;
+    private static IAddressTransformer s_addressTransformer;
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
     public static void Initialize()
+    {
+        OolongEnvironment.OnInitialize += Init;
+        OolongEnvironment.OnDispose += Dispose;
+
+        OolongEnvironment.OnTick += Tick;
+        OolongEnvironment.OnUpdate += DocumentUtils.UpdateLayout;
+        OolongEnvironment.OnLateUpdate += DocumentUtils.LateUpdateLayout;
+
+        s_textTransformer = new LocalizationTransformer();
+        s_addressTransformer = new IdentityTransformer();
+    }
+
+    private static void Init()
     {
         var env = OolongEnvironment.JsEnv;
         env.ExecuteModule("InitializeDOM");
@@ -22,16 +38,10 @@ public static class OolongUI
 
         s_mithrilMount = env.Eval<MithrilMount>("MithrilMount");
         s_mithrilUnmount = env.Eval<MithrilUnmount>("MithrilUnmount");
-        // TODO: I want to move window to MithrilComponent so we can technically have multiple routes
         s_tick = env.Eval<OolongEnvironment.JsUpdate>("MithrilTick");
-
-        OolongEnvironment.OnTick += Tick;
-        OolongEnvironment.OnUpdate += DocumentUtils.UpdateLayout;
-        OolongEnvironment.OnLateUpdate += DocumentUtils.LateUpdateLayout;
-        OolongEnvironment.OnDispose += Dispose;
     }
 
-    public static void Tick()
+    private static void Tick()
     {
         s_tick?.Invoke();
     }
@@ -51,5 +61,15 @@ public static class OolongUI
         OolongEnvironment.OnDispose -= Dispose;
         s_mithrilMount = null;
         s_mithrilUnmount = null;
+    }
+
+    public static string TransformText(string text)
+    {
+        return s_textTransformer.Transform(text);
+    }
+
+    public static string TransformAddress(string tag, string address)
+    {
+        return s_addressTransformer.Transform(tag, address);
     }
 }

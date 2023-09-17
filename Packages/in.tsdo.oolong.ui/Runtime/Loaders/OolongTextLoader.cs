@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization;
 
 namespace TSF.Oolong.UI
 {
@@ -124,8 +123,6 @@ namespace TSF.Oolong.UI
         private string _font;
         private bool _fontInitialized = false;
 
-        private LocalizedString _localizedString;
-
         public OolongTextLoader(TextMeshProUGUI text)
         {
             Instance = text;
@@ -218,21 +215,7 @@ namespace TSF.Oolong.UI
 
         private void SetText(string text)
         {
-            if (_localizedString == null)
-            {
-                _localizedString = new LocalizedString("StringLocalization", text)
-                {
-                    Arguments = new object[]
-                    {
-                        _textAttr
-                    }
-                };
-            }
-            else
-            {
-                _localizedString.TableEntryReference = text;
-            }
-            Instance.text = _localizedString.GetLocalizedString();
+            Instance.text = OolongUI.TransformText(text);
         }
 
         private void SetOutlineColor(string v)
