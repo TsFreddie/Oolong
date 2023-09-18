@@ -3,10 +3,11 @@ using UnityEngine.Localization.Tables;
 
 public class LocalizationTransformer : ITextTransformer
 {
-    public TableReference defaultTable = default;
+    public TableReference DefaultTable = default;
 
     public string Transform(string text)
     {
+        if (string.IsNullOrEmpty(text)) return text;
         if (text[0] != '#') return text;
         if (!LocalizationSettings.HasSettings) return text;
 
@@ -19,9 +20,9 @@ public class LocalizationTransformer : ITextTransformer
             table = text.Substring(2, end - 2);
             entryIndex = end + 1;
         }
-        else if (defaultTable.ReferenceType != TableReference.Type.Empty)
+        else if (DefaultTable.ReferenceType != TableReference.Type.Empty)
         {
-            table = defaultTable;
+            table = DefaultTable;
         }
         else
         {

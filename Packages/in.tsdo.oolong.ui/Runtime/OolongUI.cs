@@ -33,8 +33,8 @@ public static class OolongUI
     private static void Init()
     {
         var env = OolongEnvironment.JsEnv;
-        env.ExecuteModule("InitializeDOM");
-        env.ExecuteModule("InitializeMithril");
+        env.ExecuteModule("dom");
+        env.ExecuteModule("mithril");
 
         s_mithrilMount = env.Eval<MithrilMount>("MithrilMount");
         s_mithrilUnmount = env.Eval<MithrilUnmount>("MithrilUnmount");
@@ -59,6 +59,7 @@ public static class OolongUI
     private static void Dispose()
     {
         OolongEnvironment.OnDispose -= Dispose;
+        DocumentUtils.Dispose();
         s_mithrilMount = null;
         s_mithrilUnmount = null;
     }

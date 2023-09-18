@@ -40,6 +40,7 @@ namespace TSF.Oolong.UI
             { "mask", (e, v) => e.SetMask(v) },
             { "flip-x", (e, v) => e.SetFlipX(v) },
             { "flip-y", (e, v) => e.SetFlipY(v) },
+            { "ppu", (e, v) => e.SetMultiplier(v) },
             { "async", (e, v) => e.SetAsync(v) },
         };
 
@@ -61,6 +62,7 @@ namespace TSF.Oolong.UI
         private bool _isAsync;
         private bool _loaded = false;
         private string _address;
+        private AddressableHolder<Sprite> _handle;
 
         public bool HasImage { get; private set; } = false;
 
@@ -126,6 +128,11 @@ namespace TSF.Oolong.UI
         public bool SetAttribute(string key, string value)
         {
             return SetAttribute(null, key, value);
+        }
+
+        private void SetMultiplier(string multiplier)
+        {
+            Instance.pixelsPerUnitMultiplier = float.Parse(multiplier);
         }
 
         private void SetClickThrough(string v)
@@ -308,7 +315,7 @@ namespace TSF.Oolong.UI
         private async void ProcessImage()
         {
             DocumentUtils.OnDocumentUpdate -= ProcessImage;
-            AddressableBinder.Release<Sprite>(Instance);
+            _handle.Release();
 
             if (string.IsNullOrEmpty(_address))
             {
@@ -324,9 +331,9 @@ namespace TSF.Oolong.UI
             if (!isNone)
             {
                 if (_isAsync)
-                    sprite = await AddressableBinder.Load<Sprite>(Instance, _address);
+                    sprite = await _handle.Load(_address);
                 else
-                    sprite = AddressableBinder.LoadSync<Sprite>(Instance, _address);
+                    sprite = _handle.LoadSync(_address);
             }
 
             if (sprite == null && !isNone)
@@ -370,7 +377,7 @@ namespace TSF.Oolong.UI
         public override void Release()
         {
             base.Release();
-            AddressableBinder.Release<Sprite>(Instance);
+            _handle.Release();
         }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 969b37c6f496b5a42a2ade9ec1a7bffa
   m_currentHash:
     serializedVersion: 2
-    Hash: 290409db4bfec349952362b9368942f4
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -47,6 +47,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e959e61f61f42eb42aac1c4d3a24e0cf, type: 2}
   - {fileID: 11400000, guid: 487e979405b3b684f992561bf692fe3b, type: 2}
   - {fileID: 11400000, guid: e8d067abd6738494bac58e58d2476aa4, type: 2}
+  - {fileID: 11400000, guid: 8f7514feecd8f2b42ac9aba4ae051e04, type: 2}
+  - {fileID: 11400000, guid: 9abb94186e7fbd246add2da3672a02c2, type: 2}
+  - {fileID: 11400000, guid: 651fa2e4ef653274e83658f3a6b95fbc, type: 2}
+  - {fileID: 11400000, guid: d146a3a1ae659db42b57cdf817e69f82, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -89,6 +93,9 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - OolongScripts
+    - Locale
+    - Locale-zh-Hans
+    - Locale-en
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 4f66c0b0984b6344f99bac0148527bb1, type: 2}

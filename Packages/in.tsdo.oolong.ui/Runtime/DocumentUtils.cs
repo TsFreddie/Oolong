@@ -195,6 +195,11 @@ namespace TSF.Oolong.UI
             return ColorUtility.TryParseHtmlString(color, out var c) ? c : Color.white;
         }
 
+        public static void Dispose()
+        {
+            s_pooledElements.Clear();
+        }
+
         public static void UpdateLayout()
         {
             OnDocumentUpdate?.Invoke();

@@ -1,23 +1,23 @@
 {
-  "compilerOptions": {
-      "target": "ESNext",
-      "module": "ES2020",
-      "noImplicitAny": true,
-      "esModuleInterop": true,
-      "isolatedModules": true,
-      "typeRoots": [
-          "../../Library/PackageCache/com.tencent.puerts.core@2.0.2/Typing",
-          "../../Assets/Generated/Puerts/Typing",
-          "../../Packages/in.tsdo.oolong/Typings",
-          "../../Packages/in.tsdo.oolong.ui/Typings"
-      ],
-      "jsx": "react",
-      "jsxFactory": "m",
-      "jsxFragmentFactory": "m.Fragment",
-      "skipLibCheck": true,
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "sourceMap": true,
-      "noEmit": true
-  }
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ES2020",
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "typeRoots": [
+            "../../Library/PackageCache/com.tencent.puerts.core@2.0.2/Typing",
+            "../../Assets/Generated/Puerts/Typing",
+            "../../Packages/in.tsdo.oolong/Typings~",
+            "../../Packages/in.tsdo.oolong.ui/Typings~"
+        ],
+        "jsx": "react",
+        "jsxFactory": "m",
+        "jsxFragmentFactory": "m.Fragment",
+        "skipLibCheck": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "noEmit": true
+    }
 }

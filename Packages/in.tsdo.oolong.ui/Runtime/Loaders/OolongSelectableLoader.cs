@@ -66,12 +66,13 @@ namespace TSF.Oolong.UI
             { "async", ((e, v) => e.SetAsync(v)) },
         };
 
-        public Selectable Instance;
-        private OolongImageLoader _image; // Not using it's loader. Selectable will manage the sprite.
-        private AddressableHolder<Sprite> HighlightSprite;
-        private AddressableHolder<Sprite> SelectedSprite;
-        private AddressableHolder<Sprite> PressedSprite;
-        private AddressableHolder<Sprite> DisabledSprite;
+        public readonly Selectable Instance;
+        private readonly OolongImageLoader _image; // Not using it's loader. Selectable will manage the sprite.
+        private AddressableHolder<Sprite> _baseSprite;
+        private AddressableHolder<Sprite> _highlightSprite;
+        private AddressableHolder<Sprite> _selectedSprite;
+        private AddressableHolder<Sprite> _pressedSprite;
+        private AddressableHolder<Sprite> _disabledSprite;
 
 
         private bool _loaded = false;
@@ -163,7 +164,7 @@ namespace TSF.Oolong.UI
             {
                 case ButtonState.Highlight:
                     {
-                        HighlightSprite?.Release();
+                        _highlightSprite.Release();
                         var sprites = Instance.spriteState;
                         sprites.highlightedSprite = null;
                         Instance.spriteState = sprites;
@@ -172,7 +173,7 @@ namespace TSF.Oolong.UI
                     }
                 case ButtonState.Pressed:
                     {
-                        PressedSprite?.Release();
+                        _pressedSprite.Release();
                         var sprites = Instance.spriteState;
                         sprites.pressedSprite = null;
                         Instance.spriteState = sprites;
@@ -181,7 +182,7 @@ namespace TSF.Oolong.UI
                     }
                 case ButtonState.Selected:
                     {
-                        SelectedSprite?.Release();
+                        _selectedSprite.Release();
                         var sprites = Instance.spriteState;
                         sprites.selectedSprite = null;
                         Instance.spriteState = sprites;
@@ -190,7 +191,7 @@ namespace TSF.Oolong.UI
                     }
                 case ButtonState.Disabled:
                     {
-                        DisabledSprite?.Release();
+                        _disabledSprite.Release();
                         var sprites = Instance.spriteState;
                         sprites.disabledSprite = null;
                         Instance.spriteState = sprites;
@@ -223,7 +224,7 @@ namespace TSF.Oolong.UI
                     }
                 case ButtonState.Highlight:
                     {
-                        HighlightSprite?.Release();
+                        _highlightSprite.Release();
                         var sprites = Instance.spriteState;
                         sprites.highlightedSprite = null;
                         Instance.spriteState = sprites;
@@ -235,7 +236,7 @@ namespace TSF.Oolong.UI
                     }
                 case ButtonState.Pressed:
                     {
-                        PressedSprite?.Release();
+                        _pressedSprite.Release();
                         var sprites = Instance.spriteState;
                         sprites.pressedSprite = null;
                         Instance.spriteState = sprites;
@@ -247,7 +248,7 @@ namespace TSF.Oolong.UI
                     }
                 case ButtonState.Selected:
                     {
-                        SelectedSprite?.Release();
+                        _selectedSprite.Release();
                         var sprites = Instance.spriteState;
                         sprites.selectedSprite = null;
                         Instance.spriteState = sprites;
@@ -259,7 +260,7 @@ namespace TSF.Oolong.UI
                     }
                 case ButtonState.Disabled:
                     {
-                        DisabledSprite?.Release();
+                        _disabledSprite.Release();
                         var sprites = Instance.spriteState;
                         sprites.disabledSprite = null;
                         Instance.spriteState = sprites;
@@ -322,21 +323,21 @@ namespace TSF.Oolong.UI
             switch (state)
             {
                 case ButtonState.Base:
-                    AddressableBinder.Release<Sprite>(Instance);
+                    _baseSprite.Release();
                     break;
                 case ButtonState.Normal:
                     break;
                 case ButtonState.Highlight:
-                    HighlightSprite?.Release();
+                    _highlightSprite.Release();
                     break;
                 case ButtonState.Pressed:
-                    PressedSprite?.Release();
+                    _pressedSprite.Release();
                     break;
                 case ButtonState.Selected:
-                    SelectedSprite?.Release();
+                    _selectedSprite.Release();
                     break;
                 case ButtonState.Disabled:
-                    DisabledSprite?.Release();
+                    _disabledSprite.Release();
                     break;
             }
 
@@ -361,28 +362,22 @@ namespace TSF.Oolong.UI
                     if (address == "none")
                         sprite = null;
                     else
-                        sprite = _isAsync
-                            ? await AddressableBinder.Load<Sprite>(Instance, address)
-                            : AddressableBinder.LoadSync<Sprite>(Instance, address);
+                        sprite = _isAsync ? await _baseSprite.Load(address) : _baseSprite.LoadSync(address);
                     Loaded = true;
                     break;
                 case ButtonState.Normal:
                     break;
                 case ButtonState.Highlight:
-                    HighlightSprite ??= new AddressableHolder<Sprite>();
-                    sprite = _isAsync ? await HighlightSprite.Load(address) : HighlightSprite.LoadSync(address);
+                    sprite = _isAsync ? await _highlightSprite.Load(address) : _highlightSprite.LoadSync(address);
                     break;
                 case ButtonState.Pressed:
-                    PressedSprite ??= new AddressableHolder<Sprite>();
-                    sprite = _isAsync ? await PressedSprite.Load(address) : PressedSprite.LoadSync(address);
+                    sprite = _isAsync ? await _pressedSprite.Load(address) : _pressedSprite.LoadSync(address);
                     break;
                 case ButtonState.Selected:
-                    SelectedSprite ??= new AddressableHolder<Sprite>();
-                    sprite = _isAsync ? await SelectedSprite.Load(address) : SelectedSprite.LoadSync(address);
+                    sprite = _isAsync ? await _selectedSprite.Load(address) : _selectedSprite.LoadSync(address);
                     break;
                 case ButtonState.Disabled:
-                    DisabledSprite ??= new AddressableHolder<Sprite>();
-                    sprite = _isAsync ? await DisabledSprite.Load(address) : DisabledSprite.LoadSync(address);
+                    sprite = _isAsync ? await _disabledSprite.Load(address) : _disabledSprite.LoadSync(address);
                     break;
             }
 
@@ -400,21 +395,23 @@ namespace TSF.Oolong.UI
             foreach (var kvp in s_attr)
                 kvp.Value(this, null);
 
-            HighlightSprite?.Release();
-            PressedSprite?.Release();
-            SelectedSprite?.Release();
-            DisabledSprite?.Release();
+            _baseSprite.Release();
+            _highlightSprite.Release();
+            _pressedSprite.Release();
+            _selectedSprite.Release();
+            _disabledSprite.Release();
             _image.Release();
         }
 
         public override void Release()
         {
             base.Release();
-            AddressableBinder.Release<Sprite>(Instance);
-            HighlightSprite?.Release();
-            PressedSprite?.Release();
-            SelectedSprite?.Release();
-            DisabledSprite?.Release();
+
+            _baseSprite.Release();
+            _highlightSprite.Release();
+            _pressedSprite.Release();
+            _selectedSprite.Release();
+            _disabledSprite.Release();
             _image.Release();
         }
     }

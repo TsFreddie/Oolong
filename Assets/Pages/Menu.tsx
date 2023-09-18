@@ -5,8 +5,12 @@ export default class Menu extends MithrilComponent {
                 src="none"
                 color="#00ff00"
                 align="stretch"
-                onclick={() => m.route.set("/")}
-            ></button>
+                onclick={() => {
+                    m.route.set("/");
+                }}
+            >
+                <RealtimeText></RealtimeText>
+            </button>
         );
     }
 }
