@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "ts-json-schema-generator": "^1.3.0",
-    "typescript-json-schema": "^0.61.0"
-  }
-}
