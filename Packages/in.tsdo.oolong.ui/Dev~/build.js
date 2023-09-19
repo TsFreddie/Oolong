@@ -71,7 +71,7 @@ program.emit();
 
 const declarationFile = factory.createSourceFile(
     [
-        ...Object.values(imports),
+        /// ...Object.values(imports),
         factory.createExportDeclaration(
             undefined,
             false,
@@ -93,7 +93,10 @@ const declarationFile = factory.createSourceFile(
     ts.NodeFlags.None
 );
 
+const header = `/// <reference types="mithril"/>\n/// <reference types="csharp"/>\n`;
 const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-const file = printer.printFile(declarationFile);
-fs.mkdirSync("../Runtime/Typings~/oolong-ui", { recursive: true });
-fs.writeFileSync("../Runtime/Typings~/oolong-ui/index.d.ts", file);
+const file = `${header}${printer.printFile(
+    declarationFile
+)}`;
+fs.mkdirSync("../Typings~/oolong-ui", { recursive: true });
+fs.writeFileSync("../Typings~/oolong-ui/index.d.ts", file);

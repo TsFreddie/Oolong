@@ -1,4 +1,5 @@
-import mithril from "mithril";
+/// <reference types="mithril"/>
+/// <reference types="csharp"/>
 export {};
 declare global {
     export declare class HttpRequest {
@@ -138,27 +139,26 @@ declare global {
     export declare const MithrilTick: () => void;
     declare class UnityElement extends dom.UnityElement {
     }
-    export declare abstract class MithrilComponent<A = {}> implements mithril.ClassComponent<A> {
+    export declare abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {
         private __tsx_attrs;
-        oninit?(vnode: mithril.Vnode<A, this>): any;
-        oncreate?(vnode: mithril.VnodeDOM<A, this>): any;
-        onbeforeremove?(vnode: mithril.VnodeDOM<A, this>): Promise<any> | void;
-        onremove?(vnode: mithril.VnodeDOM<A, this>): any;
-        onbeforeupdate?(vnode: mithril.Vnode<A, this>, old: mithril.VnodeDOM<A, this>): boolean | void;
-        onupdate?(vnode: mithril.VnodeDOM<A, this>): any;
-        abstract view(vnode: mithril.Vnode<A, this>): mithril.Children | null | void;
+        oninit?(vnode: m.Vnode<A, this>): any;
+        oncreate?(vnode: m.VnodeDOM<A, this>): any;
+        onbeforeremove?(vnode: m.VnodeDOM<A, this>): Promise<any> | void;
+        onremove?(vnode: m.VnodeDOM<A, this>): any;
+        onbeforeupdate?(vnode: m.Vnode<A, this>, old: m.VnodeDOM<A, this>): boolean | void;
+        onupdate?(vnode: m.VnodeDOM<A, this>): any;
+        abstract view(vnode: m.Vnode<A, this>): m.Children | null | void;
     }
     export declare const MithrilMount: (element: CS.TSF.Oolong.UI.IOolongElement, component: MithrilComponent) => UnityElement;
     export declare const MithrilUnmount: (element: UnityElement) => void;
-    export declare const m: any;
     export declare abstract class Realtime extends MithrilComponent {
         private interval;
-        oncreate(vnode: mithril.VnodeDOM<{}, this>): void;
-        abstract onvalueupdate(): mithril.Children;
-        view(vnode: mithril.Vnode<{}, this>): void | mithril.Children;
-        onbeforeremove(vnode: mithril.VnodeDOM<{}, this>): void | Promise<any>;
+        oncreate(vnode: m.VnodeDOM<{}, this>): void;
+        abstract onvalueupdate(): m.Children;
+        view(vnode: m.Vnode<{}, this>): void | m.Children;
+        onbeforeremove(vnode: m.VnodeDOM<{}, this>): void | Promise<any>;
     }
     export declare class RealtimeText extends Realtime {
-        onvalueupdate(): mithril.Children;
+        onvalueupdate(): m.Children;
     }
 }

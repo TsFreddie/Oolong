@@ -1,3 +1,4 @@
+import m from "mithril";
 import * as mithril from "./src/mithril";
 import * as realtime from "./src/realtime";
 
@@ -9,3 +10,5 @@ const global = {
 for (var k in global) {
     globalThis[k] = global[k];
 }
+
+globalThis.m = m;
