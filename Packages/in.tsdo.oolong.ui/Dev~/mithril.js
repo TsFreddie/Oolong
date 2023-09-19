@@ -1,14 +1,14 @@
-import m from "mithril";
-import * as mithril from "./src/mithril";
-import * as realtime from "./src/realtime";
+import m from 'mithril';
+import * as mithril from './src/mithril';
+import * as realtime from './src/realtime';
 
 const global = {
-    ...mithril,
-    ...realtime,
+  ...mithril,
+  ...realtime,
 };
 
 for (var k in global) {
-    globalThis[k] = global[k];
+  globalThis[k] = global[k];
 }
 
 globalThis.m = m;

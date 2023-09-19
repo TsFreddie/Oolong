@@ -1,22 +1,26 @@
-﻿export {};
-
+/// <reference types="csharp"/>
+export {};
 declare global {
-    type ScriptBehaviourType = { new (): ScriptBehaviour };
-    const SerializeField: (
-        type: { new (): any } = null
-    ) => (target: ScriptBehaviour, propertyKey: string) => void;
-    const NonSerialized: () => (
-        target: ScriptBehaviour,
-        propertyKey: string
-    ) => void;
-    const ValueRange: (
-        min: number,
-        max: number
-    ) => (target: ScriptBehaviour, propertyKey: string) => void;
-    const Int: () => (target: ScriptBehaviour, propertyKey: string) => void;
-
-    class ScriptBehaviour {
-        /** @hidden */
-        public mono: CS.TSF.Oolong.ScriptBehaviour;
+    export type ScriptBehaviourType = {
+        new (): ScriptBehaviour;
+    };
+    declare class OolongManager {
+        private behaviours;
+        private gameObjects;
+        private updates;
+        private fixedUpdates;
+        private lateUpdates;
+        attach(behaviour: CS.TSF.Oolong.ScriptBehaviour, scriptClass: ScriptBehaviourType, jsonData: string): void;
+        detach(instanceId: number): void;
+        update(): void;
+        fixedUpdate(): void;
+        lateUpdate(): void;
+        dispose(): void;
     }
+    export declare class ScriptBehaviour {
+        mono: CS.TSF.Oolong.ScriptBehaviour;
+        instanceId: number;
+        gameObjectId: number;
+    }
+    export declare const Oolong: OolongManager;
 }

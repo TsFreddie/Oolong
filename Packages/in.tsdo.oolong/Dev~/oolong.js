@@ -1,7 +1,7 @@
-import * as dom from './src/dom.js';
+import * as oolong from './src/oolong';
 
 const global = {
-  ...dom,
+  ...oolong,
 };
 
 for (var k in global) {

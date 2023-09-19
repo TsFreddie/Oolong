@@ -2,22 +2,13 @@ import esbuild from 'esbuild';
 import ts from 'typescript';
 import fs from 'node:fs';
 
-// build DOM
+// build Oolong
 esbuild.build({
-  entryPoints: ['dom.js'],
+  entryPoints: ['oolong.js'],
   bundle: true,
   format: 'esm',
   minify: true,
-  outfile: '../Runtime/Resources/dom.js',
-});
-
-// build Mithril
-esbuild.build({
-  entryPoints: ['mithril.js'],
-  bundle: true,
-  format: 'esm',
-  minify: true,
-  outfile: '../Runtime/Resources/mithril.js',
+  outfile: '../Runtime/Resources/oolong.js',
 });
 
 const options = {
@@ -27,7 +18,6 @@ const options = {
   typeRoots: [
     '../../../Library/PackageCache/com.tencent.puerts.core@2.0.2/Typing',
     '../../../Assets/Generated/Puerts/Typing',
-    '../../../Packages/in.tsdo.oolong/Typings',
   ],
 };
 
@@ -59,11 +49,7 @@ host.writeFile = (fileName, text, _, __, sourceFiles) => {
     collectDeclartion(sourceFile);
   }
 };
-const program = ts.createProgram(
-  ['./src/dom.ts', './src/mithril.ts', './src/realtime.ts'],
-  options,
-  host
-);
+const program = ts.createProgram(['./src/oolong.ts'], options, host);
 
 program.emit();
 
@@ -91,8 +77,8 @@ const declarationFile = factory.createSourceFile(
   ts.NodeFlags.None
 );
 
-const header = `/// <reference types="mithril"/>\n/// <reference types="csharp"/>\n`;
+const header = `/// <reference types="csharp"/>\n`;
 const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
 const file = `${header}${printer.printFile(declarationFile)}`;
-fs.mkdirSync('../Typings~/oolong-ui', { recursive: true });
-fs.writeFileSync('../Typings~/oolong-ui/index.d.ts', file);
+fs.mkdirSync('../Typings~/oolong', { recursive: true });
+fs.writeFileSync('../Typings~/oolong/index.d.ts', file);

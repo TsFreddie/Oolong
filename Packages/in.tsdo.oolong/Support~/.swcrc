@@ -15,7 +15,7 @@
                 "development": false,
                 "useBuiltins": true
             },
-            "decoratorVersion": "2021-12",
+            "decoratorVersion": "2022-03",
             "decoratorMetadata": true
         },
         "target": "es2021",
