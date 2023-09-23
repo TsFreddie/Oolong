@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "typeRoots": [
       "../../../Library/PackageCache/com.tencent.puerts.core@2.0.2/Typing",
-      "../../../Assets/Generated/Puerts/Typing"
+      "../Generated/Typings~"
     ]
   },
   "exclude": ["./dist/**/*"]

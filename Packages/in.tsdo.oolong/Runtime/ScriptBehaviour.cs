@@ -175,6 +175,9 @@ namespace TSF.Oolong
         {
             AddressableScript = new AssetReferenceT<TextAsset>(_keptAddressable);
         }
+
+        public int GetScriptInstanceID() => GetInstanceID();
+        public int GetGameObjectInstanceID() => gameObject.GetInstanceID();
 #endif
     }
 }

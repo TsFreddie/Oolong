@@ -77,7 +77,7 @@ const declarationFile = factory.createSourceFile(
   ts.NodeFlags.None
 );
 
-const header = `/// <reference types="csharp"/>\n`;
+const header = `/// <reference types="csharp-oolong"/>\n`;
 const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
 const file = `${header}${printer.printFile(declarationFile)}`;
 fs.mkdirSync('../Typings~/oolong', { recursive: true });

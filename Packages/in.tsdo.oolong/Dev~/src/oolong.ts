@@ -27,8 +27,8 @@ class OolongManager {
     scriptClass: ScriptBehaviourType,
     jsonData: string
   ) {
-    const instanceId = behaviour.GetInstanceID();
-    const gameObjectId = behaviour.gameObject.GetInstanceID();
+    const instanceId = behaviour.GetScriptInstanceID();
+    const gameObjectId = behaviour.GetGameObjectInstanceID();
     const typeName = scriptClass.name;
 
     const script = new scriptClass();
