@@ -107,15 +107,28 @@ namespace TSF.Oolong
             _environment = new JsEnv(this);
             // _environment.Eval("require('reflect');require('update');require('dom');require('inspect').prepare(false)");
 #endif
+            InjectWrapper();
+
             _environment.ExecuteModule("oolong");
             _environment.UsingAction<ScriptBehaviour, string, string>();
             _environment.UsingAction<int, JSObject>();
             _environment.UsingAction<int>();
+
             _scriptAttach = _environment.Eval<JsAttach>("Oolong.attach.bind(Oolong)");
             _scriptDetach = _environment.Eval<JsDetach>("Oolong.detach.bind(Oolong)");
             OnUpdate += _environment.Eval<JsUpdate>("Oolong.update.bind(Oolong)");
             OnFixedUpdate += _environment.Eval<JsUpdate>("Oolong.fixedUpdate.bind(Oolong)");
             OnLateUpdate += _environment.Eval<JsUpdate>("Oolong.lateUpdate.bind(Oolong)");
+
+        }
+
+        private void InjectWrapper()
+        {
+            var registerClass = Type.GetType("PuertsStaticWrap.RegisterOolong, TSF.Oolong.Generated");
+            if (registerClass == null) return;
+            var registerMethod = registerClass.GetMethod("AddRegisterInfoGetterIntoJsEnv", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public);
+            if (registerMethod == null) return;
+            registerMethod.Invoke(null, new object[] { _environment });
         }
 
         public bool FileExists(string filePath)
