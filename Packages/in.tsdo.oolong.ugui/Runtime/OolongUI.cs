@@ -1,6 +1,6 @@
 using Puerts;
 using TSF.Oolong;
-using TSF.Oolong.UI;
+using TSF.Oolong.UGUI;
 using UnityEngine;
 
 public static class OolongUI

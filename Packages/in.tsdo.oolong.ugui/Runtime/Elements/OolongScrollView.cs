@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
     public class OolongScrollView : OolongElement<OolongScrollView>

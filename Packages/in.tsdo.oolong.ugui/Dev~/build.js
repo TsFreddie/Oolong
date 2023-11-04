@@ -94,5 +94,5 @@ const declarationFile = factory.createSourceFile(
 const header = `/// <reference types="mithril"/>\n/// <reference types="csharp"/>\n`;
 const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
 const file = `${header}${printer.printFile(declarationFile)}`;
-fs.mkdirSync('../Typings~/oolong-ui', { recursive: true });
-fs.writeFileSync('../Typings~/oolong-ui/index.d.ts', file);
+fs.mkdirSync('../Typings~/oolong-ugui', { recursive: true });
+fs.writeFileSync('../Typings~/oolong-ugui/index.d.ts', file);

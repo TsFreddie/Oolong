@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
     public class OolongToggle : OolongElement<OolongToggle>, IDeselectHandler

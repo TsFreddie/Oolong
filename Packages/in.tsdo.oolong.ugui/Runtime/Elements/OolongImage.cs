@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
     public class OolongImage : OolongElement<OolongImage>

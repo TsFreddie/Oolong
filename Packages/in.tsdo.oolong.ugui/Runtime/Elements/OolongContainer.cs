@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
     public class OolongContainer : OolongElement<OolongContainer>

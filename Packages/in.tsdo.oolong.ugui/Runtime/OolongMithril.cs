@@ -1,4 +1,4 @@
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     public static class OolongMithril
     {

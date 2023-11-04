@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
     public class OolongButton : OolongElement<OolongButton>, IDeselectHandler, IPointerDownHandler, IPointerUpHandler

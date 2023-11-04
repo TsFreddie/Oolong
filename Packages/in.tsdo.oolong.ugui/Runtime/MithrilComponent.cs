@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     [RequireComponent(typeof(RectTransform))]
     [AddComponentMenu("MithrilComponent", order: -999999)]

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace TSF.Oolong.UI.Editor
+namespace TSF.Oolong.UGUI.Editor
 {
     [InitializeOnLoad]
     public static class DragAndDropHandler

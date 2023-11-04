@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     public class BezierCurve
     {

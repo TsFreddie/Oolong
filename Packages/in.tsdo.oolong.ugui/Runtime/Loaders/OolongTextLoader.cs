@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     public class OolongTextLoader : OolongLoader
     {

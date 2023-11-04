@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
     public abstract class OolongElement<T> : MonoBehaviour, IOolongElement, IPointerEnterHandler, IPointerExitHandler where T : OolongElement<T>

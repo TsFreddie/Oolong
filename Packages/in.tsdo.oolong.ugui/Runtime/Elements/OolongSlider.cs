@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
     public class OolongSlider : OolongElement<OolongSlider>, IDeselectHandler

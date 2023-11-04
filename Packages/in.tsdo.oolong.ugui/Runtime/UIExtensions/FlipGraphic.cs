@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     [RequireComponent(typeof(RectTransform), typeof(Graphic)), DisallowMultipleComponent]
     [AddComponentMenu("")]

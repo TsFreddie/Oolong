@@ -7,7 +7,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Object = UnityEngine.Object;
 
-namespace TSF.Oolong.UI
+namespace TSF.Oolong.UGUI
 {
     public struct AddressableHolder<T> where T : Object
     {

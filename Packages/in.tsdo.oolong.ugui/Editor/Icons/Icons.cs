@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace TSF.Oolong.UI.Editor
+namespace TSF.Oolong.UGUI.Editor
 {
     public static class Icons
     {
