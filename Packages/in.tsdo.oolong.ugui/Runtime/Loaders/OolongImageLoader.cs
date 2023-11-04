@@ -50,18 +50,18 @@ namespace TSF.Oolong.UGUI
             get => _defaultType;
             set
             {
-                // TODO: 如果出现SetAttribute后设置DefaultType，应检测当前Attribute
                 _defaultType = value;
                 SetType(value);
             }
         }
 
-        public Image Instance;
+        public readonly Image Instance;
 
         private Mask _mask;
         private bool _isAsync;
         private bool _loaded = false;
         private string _address;
+        private readonly string _tagName;
         private AddressableHolder<Sprite> _handle;
 
         public bool HasImage { get; private set; } = false;
@@ -87,7 +87,7 @@ namespace TSF.Oolong.UGUI
             }
         }
 
-        public OolongImageLoader(Image instance)
+        public OolongImageLoader(Image instance, string tagName)
         {
             Instance = instance;
             Instance.fillClockwise = false;
@@ -96,6 +96,8 @@ namespace TSF.Oolong.UGUI
             Loaded = false;
             HasImage = false;
             IsLayoutDirty = true;
+
+            _tagName = tagName;
         }
 
         private void SetFloat(ref float f, string v)
@@ -327,9 +329,10 @@ namespace TSF.Oolong.UGUI
 
             HasImage = true;
             Sprite sprite = null;
-            var isNone = _address == "none";
+            var isNone = _address == "#";
             if (!isNone)
             {
+                _address = OolongUGUI.TransformAddress(_tagName, _address);
                 if (_isAsync)
                     sprite = await _handle.Load(_address);
                 else

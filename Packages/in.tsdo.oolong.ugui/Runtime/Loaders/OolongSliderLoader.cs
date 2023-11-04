@@ -8,8 +8,6 @@ namespace TSF.Oolong.UGUI
 {
     public class OolongSliderLoader : OolongLoader
     {
-        // TODO: 若需要通用scrollbar元素，别忘了在这里先实现 direction, value, size 和 steps
-        // TODO: 目前只是为了支持ScrollView和InputField所以只做了部分参数
         private delegate void SliderAttrHandler(OolongSliderLoader e, string value);
         private static readonly Dictionary<string, SliderAttrHandler> s_attr = new Dictionary<string, SliderAttrHandler>()
         {
@@ -27,7 +25,7 @@ namespace TSF.Oolong.UGUI
             { "handle-offset-y", (e, v) => { e.SetFloat(ref e._handleOffsetY, v); } },
         };
 
-        public Slider Instance;
+        public readonly Slider Instance;
 
         private bool _directionLocked = false;
         private RectTransform _fillArea;
@@ -51,7 +49,7 @@ namespace TSF.Oolong.UGUI
 
         public bool Enabled => _selectable.HasImage;
 
-        public OolongSliderLoader(GameObject obj)
+        public OolongSliderLoader(GameObject obj, string tagName)
         {
             Instance = obj.AddComponent<Slider>();
             _sliderRect = Instance.GetComponent<RectTransform>();
@@ -67,7 +65,7 @@ namespace TSF.Oolong.UGUI
             _bgRect.anchorMax = Vector2.one;
             _bgRect.offsetMin = Vector2.zero;
             _bgRect.offsetMax = Vector2.zero;
-            _image = new OolongImageLoader(_bgRect.gameObject.AddComponent<Image>()) { DefaultType = "slice" };
+            _image = new OolongImageLoader(_bgRect.gameObject.AddComponent<Image>(), tagName) { DefaultType = "slice" };
 
             _fillRect = DocumentUtils.CreateChildRect(_fillArea.transform, "::fill");
             Instance.fillRect = _fillRect;
@@ -75,7 +73,7 @@ namespace TSF.Oolong.UGUI
             _fillRect.anchorMax = Vector2.one;
             _fillRect.offsetMin = Vector2.zero;
             _fillRect.offsetMax = Vector2.zero;
-            _fill = new OolongImageLoader(_fillRect.gameObject.AddComponent<Image>()) { DefaultType = "slice" };
+            _fill = new OolongImageLoader(_fillRect.gameObject.AddComponent<Image>(), tagName) { DefaultType = "slice" };
 
             _slidingArea = DocumentUtils.CreateChildRect(obj.transform, "::sliding-area");
             _slidingArea.anchorMin = Vector2.zero;
@@ -90,12 +88,12 @@ namespace TSF.Oolong.UGUI
             _handleRect.offsetMin = Vector2.zero;
             _handleRect.offsetMax = Vector2.zero;
             Instance.targetGraphic = _handleRect.gameObject.AddComponent<Image>();
-            _selectable = new OolongSelectableLoader(Instance);
+            _selectable = new OolongSelectableLoader(Instance, tagName);
 
             IsLayoutDirty = true;
         }
 
-        public OolongSliderLoader(GameObject obj, Slider.Direction direction) : this(obj)
+        public OolongSliderLoader(GameObject obj, Slider.Direction direction, string tagName) : this(obj, tagName)
         {
             Instance.direction = direction;
             _directionLocked = true;

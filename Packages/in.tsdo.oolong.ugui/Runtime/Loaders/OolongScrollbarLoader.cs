@@ -7,14 +7,18 @@ namespace TSF.Oolong.UGUI
 {
     public class OolongScrollbarLoader : OolongLoader
     {
-        // TODO: 若需要通用scrollbar元素，别忘了在这里先实现 direction, value, size 和 steps
-        // TODO: 目前只是为了支持ScrollView和InputField所以只做了部分参数
+        /*
+         * TODO: Currently implemented for ScrollView only, the following attributes is still missing:
+         * direction
+         * size
+         * steps
+         */
         private delegate void ScrollbarAttrHandler(OolongScrollbarLoader e, string value);
         private static readonly Dictionary<string, ScrollbarAttrHandler> s_attr = new Dictionary<string, ScrollbarAttrHandler>() { { "min-length", (e, v) => e.SetMinLength(v) } };
 
-        public Scrollbar Instance;
+        public readonly Scrollbar Instance;
 
-        // TODO: 若支持通用scrollbar，使用这个参数跳过direction设置。因为scrollview中的滚动条不应该可以修改方向
+        // TODO: This will be used to lock direction for ScrollView.
         private bool _directionLocked = false;
         private float _halfMinHandleLength = 10.0f;
         private RectTransform _slidingArea;
@@ -25,10 +29,10 @@ namespace TSF.Oolong.UGUI
 
         public bool Enabled => _selectable.HasImage;
 
-        public OolongScrollbarLoader(GameObject obj)
+        public OolongScrollbarLoader(GameObject obj, string tagName)
         {
             Instance = obj.AddComponent<Scrollbar>();
-            _image = new OolongImageLoader(obj.AddComponent<Image>()) { DefaultType = "slice" };
+            _image = new OolongImageLoader(obj.AddComponent<Image>(), tagName) { DefaultType = "slice" };
 
             var offsetPositive = new Vector2(_halfMinHandleLength, _halfMinHandleLength);
             var offsetNegative = new Vector2(-_halfMinHandleLength, -_halfMinHandleLength);
@@ -47,10 +51,10 @@ namespace TSF.Oolong.UGUI
             _handleRect.offsetMin = offsetNegative;
             _handleRect.offsetMax = offsetPositive;
             Instance.targetGraphic = _handleRect.gameObject.AddComponent<Image>();
-            _selectable = new OolongSelectableLoader(Instance);
+            _selectable = new OolongSelectableLoader(Instance, tagName);
         }
 
-        public OolongScrollbarLoader(GameObject obj, Scrollbar.Direction direction) : this(obj)
+        public OolongScrollbarLoader(GameObject obj, Scrollbar.Direction direction, string tagName) : this(obj, tagName)
         {
             Instance.direction = direction;
             _directionLocked = true;

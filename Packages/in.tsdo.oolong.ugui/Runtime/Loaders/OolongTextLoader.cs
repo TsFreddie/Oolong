@@ -49,7 +49,7 @@ namespace TSF.Oolong.UGUI
 
         private readonly Dictionary<string, string> _textAttr = new Dictionary<string, string>();
 
-        public TextMeshProUGUI Instance;
+        public readonly TextMeshProUGUI Instance;
 
         private TextAlignmentOptions _defaultAlign = TextAlignmentOptions.Center;
         public TextAlignmentOptions DefaultAlign
@@ -57,7 +57,6 @@ namespace TSF.Oolong.UGUI
             get => _defaultAlign;
             set
             {
-                // TODO: 如果出现SetAttribute后设置DefaultAlign，应检测当前Attribute
                 _defaultAlign = value;
                 Instance.alignment = _defaultAlign;
             }
@@ -69,7 +68,6 @@ namespace TSF.Oolong.UGUI
             get => _defaultOverflow;
             set
             {
-                // TODO: 如果出现SetAttribute后设置DefaultOverflow，应检测当前Attribute
                 _defaultOverflow = value;
                 Instance.overflowMode = _defaultOverflow;
             }
@@ -81,7 +79,6 @@ namespace TSF.Oolong.UGUI
             get => _defaultWrap;
             set
             {
-                // TODO: 如果出现SetAttribute后设置DefaultWrap，应检测当前Attribute
                 _defaultWrap = value;
                 Instance.enableWordWrapping = _defaultWrap;
             }
@@ -93,7 +90,6 @@ namespace TSF.Oolong.UGUI
             get => _defaultColor;
             set
             {
-                // TODO: 如果出现SetAttribute后设置DefaultColor，应检测当前Attribute
                 _defaultColor = value;
                 Instance.color = _defaultColor;
             }
@@ -105,7 +101,6 @@ namespace TSF.Oolong.UGUI
             get => _defaultStyle;
             set
             {
-                // TODO: 如果出现SetAttribute后设置DefaultStyles，应检测当前Attribute
                 _defaultStyle = value;
                 Instance.fontStyle = _defaultStyle;
             }
@@ -137,7 +132,6 @@ namespace TSF.Oolong.UGUI
             Instance.fontSizeMax = TMP_Settings.defaultFontSize;
             Instance.isTextObjectScaleStatic = TMP_Settings.isTextObjectScaleStatic;
 
-            // Don't use default setting for these settings
             Instance.raycastTarget = true;
             Instance.enableWordWrapping = false;
 

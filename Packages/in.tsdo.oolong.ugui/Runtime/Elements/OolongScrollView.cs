@@ -75,7 +75,7 @@ namespace TSF.Oolong.UGUI
             _viewport = CreateChildRect("::viewport");
             var viewportObj = _viewport.gameObject;
 
-            // TODO: 支持配置 RectMask2D
+            // TODO: Support setting attributes for RectMask2D
             viewportObj.AddComponent<RectMask2D>();
             viewportObj.AddComponent<NonDrawingGraphic>();
             _scrollRect.viewport = _viewport;
@@ -88,8 +88,6 @@ namespace TSF.Oolong.UGUI
 
         private void CreateScrollbar(bool isHorizontal)
         {
-            // TODO: 固定pivot
-
             var childObj = new GameObject(isHorizontal ? "::scrollbar-x" : "::scrollbar-y");
             var scrollbarRect = childObj.AddComponent<RectTransform>();
             scrollbarRect.SetParent(transform);
@@ -101,7 +99,7 @@ namespace TSF.Oolong.UGUI
                 scrollbarRect.pivot = Vector2.zero;
                 scrollbarRect.anchorMin = Vector2.zero;
                 scrollbarRect.anchorMax = new Vector2(1.0f, 0.0f);
-                _scrollbarX = new OolongScrollbarLoader(childObj.gameObject, Scrollbar.Direction.LeftToRight);
+                _scrollbarX = new OolongScrollbarLoader(childObj.gameObject, Scrollbar.Direction.LeftToRight, TagName);
                 _scrollRect.horizontalScrollbar = _scrollbarX.Instance;
                 _scrollRect.horizontalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHideAndExpandViewport;
                 _scrollRect.horizontalScrollbarSpacing = 0.0f;
@@ -112,7 +110,7 @@ namespace TSF.Oolong.UGUI
                 scrollbarRect.pivot = Vector2.one;
                 scrollbarRect.anchorMin = new Vector2(1.0f, 0.0f);
                 scrollbarRect.anchorMax = Vector2.one;
-                _scrollbarY = new OolongScrollbarLoader(childObj.gameObject, Scrollbar.Direction.BottomToTop);
+                _scrollbarY = new OolongScrollbarLoader(childObj.gameObject, Scrollbar.Direction.BottomToTop, TagName);
                 _scrollRect.verticalScrollbar = _scrollbarY.Instance;
                 _scrollRect.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHideAndExpandViewport;
                 _scrollRect.verticalScrollbarSpacing = 0.0f;
@@ -149,9 +147,9 @@ namespace TSF.Oolong.UGUI
             if (_scrollbarX == null && key.StartsWith("sx-")) CreateScrollbar(true);
             if (_scrollbarY == null && key.StartsWith("sy-")) CreateScrollbar(false);
 
-            if (s_attrs.ContainsKey(key))
+            if (s_attrs.TryGetValue(key, out var attr))
             {
-                s_attrs[key](this, value);
+                attr(this, value);
                 return true;
             }
 

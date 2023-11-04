@@ -22,13 +22,8 @@ namespace TSF.Oolong.UGUI
 
         public override Transform RootTransform => _innerRect;
 
-        /// <summary>
-        /// 内容是否晚一帧出现（以方便Overlay截屏时不带有内容）
-        /// </summary>
         private bool _delayed;
-
         private bool _delayFulfilled = false;
-
         private float _alpha = 1.0f;
 
         public override void OnCreate()
@@ -102,7 +97,6 @@ namespace TSF.Oolong.UGUI
             }
             else
             {
-                // TODO: 开始动画？
                 _group.alpha = _alpha;
             }
         }

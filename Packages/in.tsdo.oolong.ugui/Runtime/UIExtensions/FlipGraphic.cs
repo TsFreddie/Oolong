@@ -12,27 +12,27 @@ namespace TSF.Oolong.UGUI
 
         public bool FlipX
         {
-            get { return this._flipX; }
+            get { return _flipX; }
             set
             {
-                this._flipX = value;
-                this.GetComponent<Graphic>().SetVerticesDirty();
+                _flipX = value;
+                GetComponent<Graphic>().SetVerticesDirty();
             }
         }
 
         public bool FlipY
         {
-            get { return this._flipY; }
+            get { return _flipY; }
             set
             {
-                this._flipY = value;
-                this.GetComponent<Graphic>().SetVerticesDirty();
+                _flipY = value;
+                GetComponent<Graphic>().SetVerticesDirty();
             }
         }
 
         public override void ModifyMesh(VertexHelper verts)
         {
-            var rt = this.GetComponent<RectTransform>();
+            var rt = GetComponent<RectTransform>();
             if (rt == null) return;
 
             for (var i = 0; i < verts.currentVertCount; ++i)
@@ -40,14 +40,12 @@ namespace TSF.Oolong.UGUI
                 var uiVertex = new UIVertex();
                 verts.PopulateUIVertex(ref uiVertex, i);
 
-                // Modify positions
                 uiVertex.position = new Vector3(
-                    (this._flipX ? (uiVertex.position.x + (rt.rect.center.x - uiVertex.position.x) * 2) : uiVertex.position.x),
-                    (this._flipY ? (uiVertex.position.y + (rt.rect.center.y - uiVertex.position.y) * 2) : uiVertex.position.y),
+                    (_flipX ? (uiVertex.position.x + (rt.rect.center.x - uiVertex.position.x) * 2) : uiVertex.position.x),
+                    (_flipY ? (uiVertex.position.y + (rt.rect.center.y - uiVertex.position.y) * 2) : uiVertex.position.y),
                     uiVertex.position.z
                 );
 
-                // Apply
                 verts.SetUIVertex(uiVertex, i);
             }
         }

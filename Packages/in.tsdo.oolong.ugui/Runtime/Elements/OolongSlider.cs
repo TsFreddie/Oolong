@@ -18,7 +18,7 @@ namespace TSF.Oolong.UGUI
         public override void OnCreate()
         {
             base.OnCreate();
-            _slider = new OolongSliderLoader(gameObject);
+            _slider = new OolongSliderLoader(gameObject, TagName);
         }
 
         protected override bool SetAttribute(string key, string value)

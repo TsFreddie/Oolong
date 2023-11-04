@@ -128,11 +128,11 @@ namespace TSF.Oolong.UGUI
             _input = gameObject.AddComponent<TMP_InputField>();
             var image = gameObject.AddComponent<Image>();
             _input.targetGraphic = image;
-            _selectable = new OolongSelectableLoader(_input);
+            _selectable = new OolongSelectableLoader(_input, TagName);
             _textArea = CreateChildRect("::textarea");
             var textAreaObj = _textArea.gameObject;
 
-            // TODO: 支持配置 RectMask2D
+            // TODO: Support setting attributes for RectMask2D
             _mask = textAreaObj.AddComponent<RectMask2D>();
             _input.textViewport = _textArea;
 

@@ -77,6 +77,7 @@ namespace TSF.Oolong.UGUI
 
         private bool _loaded = false;
         private bool _isAsync = false;
+        private string _tagName;
 
         public bool HasImage { get; private set; } = false;
 
@@ -103,11 +104,12 @@ namespace TSF.Oolong.UGUI
 
         private Color _baseColor = Color.white;
 
-        public OolongSelectableLoader(Selectable instance)
+        public OolongSelectableLoader(Selectable instance, string tagName)
         {
             Instance = instance;
             Instance.enabled = false;
-            _image = new OolongImageLoader(instance.image);
+            _image = new OolongImageLoader(instance.image, tagName);
+            _tagName = tagName;
         }
 
         public bool SetAttribute(string prefix, string key, string value)
@@ -354,12 +356,17 @@ namespace TSF.Oolong.UGUI
             }
 
             Sprite sprite = null;
+            var isNone = address == "#";
+            if (!isNone)
+            {
+                address = OolongUGUI.TransformAddress(_tagName, address);
+            }
 
             switch (state)
             {
                 case ButtonState.Base:
                     HasImage = true;
-                    if (address == "none")
+                    if (isNone)
                         sprite = null;
                     else
                         sprite = _isAsync ? await _baseSprite.Load(address) : _baseSprite.LoadSync(address);
@@ -381,7 +388,7 @@ namespace TSF.Oolong.UGUI
                     break;
             }
 
-            if (sprite == null && (state != ButtonState.Base || address != "none"))
+            if (sprite == null && (state != ButtonState.Base || !isNone))
                 return;
 
             SetSprite(state, sprite);

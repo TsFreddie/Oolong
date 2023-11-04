@@ -11,7 +11,7 @@ namespace TSF.Oolong.UGUI
         public override void OnCreate()
         {
             base.OnCreate();
-            _image = new OolongImageLoader(gameObject.AddComponent<Image>());
+            _image = new OolongImageLoader(gameObject.AddComponent<Image>(), TagName);
         }
 
         protected override bool SetAttribute(string key, string value)

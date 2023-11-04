@@ -63,11 +63,10 @@ namespace TSF.Oolong.UGUI
             if (v == null)
                 return;
 
-            if (s_toggleGroups.ContainsKey(v))
+            if (s_toggleGroups.TryGetValue(v, out var toggleGroup))
             {
-                var existingGroup = s_toggleGroups[v];
-                _toggle.group = existingGroup.Instance;
-                existingGroup.IncreaseCounter();
+                _toggle.group = toggleGroup.Instance;
+                toggleGroup.IncreaseCounter();
             }
             else
             {
@@ -126,11 +125,11 @@ namespace TSF.Oolong.UGUI
             var image = gameObject.AddComponent<Image>();
             _toggle = gameObject.AddComponent<Toggle>();
             _toggle.targetGraphic = image;
-            _toggleLoader = new OolongSelectableLoader(_toggle);
+            _toggleLoader = new OolongSelectableLoader(_toggle, TagName);
 
             _checkmarkRect = new OolongRectLoader(CreateChildRect("::checkmark"));
 
-            _checkmark = new OolongImageLoader(_checkmarkRect.Instance.gameObject.AddComponent<Image>());
+            _checkmark = new OolongImageLoader(_checkmarkRect.Instance.gameObject.AddComponent<Image>(), TagName);
             _toggle.graphic = _checkmark.Instance;
             _toggle.SetIsOnWithoutNotify(false);
 

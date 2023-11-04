@@ -20,7 +20,7 @@ namespace TSF.Oolong.UGUI
             var image = gameObject.AddComponent<Image>();
             _button = gameObject.AddComponent<Button>();
             _button.targetGraphic = image;
-            _buttonLoader = new OolongSelectableLoader(_button);
+            _buttonLoader = new OolongSelectableLoader(_button, TagName);
         }
 
         public override void AddListener(string key, IOolongElement.JsCallback callback)
