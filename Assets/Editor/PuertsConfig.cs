@@ -55,8 +55,8 @@ namespace PuertsConfig
                 {
                     "UnityEngine",
                     "UnityEngine.UI",
-                    "TMPro",
                     "UnityEngine.Networking",
+                    "TMPro",
                 };
                 var unityTypes = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
                                   where !(assembly.ManifestModule is System.Reflection.Emit.ModuleBuilder)
@@ -105,6 +105,9 @@ namespace PuertsConfig
             {
                 var types = new List<Type>()
                 {
+                    // PuerTS
+                    typeof(ILoader),
+
                     // Unity
                     typeof(GameObject),
                     typeof(Transform),
@@ -113,33 +116,7 @@ namespace PuertsConfig
                     typeof(Vector3),
                     typeof(Vector2),
 
-                    // // Mithril
-                    // typeof(DocumentUtils),
-                    // typeof(IOolongElement),
-                    // typeof(ScreenCaptureRequester),
-                    //
-                    // // Mithril Type
-                    // typeof(OolongButton),
-                    // typeof(OolongContainer),
-                    // typeof(OolongImage),
-                    // typeof(OolongPanel),
-                    // typeof(OolongText),
-                    // typeof(OolongToggle),
-                    // typeof(OolongSlider),
-                    // typeof(OolongScrollView),
-                    //
-                    // // Mithril Element Type
-                    // typeof(OolongElement<OolongButton>),
-                    // typeof(OolongElement<OolongContainer>),
-                    // typeof(OolongElement<OolongImage>),
-                    // typeof(OolongElement<OolongPanel>),
-                    // typeof(OolongElement<OolongText>),
-                    // typeof(OolongElement<OolongToggle>),
-                    // typeof(OolongElement<OolongSlider>),
-                    // typeof(OolongElement<OolongScrollView>),
-
                     // System
-                    typeof(ILoader),
                     typeof(Array),
                     typeof(IList),
                     typeof(ICollection),

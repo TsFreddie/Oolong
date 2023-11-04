@@ -1,3 +1,5 @@
+#if UNITY_LOCALIZATION
+
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 
@@ -34,3 +36,5 @@ public class LocalizationTransformer : ITextTransformer
         return entry.Entry.GetLocalizedString();
     }
 }
+
+#endif

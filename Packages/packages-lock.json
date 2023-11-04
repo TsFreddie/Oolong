@@ -182,7 +182,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.localization": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -293,6 +293,7 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
+        "com.unity.textmeshpro": "3.0.6",
         "com.unity.ugui": "1.0.0",
         "in.tsdo.oolong": "1.0.0"
       }

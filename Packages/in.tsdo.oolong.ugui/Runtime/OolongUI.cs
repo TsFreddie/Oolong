@@ -26,7 +26,7 @@ public static class OolongUI
         OolongEnvironment.OnUpdate += DocumentUtils.UpdateLayout;
         OolongEnvironment.OnLateUpdate += DocumentUtils.LateUpdateLayout;
 
-        s_textTransformer = new LocalizationTransformer();
+        s_textTransformer = new IdentityTransformer();
         s_addressTransformer = new IdentityTransformer();
     }
 
