@@ -1,5 +1,6 @@
-///<reference path="./elements.d.ts" />
-///<reference path="./tsx.d.ts" />
+
+/// <reference types="csharp"/>
+/// <reference path="./elements.d.ts" />
 
 // Type definitions for Mithril 2.0
 // Project: https://mithril.js.org/, https://github.com/mithriljs/mithril.js

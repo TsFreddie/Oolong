@@ -39,6 +39,7 @@ namespace TSF.Oolong.UI
             public float MarginY;
             public float Margin;
             public float Rotation;
+            public float Z;
         }
 
         public struct LayoutElementData
@@ -65,6 +66,7 @@ namespace TSF.Oolong.UI
             { "margin-bottom", (e, v) => e.SetFloat(ref e._layoutData.MarginBottom, v) },
             { "margin-x", (e, v) => e.SetFloat(ref e._layoutData.MarginX, v) },
             { "margin-y", (e, v) => e.SetFloat(ref e._layoutData.MarginY, v) },
+            { "z", (e, v) => e.SetFloat(ref e._layoutData.Z, v) },
             { "rotation", (e, v) => e.SetFloat(ref e._layoutData.Rotation, v) },
             { "anchor", (e, v) => e.SetAnchor(v) },
             { "min-width", (e, v) => e.SetFloat(ref e._layoutElementData.MinWidth, v, -1) },
@@ -480,6 +482,10 @@ namespace TSF.Oolong.UI
                 layoutElement.flexibleHeight = _layoutElementData.FlexHeight;
                 layoutElement.ignoreLayout = _layoutElementData.IgnoreLayout;
             }
+
+            var localPosition = Instance.localPosition;
+            localPosition.z = -_layoutData.Z;
+            Instance.localPosition = localPosition;
         }
 
         public override void Reuse()
