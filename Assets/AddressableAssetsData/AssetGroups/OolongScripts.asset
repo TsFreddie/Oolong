@@ -17,18 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: ce23609ccb810c349bab579b5c2408b8
   m_SerializeEntries:
-  - m_GUID: c9f0fd58b85588e44968ea383cc88d28
-    m_Address: _oolong_/entry
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - OolongScripts
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 507119452f2c5104ab9a0b7c635823fe
-    m_Address: _oolong_/index
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - OolongScripts
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd59637a74b6b9148af66facb5b0f31d
     m_Address: _oolong_/TestBehaviour
     m_ReadOnly: 1
@@ -37,12 +25,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de33f7554b8fb53479c4c46353bee1d3
     m_Address: _oolong_/utils
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - OolongScripts
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d8850bcac7ba52e48bdcff240b0fdd9c
-    m_Address: _oolong_/MithrilTest
     m_ReadOnly: 1
     m_SerializedLabels:
     - OolongScripts

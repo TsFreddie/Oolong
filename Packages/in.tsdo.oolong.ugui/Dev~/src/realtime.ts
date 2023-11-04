@@ -21,9 +21,3 @@ export abstract class Realtime extends MithrilComponent {
     clearInterval(this.interval);
   }
 }
-
-export class RealtimeText extends Realtime {
-  override onvalueupdate(): m.Children {
-    return m('text', Math.random().toString());
-  }
-}

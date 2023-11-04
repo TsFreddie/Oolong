@@ -24,7 +24,7 @@ export abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {
 }
 
 export const MithrilMount = (
-  element: CS.TSF.Oolong.UI.IOolongElement,
+  element: CS.TSF.Oolong.UGUI.IOolongElement,
   component: MithrilComponent
 ) => {
   var el = new UnityElement(element);

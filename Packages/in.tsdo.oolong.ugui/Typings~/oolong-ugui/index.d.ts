@@ -67,10 +67,10 @@ declare global {
     type EventHandler = ((ev: Event) => void) | {
         handleEvent: (ev: Event) => void;
     };
-    export declare class UnityElement<T extends CS.TSF.Oolong.UI.IOolongElement = CS.TSF.Oolong.UI.IOolongElement> extends UnityNode {
+    export declare class UnityElement<T extends CS.TSF.Oolong.UGUI.IOolongElement = CS.TSF.Oolong.UGUI.IOolongElement> extends UnityNode {
         element: T;
         private events;
-        constructor(element: CS.TSF.Oolong.UI.IOolongElement);
+        constructor(element: CS.TSF.Oolong.UGUI.IOolongElement);
         constructor(tagName: string);
         contains(node: UnityElement): boolean;
         attachChildInternal(child: UnityElement): void;
@@ -149,7 +149,7 @@ declare global {
         onupdate?(vnode: m.VnodeDOM<A, this>): any;
         abstract view(vnode: m.Vnode<A, this>): m.Children | null | void;
     }
-    export declare const MithrilMount: (element: CS.TSF.Oolong.UI.IOolongElement, component: MithrilComponent) => UnityElement;
+    export declare const MithrilMount: (element: CS.TSF.Oolong.UGUI.IOolongElement, component: MithrilComponent) => UnityElement;
     export declare const MithrilUnmount: (element: UnityElement) => void;
     export declare abstract class Realtime extends MithrilComponent {
         private interval;
@@ -157,8 +157,5 @@ declare global {
         abstract onvalueupdate(): m.Children;
         view(vnode: m.Vnode<{}, this>): void | m.Children;
         onbeforeremove(vnode: m.VnodeDOM<{}, this>): void | Promise<any>;
-    }
-    export declare class RealtimeText extends Realtime {
-        onvalueupdate(): m.Children;
     }
 }

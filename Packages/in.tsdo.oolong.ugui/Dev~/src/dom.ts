@@ -33,14 +33,14 @@ export class HttpRequest {
           ToCSharpByteArray(body)
         );
       } else {
-        CS.TSF.Oolong.UI.UnityWebRequestExtension.SetBody(this.request, body);
+        CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SetBody(this.request, body);
       }
     }
 
     if (this.withCredentials) {
-      CS.TSF.Oolong.UI.OolongWebConfig.Authenticate(this.request);
+      CS.TSF.Oolong.UGUI.OolongWebConfig.Authenticate(this.request);
     }
-    CS.TSF.Oolong.UI.UnityWebRequestExtension.SendWithCallback(this.request, () => {
+    CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SendWithCallback(this.request, () => {
       if (this.onreadystatechange) {
         this.onreadystatechange({ target: this });
       }
@@ -324,17 +324,17 @@ const runEvent = (target: UnityElement, event: string, cb: EventHandler) => {
 };
 
 export class UnityElement<
-  T extends CS.TSF.Oolong.UI.IOolongElement = CS.TSF.Oolong.UI.IOolongElement
+  T extends CS.TSF.Oolong.UGUI.IOolongElement = CS.TSF.Oolong.UGUI.IOolongElement
 > extends UnityNode {
   public element: T;
   private events: { [key: string]: EventHandler };
 
-  constructor(element: CS.TSF.Oolong.UI.IOolongElement);
+  constructor(element: CS.TSF.Oolong.UGUI.IOolongElement);
   constructor(tagName: string);
-  constructor(tagNameOrElement: string | CS.TSF.Oolong.UI.IOolongElement) {
+  constructor(tagNameOrElement: string | CS.TSF.Oolong.UGUI.IOolongElement) {
     super();
     if (typeof tagNameOrElement == 'string') {
-      this.element = CS.TSF.Oolong.UI.DocumentUtils.CreateElement(tagNameOrElement) as T;
+      this.element = CS.TSF.Oolong.UGUI.DocumentUtils.CreateElement(tagNameOrElement) as T;
     } else {
       this.element = tagNameOrElement as T;
     }
@@ -348,15 +348,15 @@ export class UnityElement<
   }
 
   public attachChildInternal(child: UnityElement) {
-    CS.TSF.Oolong.UI.DocumentUtils.AttachElement(this.element, child.element);
+    CS.TSF.Oolong.UGUI.DocumentUtils.AttachElement(this.element, child.element);
   }
 
   public removeChildInternal(child: UnityElement) {
-    CS.TSF.Oolong.UI.DocumentUtils.RemoveElement(this.element, child.element);
+    CS.TSF.Oolong.UGUI.DocumentUtils.RemoveElement(this.element, child.element);
   }
 
   public insertChildInternal(child: UnityElement, pos: number) {
-    CS.TSF.Oolong.UI.DocumentUtils.InsertElement(this.element, child.element, pos);
+    CS.TSF.Oolong.UGUI.DocumentUtils.InsertElement(this.element, child.element, pos);
   }
 
   public setAttribute(name: string, value: any) {
