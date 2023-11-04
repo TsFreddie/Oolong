@@ -1,6 +1,6 @@
 {
     "name": "in.tsdo.oolong.ugui",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "displayName": "Oolong Unity UI",
     "description": "A tsx UI framework powered by PuerTS and mithril.js",
     "keywords": [
@@ -16,6 +16,6 @@
     "dependencies": {
         "com.unity.textmeshpro": "3.0.6",
         "com.unity.ugui": "1.0.0",
-        "in.tsdo.oolong": "1.0.0"
+        "in.tsdo.oolong": "0.0.1"
     }
 }
