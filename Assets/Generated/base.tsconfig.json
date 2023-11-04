@@ -10,7 +10,7 @@
             "../../Assets/Generated/Puerts/Typing",
             "../../Packages/in.tsdo.oolong/Typings~",
             "../../Packages/in.tsdo.oolong/Generated/Typings~",
-            "../../Packages/in.tsdo.oolong.ui/Typings~"
+            "../../Packages/in.tsdo.oolong.ugui/Typings~"
         ],
         "jsx": "react",
         "jsxFactory": "m",

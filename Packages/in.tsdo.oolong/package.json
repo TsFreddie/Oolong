@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "com.tencent.puerts.core": "2.0.2",
-    "com.unity.addressables": "1.21.17",
-    "com.unity.nuget.newtonsoft-json": "3.2.1"
+    "com.unity.addressables": "1.21.17"
   }
 }

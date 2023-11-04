@@ -3,6 +3,7 @@ export default class Menu extends MithrilComponent {
         return (
             <button
                 src="none"
+                z="30"
                 color="#ff0000"
                 align="stretch"
                 onclick={() => {

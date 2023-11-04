@@ -1,8 +1,8 @@
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace TSF.Oolong.Editor
+namespace TSF.Oolong.UI.Editor
 {
     [InitializeOnLoad]
     public static class DragAndDropHandler
@@ -20,7 +20,7 @@ namespace TSF.Oolong.Editor
                 if (target is not TextAsset script)
                     return false;
                 var path = AssetDatabase.GetAssetPath(script);
-                if (!path.EndsWith(".ts"))
+                if (!path.EndsWith(".tsx"))
                     return false;
             }
             return true;
@@ -34,8 +34,8 @@ namespace TSF.Oolong.Editor
                 if (target is GameObject gameObject && script is TextAsset)
                 {
                     var path = AssetDatabase.GetAssetPath(script);
-                    if (!path.EndsWith(".ts")) continue;
-                    var scriptBehaviour = Undo.AddComponent<ScriptBehaviour>(gameObject);
+                    if (!path.EndsWith(".tsx")) continue;
+                    var scriptBehaviour = Undo.AddComponent<MithrilComponent>(gameObject);
                     scriptBehaviour.AddressableScript = new AssetReferenceT<TextAsset>(AssetDatabase.AssetPathToGUID(path));
                 }
             }
