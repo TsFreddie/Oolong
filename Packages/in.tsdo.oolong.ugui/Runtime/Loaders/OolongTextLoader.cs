@@ -215,7 +215,7 @@ namespace TSF.Oolong.UGUI
 
         private void SetText(string text)
         {
-            Instance.text = OolongUI.TransformText(text);
+            Instance.text = OolongUGUI.TransformText(text);
         }
 
         private void SetOutlineColor(string v)

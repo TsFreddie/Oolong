@@ -40,7 +40,7 @@ namespace TSF.Oolong.UGUI
         {
             if (_initialized) return;
             var componentClass = OolongEnvironment.JsEnv.ExecuteModule<JSObject>(scriptAddress, "default");
-            _element = OolongUI.Mount(this, componentClass);
+            _element = OolongUGUI.Mount(this, componentClass);
             _initialized = true;
         }
 
@@ -51,7 +51,7 @@ namespace TSF.Oolong.UGUI
 
         protected override void OnDestroy()
         {
-            OolongUI.Unmount(_element);
+            OolongUGUI.Unmount(_element);
             _element = null;
         }
     }

@@ -3,7 +3,7 @@ using TSF.Oolong;
 using TSF.Oolong.UGUI;
 using UnityEngine;
 
-public static class OolongUI
+public static class OolongUGUI
 {
     private delegate JSObject MithrilMount(IOolongElement element, JSObject component);
     private static MithrilMount s_mithrilMount;
