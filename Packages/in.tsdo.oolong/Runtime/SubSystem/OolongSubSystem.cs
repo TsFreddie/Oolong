@@ -1,6 +1,8 @@
 ﻿using UnityEngine.LowLevel;
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
+using System;
+using UnityEngine;
 using UnityEngine.Profiling;
 #endif
 
@@ -20,9 +22,9 @@ namespace TSF.Oolong
             {
                 Invoke();
             }
-            catch
+            catch (Exception e)
             {
-                // ignored
+                Debug.LogException(e);
             }
 
             Sampler.End();

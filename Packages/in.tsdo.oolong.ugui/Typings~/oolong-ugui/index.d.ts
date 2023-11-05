@@ -157,9 +157,11 @@ declare global {
     }
     export declare abstract class Realtime extends MithrilComponent {
         private interval;
+        private dom;
+        register(vnode: m.VnodeDOM<{}, this>): void;
         oncreate(vnode: m.VnodeDOM<{}, this>): void;
-        abstract onvalueupdate(): m.Children;
+        onupdate(vnode: m.VnodeDOM<{}, this>): void;
         view(vnode: m.Vnode<{}, this>): void | m.Children;
-        onbeforeremove(vnode: m.VnodeDOM<{}, this>): void | Promise<any>;
+        onbeforeremove(): void;
     }
 }

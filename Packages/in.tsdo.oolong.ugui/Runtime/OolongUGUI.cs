@@ -63,6 +63,7 @@ public static class OolongUGUI
         DocumentUtils.Dispose();
         s_mithrilMount = null;
         s_mithrilUnmount = null;
+        s_tick = null;
     }
 
     public static string TransformText(string text)

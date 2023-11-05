@@ -3,21 +3,35 @@ import { MithrilComponent } from './mithril.js';
 
 export abstract class Realtime extends MithrilComponent {
   private interval: number;
-  oncreate(vnode: m.VnodeDOM<{}, this>) {
-    var dom = vnode.dom;
-    var self = this;
+  private dom: any;
+
+  register(vnode: m.VnodeDOM<{}, this>) {
+    var children = vnode.children as any;
+    if (typeof children != 'object') return;
+    var render = children[0];
+    if (typeof render != 'function') return;
+
     this.interval = setInterval(() => {
-      m.render(dom, self.onvalueupdate());
+      m.render(this.dom, render());
     }, 0);
   }
 
-  abstract onvalueupdate(): m.Children;
-
-  view(vnode: m.Vnode<{}, this>): void | m.Children {
-    return m('panel');
+  oncreate(vnode: m.VnodeDOM<{}, this>) {
+    this.dom = vnode.dom;
+    this.register(vnode);
   }
 
-  onbeforeremove(vnode: m.VnodeDOM<{}, this>): void | Promise<any> {
-    clearInterval(this.interval);
+  onupdate(vnode: m.VnodeDOM<{}, this>) {
+    this.onbeforeremove();
+    this.register(vnode);
+  }
+
+  view(vnode: m.Vnode<{}, this>): void | m.Children {
+    return m('div', vnode.attrs);
+  }
+
+  onbeforeremove() {
+    if (this.interval != null) clearInterval(this.interval);
+    this.interval = null;
   }
 }

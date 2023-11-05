@@ -1,8 +1,6 @@
 export default class Menu extends MithrilComponent {
-    oncreate(vnode: m.VnodeDOM<{}, this>) {
-        super.oncreate(vnode);
-        console.log(vnode.dom.mountId);
-    }
+    private count: number = 0;
+
     view(vnode: m.Vnode<{}, this>) {
         return (
             <button
@@ -10,13 +8,16 @@ export default class Menu extends MithrilComponent {
                 color="#550000"
                 align="stretch"
                 onclick={() => {
-                    setTimeout(() => {
-                        console.log();
-                        this.redraw();
-                    }, 500);
+                    this.count++;
                 }}
             >
-                <text>{Math.random().toString()}</text>
+                <Realtime>
+                    {() => (
+                        <text>
+                            {this.count} - {Math.random().toString()}
+                        </text>
+                    )}
+                </Realtime>
             </button>
         );
     }
