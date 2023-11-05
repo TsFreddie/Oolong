@@ -1,14 +1,23 @@
 export default class Menu extends MithrilComponent {
-    view() {
+    oncreate(vnode: m.VnodeDOM<{}, this>) {
+        super.oncreate(vnode);
+        console.log(vnode.dom.mountId);
+    }
+    view(vnode: m.Vnode<{}, this>) {
         return (
             <button
                 src="#"
                 color="#550000"
                 align="stretch"
                 onclick={() => {
-                    m.route.set("/menu");
+                    setTimeout(() => {
+                        console.log();
+                        this.redraw();
+                    }, 500);
                 }}
-            ></button>
+            >
+                <text>{Math.random().toString()}</text>
+            </button>
         );
     }
 }

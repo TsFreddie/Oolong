@@ -12,7 +12,11 @@ namespace TSF.Oolong.UGUI
     public sealed class MithrilComponent : OolongElement<MithrilComponent>
     {
         public AssetReferenceT<TextAsset> AddressableScript;
+        [SerializeField]
+        private bool _partialRedraw;
+
         public bool HasScript => AddressableScript != null;
+        public bool PartialRedraw => _partialRedraw;
 
         private bool _initialized = false;
         private JSObject _element = null;
@@ -40,7 +44,7 @@ namespace TSF.Oolong.UGUI
         {
             if (_initialized) return;
             var componentClass = OolongEnvironment.JsEnv.ExecuteModule<JSObject>(scriptAddress, "default");
-            _element = OolongUGUI.Mount(this, componentClass);
+            _element = OolongUGUI.Mount(this, componentClass, _partialRedraw);
             _initialized = true;
         }
 

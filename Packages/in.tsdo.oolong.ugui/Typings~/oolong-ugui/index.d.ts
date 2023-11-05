@@ -69,9 +69,10 @@ declare global {
     };
     export declare class UnityElement<T extends CS.TSF.Oolong.UGUI.IOolongElement = CS.TSF.Oolong.UGUI.IOolongElement> extends UnityNode {
         element: T;
+        mountId: number;
         private events;
-        constructor(element: CS.TSF.Oolong.UGUI.IOolongElement);
-        constructor(tagName: string);
+        constructor(element: CS.TSF.Oolong.UGUI.IOolongElement, mount?: boolean);
+        constructor(tagName: string, mount?: boolean);
         contains(node: UnityElement): boolean;
         attachChildInternal(child: UnityElement): void;
         removeChildInternal(child: UnityElement): void;
@@ -139,8 +140,12 @@ declare global {
     export declare const MithrilTick: () => void;
     declare class UnityElement extends dom.UnityElement {
     }
+    export declare const PartialRedraw: (mountId: number) => void;
+    export declare const MithrilMount: (element: CS.TSF.Oolong.UGUI.IOolongElement, component: MithrilComponent, partial: boolean) => any;
+    export declare const MithrilUnmount: (element: UnityElement) => void;
     export declare abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {
         private __tsx_attrs;
+        private __mountId;
         oninit?(vnode: m.Vnode<A, this>): any;
         oncreate?(vnode: m.VnodeDOM<A, this>): any;
         onbeforeremove?(vnode: m.VnodeDOM<A, this>): Promise<any> | void;
@@ -148,9 +153,8 @@ declare global {
         onbeforeupdate?(vnode: m.Vnode<A, this>, old: m.VnodeDOM<A, this>): boolean | void;
         onupdate?(vnode: m.VnodeDOM<A, this>): any;
         abstract view(vnode: m.Vnode<A, this>): m.Children | null | void;
+        redraw(): void;
     }
-    export declare const MithrilMount: (element: CS.TSF.Oolong.UGUI.IOolongElement, component: MithrilComponent) => UnityElement;
-    export declare const MithrilUnmount: (element: UnityElement) => void;
     export declare abstract class Realtime extends MithrilComponent {
         private interval;
         oncreate(vnode: m.VnodeDOM<{}, this>): void;

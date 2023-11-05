@@ -6,7 +6,9 @@
     "devDependencies": {
         "@types/mithril": "^2.0.14",
         "esbuild": "^0.19.3",
-        "mithril": "^2.2.2",
         "typescript": "^5.2.2"
+    },
+    "dependencies": {
+        "mithril": "^2.2.2"
     }
 }

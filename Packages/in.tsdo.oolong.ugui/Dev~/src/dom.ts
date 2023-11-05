@@ -102,17 +102,6 @@ interface HistoryEntry {
 export type UnityChild = UnityElement | UnityTextNode;
 export type UnityChildren = UnityChild[];
 
-// TODO: 克隆一份TMP，直接修改TMP，避免Transform。并且可以考虑在Window中添加清洗用户输入的方法
-const TransformText = (text: string) => {
-  return text
-    .replace(/</g, '\u003C\u200B')
-    .replace(/>/g, '\u003E\u200B')
-    .replace(/\[/g, '<')
-    .replace(/\]/g, '>')
-    .replace(/&lb;/g, '\u005B')
-    .replace(/&rb;/g, '\u005D');
-};
-
 const RenderText = (children: UnityChildren) => {
   const text = (children.filter(n => n instanceof UnityTextNode) as UnityTextNode[])
     .map(n => n.nodeText)
@@ -155,7 +144,7 @@ export abstract class UnityNode {
 
   private setText(text: string) {
     if (this.children.length > 0) {
-      console.warn('设置文本时，元素中已经有元素了');
+      console.warn('Element is not empty when setText is called');
       return;
     }
     this.children.splice(0, this.children.length);
@@ -167,7 +156,7 @@ export abstract class UnityNode {
     var textNode = new UnityTextNode(text);
     textNode.parent = this;
     this.children.push(textNode);
-    this.setAttribute('#', TransformText(text));
+    this.setAttribute('#', text);
   }
 
   public get parentElement() {
@@ -208,11 +197,10 @@ export abstract class UnityNode {
 
   public appendChild(child: UnityFragment | UnityElement | UnityTextNode): void {
     if (child.parent != null && !(child.parent instanceof UnityFragment)) {
-      console.warn('Element中出现了未处理的状况');
+      console.warn('Unexpected child.parent when appendChild');
     }
 
     if (child instanceof UnityFragment) {
-      // 将 Fragment 的子元素添加到当前元素中
       for (let i = 0; i < child.children.length; i++) {
         this.appendChild(child.children[i]);
       }
@@ -236,14 +224,14 @@ export abstract class UnityNode {
 
     const index = this.children.indexOf(child);
     if (index < 0) {
-      console.warn('找不到正在移除的元素。可能是vnode不同步');
+      console.warn('Can not find child when removeChild');
       return;
     }
 
-    // 移除节点
+    // Remove node
     this.children.splice(index, 1);
 
-    // 如果是元素则移除元素
+    // Remove element
     if (child instanceof UnityElement) {
       this.removeChildInternal(child);
     }
@@ -254,19 +242,18 @@ export abstract class UnityNode {
 
   public insertBefore(child: UnityChild, ref: UnityChild) {
     if (child.parent != null) {
-      console.warn('Element中出现了未处理的状况');
+      console.warn('Unexpected child.parent when insertBefore');
     }
 
     const index = this.elementIndex(ref);
     if (index == null) {
-      console.warn('找不到插入目标元素。可能是vnode不同步');
+      console.warn('Can not find the element when insertBefore');
       return;
     }
 
     child.parent = this;
     this.children.splice(index.nodes, 0, child);
 
-    // 如果是元素则插入元素
     if (child instanceof UnityElement) {
       this.insertChildInternal(child, index.elements);
     }
@@ -327,11 +314,12 @@ export class UnityElement<
   T extends CS.TSF.Oolong.UGUI.IOolongElement = CS.TSF.Oolong.UGUI.IOolongElement
 > extends UnityNode {
   public element: T;
+  public mountId: number;
   private events: { [key: string]: EventHandler };
 
-  constructor(element: CS.TSF.Oolong.UGUI.IOolongElement);
-  constructor(tagName: string);
-  constructor(tagNameOrElement: string | CS.TSF.Oolong.UGUI.IOolongElement) {
+  constructor(element: CS.TSF.Oolong.UGUI.IOolongElement, mount?: boolean);
+  constructor(tagName: string, mount?: boolean);
+  constructor(tagNameOrElement: string | CS.TSF.Oolong.UGUI.IOolongElement, mount?: boolean) {
     super();
     if (typeof tagNameOrElement == 'string') {
       this.element = CS.TSF.Oolong.UGUI.DocumentUtils.CreateElement(tagNameOrElement) as T;
@@ -340,6 +328,9 @@ export class UnityElement<
     }
     this.tag = this.element.TagName;
     this.events = {};
+    if (mount) {
+      this.mountId = this.element.GetInstanceID();
+    }
   }
 
   public contains(node: UnityElement) {
@@ -349,14 +340,17 @@ export class UnityElement<
 
   public attachChildInternal(child: UnityElement) {
     CS.TSF.Oolong.UGUI.DocumentUtils.AttachElement(this.element, child.element);
+    child.mountId = this.mountId;
   }
 
   public removeChildInternal(child: UnityElement) {
     CS.TSF.Oolong.UGUI.DocumentUtils.RemoveElement(this.element, child.element);
+    child.mountId = undefined;
   }
 
   public insertChildInternal(child: UnityElement, pos: number) {
     CS.TSF.Oolong.UGUI.DocumentUtils.InsertElement(this.element, child.element, pos);
+    child.mountId = this.mountId;
   }
 
   public setAttribute(name: string, value: any) {
@@ -472,13 +466,12 @@ export class UnityHistory {
   }
 }
 
-// Stub 类，避免 Mithril 报错
+// Stubs, just to make mithril happy
 export class UnimplementedFormData {}
 
 export class UnimlementedURLSearchParams {}
 
 export class UnityWindow {
-  // Mithril 渲染时使用
   private animationFrameQueue: (() => void)[] = [];
   private animationFrameProcessor: (() => void)[] = [];
 

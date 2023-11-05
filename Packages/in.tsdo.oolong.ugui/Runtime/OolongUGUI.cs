@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class OolongUGUI
 {
-    private delegate JSObject MithrilMount(IOolongElement element, JSObject component);
+    private delegate JSObject MithrilMount(IOolongElement element, JSObject component, bool partial);
     private static MithrilMount s_mithrilMount;
     private delegate void MithrilUnmount(JSObject element);
     private static MithrilUnmount s_mithrilUnmount;
@@ -35,6 +35,7 @@ public static class OolongUGUI
         var env = OolongEnvironment.JsEnv;
         env.ExecuteModule("dom");
         env.ExecuteModule("mithril");
+        env.UsingFunc<IOolongElement, JSObject, bool, JSObject>();
 
         s_mithrilMount = env.Eval<MithrilMount>("MithrilMount");
         s_mithrilUnmount = env.Eval<MithrilUnmount>("MithrilUnmount");
@@ -46,9 +47,9 @@ public static class OolongUGUI
         s_tick?.Invoke();
     }
 
-    public static JSObject Mount(IOolongElement element, JSObject component)
+    public static JSObject Mount(IOolongElement element, JSObject component, bool partial)
     {
-        return s_mithrilMount?.Invoke(element, component);
+        return s_mithrilMount?.Invoke(element, component, partial);
     }
 
     public static void Unmount(JSObject element)
