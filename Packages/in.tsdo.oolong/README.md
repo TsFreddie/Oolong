@@ -22,6 +22,7 @@ This is the roadmap planned out before I stopped working on generalizing the too
 
 - [x] ScriptBehaviour running and managing
 - [x] In editor TypeScript transpiling
+- [ ] tsconfig.json Generator
 - [ ] Typescript Schema Server (for generating schema from TypeScript source)
 - [ ] Schema Inspector (for editing and serializing data in Unity Editor based on schema)
 
