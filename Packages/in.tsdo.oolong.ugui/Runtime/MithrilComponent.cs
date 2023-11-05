@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Puerts;
@@ -19,6 +20,7 @@ namespace TSF.Oolong.UGUI
         public bool PartialRedraw => _partialRedraw;
 
         private bool _initialized = false;
+        private JSObject _componentClass = null;
         private JSObject _element = null;
 
         internal void Init(AssetReferenceT<TextAsset> addressableScript)
@@ -43,8 +45,7 @@ namespace TSF.Oolong.UGUI
         internal void Init(string scriptAddress)
         {
             if (_initialized) return;
-            var componentClass = OolongEnvironment.JsEnv.ExecuteModule<JSObject>(scriptAddress, "default");
-            _element = OolongUGUI.Mount(this, componentClass, _partialRedraw);
+            _componentClass = OolongEnvironment.JsEnv.ExecuteModule<JSObject>(scriptAddress, "default");
             _initialized = true;
         }
 
@@ -53,8 +54,15 @@ namespace TSF.Oolong.UGUI
             Init(AddressableScript);
         }
 
-        protected override void OnDestroy()
+        private void OnEnable()
         {
+            if (!_initialized) return;
+            _element = OolongUGUI.Mount(this, _componentClass, _partialRedraw);
+        }
+
+        private void OnDisable()
+        {
+            if (!_initialized || _element == null) return;
             OolongUGUI.Unmount(_element);
             _element = null;
         }
