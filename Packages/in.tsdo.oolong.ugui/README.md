@@ -131,3 +131,21 @@ To manually redraw, instead of calling `m.redraw()`, call the `redraw()` method 
 above.
 
 Note that if Partial Redraw is enabled, the root component will exists outside of Mithril's redraw system. This means `m.redraw()` will not trigger redraws for components that has Partial Redraw enabled.
+
+### Realtime
+
+Since Mithril is designed for reactive UI, realtime update is generally discouraged. Calling `redraw` every frame would be very expensive just to make the UI update every frame.
+
+But if you ever find yourself needing a UI element to update in realtime, a `<Realtime>` component is provided, where you can pass a render function to be called every frame.
+
+```tsx
+<Realtime>
+    {() => (
+        <text>
+            {Math.random().toString()}
+        </text>
+    )}
+</Realtime>
+```
+
+By using `<Realtime>` component, only the realtime part will be updated instead of the entire mounted component.
