@@ -4,7 +4,7 @@ A tsx workflow for creating UI. Powered by [MithrilJS](https://mithril.js.org/).
 
 ## What does Oolong UGUI do?
 
-Oolong UGUI emulates a small subset of DOM to enable MithrilJS for UI authoring by creating GameObjects. A set of custom DOM elements based on Unity UI is also provided (e.g. `<panel>`, `<button>`, `<image>`, `<input>`, `<scrollview>`, etc.)
+Oolong UGUI emulates a small subset of DOM to enable MithrilJS for UI authoring by creating GameObjects. A set of custom DOM elements based on Unity UI is also provided.
 
 ## Currently Missing Features
 
@@ -13,6 +13,8 @@ These are some of the critical features that is missing
 - You can't set the font of `<text>`
 - There is no `<dropdown>` element yet
 - No direct animation support, but you can code animations via `SetTimeout` or `SetInterval` and update the DOM (which is just Unity Components).
+- Lacks more granular events like `onmouseenter`, `onmousedown`, etc.
+- Does not support built-in Unity UI sprites (aka the default Unity UI skin).
 
 ## Why MithrilJS?
 
@@ -21,3 +23,58 @@ MithrilJS is very small and simple. It requires a very small set of DOM features
 There are also no CSS support since it is just a JavaScript front-end framework, which is actually a plus so I don't have to find a way to strip CSS from the framework or magically make CSS work in Unity UI.
 
 The newer / experimental Unity UI Toolkit does have a style sheet format. Currently I have no plan on supporting UITK. But if I do in the future, I might try out something like Svelte to see if I can make it work with USS.
+
+## Getting Started
+
+It is quite simple to create a component by creating a tsx file and inheriting `MithrilComponent`. Check the [MithrilJS](https://mithril.js.org/)'s documentation for more detail on the lifecycle hooks.
+
+Note that mithril uses **hyperscript** by default in the documentation. But apart from the syntax difference, tsx is basically the same as hyperscript.
+
+### Quick example
+
+Here's a example of a Component that displays a button.
+
+```tsx
+export default class Page extends MithrilComponent {
+    view() {
+        return (
+            <button
+                src="#"
+                color="#550000"
+                align="stretch"
+                onclick={() => {
+                    console.log("clicked");
+                }}
+            >
+                <text>{Math.random().toString()}</text>
+            </button>
+        );
+    }
+}
+```
+
+### Sprites
+
+To load sprites, you need to mark your sprites as Addressable. Then you can load them by using address. Sprite assets are loaded synchronously by default, so it is recommended to preload the common atlas before loading the UI.
+
+If you just want to prototype the layout or simply use Unity's default white texture sprite. You can use `#` as the address, so it will display as a white square.
+
+You can also load image asynchronously by adding an `async` attribute to a `<image>` element. Async loading is only supported on `<image>` elements.
+
+### Elements
+
+Currently the following elements are provided:
+
+- `<panel>` - equivalent of a `RectTransform`, does not include an Image like Unity does. Also supports horizontal, vertical and grid layout if specified.
+- `<image>` - equivalent of a `Image`.
+- `<text>` - equivalent of a `TextMeshPro UGUI` text. The child of a text element should ideally be a string. You can have children elements under a `<text>` element, but it is not recommended.
+- `<button>` - equivalent of a `Button`, does not include text. You should add the text using `<text>` element manually.
+- `<toggle>` - equivalent of a `Toggle`, does not include text either.
+- `<scrollview>` - equivalent of a `ScrollView`, includes multiple GameObjects that handles masking and scrollbars.
+- `<input>` - equivalent of a `TextMeshPro InputField`.
+- `<slider>` - equivalent of a `Slider`.
+- `<container>` - a special kind of `<panel>` that also includes a `CanvasGroup` component for alpha and interaction control.
+
+Check the built-in Mithril typings for detail about the attributes and events.
+
+Also note that the Y coordinate is flipped.
