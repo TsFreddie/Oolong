@@ -185,7 +185,7 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  _partialRedraw: 0
+  _partialRedraw: 1
 --- !u!1 &256359328
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  _partialRedraw: 0
+  _partialRedraw: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
