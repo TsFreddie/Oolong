@@ -9,10 +9,9 @@ namespace TSF.Oolong.UGUI
         public delegate void JsWebCallback();
 
         [Preserve]
-        public static void SetBody(this UnityWebRequest request, string body)
+        public static void SetBody(this UnityWebRequest request, Puerts.ArrayBuffer body)
         {
-            var bodyRaw = System.Text.Encoding.UTF8.GetBytes(body);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.uploadHandler = new UploadHandlerRaw(body.Bytes);
         }
 
         [Preserve]
@@ -22,6 +21,12 @@ namespace TSF.Oolong.UGUI
             request.downloadHandler = handler;
             var op = request.SendWebRequest();
             op.completed += (_) => callback();
+        }
+
+        [Preserve]
+        public static Puerts.ArrayBuffer GetArrayBuffer(this DownloadHandlerBuffer handler)
+        {
+            return new Puerts.ArrayBuffer(handler.data);
         }
     }
 }

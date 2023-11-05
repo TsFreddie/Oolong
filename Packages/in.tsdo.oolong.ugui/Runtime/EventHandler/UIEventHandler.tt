@@ -1,0 +1,46 @@
+﻿<#@ template language="C#" #>
+<#@ output extension=".cs" encoding="UTF-8" #>
+<#@ import namespace="System.Linq" #>
+<#
+    var handlers = new (string, string)[]
+    {
+        ("PointerEnter", "PointerEventData"),
+        ("PointerExit", "PointerEventData"),
+        ("PointerDown", "PointerEventData"),
+        ("PointerUp", "PointerEventData"),
+        ("PointerClick", "PointerEventData"),
+        ("InitializePotentialDrag", "PointerEventData"),
+        ("BeginDrag", "PointerEventData"),
+        ("Drag", "PointerEventData"),
+        ("EndDrag", "PointerEventData"),
+        ("Drop", "PointerEventData"),
+        ("Scroll", "PointerEventData"),
+        ("UpdateSelected", "BaseEventData"),
+        ("Select", "BaseEventData"),
+        ("Deselect", "BaseEventData"),
+        ("Move", "AxisEventData"),
+        ("Submit", "BaseEventData"),
+        ("Cancel", "BaseEventData"),
+    };
+#>
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace TSF.Oolong.UGUI
+{
+    public class UIEventHandler : MonoBehaviour,
+        <#= string.Join(", \n        ", handlers.Select(h => $"I{h.Item1}Handler").ToArray()) #>
+    {
+        public bool AddListener()
+<#
+    foreach (var handler in handlers)
+    {
+#>
+        public void On<#= handler.Item1 #>(<#= handler.Item2 #> eventData)
+        {
+        }
+<#
+    }
+#>
+    }
+}

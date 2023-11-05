@@ -29,16 +29,15 @@ export class HttpRequest {
   public send(body?: string | Uint8Array) {
     if (body != null) {
       if (typeof body != 'string') {
-        this.request.uploadHandler = new CS.UnityEngine.Networking.UploadHandlerRaw(
-          ToCSharpByteArray(body)
-        );
-      } else {
         CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SetBody(this.request, body);
+      } else {
+        var data = new TextEncoder().encode(body);
+        CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SetBody(this.request, data);
       }
     }
 
     if (this.withCredentials) {
-      CS.TSF.Oolong.UGUI.OolongWebConfig.Authenticate(this.request);
+      // TODO: add authentication callback
     }
     CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SendWithCallback(this.request, () => {
       if (this.onreadystatechange) {
@@ -51,7 +50,7 @@ export class HttpRequest {
     if (this.responseType == 'json') {
       return JSON.parse(this.request.downloadHandler.text);
     } else if (this.responseType == 'arraybuffer') {
-      return FromCSharpByteArray(this.request.downloadHandler.data);
+      return CS.TSF.Oolong.UGUI.UnityWebRequestExtension.GetArrayBuffer(this.request.downloadHandler);
     } else {
       return this.request.downloadHandler.text;
     }
@@ -73,25 +72,6 @@ export class HttpRequest {
     this.request.timeout = Math.ceil(value / 1000);
   }
 }
-
-export const ToCSharpByteArray = <T = number>(data: Uint8Array): CS.System.Array$1<T> => {
-  const byteArray = CS.System.Array.CreateInstance(puerts.$typeof(CS.System.Byte), data.length);
-  for (let i = 0; i < data.length; i++) {
-    byteArray.set_Item(i, data[i]);
-  }
-  return byteArray;
-};
-
-export const FromCSharpByteArray = (data: CS.System.Array$1<number>) => {
-  if (data == null) return null;
-  const length = data.Length;
-  if (length == 0) return null;
-  const byteArray = new Uint8Array(length);
-  for (let i = 0; i < length; i++) {
-    byteArray[i] = data.get_Item(i);
-  }
-  return byteArray;
-};
 
 interface HistoryEntry {
   state: string;
@@ -299,8 +279,8 @@ export class UnityFragment extends UnityNode {
   public insertChildInternal() {}
 }
 
-type Event = { type: string; target: UnityElement };
-type EventHandler = ((ev: Event) => void) | { handleEvent: (ev: Event) => void };
+type UnityEvent = { type: string; target: UnityElement };
+type EventHandler = ((ev: UnityEvent) => void) | { handleEvent: (ev: UnityEvent) => void };
 
 const runEvent = (target: UnityElement, event: string, cb: EventHandler) => {
   if (typeof cb === 'function') {

@@ -11,7 +11,9 @@
     "typeRoots": [
       "../../../Library/PackageCache/com.tencent.puerts.core@2.0.2/Typing",
       "../../../Assets/Generated/Puerts/Typing",
-      "../../../Packages/in.tsdo.oolong/Typings~"
+      "../../../Packages/in.tsdo.oolong/Typings~",
+      "../../../Packages/in.tsdo.oolong/Generated/Typings~",
+      "../../../Packages/in.tsdo.oolong.ugui/Generated/Typings~"
     ]
   },
   "exclude": ["./dist/**/*"]

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
+using TSF.Oolong.UGUI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -105,23 +106,25 @@ namespace PuertsConfig
             {
                 var types = new List<Type>()
                 {
-                    // PuerTS
-                    typeof(ILoader),
+                    // // PuerTS
+                    // typeof(ILoader),
+                    //
+                    // // Unity
+                    // typeof(GameObject),
+                    // typeof(Transform),
+                    // typeof(Rigidbody),
+                    // typeof(Rigidbody2D),
+                    // typeof(Vector3),
+                    // typeof(Vector2),
+                    //
+                    // // System
+                    // typeof(Array),
+                    // typeof(IList),
+                    // typeof(ICollection),
+                    // typeof(IDictionary),
 
-                    // Unity
-                    typeof(GameObject),
-                    typeof(Transform),
-                    typeof(Rigidbody),
-                    typeof(Rigidbody2D),
-                    typeof(Vector3),
-                    typeof(Vector2),
-
-                    // System
-                    typeof(Array),
-                    typeof(IList),
-                    typeof(ICollection),
-                    typeof(IDictionary),
                 };
+                types.AddRange(typeof(OolongUGUI).Assembly.GetTypes());
                 return types;
             }
         }

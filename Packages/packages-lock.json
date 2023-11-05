@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "com.tencent.puerts.core": {
-      "version": "2.0.2",
-      "depth": 0,
+      "version": "2.0.3",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.cn"
@@ -284,7 +284,7 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "com.tencent.puerts.core": "2.0.2",
+        "com.tencent.puerts.core": "2.0.3",
         "com.unity.addressables": "1.21.17"
       }
     },
