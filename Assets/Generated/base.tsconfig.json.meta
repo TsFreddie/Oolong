@@ -12,4 +12,4 @@ ScriptedImporter:
     \"module\": \"ES2020\",\r\n        \"noImplicitAny\": true,\r\n        \"esModuleInterop\":
     true,\r\n        \"isolatedModules\": true,\r\n        \"skipLibCheck\": true,\r\n       
     \"emitDecoratorMetadata\": true,\r\n        \"experimentalDecorators\": true,\r\n       
-    \"sourceMap\": true,\r\n        \"noEmit\": true\r\n    }\r\n}\r\n"
+    \"sourceMap\": true,\r\n        \"noEmit\": true\r\n    }\r\n}\r"

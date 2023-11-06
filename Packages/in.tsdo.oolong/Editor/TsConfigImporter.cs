@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Text;
 using Puerts;
 using UnityEditor;
 using UnityEditor.AssetImporters;
@@ -6,10 +9,15 @@ using UnityEngine;
 
 namespace TSF.Oolong.Editor
 {
+    public interface ITsConfigPatcher
+    {
+        public string Patch();
+    }
+
     [ScriptedImporter(1, "tsconfig.json")]
     public class TsConfigImporter : ScriptedImporter
     {
-        [Multiline]
+        [TextArea(10, 40)]
         public string Config;
         private delegate string PatchDelegate(string obj, string patch);
 
@@ -17,9 +25,15 @@ namespace TSF.Oolong.Editor
         {
             var jsEnv = new JsEnv(new DefaultLoader());
             var patcher = jsEnv.ExecuteModule<PatchDelegate>("oolong/tsconfig-patch", "default");
-            var result = patcher(File.ReadAllText(assetPath), File.ReadAllText(assetPath + ".patch"));
-            Debug.Log(result);
+            var result = Config;
+            AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
+                .Where(x => typeof(ITsConfigPatcher).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                .Select(x => (ITsConfigPatcher)Activator.CreateInstance(x))
+                .ToList()
+                .ForEach(x => result = patcher(result, x.Patch()));
             jsEnv.Dispose();
+            File.WriteAllText(assetPath, result, Encoding.UTF8);
+            SaveAndReimport();
         }
 
         public override void OnImportAsset(AssetImportContext ctx)

@@ -19,17 +19,17 @@ namespace TSF.Oolong.Editor
 
             if (!IsInAssetsFolder(importer.assetPath)) return;
 
-            var configProperty = serializedObject.FindProperty("Config");
-            // draw text area
-            EditorGUILayout.PropertyField(configProperty, GUIContent.none, GUILayout.Height(400));
-
-            serializedObject.ApplyModifiedProperties();
-
             if (GUILayout.Button("Generate"))
             {
+                Apply();
                 importer.Generate();
             }
 
+            var configProperty = serializedObject.FindProperty("Config");
+            // draw text area
+            EditorGUILayout.PropertyField(configProperty, GUIContent.none);
+
+            serializedObject.ApplyModifiedProperties();
             ApplyRevertGUI();
         }
     }

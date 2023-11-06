@@ -1,18 +1,17 @@
-{
+﻿{
     "compilerOptions": {
         "target": "ES2021",
         "module": "ES2020",
         "noImplicitAny": true,
         "esModuleInterop": true,
         "isolatedModules": true,
-        "typeRoots": [],
-        "jsx": "react",
-        "jsxFactory": "m",
-        "jsxFragmentFactory": "m.Fragment",
         "skipLibCheck": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "sourceMap": true,
-        "noEmit": true
+        "noEmit": true,
+        "jsx": "react",
+        "jsxFactory": "m",
+        "jsxFragmentFactory": "m.Fragment"
     }
 }
