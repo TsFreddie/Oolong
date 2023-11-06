@@ -148,9 +148,12 @@ namespace TSF.Oolong.UGUI
             var obj = new GameObject(string.Format("<{0}>", tagName));
             obj.SetActive(false);
 
+            var eventHandler = obj.AddComponent<UIEventHandler>();
+            eventHandler.enabled = false;
             if (!(obj.AddComponent(type) is IOolongElement element))
-                return null;
+                throw new Exception("Element must be derived from IOolongElement");
 
+            element.SetEventHandler(eventHandler);
             element.OnCreate();
             element.TagName = tagName;
             return element;

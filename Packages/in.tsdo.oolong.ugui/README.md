@@ -15,7 +15,6 @@ These are some of the critical features that is missing
 - There is no `<dropdown>` element yet
 - No direct animation support, but you can code animations via `SetTimeout` or `SetInterval` and update the DOM (which
   is just Unity Components).
-- Lacks more granular events like `onmouseenter`, `onmousedown`, etc.
 - Does not support built-in Unity UI sprites (aka the default Unity UI skin).
 
 ## Why MithrilJS?

@@ -1,12 +1,10 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
-    public abstract class OolongElement<T> : MonoBehaviour, IOolongElement, IPointerEnterHandler, IPointerExitHandler where T : OolongElement<T>
+    public abstract class OolongElement<T> : MonoBehaviour, IOolongElement where T : OolongElement<T>
     {
         protected delegate void AttrHandler(T e, string value);
         protected virtual Dictionary<string, AttrHandler> Attrs => null;
@@ -17,11 +15,8 @@ namespace TSF.Oolong.UGUI
         public IOolongElement ParentElement { get; set; } = null;
 
         private OolongRectLoader _rect;
-
+        private UIEventHandler _eventHandler;
         private HashSet<IOolongElement> _children = new HashSet<IOolongElement>();
-
-        private Action _onMouseEnter;
-        private Action _onMouseExit;
 
         public void AddChild(IOolongElement e)
         {
@@ -47,33 +42,22 @@ namespace TSF.Oolong.UGUI
 
         protected virtual bool SetAttribute(string key, string value) => false;
 
-        public virtual void AddListener(string key, IOolongElement.JsCallback callback)
+        public virtual bool AddListener(string key, IOolongElement.JsCallback callback)
         {
-            switch (key)
-            {
-                case "mouseenter":
-                    _onMouseEnter += () => callback();
-                    break;
-                case "mouseleave":
-                    _onMouseExit += () => callback();
-                    break;
-            }
+            return _eventHandler.AddListener(key, callback);
         }
 
-        public virtual void RemoveListener(string key)
+        public virtual bool RemoveListener(string key)
         {
-            switch (key)
-            {
-                case "mouseenter":
-                    _onMouseEnter = null;
-                    break;
-                case "mouseleave":
-                    _onMouseExit = null;
-                    break;
-            }
+            return _eventHandler.RemoveListener(key);
         }
 
         public virtual Transform Root => transform;
+
+        public virtual void SetEventHandler(UIEventHandler handler)
+        {
+            _eventHandler = handler;
+        }
 
         public virtual void OnCreate()
         {
@@ -83,6 +67,7 @@ namespace TSF.Oolong.UGUI
         public virtual void OnReset()
         {
             _rect.Reset();
+            _eventHandler.Reset();
             name = string.Concat("<", TagName, ">");
 
             foreach (var child in _children)
@@ -98,9 +83,6 @@ namespace TSF.Oolong.UGUI
             {
                 kvp.Value(this as T, null);
             }
-
-            _onMouseEnter = null;
-            _onMouseExit = null;
         }
 
         public virtual void OnReuse() { _rect.Reuse(); }
@@ -154,15 +136,5 @@ namespace TSF.Oolong.UGUI
             }
         }
         protected virtual void OnLateLayout() { IsLayoutDirtyLate = false; }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            _onMouseEnter?.Invoke();
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            _onMouseExit?.Invoke();
-        }
     }
 }

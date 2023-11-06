@@ -50,7 +50,9 @@ export class HttpRequest {
     if (this.responseType == 'json') {
       return JSON.parse(this.request.downloadHandler.text);
     } else if (this.responseType == 'arraybuffer') {
-      return CS.TSF.Oolong.UGUI.UnityWebRequestExtension.GetArrayBuffer(this.request.downloadHandler);
+      return CS.TSF.Oolong.UGUI.UnityWebRequestExtension.GetArrayBuffer(
+        this.request.downloadHandler
+      );
     } else {
       return this.request.downloadHandler.text;
     }
@@ -279,14 +281,23 @@ export class UnityFragment extends UnityNode {
   public insertChildInternal() {}
 }
 
-type UnityEvent = { type: string; target: UnityElement };
+type UnityEvent = {
+  type: string;
+  target: UnityElement;
+  eventData: CS.UnityEngine.EventSystems.BaseEventData;
+};
 type EventHandler = ((ev: UnityEvent) => void) | { handleEvent: (ev: UnityEvent) => void };
 
-const runEvent = (target: UnityElement, event: string, cb: EventHandler) => {
+const runEvent = (
+  target: UnityElement,
+  event: string,
+  eventData: CS.UnityEngine.EventSystems.BaseEventData,
+  cb: EventHandler
+) => {
   if (typeof cb === 'function') {
-    cb({ target, type: event });
+    cb({ type: event, target, eventData });
   } else if (typeof cb === 'object') {
-    cb.handleEvent({ target, type: event });
+    cb.handleEvent({ type: event, target, eventData });
   }
 };
 
@@ -345,7 +356,7 @@ export class UnityElement<
 
   public addEventListener(event: string, callback: EventHandler) {
     this.events[event] = callback;
-    this.element.AddListener(event, () => runEvent(this, event, callback));
+    this.element.AddListener(event, eventData => runEvent(this, event, eventData, callback));
   }
 
   public removeEventListener(event: string, callback: EventHandler) {

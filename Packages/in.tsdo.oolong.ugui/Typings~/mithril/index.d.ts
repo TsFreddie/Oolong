@@ -1,4 +1,3 @@
-
 /// <reference types="csharp"/>
 /// <reference path="./elements.d.ts" />
 
@@ -449,20 +448,31 @@ declare global {
 
         interface IntrinsicElements {
             // Unity
-            panel: Mithril.Attributes & RectAttributes & LayoutAttributes;
-            image: Mithril.Attributes & RectAttributes & ImageAttributes;
-            text: Mithril.Attributes & RectAttributes & TextAttributes;
+            panel: Mithril.Attributes &
+                RectAttributes &
+                LayoutAttributes &
+                ElementCallbacks;
+            image: Mithril.Attributes &
+                RectAttributes &
+                ImageAttributes &
+                ElementCallbacks;
+            text: Mithril.Attributes &
+                RectAttributes &
+                TextAttributes &
+                ElementCallbacks;
             button: Mithril.Attributes &
                 RectAttributes &
                 SelectableAttributes &
-                ButtonCallbacks;
+                ButtonCallbacks &
+                ElementCallbacks;
             toggle: Mithril.Attributes &
                 RectAttributes &
                 SelectableAttributes &
                 ToggleAttributes &
                 PrefixAttributes<ImageAttributes, "cm-"> &
                 PrefixAttributes<RectAttributes, "cm-"> &
-                ToggleCallbacks;
+                ToggleCallbacks &
+                ElementCallbacks;
             scrollview: Mithril.Attributes &
                 RectAttributes &
                 ScrollScrollView &
@@ -470,14 +480,16 @@ declare global {
                 PrefixAttributes<ScrollbarAttributes, "sy-"> &
                 PrefixAttributes<RectAttributes, "content-"> &
                 LayoutAttributes &
-                ScrollViewCallbacks;
+                ScrollViewCallbacks &
+                ElementCallbacks;
             input: Mithril.Attributes &
                 RectAttributes &
                 InputAttributes &
                 SelectableAttributes &
                 PrefixAttributes<TextAttributes, "text-"> &
                 PrefixAttributes<TextAttributes, "ph-"> &
-                InputCallbacks;
+                InputCallbacks &
+                ElementCallbacks;
             slider: Mithril.Attributes &
                 RectAttributes &
                 InputAttributes &
@@ -485,10 +497,12 @@ declare global {
                 SelectableAttributes &
                 PrefixAttributes<ImageAttributes, "bg-"> &
                 PrefixAttributes<ImageAttributes, "fill-"> &
-                SliderCallbacks;
+                SliderCallbacks &
+                ElementCallbacks;
             container: Mithril.Attributes &
                 RectAttributes &
-                ContainerAttributes;
+                ContainerAttributes &
+                ElementCallbacks;
 
             // Special Mithril types
             "[": Mithril.Attributes;

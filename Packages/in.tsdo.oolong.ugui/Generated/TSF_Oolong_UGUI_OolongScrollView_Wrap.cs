@@ -72,8 +72,9 @@ namespace PuertsStaticWrap
                         string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
                         argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement.JsCallback>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.IOolongElement.JsCallback arg1 = (TSF.Oolong.UGUI.IOolongElement.JsCallback)argobj1;
 
-                        obj.AddListener (arg0, arg1);
+                        var result = obj.AddListener (arg0, arg1);
 
+                        Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
                     }
                 }
             }
@@ -97,8 +98,9 @@ namespace PuertsStaticWrap
                     {
                         string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
 
-                        obj.RemoveListener (arg0);
+                        var result = obj.RemoveListener (arg0);
 
+                        Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
                     }
                 }
             }

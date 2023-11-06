@@ -8,6 +8,7 @@
         ("PointerExit", "PointerEventData"),
         ("PointerDown", "PointerEventData"),
         ("PointerUp", "PointerEventData"),
+        ("PointerMove", "PointerEventData"),
         ("PointerClick", "PointerEventData"),
         ("InitializePotentialDrag", "PointerEventData"),
         ("BeginDrag", "PointerEventData"),
@@ -31,16 +32,90 @@ namespace TSF.Oolong.UGUI
     public class UIEventHandler : MonoBehaviour,
         <#= string.Join(", \n        ", handlers.Select(h => $"I{h.Item1}Handler").ToArray()) #>
     {
-        public bool AddListener()
+        private int _eventCount;
+        private int EventCount
+        {
+            get => _eventCount;
+            set
+            {
+                _eventCount = value;
+                enabled = _eventCount > 0;
+            }
+        }
+<#
+    foreach (var handler in handlers)
+    {
+#>
+        private IOolongElement.JsCallback _on<#= handler.Item1 #>;
+<#
+    }
+#>
+
+        public bool AddListener(string key, IOolongElement.JsCallback callback)
+        {
+            switch (key)
+            {
+<#
+    foreach (var handler in handlers)
+    {
+#>
+                case "<#= handler.Item1.ToLower() #>":
+                    if (_on<#= handler.Item1 #> == null) EventCount++;
+                    _on<#= handler.Item1 #> = callback;
+                    return true;
+<#
+    }
+#>
+            }
+            return false;
+        }
+
+        public bool RemoveListener(string key)
+        {
+            switch (key)
+            {
+<#
+    foreach (var handler in handlers)
+    {
+#>
+                case "<#= handler.Item1.ToLower() #>":
+                    if (_on<#= handler.Item1 #> != null) EventCount--;
+                    _on<#= handler.Item1 #> = null;
+                    return true;
+<#
+    }
+#>
+            }
+            return false;
+        }
 <#
     foreach (var handler in handlers)
     {
 #>
         public void On<#= handler.Item1 #>(<#= handler.Item2 #> eventData)
         {
+            _on<#= handler.Item1 #>?.Invoke(eventData);
         }
 <#
     }
 #>
+
+        public void Reset()
+        {
+            _eventCount = 0;
+            enabled = false;
+<#
+    foreach (var handler in handlers)
+    {
+#>
+            _on<#= handler.Item1 #> = null;
+<#
+    }
+#>
+        }
+
+#if UNITY_EDITOR
+        private void OnEnable() { }
+#endif
     }
 }

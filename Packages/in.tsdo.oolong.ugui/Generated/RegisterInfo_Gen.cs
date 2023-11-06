@@ -173,21 +173,6 @@ namespace PuertsStaticWrap
                     , Method = TSF_Oolong_UGUI_OolongButton_Wrap.M_OnReset
 #endif
                     }},
-                    {"OnDeselect", new MemberRegisterInfo { Name = "OnDeselect", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongButton_Wrap.M_OnDeselect
-#endif
-                    }},
-                    {"OnPointerDown", new MemberRegisterInfo { Name = "OnPointerDown", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongButton_Wrap.M_OnPointerDown
-#endif
-                    }},
-                    {"OnPointerUp", new MemberRegisterInfo { Name = "OnPointerUp", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongButton_Wrap.M_OnPointerUp
-#endif
-                    }},
                 }
             };
         }
@@ -293,11 +278,6 @@ namespace PuertsStaticWrap
                     {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , Method = TSF_Oolong_UGUI_OolongInputField_Wrap.M_OnReset
-#endif
-                    }},
-                    {"OnDeselect", new MemberRegisterInfo { Name = "OnDeselect", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongInputField_Wrap.M_OnDeselect
 #endif
                     }},
                     {"RootTransform", new MemberRegisterInfo { Name = "RootTransform", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
@@ -442,11 +422,6 @@ namespace PuertsStaticWrap
                     , Method = TSF_Oolong_UGUI_OolongSlider_Wrap.M_OnReset
 #endif
                     }},
-                    {"OnDeselect", new MemberRegisterInfo { Name = "OnDeselect", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongSlider_Wrap.M_OnDeselect
-#endif
-                    }},
                     {"Value", new MemberRegisterInfo { Name = "Value", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , PropertyGetter = TSF_Oolong_UGUI_OolongSlider_Wrap.G_Value, PropertySetter = TSF_Oolong_UGUI_OolongSlider_Wrap.S_Value
@@ -530,11 +505,6 @@ namespace PuertsStaticWrap
                     , Method = TSF_Oolong_UGUI_OolongToggle_Wrap.M_OnReset
 #endif
                     }},
-                    {"OnDeselect", new MemberRegisterInfo { Name = "OnDeselect", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongToggle_Wrap.M_OnDeselect
-#endif
-                    }},
                     {"IsOn", new MemberRegisterInfo { Name = "IsOn", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , PropertyGetter = TSF_Oolong_UGUI_OolongToggle_Wrap.G_IsOn, PropertySetter = TSF_Oolong_UGUI_OolongToggle_Wrap.S_IsOn
@@ -564,6 +534,16 @@ namespace PuertsStaticWrap
                     , Constructor = TSF_Oolong_UGUI_UIEventHandler_Wrap.Constructor
 #endif
                     }},
+                    {"AddListener", new MemberRegisterInfo { Name = "AddListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_UIEventHandler_Wrap.M_AddListener
+#endif
+                    }},
+                    {"RemoveListener", new MemberRegisterInfo { Name = "RemoveListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_UIEventHandler_Wrap.M_RemoveListener
+#endif
+                    }},
                     {"OnPointerEnter", new MemberRegisterInfo { Name = "OnPointerEnter", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , Method = TSF_Oolong_UGUI_UIEventHandler_Wrap.M_OnPointerEnter
@@ -582,6 +562,11 @@ namespace PuertsStaticWrap
                     {"OnPointerUp", new MemberRegisterInfo { Name = "OnPointerUp", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , Method = TSF_Oolong_UGUI_UIEventHandler_Wrap.M_OnPointerUp
+#endif
+                    }},
+                    {"OnPointerMove", new MemberRegisterInfo { Name = "OnPointerMove", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_UIEventHandler_Wrap.M_OnPointerMove
 #endif
                     }},
                     {"OnPointerClick", new MemberRegisterInfo { Name = "OnPointerClick", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
@@ -649,6 +634,11 @@ namespace PuertsStaticWrap
                     , Method = TSF_Oolong_UGUI_UIEventHandler_Wrap.M_OnCancel
 #endif
                     }},
+                    {"Reset", new MemberRegisterInfo { Name = "Reset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_UIEventHandler_Wrap.M_Reset
+#endif
+                    }},
                 }
             };
         }
@@ -671,6 +661,11 @@ namespace PuertsStaticWrap
                     {"RemoveChild", new MemberRegisterInfo { Name = "RemoveChild", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_RemoveChild
+#endif
+                    }},
+                    {"SetEventHandler", new MemberRegisterInfo { Name = "SetEventHandler", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_SetEventHandler
 #endif
                     }},
                     {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding

@@ -124,12 +124,13 @@
             TagName : string
             AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             OnCreate () : void
             OnReuse () : void
             OnReset () : void
             SetElementAttribute ($key: string, $value: string) : void
-            AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            RemoveListener ($key: string) : void
+            AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            RemoveListener ($key: string) : boolean
             GetComponent ($type: System.Type) : UnityEngine.Component
             GetComponent ($type: string) : UnityEngine.Component
             GetInstanceID () : number
@@ -152,7 +153,7 @@
             public static UpdateLayout () : void
             public static LateUpdateLayout () : void
         }
-        class OolongElement$1<T> extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement
+        class OolongElement$1<T> extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IOolongElement
         {
             protected [__keep_incompatibility]: never;
             public get transform(): UnityEngine.Transform;
@@ -164,66 +165,18 @@
             public set TagName(value: string);
             public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate () : void
             public OnReuse () : void
             public OnReset () : void
             public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
             public GetInstanceID () : number
         }
-        class OolongButton extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongButton> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerUpHandler
-        {
-            protected [__keep_incompatibility]: never;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get RootTransform(): UnityEngine.Transform;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public OnDeselect ($eventData: UnityEngine.EventSystems.BaseEventData) : void
-            public OnPointerDown ($eventData: UnityEngine.EventSystems.PointerEventData) : void
-            public OnPointerUp ($eventData: UnityEngine.EventSystems.PointerEventData) : void
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongContainer extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongContainer> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get RootTransform(): UnityEngine.Transform;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongImage extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongImage> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement
+        class OolongButton extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongButton> implements TSF.Oolong.UGUI.IOolongElement
         {
             protected [__keep_incompatibility]: never;
             public get transform(): UnityEngine.Transform;
@@ -236,17 +189,66 @@
             public constructor ()
             public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate () : void
             public OnReuse () : void
             public OnReset () : void
             public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
             public GetInstanceID () : number
         }
-        class OolongInputField extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongInputField> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement, UnityEngine.EventSystems.IDeselectHandler
+        class OolongContainer extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongContainer> implements TSF.Oolong.UGUI.IOolongElement
+        {
+            protected [__keep_incompatibility]: never;
+            public get RootTransform(): UnityEngine.Transform;
+            public get transform(): UnityEngine.Transform;
+            public get gameObject(): UnityEngine.GameObject;
+            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
+            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
+            public get TagName(): string;
+            public set TagName(value: string);
+            public constructor ()
+            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
+            public OnCreate () : void
+            public OnReuse () : void
+            public OnReset () : void
+            public SetElementAttribute ($key: string, $value: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public GetComponent ($type: System.Type) : UnityEngine.Component
+            public GetComponent ($type: string) : UnityEngine.Component
+            public GetInstanceID () : number
+        }
+        class OolongImage extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongImage> implements TSF.Oolong.UGUI.IOolongElement
+        {
+            protected [__keep_incompatibility]: never;
+            public get transform(): UnityEngine.Transform;
+            public get gameObject(): UnityEngine.GameObject;
+            public get RootTransform(): UnityEngine.Transform;
+            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
+            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
+            public get TagName(): string;
+            public set TagName(value: string);
+            public constructor ()
+            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
+            public OnCreate () : void
+            public OnReuse () : void
+            public OnReset () : void
+            public SetElementAttribute ($key: string, $value: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public GetComponent ($type: System.Type) : UnityEngine.Component
+            public GetComponent ($type: string) : UnityEngine.Component
+            public GetInstanceID () : number
+        }
+        class OolongInputField extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongInputField> implements TSF.Oolong.UGUI.IOolongElement
         {
             protected [__keep_incompatibility]: never;
             public get RootTransform(): UnityEngine.Transform;
@@ -257,21 +259,21 @@
             public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
             public get TagName(): string;
             public set TagName(value: string);
-            public OnDeselect ($eventData: UnityEngine.EventSystems.BaseEventData) : void
             public constructor ()
             public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate () : void
             public OnReuse () : void
             public OnReset () : void
             public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
             public GetInstanceID () : number
         }
-        class OolongPanel extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongPanel> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement
+        class OolongPanel extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongPanel> implements TSF.Oolong.UGUI.IOolongElement
         {
             protected [__keep_incompatibility]: never;
             public get transform(): UnityEngine.Transform;
@@ -284,17 +286,18 @@
             public constructor ()
             public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate () : void
             public OnReuse () : void
             public OnReset () : void
             public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
             public GetInstanceID () : number
         }
-        class OolongScrollView extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongScrollView> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement
+        class OolongScrollView extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongScrollView> implements TSF.Oolong.UGUI.IOolongElement
         {
             protected [__keep_incompatibility]: never;
             public get RootTransform(): UnityEngine.Transform;
@@ -309,17 +312,18 @@
             public constructor ()
             public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate () : void
             public OnReuse () : void
             public OnReset () : void
             public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
             public GetInstanceID () : number
         }
-        class OolongSlider extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongSlider> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement, UnityEngine.EventSystems.IDeselectHandler
+        class OolongSlider extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongSlider> implements TSF.Oolong.UGUI.IOolongElement
         {
             protected [__keep_incompatibility]: never;
             public get Value(): number;
@@ -331,21 +335,21 @@
             public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
             public get TagName(): string;
             public set TagName(value: string);
-            public OnDeselect ($eventData: UnityEngine.EventSystems.BaseEventData) : void
             public constructor ()
             public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate () : void
             public OnReuse () : void
             public OnReset () : void
             public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
             public GetInstanceID () : number
         }
-        class OolongText extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongText> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement
+        class OolongText extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongText> implements TSF.Oolong.UGUI.IOolongElement
         {
             protected [__keep_incompatibility]: never;
             public get transform(): UnityEngine.Transform;
@@ -358,17 +362,18 @@
             public constructor ()
             public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate () : void
             public OnReuse () : void
             public OnReset () : void
             public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
             public GetInstanceID () : number
         }
-        class OolongToggle extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongToggle> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement, UnityEngine.EventSystems.IDeselectHandler
+        class OolongToggle extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongToggle> implements TSF.Oolong.UGUI.IOolongElement
         {
             protected [__keep_incompatibility]: never;
             public get IsOn(): boolean;
@@ -380,27 +385,30 @@
             public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
             public get TagName(): string;
             public set TagName(value: string);
-            public OnDeselect ($eventData: UnityEngine.EventSystems.BaseEventData) : void
             public constructor ()
             public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate () : void
             public OnReuse () : void
             public OnReset () : void
             public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
             public GetInstanceID () : number
         }
-        class UIEventHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.EventSystems.ICancelHandler, UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.EventSystems.IEndDragHandler, UnityEngine.EventSystems.IDropHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IScrollHandler, UnityEngine.EventSystems.IUpdateSelectedHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IMoveHandler, UnityEngine.EventSystems.IPointerUpHandler
+        class UIEventHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.EventSystems.ICancelHandler, UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.EventSystems.IEndDragHandler, UnityEngine.EventSystems.IDropHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IScrollHandler, UnityEngine.EventSystems.IPointerMoveHandler, UnityEngine.EventSystems.IUpdateSelectedHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IMoveHandler, UnityEngine.EventSystems.IPointerUpHandler
         {
             protected [__keep_incompatibility]: never;
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public OnPointerEnter ($eventData: UnityEngine.EventSystems.PointerEventData) : void
             public OnPointerExit ($eventData: UnityEngine.EventSystems.PointerEventData) : void
             public OnPointerDown ($eventData: UnityEngine.EventSystems.PointerEventData) : void
             public OnPointerUp ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public OnPointerMove ($eventData: UnityEngine.EventSystems.PointerEventData) : void
             public OnPointerClick ($eventData: UnityEngine.EventSystems.PointerEventData) : void
             public OnInitializePotentialDrag ($eventData: UnityEngine.EventSystems.PointerEventData) : void
             public OnBeginDrag ($eventData: UnityEngine.EventSystems.PointerEventData) : void
@@ -414,6 +422,7 @@
             public OnMove ($eventData: UnityEngine.EventSystems.AxisEventData) : void
             public OnSubmit ($eventData: UnityEngine.EventSystems.BaseEventData) : void
             public OnCancel ($eventData: UnityEngine.EventSystems.BaseEventData) : void
+            public Reset () : void
             public constructor ()
         }
         class OolongLoader extends System.Object
@@ -504,7 +513,7 @@
             public SetAttribute ($key: string, $value: string) : boolean
             public constructor ($text: TMPro.TextMeshProUGUI)
         }
-        class MithrilComponent extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.MithrilComponent> implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongElement
+        class MithrilComponent extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.MithrilComponent> implements TSF.Oolong.UGUI.IOolongElement
         {
             protected [__keep_incompatibility]: never;
             public AddressableScript : UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.TextAsset>
@@ -520,12 +529,13 @@
             public constructor ()
             public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate () : void
             public OnReuse () : void
             public OnReset () : void
             public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : void
-            public RemoveListener ($key: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
             public GetComponent ($type: System.Type) : UnityEngine.Component
             public GetComponent ($type: string) : UnityEngine.Component
             public GetInstanceID () : number
@@ -651,25 +661,15 @@
             protected [__keep_incompatibility]: never;
         }
     }
+    namespace TSF.Oolong.UGUI.IOolongElement {
+        interface JsCallback
+        { 
+        (eventData: UnityEngine.EventSystems.BaseEventData) : void; 
+        Invoke?: (eventData: UnityEngine.EventSystems.BaseEventData) => void;
+        }
+        var JsCallback: { new (func: (eventData: UnityEngine.EventSystems.BaseEventData) => void): JsCallback; }
+    }
     namespace UnityEngine.EventSystems {
-        interface IEventSystemHandler
-        {
-        }
-        interface IPointerEnterHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IPointerExitHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IPointerDownHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IDeselectHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IPointerUpHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
         class AbstractEventData extends System.Object
         {
             protected [__keep_incompatibility]: never;
@@ -678,11 +678,10 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        class PointerEventData extends UnityEngine.EventSystems.BaseEventData
-        {
-            protected [__keep_incompatibility]: never;
-        }
         interface ISubmitHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IEventSystemHandler
         {
         }
         interface IPointerClickHandler extends UnityEngine.EventSystems.IEventSystemHandler
@@ -709,14 +708,36 @@
         interface IScrollHandler extends UnityEngine.EventSystems.IEventSystemHandler
         {
         }
+        interface IPointerMoveHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
         interface IUpdateSelectedHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IPointerEnterHandler extends UnityEngine.EventSystems.IEventSystemHandler
         {
         }
         interface ISelectHandler extends UnityEngine.EventSystems.IEventSystemHandler
         {
         }
+        interface IPointerExitHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IDeselectHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IPointerDownHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
         interface IMoveHandler extends UnityEngine.EventSystems.IEventSystemHandler
         {
+        }
+        interface IPointerUpHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        class PointerEventData extends UnityEngine.EventSystems.BaseEventData
+        {
+            protected [__keep_incompatibility]: never;
         }
         class AxisEventData extends UnityEngine.EventSystems.BaseEventData
         {
@@ -726,14 +747,6 @@
         {
             protected [__keep_incompatibility]: never;
         }
-    }
-    namespace TSF.Oolong.UGUI.IOolongElement {
-        interface JsCallback
-        { 
-        () : void; 
-        Invoke?: () => void;
-        }
-        var JsCallback: { new (func: () => void): JsCallback; }
     }
     namespace System.Reflection {
         class MemberInfo extends System.Object implements System.Runtime.InteropServices._MemberInfo, System.Reflection.ICustomAttributeProvider

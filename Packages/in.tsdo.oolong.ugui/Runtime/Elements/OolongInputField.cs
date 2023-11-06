@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
-    public class OolongInputField : OolongElement<OolongInputField>, IDeselectHandler
+    public class OolongInputField : OolongElement<OolongInputField>
     {
         private TMP_InputField _input;
 
@@ -59,7 +59,6 @@ namespace TSF.Oolong.UGUI
 
         private string _font;
         private bool _fontInitialized = false;
-        private Action _onDeselect;
 
         private void SetFont(string v)
         {
@@ -208,52 +207,48 @@ namespace TSF.Oolong.UGUI
             return false;
         }
 
-        public override void AddListener(string key, IOolongElement.JsCallback callback)
+        public override bool AddListener(string key, IOolongElement.JsCallback callback)
         {
-            base.AddListener(key, callback);
+            if (base.AddListener(key, callback)) return true;
 
             switch (key)
             {
-                case "input":
-                    _input.onValueChanged.AddListener(_ => callback());
-                    break;
-                case "change":
-                    _input.onEndEdit.AddListener(_ => callback());
-                    break;
-                case "select":
-                    _input.onSelect.AddListener(_ => callback());
-                    break;
-                case "deselect":
-                    _input.onDeselect.AddListener(_ => callback());
-                    break;
-                case "unfocus":
-                    _onDeselect += () => callback();
-                    break;
+                case "valuechanged":
+                    _input.onValueChanged.AddListener(_ => callback(null));
+                    return true;
+                case "endedit":
+                    _input.onEndEdit.AddListener(_ => callback(null));
+                    return true;
+                case "inputselect":
+                    _input.onSelect.AddListener(_ => callback(null));
+                    return true;
+                case "inputdeselect":
+                    _input.onDeselect.AddListener(_ => callback(null));
+                    return true;
             }
+            return false;
         }
 
-        public override void RemoveListener(string key)
+        public override bool RemoveListener(string key)
         {
-            base.RemoveListener(key);
+            if (base.RemoveListener(key)) return true;
 
             switch (key)
             {
-                case "input":
+                case "valuechanged":
                     _input.onValueChanged.RemoveAllListeners();
-                    break;
-                case "change":
+                    return true;
+                case "endedit":
                     _input.onEndEdit.RemoveAllListeners();
-                    break;
-                case "select":
+                    return true;
+                case "inputselect":
                     _input.onSelect.RemoveAllListeners();
-                    break;
-                case "deselect":
+                    return true;
+                case "inputdeselect":
                     _input.onDeselect.RemoveAllListeners();
-                    break;
-                case "unfocus":
-                    _onDeselect = null;
-                    break;
+                    return true;
             }
+            return false;
         }
 
         public override void OnReuse()
@@ -275,7 +270,6 @@ namespace TSF.Oolong.UGUI
             _input.onEndEdit.RemoveAllListeners();
             _input.onSelect.RemoveAllListeners();
             _input.onDeselect.RemoveAllListeners();
-            _onDeselect = null;
         }
 
         protected override void OnDestroy()
@@ -284,11 +278,6 @@ namespace TSF.Oolong.UGUI
             _selectable.Release();
             _placeholder.Release();
             _text.Release();
-        }
-
-        public void OnDeselect(BaseEventData eventData)
-        {
-            _onDeselect?.Invoke();
         }
     }
 }

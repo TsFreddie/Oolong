@@ -4,10 +4,9 @@ using UnityEngine.EventSystems;
 namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
-    public class OolongSlider : OolongElement<OolongSlider>, IDeselectHandler
+    public class OolongSlider : OolongElement<OolongSlider>
     {
         private OolongSliderLoader _slider;
-        private Action _onDeselect;
 
         public float Value
         {
@@ -27,34 +26,30 @@ namespace TSF.Oolong.UGUI
             return false;
         }
 
-        public override void AddListener(string key, IOolongElement.JsCallback callback)
+        public override bool AddListener(string key, IOolongElement.JsCallback callback)
         {
-            base.AddListener(key, callback);
+            if (base.AddListener(key, callback)) return true;
 
             switch (key)
             {
-                case "change":
-                    _slider.Instance.onValueChanged.AddListener(_ => callback());
-                    break;
-                case "unfocus":
-                    _onDeselect += () => callback();
-                    break;
+                case "valuechanged":
+                    _slider.Instance.onValueChanged.AddListener(_ => callback(null));
+                    return true;
             }
+            return false;
         }
 
-        public override void RemoveListener(string key)
+        public override bool RemoveListener(string key)
         {
-            base.RemoveListener(key);
+            if (base.RemoveListener(key)) return true;
 
             switch (key)
             {
-                case "change":
+                case "valuechanged":
                     _slider.Instance.onValueChanged.RemoveAllListeners();
-                    break;
-                case "unfocus":
-                    _onDeselect = null;
-                    break;
+                    return true;
             }
+            return false;
         }
 
         public override void OnReuse()
@@ -68,18 +63,12 @@ namespace TSF.Oolong.UGUI
             base.OnReset();
             _slider.Reset();
             _slider.Instance.onValueChanged.RemoveAllListeners();
-            _onDeselect = null;
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
             _slider.Release();
-        }
-
-        public void OnDeselect(BaseEventData eventData)
-        {
-            _onDeselect?.Invoke();
         }
     }
 }

@@ -6,13 +6,10 @@ using UnityEngine.UI;
 namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
-    public class OolongButton : OolongElement<OolongButton>, IDeselectHandler, IPointerDownHandler, IPointerUpHandler
+    public class OolongButton : OolongElement<OolongButton>
     {
         private Button _button;
         private OolongSelectableLoader _buttonLoader;
-        private Action _onDeselect;
-        private Action _onPointerDown;
-        private Action _onPointerUp;
 
         public override void OnCreate()
         {
@@ -23,46 +20,30 @@ namespace TSF.Oolong.UGUI
             _buttonLoader = new OolongSelectableLoader(_button, TagName);
         }
 
-        public override void AddListener(string key, IOolongElement.JsCallback callback)
+        public override bool AddListener(string key, IOolongElement.JsCallback callback)
         {
-            base.AddListener(key, callback);
+            if (base.AddListener(key, callback)) return true;
 
             switch (key)
             {
                 case "click":
-                    _button.onClick.AddListener(() => callback());
-                    break;
-                case "unfocus":
-                    _onDeselect += () => callback();
-                    break;
-                case "pointerdown":
-                    _onPointerDown += () => callback();
-                    break;
-                case "pointerup":
-                    _onPointerUp += () => callback();
-                    break;
+                    _button.onClick.AddListener(() => callback(null));
+                    return true;
             }
+            return false;
         }
 
-        public override void RemoveListener(string key)
+        public override bool RemoveListener(string key)
         {
-            base.RemoveListener(key);
+            if (base.RemoveListener(key)) return true;
 
             switch (key)
             {
                 case "click":
                     _button.onClick.RemoveAllListeners();
-                    break;
-                case "unfocus":
-                    _onDeselect = null;
-                    break;
-                case "pointerdown":
-                    _onPointerDown = null;
-                    break;
-                case "pointerup":
-                    _onPointerUp = null;
-                    break;
+                    return true;
             }
+            return false;
         }
 
         public override void OnReuse()
@@ -76,7 +57,6 @@ namespace TSF.Oolong.UGUI
             base.OnReset();
             _buttonLoader.Reset();
             _button.onClick.RemoveAllListeners();
-            _onDeselect = null;
         }
 
         protected override bool SetAttribute(string key, string value)
@@ -90,23 +70,7 @@ namespace TSF.Oolong.UGUI
         protected override void OnDestroy()
         {
             _buttonLoader.Release();
-            _onDeselect = null;
             base.OnDestroy();
-        }
-
-        public void OnDeselect(BaseEventData eventData)
-        {
-            _onDeselect?.Invoke();
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            _onPointerDown?.Invoke();
-        }
-
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            _onPointerUp?.Invoke();
         }
     }
 }

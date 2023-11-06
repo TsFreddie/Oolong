@@ -72,8 +72,9 @@ namespace PuertsStaticWrap
                         string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
                         argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement.JsCallback>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.IOolongElement.JsCallback arg1 = (TSF.Oolong.UGUI.IOolongElement.JsCallback)argobj1;
 
-                        obj.AddListener (arg0, arg1);
+                        var result = obj.AddListener (arg0, arg1);
 
+                        Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
                     }
                 }
             }
@@ -97,8 +98,9 @@ namespace PuertsStaticWrap
                     {
                         string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
 
-                        obj.RemoveListener (arg0);
+                        var result = obj.RemoveListener (arg0);
 
+                        Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
                     }
                 }
             }
@@ -140,31 +142,6 @@ namespace PuertsStaticWrap
                     {
 
                         obj.OnReset ();
-
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        internal static void M_OnDeselect(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as TSF.Oolong.UGUI.OolongSlider;
-        
-                {
-            
-                    IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
-                    object argobj0 = null;
-                    ;
-                    {
-                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<UnityEngine.EventSystems.BaseEventData>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); UnityEngine.EventSystems.BaseEventData arg0 = (UnityEngine.EventSystems.BaseEventData)argobj0;
-
-                        obj.OnDeselect (arg0);
 
                     }
                 }

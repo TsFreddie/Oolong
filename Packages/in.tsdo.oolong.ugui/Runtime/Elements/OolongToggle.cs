@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
-    public class OolongToggle : OolongElement<OolongToggle>, IDeselectHandler
+    public class OolongToggle : OolongElement<OolongToggle>
     {
         private class RefCountToggleGroup
         {
@@ -88,35 +88,30 @@ namespace TSF.Oolong.UGUI
             set { _toggle.SetIsOnWithoutNotify(value); }
         }
 
-        public override void AddListener(string key, IOolongElement.JsCallback callback)
+        public override bool AddListener(string key, IOolongElement.JsCallback callback)
         {
-            base.AddListener(key, callback);
+            if (base.AddListener(key, callback)) return true;
 
             switch (key)
             {
-                case "change":
-                    _toggle.onValueChanged.AddListener(_ => callback());
-                    break;
-                case "unfocus":
-                    _onDeselect += () => callback();
-                    break;
+                case "valuechanged":
+                    _toggle.onValueChanged.AddListener(_ => callback(null));
+                    return true;
             }
-
+            return false;
         }
 
-        public override void RemoveListener(string key)
+        public override bool RemoveListener(string key)
         {
-            base.RemoveListener(key);
+            if (base.RemoveListener(key)) return true;
 
             switch (key)
             {
-                case "change":
+                case "valuechanged":
                     _toggle.onValueChanged.RemoveAllListeners();
-                    break;
-                case "unfocus":
-                    _onDeselect = null;
-                    break;
+                    return true;
             }
+            return false;
         }
 
         public override void OnCreate()
@@ -168,10 +163,6 @@ namespace TSF.Oolong.UGUI
             SetGroup(null);
             _checkmark.Release();
             _checkmarkRect.Release();
-        }
-        public void OnDeselect(BaseEventData eventData)
-        {
-            _onDeselect?.Invoke();
         }
     }
 }

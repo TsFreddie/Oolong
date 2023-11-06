@@ -1,8 +1,9 @@
 /// <reference types="csharp"/>
 
 interface EventData<T = UnityElement> {
-    target: T;
     type: string;
+    target: T;
+    eventData: CS.UnityEngine.EventSystems.BaseEventData;
     redraw: boolean;
 }
 
@@ -309,31 +310,46 @@ type ContainerAttributes = {
     rotation?: AttributeNumber;
 };
 
-type ButtonCallbacks = {
-    onclick?: EventHandler<UnityElement>;
-    unfocus?: EventHandler<UnityElement>;
+type ElementCallbacks = {
+    onpointerenter?: EventHandler<UnityElement>;
+    onpointerexit?: EventHandler<UnityElement>;
     onpointerdown?: EventHandler<UnityElement>;
     onpointerup?: EventHandler<UnityElement>;
+    onpointermove?: EventHandler<UnityElement>;
+    onpointerclick?: EventHandler<UnityElement>;
+    oninitializepotentialdrag?: EventHandler<UnityElement>;
+    onbegindrag?: EventHandler<UnityElement>;
+    ondrag?: EventHandler<UnityElement>;
+    onenddrag?: EventHandler<UnityElement>;
+    ondrop?: EventHandler<UnityElement>;
+    onscroll?: EventHandler<UnityElement>;
+    onupdateselected?: EventHandler<UnityElement>;
+    onselect?: EventHandler<UnityElement>;
+    ondeselect?: EventHandler<UnityElement>;
+    onmove?: EventHandler<UnityElement>;
+    onsubmit?: EventHandler<UnityElement>;
+    oncancel?: EventHandler<UnityElement>;
+};
+
+type ButtonCallbacks = {
+    onclick?: EventHandler<UnityElement>;
 };
 
 type ToggleCallbacks = {
-    onchange?: EventHandler<UnityToggle>;
-    unfocus?: EventHandler<UnityToggle>;
+    onvaluechanged?: EventHandler<UnityToggle>;
 };
 
 type SliderCallbacks = {
-    onchange?: EventHandler<UnitySlider>;
-    unfocus?: EventHandler<UnitySlider>;
+    onvaluechanged?: EventHandler<UnitySlider>;
 };
 
 type ScrollViewCallbacks = {
-    onchange?: EventHandler<UnityScrollView>;
+    onvaluechanged?: EventHandler<UnityScrollView>;
 };
 
 type InputCallbacks = {
-    oninput?: EventHandler<UnityInput>;
-    onchange?: EventHandler<UnityInput>;
-    onselect?: EventHandler<UnityInput>;
-    ondeselect?: EventHandler<UnityInput>;
-    unfocus?: EventHandler<UnityInput>;
+    onvaluechanged?: EventHandler<UnityInput>;
+    onendedit?: EventHandler<UnityInput>;
+    oninputselect?: EventHandler<UnityInput>;
+    oninputdeselect?: EventHandler<UnityInput>;
 };

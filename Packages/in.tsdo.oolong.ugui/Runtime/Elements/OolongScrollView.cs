@@ -296,20 +296,26 @@ namespace TSF.Oolong.UGUI
             _scrollRect.verticalScrollbarSpacing = spacingY - _scrollViewData.ScrollbarHeight;
         }
 
-        public override void AddListener(string key, IOolongElement.JsCallback callback)
+        public override bool AddListener(string key, IOolongElement.JsCallback callback)
         {
-            base.AddListener(key, callback);
+            if (base.AddListener(key, callback)) return true;
 
-            if (key == "change")
-                _scrollRect.onValueChanged.AddListener(_ => callback());
+            if (key != "valuechanged")
+                return false;
+
+            _scrollRect.onValueChanged.AddListener(_ => callback(null));
+            return true;
         }
 
-        public override void RemoveListener(string key)
+        public override bool RemoveListener(string key)
         {
-            base.RemoveListener(key);
+            if (base.RemoveListener(key)) return true;
 
-            if (key == "change")
-                _scrollRect.onValueChanged.RemoveAllListeners();
+            if (key != "valuechanged")
+                return false;
+
+            _scrollRect.onValueChanged.RemoveAllListeners();
+            return true;
         }
 
         public override void OnReuse()
