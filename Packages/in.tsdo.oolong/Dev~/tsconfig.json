@@ -9,7 +9,7 @@
     "noEmit": true,
     "skipLibCheck": true,
     "typeRoots": [
-      "../../../Library/PackageCache/com.tencent.puerts.core@2.0.2/Typing",
+      "../../../Library/PackageCache/com.tencent.puerts.core@2.0.3/Typing",
       "../Generated/Typings~"
     ]
   },

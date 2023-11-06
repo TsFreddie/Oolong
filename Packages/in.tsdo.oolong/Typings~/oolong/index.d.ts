@@ -1,4 +1,4 @@
-/// <reference types="oolong-csharp"/>
+/// <reference types="csharp-oolong"/>
 export {};
 declare global {
     export type ScriptBehaviourType = {

@@ -16,8 +16,8 @@ const options = {
   declaration: true,
   emitDeclarationOnly: true,
   typeRoots: [
-    '../../../Library/PackageCache/com.tencent.puerts.core@2.0.2/Typing',
-    '../../../Assets/Generated/Puerts/Typing',
+    '../../../Library/PackageCache/com.tencent.puerts.core@2.0.3/Typing',
+    '../Generated/Typings~',
   ],
 };
 
@@ -82,3 +82,12 @@ const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
 const file = `${header}${printer.printFile(declarationFile)}`;
 fs.mkdirSync('../Typings~/oolong', { recursive: true });
 fs.writeFileSync('../Typings~/oolong/index.d.ts', file);
+
+// build tsconfig-gen
+esbuild.build({
+  entryPoints: ['./src/tsconfig-patch.ts'],
+  bundle: true,
+  format: 'esm',
+  minify: true,
+  outfile: '../Editor/Resources/oolong/tsconfig-patch.js',
+});

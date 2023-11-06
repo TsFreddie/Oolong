@@ -24,11 +24,6 @@ const options = {
   skipLibCheck: true,
   declaration: true,
   emitDeclarationOnly: true,
-  typeRoots: [
-    '../../../Library/PackageCache/com.tencent.puerts.core@2.0.2/Typing',
-    '../../../Assets/Generated/Puerts/Typing',
-    '../../../Packages/in.tsdo.oolong/Typings',
-  ],
 };
 
 const factory = ts.factory;
