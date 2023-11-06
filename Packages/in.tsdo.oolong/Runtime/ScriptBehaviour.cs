@@ -52,7 +52,7 @@ namespace TSF.Oolong
                 op.Result == null ||
                 op.Result.Count <= 0)
             {
-                Debug.Log("找不到脚本");
+                Debug.Log("Failed to load script");
                 return;
             }
 
