@@ -41,14 +41,14 @@ namespace TSF.Oolong.Editor
                 Directory.Delete(cachePath, true);
         }
 
-        [MenuItem("PuerTS/Oolong/Clear script cache", priority = 20000)]
+        [MenuItem("Tools/PuerTS/Oolong/Clear script cache", priority = 20000)]
         public static void ClearCache()
         {
             ClearCacheInternal();
             Debug.Log("Script cache cleared");
         }
 
-        [MenuItem("PuerTS/Oolong/Recompile all", priority = 20001)]
+        [MenuItem("Tools/PuerTS/Oolong/Recompile all", priority = 20001)]
         public static void RecompileAll()
         {
             ClearCacheInternal();
