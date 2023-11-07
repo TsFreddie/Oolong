@@ -63,17 +63,18 @@ namespace TSF.Oolong.UGUI
             _directionLocked = true;
         }
 
-        private bool SetAttributeInternal(string prefix, string key, string value)
+        private bool SetAttributeInternal(string key, string value)
         {
-            if (base.SetAttribute(prefix, key, value)) return true;
-            if (_selectable.SetAttribute(prefix, key, value)) return true;
-            if (_image.SetAttribute($"bg-{prefix}", key, value)) return true;
+            if (base.SetAttribute(key, value)) return true;
+            if (_selectable.SetAttribute(key, value)) return true;
+            if (key.StartsWith("bg-") && _image.SetAttribute(key.Substring(3), value))
+                return true;
             return false;
         }
 
-        public override bool SetAttribute(string prefix, string key, string value)
+        public override bool SetAttribute(string key, string value)
         {
-            var result = SetAttributeInternal(prefix, key, value);
+            var result = SetAttributeInternal(key, value);
             Instance.gameObject.SetActive(Enabled);
             return result;
         }
@@ -93,14 +94,11 @@ namespace TSF.Oolong.UGUI
             _handleRect.offsetMax = offsetPositive;
         }
 
-        public override void Reuse() { }
-
         public override void Reset()
         {
+            base.Reset();
             _selectable.Reset();
             _image.Reset();
-            foreach (var kvp in s_attrs)
-                kvp.Value(this, null);
         }
 
         public override void Release()

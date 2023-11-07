@@ -104,18 +104,23 @@ namespace TSF.Oolong.UGUI
 
         private Color _baseColor = Color.white;
 
-        public OolongSelectableLoader(Selectable instance, string tagName)
+        public OolongSelectableLoader(Selectable instance, string tagName, bool createImageTarget = false)
         {
             Instance = instance;
             Instance.enabled = false;
-            _image = new OolongImageLoader(instance.image, tagName);
+            if (createImageTarget)
+            {
+                var image = Instance.gameObject.AddComponent<Image>();
+                _image = new OolongImageLoader(image, tagName);
+                Instance.targetGraphic = image;
+            }
             _tagName = tagName;
         }
 
-        public override bool SetAttribute(string prefix, string key, string value)
+        public override bool SetAttribute(string key, string value)
         {
-            if (base.SetAttribute(prefix, key, value)) return true;
-            if (_image.SetAttribute(prefix, key, value)) return true;
+            if (base.SetAttribute(key, value)) return true;
+            if (_image?.SetAttribute(key, value) ?? false) return true;
             return false;
         }
 
@@ -266,7 +271,7 @@ namespace TSF.Oolong.UGUI
             {
                 case ButtonState.Base:
                     var image = Instance.image;
-                    image.sprite = sprite;
+                    if (image) image.sprite = sprite;
                     return;
                 case ButtonState.Normal:
                     return;
@@ -331,7 +336,7 @@ namespace TSF.Oolong.UGUI
             if (string.IsNullOrEmpty(address))
             {
                 SetSprite(state, null);
-                _image.Instance.enabled = false;
+                if (_image != null) _image.Instance.enabled = false;
                 if (state == ButtonState.Base)
                 {
                     HasImage = false;
@@ -377,22 +382,19 @@ namespace TSF.Oolong.UGUI
                 return;
 
             SetSprite(state, sprite);
-            _image.Instance.enabled = true;
+            if (_image != null) _image.Instance.enabled = true;
         }
-
-        public override void Reuse() { }
 
         public override void Reset()
         {
-            foreach (var kvp in s_attrs)
-                kvp.Value(this, null);
+            base.Reset();
 
             _baseSprite.Release();
             _highlightSprite.Release();
             _pressedSprite.Release();
             _selectedSprite.Release();
             _disabledSprite.Release();
-            _image.Release();
+            _image?.Release();
         }
 
         public override void Release()
@@ -404,7 +406,7 @@ namespace TSF.Oolong.UGUI
             _pressedSprite.Release();
             _selectedSprite.Release();
             _disabledSprite.Release();
-            _image.Release();
+            _image?.Release();
         }
     }
 }

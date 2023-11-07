@@ -80,7 +80,7 @@ Currently the following elements are provided:
   have children elements under a `<text>` element, but it is not recommended.
 - `<button>` - equivalent of a `Button`, does not include text. You should add the text using `<text>` element manually.
 - `<toggle>` - equivalent of a `Toggle`, does not include text either.
-- `<scrollview>` - equivalent of a `ScrollView`, includes multiple GameObjects that handles masking and scrollbars.
+- `<scrollrect>` - equivalent of a `ScrollRect`, includes multiple GameObjects that handles masking and scrollbars.
 - `<input>` - equivalent of a `TextMeshPro InputField`.
 - `<slider>` - equivalent of a `Slider`.
 - `<container>` - a special kind of `<panel>` that also includes a `CanvasGroup` component for alpha and interaction

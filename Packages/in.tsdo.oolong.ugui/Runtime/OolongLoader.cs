@@ -5,67 +5,71 @@ namespace TSF.Oolong.UGUI
 {
     public abstract class OolongLoader<T> : IOolongLoader where T : OolongLoader<T>
     {
-        public delegate void JsCallback(BaseEventData eventData);
         public delegate void AttrHandler(T loader, string value);
 
         protected virtual Dictionary<string, AttrHandler> Attrs => null;
-        private HashSet<ITransitionProperty> _transitions;
-        private Dictionary<string, ITransitionProperty> _transitionMap;
+        protected Dictionary<string, ITransitionProperty> Transitions => _transitions ??= new Dictionary<string, ITransitionProperty>();
 
-        private bool _isLayoutDirty;
-        private bool _isLayoutDirtyLate;
+        private Dictionary<string, ITransitionProperty> _transitions;
 
-        protected bool IsLayoutDirty
+        private bool _isUpdatePending;
+        private bool _isLateUpdatePending;
+
+        protected bool IsUpdatePending
         {
-            get { return _isLayoutDirty; }
+            get { return _isUpdatePending; }
             set
             {
-                if (_isLayoutDirty == value) return;
-                _isLayoutDirty = value;
-                if (_isLayoutDirty)
-                    DocumentUtils.OnDocumentUpdate += OnLayout;
+                if (_isUpdatePending == value) return;
+                _isUpdatePending = value;
+                if (_isUpdatePending)
+                    DocumentUtils.OnDocumentUpdate += OnUpdate;
                 else
-                    DocumentUtils.OnDocumentUpdate -= OnLayout;
+                    DocumentUtils.OnDocumentUpdate -= OnUpdate;
             }
         }
 
-        protected bool IsLayoutDirtyLate
+        protected bool IsLateUpdatePending
         {
-            get { return _isLayoutDirtyLate; }
+            get { return _isLateUpdatePending; }
             set
             {
-                if (_isLayoutDirtyLate == value) return;
-                _isLayoutDirtyLate = value;
-                if (_isLayoutDirtyLate)
-                    DocumentUtils.OnDocumentLateUpdate += OnLateLayout;
+                if (_isLateUpdatePending == value) return;
+                _isLateUpdatePending = value;
+                if (_isLateUpdatePending)
+                    DocumentUtils.OnDocumentLateUpdate += OnLateUpdate;
                 else
-                    DocumentUtils.OnDocumentLateUpdate -= OnLateLayout;
+                    DocumentUtils.OnDocumentLateUpdate -= OnLateUpdate;
             }
         }
 
         public virtual void Release()
         {
-            IsLayoutDirty = false;
-            IsLayoutDirtyLate = false;
+            IsUpdatePending = false;
+            IsLateUpdatePending = false;
             ResetTransitions();
         }
 
         public virtual bool AddListener(string key, IOolongLoader.JsCallback callback) => false;
         public virtual bool RemoveListener(string key) => false;
-        protected virtual void OnLayout() { IsLayoutDirty = false; }
-        protected virtual void OnLateLayout() { IsLayoutDirtyLate = false; }
-        public abstract void Reset();
-        public abstract void Reuse();
 
-        public virtual bool SetAttribute(string prefix, string key, string value)
+        protected virtual void OnUpdate() { IsUpdatePending = false; }
+        protected virtual void OnLateUpdate() { IsLateUpdatePending = false; }
+
+        public virtual void Reset()
         {
-            if (this is not T loader) return false;
+            if (this is not T loader) return;
 
-            if (prefix != null)
-            {
-                if (!key.StartsWith(prefix)) return false;
-                key = key.Substring(prefix.Length);
-            }
+            foreach (var handler in Attrs.Values)
+                handler(loader, null);
+        }
+
+        public virtual void Reuse() { }
+
+        public virtual bool SetAttribute(string key, string value)
+        {
+            if (Attrs == null) return false;
+            if (this is not T loader) return false;
 
             if (!Attrs.ContainsKey(key))
                 return false;
@@ -77,40 +81,33 @@ namespace TSF.Oolong.UGUI
         public void ResetTransitions()
         {
             if (_transitions == null) return;
-            foreach (var prop in _transitions)
+            foreach (var prop in _transitions.Values)
             {
                 prop.Reset();
             }
         }
 
-        public bool SetTransition(string prefix, string key, float duration, CubicBezier timingFunction, float delay)
+        public void SetTransition(string key, float duration, CubicBezier timingFunction, float delay)
         {
-            if (_transitions == null) return false;
-            if (prefix != null)
-            {
-                if (!key.StartsWith(prefix)) return false;
-                key = key.Substring(prefix.Length);
-            }
-
-            if (!_transitionMap.TryGetValue(key, out var prop))
-                return false;
+            if (_transitions == null) return;
+            if (!_transitions.TryGetValue(key, out var prop))
+                return;
 
             prop.Duration = duration;
             prop.TimingFunction = timingFunction;
             prop.Delay = delay;
-            return true;
-        }
-
-        public bool SetTransition(string key, float duration, CubicBezier timingFunction, float delay)
-        {
-            return SetTransition(null, key, duration, timingFunction, delay);
         }
 
         protected void SetFloat(ref float f, string v, float def = 0.0f)
         {
             var oldF = f;
             f = string.IsNullOrEmpty(v) || !float.TryParse(v, out var value) ? def : value;
-            if (!oldF.Equals(f)) IsLayoutDirty = true;
+            if (!oldF.Equals(f)) IsUpdatePending = true;
+        }
+
+        protected void SetFloatWithoutUpdate(ref float f, string v, float def = 0.0f)
+        {
+            f = string.IsNullOrEmpty(v) || !float.TryParse(v, out var value) ? def : value;
         }
     }
 }

@@ -136,7 +136,7 @@ namespace TSF.Oolong.UGUI
             Instance.raycastTarget = true;
             Instance.enableWordWrapping = false;
 
-            IsLayoutDirtyLate = true;
+            IsLateUpdatePending = true;
         }
 
         private void SetFont(string v)
@@ -149,7 +149,7 @@ namespace TSF.Oolong.UGUI
 
             _font = v;
             _fontInitialized = false;
-            IsLayoutDirtyLate = true;
+            IsLateUpdatePending = true;
         }
 
         private void OnFontChanged()
@@ -157,7 +157,7 @@ namespace TSF.Oolong.UGUI
             ReleaseMaterial();
             Instance.font = null;
             _fontInitialized = false;
-            IsLayoutDirtyLate = true;
+            IsLateUpdatePending = true;
         }
 
         private void SetupFont()
@@ -166,9 +166,9 @@ namespace TSF.Oolong.UGUI
             _fontInitialized = true;
         }
 
-        public override bool SetAttribute(string prefix, string key, string value)
+        public override bool SetAttribute(string key, string value)
         {
-            if (base.SetAttribute(prefix, key, value)) return true;
+            if (base.SetAttribute(key, value)) return true;
             _textAttr[key] = value;
             return false;
         }
@@ -194,13 +194,13 @@ namespace TSF.Oolong.UGUI
             if (v == null)
             {
                 _outlineEnabled = false;
-                IsLayoutDirtyLate = true;
+                IsLateUpdatePending = true;
                 return;
             }
 
             _outlineEnabled = true;
             _outlineColor = DocumentUtils.ParseColor(v);
-            IsLayoutDirtyLate = true;
+            IsLateUpdatePending = true;
         }
 
         private void SetOutlineThickness(string v)
@@ -208,12 +208,12 @@ namespace TSF.Oolong.UGUI
             if (v == null)
             {
                 _outlineThickness = 1.0f;
-                IsLayoutDirtyLate = true;
+                IsLateUpdatePending = true;
                 return;
             }
 
             _outlineThickness = float.Parse(v);
-            IsLayoutDirtyLate = true;
+            IsLateUpdatePending = true;
         }
 
         private void SetWrap(string wrap)
@@ -400,9 +400,9 @@ namespace TSF.Oolong.UGUI
             Instance.fontSizeMin = value;
         }
 
-        protected override void OnLayout()
+        protected override void OnUpdate()
         {
-            base.OnLayout();
+            base.OnUpdate();
 
             var extendX = _extendData.Extend + _extendData.ExtendX;
             var extendY = _extendData.Extend + _extendData.ExtendY;
@@ -445,9 +445,9 @@ namespace TSF.Oolong.UGUI
             return _materialInstance;
         }
 
-        protected override void OnLateLayout()
+        protected override void OnLateUpdate()
         {
-            base.OnLateLayout();
+            base.OnLateUpdate();
             if (!_fontInitialized || Instance.font == null)
                 SetupFont();
 
@@ -472,21 +472,22 @@ namespace TSF.Oolong.UGUI
 
         public override void Reuse()
         {
+            base.Reuse();
+
             Instance.font = null;
             _fontInitialized = false;
-            IsLayoutDirtyLate = true;
+            IsLateUpdatePending = true;
             // Instance.enabled = true;
         }
 
         public override void Reset()
         {
-            foreach (var kvp in s_attrs)
-                kvp.Value(this, null);
+            base.Reset();
 
             ReleaseMaterial();
             // Instance.enabled = false;
             Instance.text = null;
-            IsLayoutDirtyLate = false;
+            IsLateUpdatePending = false;
         }
 
 

@@ -87,6 +87,10 @@ namespace TSF.Oolong.UGUI
             }
         }
 
+        public OolongImageLoader(GameObject gameObject, string tagName) : this(gameObject.AddComponent<Image>(), tagName)
+        {
+        }
+
         public OolongImageLoader(Image instance, string tagName)
         {
             Instance = instance;
@@ -95,7 +99,7 @@ namespace TSF.Oolong.UGUI
 
             Loaded = false;
             HasImage = false;
-            IsLayoutDirty = true;
+            IsUpdatePending = true;
 
             _tagName = tagName;
         }
@@ -330,9 +334,9 @@ namespace TSF.Oolong.UGUI
             Instance.color = DocumentUtils.ParseColor(color);
         }
 
-        protected override void OnLayout()
+        protected override void OnUpdate()
         {
-            base.OnLayout();
+            base.OnUpdate();
             var extendX = _extendData.Extend + _extendData.ExtendX;
             var extendY = _extendData.Extend + _extendData.ExtendY;
             var extendLeft = extendX + _extendData.ExtendLeft;
@@ -340,14 +344,6 @@ namespace TSF.Oolong.UGUI
             var extendTop = extendY + _extendData.ExtendTop;
             var extendBottom = extendY + _extendData.ExtendBottom;
             Instance.raycastPadding = new Vector4(-extendLeft, -extendBottom, -extendRight, -extendTop);
-        }
-
-        public override void Reuse() { }
-
-        public override void Reset()
-        {
-            foreach (var kvp in s_attrs)
-                kvp.Value(this, null);
         }
 
         public override void Release()

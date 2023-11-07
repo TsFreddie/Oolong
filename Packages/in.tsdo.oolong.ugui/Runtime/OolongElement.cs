@@ -8,13 +8,6 @@ namespace TSF.Oolong.UGUI
     [AddComponentMenu("")]
     public class OolongElement : MonoBehaviour
     {
-        #region public
-        public string TagName { get; set; } = "undefined";
-        public virtual Transform RootTransform => transform;
-        public OolongElement ParentElement { get; set; } = null;
-        public new int GetInstanceID() => base.GetInstanceID();
-        #endregion
-
         #region private
         private UIEventHandler _eventHandler;
         private readonly HashSet<OolongElement> _children = new HashSet<OolongElement>();
@@ -25,6 +18,23 @@ namespace TSF.Oolong.UGUI
         private List<CubicBezier> _transitionTimingFunctions;
 
         private IOolongLoader _loader;
+        private Transform _rootTransform;
+        #endregion
+
+        #region public
+        public string TagName { get; set; } = "undefined";
+        public Transform RootTransform
+        {
+            get
+            {
+                if (_rootTransform == null)
+                    _rootTransform = transform;
+                return _rootTransform;
+            }
+            set => _rootTransform = value;
+        }
+        public OolongElement ParentElement { get; set; } = null;
+        public new int GetInstanceID() => base.GetInstanceID();
         #endregion
 
         protected virtual void OnDestroy()
@@ -63,7 +73,7 @@ namespace TSF.Oolong.UGUI
                     return;
             }
 
-            _loader?.SetAttribute(null, key, value);
+            _loader?.SetAttribute(key, value);
         }
 
         public void AddListener(string key, IOolongLoader.JsCallback callback)
@@ -83,7 +93,6 @@ namespace TSF.Oolong.UGUI
             _eventHandler = handler;
         }
 
-        // TODO!: force loader parameter
         public void OnCreate(IOolongLoader loader)
         {
             _loader = loader;

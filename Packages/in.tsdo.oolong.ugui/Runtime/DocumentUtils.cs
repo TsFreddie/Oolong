@@ -18,20 +18,57 @@ namespace TSF.Oolong.UGUI
         private delegate IOolongLoader ElementLoaderFactory(OolongElement element);
         private static readonly Dictionary<string, ElementLoaderFactory> s_elements = new Dictionary<string, ElementLoaderFactory>()
         {
-            // { "div", typeof(OolongPanel) }, // Empty Component
-            // { "panel", typeof(OolongPanel) },
-            // { "image", typeof(OolongImage) },
-            // { "text", typeof(OolongText) },
-            // { "button", typeof(OolongButton) },
-            // { "toggle", typeof(OolongToggle) },
-            // { "scrollview", typeof(OolongScrollView) },
             // { "input", typeof(OolongInputField) },
             // { "slider", typeof(OolongSlider) },
             // { "container", typeof(OolongContainer) },
-            { "div", (e) => new OolongRectLoader(e.gameObject) },
-            { "panel", (e) => new OolongRectLoader(e.gameObject) },
-            { "image", (e) => new OolongImageLoader(e.gameObject.AddComponent<Image>(), "image") },
-            { "text", (e) => new OolongTextLoader(e.gameObject) },
+            {
+                "div", (e) =>
+                    new OolongRectLoader(e.transform)
+            },
+            {
+                "panel", (e) =>
+                    new OolongRectLoader(e.transform)
+            },
+            {
+                "image", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongImageLoader(e.gameObject, e.TagName))
+            },
+            {
+                "text", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongTextLoader(e.gameObject))
+            },
+            {
+                "button", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongButtonLoader(e.gameObject), out var button)
+                        .Add(new OolongSelectableLoader(button.Instance, e.TagName, true))
+            },
+            {
+                "toggle", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .CreateChildRect(e.transform, "::checkmark", out var checkmarkRect)
+                        .Add("cm-", new OolongRectLoader(checkmarkRect))
+                        .Add("cm-", new OolongImageLoader(checkmarkRect.gameObject, e.TagName), out var checkmark)
+                        .Add(new OolongToggleLoader(e.gameObject, checkmark.Instance), out var toggle)
+                        .Add(new OolongSelectableLoader(toggle.Instance, e.TagName, true))
+                        .CreateChildRect(e.transform, "::content", out var content)
+                        .SetRoot(e, content)
+            },
+            {
+                "scrollrect", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongScrollRectLoader(e.gameObject, e.TagName), out var scrollRect)
+                        .Add("content-", new OolongRectLoader(scrollRect.Content))
+                        .Add(new OolongLayoutLoader(scrollRect.Content.gameObject))
+                        .SetRoot(e, scrollRect.Content)
+            }
         };
 
         private static Transform s_elementPoolRoot = null;
@@ -150,6 +187,7 @@ namespace TSF.Oolong.UGUI
 
             var eventHandler = obj.AddComponent<UIEventHandler>();
             eventHandler.enabled = false;
+            obj.AddComponent<RectTransform>();
             var element = obj.AddComponent<OolongElement>();
             element.TagName = tagName;
             element.SetEventHandler(eventHandler);

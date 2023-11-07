@@ -473,7 +473,7 @@ declare global {
                 PrefixAttributes<RectAttributes, "cm-"> &
                 ToggleCallbacks &
                 ElementCallbacks;
-            scrollview: Mithril.Attributes &
+            scrollrect: Mithril.Attributes &
                 RectAttributes &
                 ScrollScrollView &
                 PrefixAttributes<ScrollbarAttributes, "sx-"> &

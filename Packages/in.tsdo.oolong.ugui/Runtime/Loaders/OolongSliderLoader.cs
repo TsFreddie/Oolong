@@ -90,7 +90,7 @@ namespace TSF.Oolong.UGUI
             Instance.targetGraphic = _handleRect.gameObject.AddComponent<Image>();
             _selectable = new OolongSelectableLoader(Instance, tagName);
 
-            IsLayoutDirty = true;
+            IsUpdatePending = true;
         }
 
         public OolongSliderLoader(GameObject obj, Slider.Direction direction, string tagName) : this(obj, tagName)
@@ -99,18 +99,18 @@ namespace TSF.Oolong.UGUI
             _directionLocked = true;
         }
 
-        private bool SetAttributeInternal(string prefix, string key, string value)
+        private bool SetAttributeInternal(string key, string value)
         {
-            if (base.SetAttribute(prefix, key, value)) return true;
-            if (_selectable.SetAttribute(prefix, key, value)) return true;
-            if (_image.SetAttribute($"bg-{prefix}", key, value)) return true;
-            if (_fill.SetAttribute($"fill-{prefix}", key, value)) return true;
+            if (base.SetAttribute(key, value)) return true;
+            if (_selectable.SetAttribute(key, value)) return true;
+            if (key.StartsWith("bg-") && _image.SetAttribute(key.Substring(3), value)) return true;
+            if (key.StartsWith("fill-") && _fill.SetAttribute(key.Substring(5), value)) return true;
             return true;
         }
 
-        public override bool SetAttribute(string prefix, string key, string value)
+        public override bool SetAttribute(string key, string value)
         {
-            var result = SetAttributeInternal(prefix, key, value);
+            var result = SetAttributeInternal(key, value);
             Instance.gameObject.SetActive(Enabled);
             return result;
         }
@@ -150,9 +150,9 @@ namespace TSF.Oolong.UGUI
             };
         }
 
-        protected override void OnLayout()
+        protected override void OnUpdate()
         {
-            base.OnLayout();
+            base.OnUpdate();
             Instance.direction = _direction;
             var isHorizontal = _direction == Slider.Direction.LeftToRight || _direction == Slider.Direction.RightToLeft;
 
@@ -188,17 +188,12 @@ namespace TSF.Oolong.UGUI
             _handleRect.anchoredPosition = new Vector2(_handleOffsetX, -_handleOffsetY);
         }
 
-        public override void Reuse() { }
-
-
         public override void Reset()
         {
+            base.Reset();
             _selectable.Reset();
             _image.Reset();
             _fill.Reset();
-
-            foreach (var kvp in s_attrs)
-                kvp.Value(this, null);
         }
 
         public override void Release()

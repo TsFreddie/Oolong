@@ -149,19 +149,21 @@ namespace TSF.Oolong.UGUI
 
         private bool _autoAnchor = true;
 
-        public OolongRectLoader(GameObject gameObject)
+        public OolongRectLoader(Transform transform) : this(transform as RectTransform)
         {
-            Instance = gameObject.AddComponent<RectTransform>();
-            IsLayoutDirty = true;
+        }
+
+        public OolongRectLoader(RectTransform rect)
+        {
+            Instance = rect;
+            IsUpdatePending = true;
             _layoutData.FlexHeight = -1;
             _layoutData.FlexWidth = -1;
             _layoutData.MinHeight = -1;
             _layoutData.MinHeight = -1;
             _layoutElementData.IgnoreLayout = false;
             _layoutDataTransition = new LayoutDataTransitionProperty(ApplyLayout);
-
-            // TODO!: register transitions
-            // TransitionProperties.Add("rect", _layoutDataTransition);
+            Transitions.Add("rect", _layoutDataTransition);
         }
 
         private void SetIgnoreLayout(string v)
@@ -178,7 +180,7 @@ namespace TSF.Oolong.UGUI
             {
                 _autoAnchor = true;
                 if (oldAutoAnchor != _autoAnchor)
-                    IsLayoutDirty = true;
+                    IsUpdatePending = true;
                 return;
             }
 
@@ -199,7 +201,7 @@ namespace TSF.Oolong.UGUI
             }
 
             if (_autoAnchor != oldAutoAnchor || _anchor != oldAnchor)
-                IsLayoutDirty = true;
+                IsUpdatePending = true;
         }
 
         private void SetAlign(string value)
@@ -209,7 +211,7 @@ namespace TSF.Oolong.UGUI
             {
                 _align = AlignType.Stretch;
                 if (_align != oldAlign)
-                    IsLayoutDirty = true;
+                    IsUpdatePending = true;
                 return;
             }
 
@@ -287,12 +289,12 @@ namespace TSF.Oolong.UGUI
                 _align = AlignType.TopLeft + yAlign * 3 + xAlign;
             }
             if (_align != oldAlign)
-                IsLayoutDirty = true;
+                IsUpdatePending = true;
         }
 
-        protected override void OnLayout()
+        protected override void OnUpdate()
         {
-            base.OnLayout();
+            base.OnUpdate();
             _layoutDataTransition.SetValue(_layoutData);
         }
 
@@ -476,7 +478,8 @@ namespace TSF.Oolong.UGUI
 
             Instance.localRotation = Quaternion.Euler(0, 0, layoutData.Rotation);
 
-            var shouldHaveElementLayout = Instance.parent.GetComponent<LayoutGroup>() != null;
+            var parent = Instance.parent;
+            var shouldHaveElementLayout = parent && parent.GetComponent<LayoutGroup>() != null;
             var layoutElement = _layoutElementData.Instance;
             var hasElementLayout = layoutElement != null && layoutElement.enabled;
 
@@ -520,12 +523,14 @@ namespace TSF.Oolong.UGUI
 
         public override void Reuse()
         {
-            IsLayoutDirty = true;
+            base.Reuse();
+            IsUpdatePending = true;
         }
 
         public override void Reset()
         {
-            _layoutDataTransition.Reset();
+            base.Reset();
+
             _layoutData = default;
             _layoutData.FlexHeight = -1;
             _layoutData.FlexWidth = -1;

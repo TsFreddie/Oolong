@@ -95,7 +95,7 @@ namespace TSF.Oolong.UGUI
             }
 
             _childAlignment = s_anchors[v];
-            IsLayoutDirty = true;
+            IsUpdatePending = true;
         }
 
         private void SetStartCorner(string v)
@@ -107,7 +107,7 @@ namespace TSF.Oolong.UGUI
             }
 
             _startCorner = s_corners[v];
-            IsLayoutDirty = true;
+            IsUpdatePending = true;
         }
 
         private void SetStartAxis(string v)
@@ -119,7 +119,7 @@ namespace TSF.Oolong.UGUI
             }
 
             _startAxis = GridLayoutGroup.Axis.Vertical;
-            IsLayoutDirty = true;
+            IsUpdatePending = true;
         }
 
         private void SetReverse(string v)
@@ -129,12 +129,12 @@ namespace TSF.Oolong.UGUI
             else
                 _reverse = true;
 
-            IsLayoutDirty = true;
+            IsUpdatePending = true;
         }
 
-        protected override void OnLayout()
+        protected override void OnUpdate()
         {
-            base.OnLayout();
+            base.OnUpdate();
 
             LayoutGroup group = null;
             if (_layoutGroup != null)
@@ -180,15 +180,6 @@ namespace TSF.Oolong.UGUI
             var paddingBottom = Mathf.RoundToInt(paddingY + _paddingBottom);
             group.padding = new RectOffset(paddingLeft, paddingRight, paddingTop, paddingBottom);
             group.childAlignment = _childAlignment;
-        }
-
-
-        public override void Reuse() { }
-
-        public override void Reset()
-        {
-            foreach (var kvp in s_attrs)
-                kvp.Value(this, null);
         }
 
         private void SetFitContent(string v)
@@ -249,7 +240,7 @@ namespace TSF.Oolong.UGUI
                         _layoutGroup.childScaleWidth = false;
                         _layoutGroup.childForceExpandHeight = false;
                         _layoutGroup.childForceExpandWidth = false;
-                        IsLayoutDirty = true;
+                        IsUpdatePending = true;
                     }
 
                     break;
@@ -275,7 +266,7 @@ namespace TSF.Oolong.UGUI
                         _layoutGroup.childScaleWidth = false;
                         _layoutGroup.childForceExpandHeight = false;
                         _layoutGroup.childForceExpandWidth = false;
-                        IsLayoutDirty = true;
+                        IsUpdatePending = true;
                     }
                     break;
                 case "grid":
@@ -288,7 +279,7 @@ namespace TSF.Oolong.UGUI
                     if (_gridGroup == null)
                     {
                         _gridGroup = _obj.AddComponent<GridLayoutGroup>();
-                        IsLayoutDirty = true;
+                        IsUpdatePending = true;
                     }
                     break;
                 default:

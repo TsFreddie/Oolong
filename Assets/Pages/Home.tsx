@@ -13,13 +13,19 @@ export default class Menu extends MithrilComponent {
                     transition-duration="1s"
                     onclick={() => (this.margin = 100 - this.margin)}
                 >
-                    <Realtime>
-                        {() => (
-                            <text>
-                                {this.count} - {Math.random().toString()}
-                            </text>
-                        )}
-                    </Realtime>
+                    <scrollrect>
+                        <toggle
+                            src="#"
+                            align="center"
+                            width={64}
+                            height={64}
+                            cm-align="center"
+                            cm-src="#"
+                            cm-color="#000000"
+                            cm-width={32}
+                            cm-height={32}
+                        ></toggle>
+                    </scrollrect>
                 </button>
             </image>
         );
