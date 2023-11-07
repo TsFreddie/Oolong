@@ -331,6 +331,34 @@ namespace PuertsStaticWrap
 
     // ==================== properties start ====================
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        internal static void G_OnDocumentPreUpdate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var result = TSF.Oolong.UGUI.DocumentUtils.OnDocumentPreUpdate;
+                Puerts.ResultHelper.Set((int)data, isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        internal static void S_OnDocumentPreUpdate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                object argobj0 = null;
+                argobj0 = argobj0 != null ? argobj0 : StaticTranslate<System.Action>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); System.Action arg0 = (System.Action)argobj0;
+                TSF.Oolong.UGUI.DocumentUtils.OnDocumentPreUpdate = arg0;
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         internal static void G_OnDocumentUpdate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try

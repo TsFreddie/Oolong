@@ -5,7 +5,7 @@ using Puerts;
 namespace PuertsStaticWrap
 {
 #pragma warning disable 0219
-    public static class TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap 
+    public static class TSF_Oolong_UGUI_ITransitionProperty_Wrap 
     {
     
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8ConstructorCallback))]
@@ -14,16 +14,7 @@ namespace PuertsStaticWrap
             try
             {
 
-                {
-
-                    {
-                        var result = new TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData();
-
-
-                        return Puerts.Utils.GetObjectPtr((int)data, typeof(TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData), result);
-                    }
-                }
-
+                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to " + typeof(TSF.Oolong.UGUI.ITransitionProperty).GetFriendlyName() + " constructor");
             } catch (Exception e) {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
@@ -32,16 +23,37 @@ namespace PuertsStaticWrap
     // ==================== constructor end ====================
 
     // ==================== methods start ====================
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        internal static void M_Reset(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as TSF.Oolong.UGUI.ITransitionProperty;
+        
+                {
+            
+                    {
+
+                        obj.Reset ();
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
     // ==================== methods end ====================
 
     // ==================== properties start ====================
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        internal static void G_Instance(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        internal static void G_TimingFunction(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
-                var obj = (TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData)Puerts.Utils.GetSelf((int)data, self);
-                var result = obj.Instance;
+                var obj = Puerts.Utils.GetSelf((int)data, self) as TSF.Oolong.UGUI.ITransitionProperty;
+                var result = obj.TimingFunction;
                 Puerts.ResultHelper.Set((int)data, isolate, info, result);
             }
             catch (Exception e)
@@ -50,16 +62,15 @@ namespace PuertsStaticWrap
             }
         }
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        internal static void S_Instance(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        internal static void S_TimingFunction(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
-                var obj = (TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData)Puerts.Utils.GetSelf((int)data, self);
+                var obj = Puerts.Utils.GetSelf((int)data, self) as TSF.Oolong.UGUI.ITransitionProperty;
                 IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
                 object argobj0 = null;
-                argobj0 = argobj0 != null ? argobj0 : StaticTranslate<UnityEngine.UI.LayoutElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); UnityEngine.UI.LayoutElement arg0 = (UnityEngine.UI.LayoutElement)argobj0;
-                obj.Instance = arg0;
-                Puerts.Utils.SetSelf((int)data, self, obj);
+                argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.CubicBezier>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.CubicBezier arg0 = (TSF.Oolong.UGUI.CubicBezier)argobj0;
+                obj.TimingFunction = arg0;
             }
             catch (Exception e)
             {
@@ -67,12 +78,12 @@ namespace PuertsStaticWrap
             }
         }
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        internal static void G_Priority(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        internal static void G_Delay(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
-                var obj = (TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData)Puerts.Utils.GetSelf((int)data, self);
-                var result = obj.Priority;
+                var obj = Puerts.Utils.GetSelf((int)data, self) as TSF.Oolong.UGUI.ITransitionProperty;
+                var result = obj.Delay;
                 Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
             }
             catch (Exception e)
@@ -81,16 +92,15 @@ namespace PuertsStaticWrap
             }
         }
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        internal static void S_Priority(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        internal static void S_Delay(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
-                var obj = (TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData)Puerts.Utils.GetSelf((int)data, self);
+                var obj = Puerts.Utils.GetSelf((int)data, self) as TSF.Oolong.UGUI.ITransitionProperty;
                 IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
                 object argobj0 = null;
                 float arg0 = (float)PuertsDLL.GetNumberFromValue(isolate, v8Value0, false);
-                obj.Priority = arg0;
-                Puerts.Utils.SetSelf((int)data, self, obj);
+                obj.Delay = arg0;
             }
             catch (Exception e)
             {
@@ -98,13 +108,13 @@ namespace PuertsStaticWrap
             }
         }
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        internal static void G_IgnoreLayout(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        internal static void G_Duration(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
-                var obj = (TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData)Puerts.Utils.GetSelf((int)data, self);
-                var result = obj.IgnoreLayout;
-                Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
+                var obj = Puerts.Utils.GetSelf((int)data, self) as TSF.Oolong.UGUI.ITransitionProperty;
+                var result = obj.Duration;
+                Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
             }
             catch (Exception e)
             {
@@ -112,16 +122,15 @@ namespace PuertsStaticWrap
             }
         }
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        internal static void S_IgnoreLayout(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        internal static void S_Duration(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
-                var obj = (TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData)Puerts.Utils.GetSelf((int)data, self);
+                var obj = Puerts.Utils.GetSelf((int)data, self) as TSF.Oolong.UGUI.ITransitionProperty;
                 IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
                 object argobj0 = null;
-                bool arg0 = (bool)PuertsDLL.GetBooleanFromValue(isolate, v8Value0, false);
-                obj.IgnoreLayout = arg0;
-                Puerts.Utils.SetSelf((int)data, self, obj);
+                float arg0 = (float)PuertsDLL.GetNumberFromValue(isolate, v8Value0, false);
+                obj.Duration = arg0;
             }
             catch (Exception e)
             {

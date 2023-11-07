@@ -119,6 +119,11 @@ namespace PuertsStaticWrap
                     , Method = TSF_Oolong_UGUI_DocumentUtils_Wrap.F_LateUpdateLayout
 #endif
                     }},
+                    {"OnDocumentPreUpdate_static", new MemberRegisterInfo { Name = "OnDocumentPreUpdate", IsStatic = true, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_DocumentUtils_Wrap.G_OnDocumentPreUpdate, PropertySetter = TSF_Oolong_UGUI_DocumentUtils_Wrap.S_OnDocumentPreUpdate
+#endif
+                    }},
                     {"OnDocumentUpdate_static", new MemberRegisterInfo { Name = "OnDocumentUpdate", IsStatic = true, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , PropertyGetter = TSF_Oolong_UGUI_DocumentUtils_Wrap.G_OnDocumentUpdate, PropertySetter = TSF_Oolong_UGUI_DocumentUtils_Wrap.S_OnDocumentUpdate
@@ -1198,6 +1203,21 @@ namespace PuertsStaticWrap
                     , Method = TSF_Oolong_UGUI_OolongLoader_Wrap.M_Reuse
 #endif
                     }},
+                    {"ResetTransitions", new MemberRegisterInfo { Name = "ResetTransitions", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_OolongLoader_Wrap.M_ResetTransitions
+#endif
+                    }},
+                    {"SetTransition", new MemberRegisterInfo { Name = "SetTransition", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_OolongLoader_Wrap.M_SetTransition
+#endif
+                    }},
+                    {"TransitionProperties", new MemberRegisterInfo { Name = "TransitionProperties", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_OolongLoader_Wrap.G_TransitionProperties
+#endif
+                    }},
                 }
             };
         }
@@ -1212,6 +1232,132 @@ namespace PuertsStaticWrap
                 Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
                 {
                     
+                }
+            };
+        }
+        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_CubicBezier_Wrap() 
+        {
+            return new RegisterInfo 
+            {
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                BlittableCopy = false,
+#endif
+
+                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
+                {
+                    
+                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Constructor = TSF_Oolong_UGUI_CubicBezier_Wrap.Constructor
+#endif
+                    }},
+                    {"Evaluate", new MemberRegisterInfo { Name = "Evaluate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_CubicBezier_Wrap.M_Evaluate
+#endif
+                    }},
+                    {"Ease_static", new MemberRegisterInfo { Name = "Ease", IsStatic = true, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_CubicBezier_Wrap.G_Ease, PropertySetter = TSF_Oolong_UGUI_CubicBezier_Wrap.S_Ease
+#endif
+                    }},
+                    {"Linear_static", new MemberRegisterInfo { Name = "Linear", IsStatic = true, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_CubicBezier_Wrap.G_Linear, PropertySetter = TSF_Oolong_UGUI_CubicBezier_Wrap.S_Linear
+#endif
+                    }},
+                    {"EaseIn_static", new MemberRegisterInfo { Name = "EaseIn", IsStatic = true, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_CubicBezier_Wrap.G_EaseIn, PropertySetter = TSF_Oolong_UGUI_CubicBezier_Wrap.S_EaseIn
+#endif
+                    }},
+                    {"EaseOut_static", new MemberRegisterInfo { Name = "EaseOut", IsStatic = true, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_CubicBezier_Wrap.G_EaseOut, PropertySetter = TSF_Oolong_UGUI_CubicBezier_Wrap.S_EaseOut
+#endif
+                    }},
+                    {"EaseInOut_static", new MemberRegisterInfo { Name = "EaseInOut", IsStatic = true, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_CubicBezier_Wrap.G_EaseInOut, PropertySetter = TSF_Oolong_UGUI_CubicBezier_Wrap.S_EaseInOut
+#endif
+                    }},
+                }
+            };
+        }
+        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_FloatTransitionProperty_Wrap() 
+        {
+            return new RegisterInfo 
+            {
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                BlittableCopy = false,
+#endif
+
+                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
+                {
+                    
+                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Constructor = TSF_Oolong_UGUI_FloatTransitionProperty_Wrap.Constructor
+#endif
+                    }},
+                }
+            };
+        }
+        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_ITransitionProperty_Wrap() 
+        {
+            return new RegisterInfo 
+            {
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                BlittableCopy = false,
+#endif
+
+                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
+                {
+                    
+                    {"Reset", new MemberRegisterInfo { Name = "Reset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_ITransitionProperty_Wrap.M_Reset
+#endif
+                    }},
+                    {"TimingFunction", new MemberRegisterInfo { Name = "TimingFunction", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_ITransitionProperty_Wrap.G_TimingFunction, PropertySetter = TSF_Oolong_UGUI_ITransitionProperty_Wrap.S_TimingFunction
+#endif
+                    }},
+                    {"Delay", new MemberRegisterInfo { Name = "Delay", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_ITransitionProperty_Wrap.G_Delay, PropertySetter = TSF_Oolong_UGUI_ITransitionProperty_Wrap.S_Delay
+#endif
+                    }},
+                    {"Duration", new MemberRegisterInfo { Name = "Duration", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_ITransitionProperty_Wrap.G_Duration, PropertySetter = TSF_Oolong_UGUI_ITransitionProperty_Wrap.S_Duration
+#endif
+                    }},
+                }
+            };
+        }
+        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_TransitionUtils_Wrap() 
+        {
+            return new RegisterInfo 
+            {
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                BlittableCopy = false,
+#endif
+
+                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
+                {
+                    
+                    {"ParseHumanTime_static", new MemberRegisterInfo { Name = "ParseHumanTime", IsStatic = true, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_TransitionUtils_Wrap.F_ParseHumanTime
+#endif
+                    }},
+                    {"ParseTimingFunction_static", new MemberRegisterInfo { Name = "ParseTimingFunction", IsStatic = true, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_TransitionUtils_Wrap.F_ParseTimingFunction
+#endif
+                    }},
                 }
             };
         }
@@ -1299,26 +1445,6 @@ namespace PuertsStaticWrap
                     , PropertyGetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.G_Instance, PropertySetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.S_Instance
 #endif
                     }},
-                    {"MinWidth", new MemberRegisterInfo { Name = "MinWidth", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.G_MinWidth, PropertySetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.S_MinWidth
-#endif
-                    }},
-                    {"MinHeight", new MemberRegisterInfo { Name = "MinHeight", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.G_MinHeight, PropertySetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.S_MinHeight
-#endif
-                    }},
-                    {"FlexWidth", new MemberRegisterInfo { Name = "FlexWidth", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.G_FlexWidth, PropertySetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.S_FlexWidth
-#endif
-                    }},
-                    {"FlexHeight", new MemberRegisterInfo { Name = "FlexHeight", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.G_FlexHeight, PropertySetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.S_FlexHeight
-#endif
-                    }},
                     {"Priority", new MemberRegisterInfo { Name = "Priority", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , PropertyGetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.G_Priority, PropertySetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.S_Priority
@@ -1360,6 +1486,10 @@ namespace PuertsStaticWrap
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.UnityWebRequestExtension), GetRegisterInfo_TSF_Oolong_UGUI_UnityWebRequestExtension_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongLoader), GetRegisterInfo_TSF_Oolong_UGUI_OolongLoader_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongMithril), GetRegisterInfo_TSF_Oolong_UGUI_OolongMithril_Wrap);
+                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.CubicBezier), GetRegisterInfo_TSF_Oolong_UGUI_CubicBezier_Wrap);
+                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.FloatTransitionProperty), GetRegisterInfo_TSF_Oolong_UGUI_FloatTransitionProperty_Wrap);
+                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.ITransitionProperty), GetRegisterInfo_TSF_Oolong_UGUI_ITransitionProperty_Wrap);
+                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.TransitionUtils), GetRegisterInfo_TSF_Oolong_UGUI_TransitionUtils_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.FlipGraphic), GetRegisterInfo_TSF_Oolong_UGUI_FlipGraphic_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.NonDrawingGraphic), GetRegisterInfo_TSF_Oolong_UGUI_NonDrawingGraphic_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData), GetRegisterInfo_TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap);

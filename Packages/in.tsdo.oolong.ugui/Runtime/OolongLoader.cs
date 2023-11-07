@@ -6,6 +6,8 @@ namespace TSF.Oolong.UGUI
 {
     public abstract class OolongLoader
     {
+        public Dictionary<string, ITransitionProperty> TransitionProperties { get; } = new Dictionary<string, ITransitionProperty>();
+
         private bool _isLayoutDirty;
         protected bool IsLayoutDirty
         {
@@ -43,9 +45,40 @@ namespace TSF.Oolong.UGUI
         {
             IsLayoutDirty = false;
             IsLayoutDirtyLate = false;
+            ResetTransitions();
         }
 
         public abstract void Reset();
         public abstract void Reuse();
+
+        public void ResetTransitions()
+        {
+            foreach (var prop in TransitionProperties.Values)
+            {
+                prop.Reset();
+            }
+        }
+
+        public bool SetTransition(string prefix, string key, float duration, CubicBezier timingFunction, float delay)
+        {
+            if (prefix != null)
+            {
+                if (!key.StartsWith(prefix)) return false;
+                key = key.Substring(prefix.Length);
+            }
+
+            if (!TransitionProperties.TryGetValue(key, out var prop))
+                return false;
+
+            prop.Duration = duration;
+            prop.TimingFunction = timingFunction;
+            prop.Delay = delay;
+            return true;
+        }
+
+        public bool SetTransition(string key, float duration, CubicBezier timingFunction, float delay)
+        {
+            return SetTransition(null, key, duration, timingFunction, delay);
+        }
     }
 }

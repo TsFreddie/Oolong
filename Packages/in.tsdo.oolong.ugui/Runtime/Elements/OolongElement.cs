@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace TSF.Oolong.UGUI
 {
@@ -18,6 +20,11 @@ namespace TSF.Oolong.UGUI
         private UIEventHandler _eventHandler;
         private HashSet<IOolongElement> _children = new HashSet<IOolongElement>();
 
+        private List<string> _transitionAttrs;
+        private List<float> _transitionDelays;
+        private List<float> _transitionDurations;
+        private List<CubicBezier> _transitionTimingFunctions;
+
         public void AddChild(IOolongElement e)
         {
             _children.Add(e);
@@ -30,7 +37,25 @@ namespace TSF.Oolong.UGUI
 
         public void SetElementAttribute(string key, string value)
         {
-            if (key == "id") name = string.Concat("#", value);
+            switch (key)
+            {
+                case "id":
+                    name = string.Concat("#", value);
+                    return;
+                case "transition-property":
+                    SetTransitionList(ref _transitionAttrs, value, v => v.Trim());
+                    return;
+                case "transition-delay":
+                    SetTransitionList(ref _transitionDelays, value, TransitionUtils.ParseHumanTime);
+                    return;
+                case "transition-duration":
+                    SetTransitionList(ref _transitionDurations, value, TransitionUtils.ParseHumanTime);
+                    return;
+                case "transition-timing-function":
+                    SetTransitionList(ref _transitionTimingFunctions, value, TransitionUtils.ParseTimingFunction);
+                    return;
+            }
+
             if (SetAttribute(key, value)) return;
             if (Attrs != null && Attrs.ContainsKey(key))
             {
@@ -39,6 +64,43 @@ namespace TSF.Oolong.UGUI
             }
             _rect.SetAttribute(key, value);
         }
+
+        private void SetTransitionList<TK>(ref List<TK> list, string value, Func<string, TK> parse)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                ClearList(ref list);
+                return;
+            }
+
+            EnsureList(ref list);
+            var values = value.Split(',');
+            foreach (var v in values)
+            {
+                list.Add(parse(v));
+            }
+            IsTransitionDirty = true;
+        }
+
+        private void EnsureList<TK>(ref List<TK> list)
+        {
+            list ??= ListPool<TK>.Get();
+        }
+
+        private void ClearList<TK>(ref List<TK> list)
+        {
+            if (list == null) return;
+            ListPool<TK>.Release(list);
+            list = null;
+        }
+
+        private TK GetFromList<TK>(List<TK> list, int index, TK def)
+        {
+            if (list == null || list.Count == 0) return def;
+            if (index < 0 || index >= list.Count) return list[^1];
+            return list[index];
+        }
+
 
         protected virtual bool SetAttribute(string key, string value) => false;
 
@@ -51,8 +113,6 @@ namespace TSF.Oolong.UGUI
         {
             return _eventHandler.RemoveListener(key);
         }
-
-        public virtual Transform Root => transform;
 
         public virtual void SetEventHandler(UIEventHandler handler)
         {
@@ -104,6 +164,39 @@ namespace TSF.Oolong.UGUI
             return DocumentUtils.CreateChildRect(transform, childName);
         }
 
+        private bool _isTransitionDirty;
+        protected bool IsTransitionDirty
+        {
+            get { return _isTransitionDirty; }
+            set
+            {
+                if (_isTransitionDirty == value) return;
+                _isTransitionDirty = value;
+                if (_isTransitionDirty)
+                    DocumentUtils.OnDocumentPreUpdate += OnTransitionDirty;
+                else
+                    DocumentUtils.OnDocumentPreUpdate -= OnTransitionDirty;
+            }
+        }
+
+        private void OnTransitionDirty()
+        {
+            IsTransitionDirty = false;
+
+            OnResetTransition();
+            if (_transitionAttrs != null)
+            {
+                for (var i = 0; i < _transitionAttrs.Count; i++)
+                {
+                    var attr = _transitionAttrs[i];
+                    var duration = GetFromList(_transitionDurations, i, 0.0f);
+                    var timingFunction = GetFromList(_transitionTimingFunctions, i, CubicBezier.Ease);
+                    var delay = GetFromList(_transitionDelays, i, 0.0f);
+                    OnSetTransition(attr, duration, timingFunction, delay);
+                }
+            }
+        }
+
         private bool _isLayoutDirty;
         protected bool IsLayoutDirty
         {
@@ -119,7 +212,10 @@ namespace TSF.Oolong.UGUI
             }
         }
 
-        protected virtual void OnLayout() { IsLayoutDirty = false; }
+        protected virtual void OnLayout()
+        {
+            IsLayoutDirty = false;
+        }
 
         private bool _isLayoutDirtyLate;
         protected bool IsLayoutDirtyLate
@@ -135,6 +231,19 @@ namespace TSF.Oolong.UGUI
                     DocumentUtils.OnDocumentLateUpdate -= OnLateLayout;
             }
         }
-        protected virtual void OnLateLayout() { IsLayoutDirtyLate = false; }
+        protected virtual void OnLateLayout()
+        {
+            IsLayoutDirtyLate = false;
+        }
+
+        protected virtual void OnResetTransition()
+        {
+            _rect.ResetTransitions();
+        }
+
+        protected virtual bool OnSetTransition(string attr, float duration, CubicBezier timingFunction, float delay)
+        {
+            return _rect.SetTransition(attr, duration, timingFunction, delay);
+        }
     }
 }

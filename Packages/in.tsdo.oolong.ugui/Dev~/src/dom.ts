@@ -345,7 +345,7 @@ export class UnityElement<
   }
 
   public setAttribute(name: string, value: any) {
-    if (name == 'id') this.id = value;
+    if (name == 'id') this.id = value.toString();
     this.element.SetElementAttribute(name, value.toString());
   }
 

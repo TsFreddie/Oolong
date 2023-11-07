@@ -93,6 +93,11 @@
         interface IDisposable
         {
         }
+        interface Action$1<T>
+        { 
+        (obj: T) : void; 
+        Invoke?: (obj: T) => void;
+        }
         class Array extends System.Object implements System.Collections.IStructuralComparable, System.Collections.IStructuralEquatable, System.ICloneable, System.Collections.ICollection, System.Collections.IEnumerable, System.Collections.IList
         {
             protected [__keep_incompatibility]: never;
@@ -138,6 +143,7 @@
         class DocumentUtils extends System.Object
         {
             protected [__keep_incompatibility]: never;
+            public static OnDocumentPreUpdate : System.Action
             public static OnDocumentUpdate : System.Action
             public static OnDocumentLateUpdate : System.Action
             public static AttachElement ($parent: TSF.Oolong.UGUI.IOolongElement, $node: TSF.Oolong.UGUI.IOolongElement) : void
@@ -428,9 +434,13 @@
         class OolongLoader extends System.Object
         {
             protected [__keep_incompatibility]: never;
+            public get TransitionProperties(): System.Collections.Generic.Dictionary$2<string, TSF.Oolong.UGUI.ITransitionProperty>;
             public Release () : void
             public Reset () : void
             public Reuse () : void
+            public ResetTransitions () : void
+            public SetTransition ($prefix: string, $key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
+            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
         }
         class OolongImageLoader extends TSF.Oolong.UGUI.OolongLoader
         {
@@ -547,9 +557,56 @@
             public static SendWithCallback ($request: UnityEngine.Networking.UnityWebRequest, $callback: TSF.Oolong.UGUI.UnityWebRequestExtension.JsWebCallback) : void
             public static GetArrayBuffer ($handler: UnityEngine.Networking.DownloadHandlerBuffer) : ArrayBuffer
         }
+        interface ITransitionProperty
+        {
+            TimingFunction : TSF.Oolong.UGUI.CubicBezier
+            Delay : number
+            Duration : number
+            Reset () : void
+        }
+        class CubicBezier extends System.ValueType
+        {
+            protected [__keep_incompatibility]: never;
+            public static Ease : TSF.Oolong.UGUI.CubicBezier
+            public static Linear : TSF.Oolong.UGUI.CubicBezier
+            public static EaseIn : TSF.Oolong.UGUI.CubicBezier
+            public static EaseOut : TSF.Oolong.UGUI.CubicBezier
+            public static EaseInOut : TSF.Oolong.UGUI.CubicBezier
+            public Evaluate ($x: number) : number
+            public constructor ($p1X: number, $p1Y: number, $p2X: number, $p2Y: number)
+        }
         class OolongMithril extends System.Object
         {
             protected [__keep_incompatibility]: never;
+        }
+        class TransitionProperty$1<T> extends System.Object implements TSF.Oolong.UGUI.ITransitionProperty
+        {
+            protected [__keep_incompatibility]: never;
+            public get TimingFunction(): TSF.Oolong.UGUI.CubicBezier;
+            public set TimingFunction(value: TSF.Oolong.UGUI.CubicBezier);
+            public get Delay(): number;
+            public set Delay(value: number);
+            public get Duration(): number;
+            public set Duration(value: number);
+            public Reset () : void
+        }
+        class FloatTransitionProperty extends TSF.Oolong.UGUI.TransitionProperty$1<number> implements TSF.Oolong.UGUI.ITransitionProperty
+        {
+            protected [__keep_incompatibility]: never;
+            public get TimingFunction(): TSF.Oolong.UGUI.CubicBezier;
+            public set TimingFunction(value: TSF.Oolong.UGUI.CubicBezier);
+            public get Delay(): number;
+            public set Delay(value: number);
+            public get Duration(): number;
+            public set Duration(value: number);
+            public constructor ($applyCallback: System.Action$1<number>)
+            public Reset () : void
+        }
+        class TransitionUtils extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public static ParseHumanTime ($humanTime: string) : number
+            public static ParseTimingFunction ($value: string) : TSF.Oolong.UGUI.CubicBezier
         }
         class FlipGraphic extends UnityEngine.UI.BaseMeshEffect implements UnityEngine.UI.IMeshModifier
         {
@@ -570,9 +627,36 @@
         interface IEnumerable$1<T> extends System.Collections.IEnumerable
         {
         }
+        class Dictionary$2<TKey, TValue> extends System.Object implements System.Runtime.Serialization.IDeserializationCallback, System.Collections.Generic.IReadOnlyDictionary$2<TKey, TValue>, System.Collections.Generic.IDictionary$2<TKey, TValue>, System.Runtime.Serialization.ISerializable, System.Collections.ICollection, System.Collections.IDictionary, System.Collections.Generic.IEnumerable$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.IEnumerable, System.Collections.Generic.IReadOnlyCollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.Generic.ICollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
+        {
+            protected [__keep_incompatibility]: never;
+            public [Symbol.iterator]() : IterableIterator<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
+        }
+        interface IReadOnlyDictionary$2<TKey, TValue> extends System.Collections.Generic.IEnumerable$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.IEnumerable, System.Collections.Generic.IReadOnlyCollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
+        {
+        }
+        class KeyValuePair$2<TKey, TValue> extends System.ValueType
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface IReadOnlyCollection$1<T> extends System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable
+        {
+        }
+        interface IDictionary$2<TKey, TValue> extends System.Collections.Generic.IEnumerable$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.IEnumerable, System.Collections.Generic.ICollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
+        {
+        }
+        interface ICollection$1<T> extends System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable
+        {
+        }
     }
     namespace System.Collections {
         interface IEnumerable
+        {
+        }
+        interface ICollection extends System.Collections.IEnumerable
+        {
+        }
+        interface IDictionary extends System.Collections.ICollection, System.Collections.IEnumerable
         {
         }
         interface IStructuralComparable
@@ -581,15 +665,15 @@
         interface IStructuralEquatable
         {
         }
-        interface ICollection extends System.Collections.IEnumerable
-        {
-        }
         interface IList extends System.Collections.ICollection, System.Collections.IEnumerable
         {
         }
     }
     namespace System.Runtime.Serialization {
         interface ISerializable
+        {
+        }
+        interface IDeserializationCallback
         {
         }
     }
@@ -908,10 +992,6 @@
         {
             protected [__keep_incompatibility]: never;
             public Instance : UnityEngine.UI.LayoutElement
-            public MinWidth : number
-            public MinHeight : number
-            public FlexWidth : number
-            public FlexHeight : number
             public Priority : number
             public IgnoreLayout : boolean
         }

@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +27,7 @@ namespace TSF.Oolong.UGUI
             Stretch,
         }
 
-        private struct LayoutData
+        private struct LayoutData : IEquatable<LayoutData>
         {
             public float Width;
             public float Height;
@@ -40,15 +40,66 @@ namespace TSF.Oolong.UGUI
             public float Margin;
             public float Rotation;
             public float Z;
+            public float MinWidth;
+            public float MinHeight;
+            public float FlexWidth;
+            public float FlexHeight;
+
+            public bool Equals(LayoutData other) => Width.Equals(other.Width) && Height.Equals(other.Height) && MarginLeft.Equals(other.MarginLeft) && MarginTop.Equals(other.MarginTop) && MarginRight.Equals(other.MarginRight) && MarginBottom.Equals(other.MarginBottom) && MarginX.Equals(other.MarginX) && MarginY.Equals(other.MarginY) && Margin.Equals(other.Margin) && Rotation.Equals(other.Rotation) && Z.Equals(other.Z) && MinWidth.Equals(other.MinWidth) && MinHeight.Equals(other.MinHeight) && FlexWidth.Equals(other.FlexWidth) && FlexHeight.Equals(other.FlexHeight);
+            public override bool Equals(object obj) => obj is LayoutData other && Equals(other);
+            public override int GetHashCode()
+            {
+                var hashCode = new HashCode();
+                hashCode.Add(Width);
+                hashCode.Add(Height);
+                hashCode.Add(MarginLeft);
+                hashCode.Add(MarginTop);
+                hashCode.Add(MarginRight);
+                hashCode.Add(MarginBottom);
+                hashCode.Add(MarginX);
+                hashCode.Add(MarginY);
+                hashCode.Add(Margin);
+                hashCode.Add(Rotation);
+                hashCode.Add(Z);
+                hashCode.Add(MinWidth);
+                hashCode.Add(MinHeight);
+                hashCode.Add(FlexWidth);
+                hashCode.Add(FlexHeight);
+                return hashCode.ToHashCode();
+            }
+        }
+
+        private class LayoutDataTransitionProperty : TransitionProperty<LayoutData>
+        {
+            public LayoutDataTransitionProperty(Action<LayoutData> applyCallback) : base(applyCallback)
+            {
+            }
+            protected override LayoutData Lerp(LayoutData from, LayoutData to, float t)
+            {
+                return new LayoutData()
+                {
+                    Width = Mathf.Lerp(from.Width, to.Width, t),
+                    Height = Mathf.Lerp(from.Height, to.Height, t),
+                    MarginLeft = Mathf.Lerp(from.MarginLeft, to.MarginLeft, t),
+                    MarginTop = Mathf.Lerp(from.MarginTop, to.MarginTop, t),
+                    MarginRight = Mathf.Lerp(from.MarginRight, to.MarginRight, t),
+                    MarginBottom = Mathf.Lerp(from.MarginBottom, to.MarginBottom, t),
+                    MarginX = Mathf.Lerp(from.MarginX, to.MarginX, t),
+                    MarginY = Mathf.Lerp(from.MarginY, to.MarginY, t),
+                    Margin = Mathf.Lerp(from.Margin, to.Margin, t),
+                    Rotation = Mathf.Lerp(from.Rotation, to.Rotation, t),
+                    Z = Mathf.Lerp(from.Z, to.Z, t),
+                    MinWidth = Mathf.Lerp(from.MinWidth, to.MinWidth, t),
+                    MinHeight = Mathf.Lerp(from.MinHeight, to.MinHeight, t),
+                    FlexWidth = Mathf.Lerp(from.FlexWidth, to.FlexWidth, t),
+                    FlexHeight = Mathf.Lerp(from.FlexHeight, to.FlexHeight, t),
+                };
+            }
         }
 
         public struct LayoutElementData
         {
             public LayoutElement Instance;
-            public float MinWidth;
-            public float MinHeight;
-            public float FlexWidth;
-            public float FlexHeight;
             public float Priority;
             public bool IgnoreLayout;
         }
@@ -69,10 +120,10 @@ namespace TSF.Oolong.UGUI
             { "z", (e, v) => e.SetFloat(ref e._layoutData.Z, v) },
             { "rotation", (e, v) => e.SetFloat(ref e._layoutData.Rotation, v) },
             { "anchor", (e, v) => e.SetAnchor(v) },
-            { "min-width", (e, v) => e.SetFloat(ref e._layoutElementData.MinWidth, v, -1) },
-            { "min-height", (e, v) => e.SetFloat(ref e._layoutElementData.MinHeight, v, -1) },
-            { "flex-width", (e, v) => e.SetFloat(ref e._layoutElementData.FlexWidth, v, -1) },
-            { "flex-height", (e, v) => e.SetFloat(ref e._layoutElementData.FlexHeight, v, -1) },
+            { "min-width", (e, v) => e.SetFloat(ref e._layoutData.MinWidth, v, -1) },
+            { "min-height", (e, v) => e.SetFloat(ref e._layoutData.MinHeight, v, -1) },
+            { "flex-width", (e, v) => e.SetFloat(ref e._layoutData.FlexWidth, v, -1) },
+            { "flex-height", (e, v) => e.SetFloat(ref e._layoutData.FlexHeight, v, -1) },
             { "ignore-layout", (e, v) => e.SetIgnoreLayout(v) },
             { "priority", (e, v) => e.SetFloat(ref e._layoutElementData.Priority, v) },
         };
@@ -90,6 +141,7 @@ namespace TSF.Oolong.UGUI
 
         public readonly RectTransform Instance;
         private LayoutData _layoutData;
+        private readonly LayoutDataTransitionProperty _layoutDataTransition;
         private LayoutElementData _layoutElementData;
 
         private AlignType _align = AlignType.Stretch;
@@ -101,11 +153,13 @@ namespace TSF.Oolong.UGUI
         {
             Instance = instance;
             IsLayoutDirty = true;
-            _layoutElementData.FlexHeight = -1;
-            _layoutElementData.FlexWidth = -1;
-            _layoutElementData.MinHeight = -1;
-            _layoutElementData.MinHeight = -1;
+            _layoutData.FlexHeight = -1;
+            _layoutData.FlexWidth = -1;
+            _layoutData.MinHeight = -1;
+            _layoutData.MinHeight = -1;
             _layoutElementData.IgnoreLayout = false;
+            _layoutDataTransition = new LayoutDataTransitionProperty(ApplyLayout);
+            TransitionProperties.Add("rect", _layoutDataTransition);
         }
 
         public bool SetAttribute(string prefix, string key, string value)
@@ -212,9 +266,8 @@ namespace TSF.Oolong.UGUI
 
             if (splitIndex < 0)
             {
-                if (s_alignMap.ContainsKey(value))
+                if (s_alignMap.TryGetValue(value, out var num))
                 {
-                    var num = s_alignMap[value];
                     CheckNum(num);
                 }
                 else
@@ -225,10 +278,9 @@ namespace TSF.Oolong.UGUI
             else
             {
                 var strA = value.Substring(0, splitIndex);
-                if (s_alignMap.ContainsKey(strA))
+                if (s_alignMap.TryGetValue(strA, out var num1))
                 {
-                    var num = s_alignMap[strA];
-                    CheckNum(num);
+                    CheckNum(num1);
                 }
                 else
                 {
@@ -236,9 +288,8 @@ namespace TSF.Oolong.UGUI
                 }
 
                 var strB = value.Substring(splitIndex + 1);
-                if (s_alignMap.ContainsKey(strB))
+                if (s_alignMap.TryGetValue(strB, out var num))
                 {
-                    var num = s_alignMap[strB];
                     CheckNum(num);
                 }
                 else
@@ -267,7 +318,11 @@ namespace TSF.Oolong.UGUI
         protected override void OnLayout()
         {
             base.OnLayout();
+            _layoutDataTransition.SetValue(_layoutData);
+        }
 
+        private void ApplyLayout(LayoutData layoutData)
+        {
             // Set Align
             switch (_align)
             {
@@ -349,102 +404,102 @@ namespace TSF.Oolong.UGUI
 
             var pivot = Instance.pivot;
 
-            var marginX = _layoutData.Margin + _layoutData.MarginX;
-            var marginY = _layoutData.Margin + _layoutData.MarginY;
+            var marginX = layoutData.Margin + layoutData.MarginX;
+            var marginY = layoutData.Margin + layoutData.MarginY;
 
             switch (_align)
             {
                 case AlignType.TopLeft:
-                    Instance.anchoredPosition = new Vector2(marginX + _layoutData.MarginLeft - _layoutData.MarginRight, -marginY - _layoutData.MarginTop + _layoutData.MarginBottom);
-                    Instance.sizeDelta = new Vector2(_layoutData.Width, _layoutData.Height);
+                    Instance.anchoredPosition = new Vector2(marginX + layoutData.MarginLeft - layoutData.MarginRight, -marginY - layoutData.MarginTop + layoutData.MarginBottom);
+                    Instance.sizeDelta = new Vector2(layoutData.Width, layoutData.Height);
                     break;
                 case AlignType.TopCenter:
-                    Instance.anchoredPosition = new Vector2(_layoutData.MarginLeft - _layoutData.MarginRight, -marginY - _layoutData.MarginTop + _layoutData.MarginBottom);
-                    Instance.sizeDelta = new Vector2(_layoutData.Width, _layoutData.Height);
+                    Instance.anchoredPosition = new Vector2(layoutData.MarginLeft - layoutData.MarginRight, -marginY - layoutData.MarginTop + layoutData.MarginBottom);
+                    Instance.sizeDelta = new Vector2(layoutData.Width, layoutData.Height);
                     break;
                 case AlignType.TopRight:
-                    Instance.anchoredPosition = new Vector2(-marginX - _layoutData.MarginRight + _layoutData.MarginLeft, -marginY - _layoutData.MarginTop + _layoutData.MarginBottom);
-                    Instance.sizeDelta = new Vector2(_layoutData.Width, _layoutData.Height);
+                    Instance.anchoredPosition = new Vector2(-marginX - layoutData.MarginRight + layoutData.MarginLeft, -marginY - layoutData.MarginTop + layoutData.MarginBottom);
+                    Instance.sizeDelta = new Vector2(layoutData.Width, layoutData.Height);
                     break;
                 case AlignType.MiddleLeft:
-                    Instance.anchoredPosition = new Vector2(marginX + _layoutData.MarginLeft - _layoutData.MarginRight, -_layoutData.MarginTop + _layoutData.MarginBottom);
-                    Instance.sizeDelta = new Vector2(_layoutData.Width, _layoutData.Height);
+                    Instance.anchoredPosition = new Vector2(marginX + layoutData.MarginLeft - layoutData.MarginRight, -layoutData.MarginTop + layoutData.MarginBottom);
+                    Instance.sizeDelta = new Vector2(layoutData.Width, layoutData.Height);
                     break;
                 case AlignType.MiddleCenter:
-                    Instance.anchoredPosition = new Vector2(_layoutData.MarginLeft - _layoutData.MarginRight, -_layoutData.MarginTop + _layoutData.MarginBottom);
-                    Instance.sizeDelta = new Vector2(_layoutData.Width, _layoutData.Height);
+                    Instance.anchoredPosition = new Vector2(layoutData.MarginLeft - layoutData.MarginRight, -layoutData.MarginTop + layoutData.MarginBottom);
+                    Instance.sizeDelta = new Vector2(layoutData.Width, layoutData.Height);
                     break;
                 case AlignType.MiddleRight:
-                    Instance.anchoredPosition = new Vector2(-marginX - _layoutData.MarginRight + _layoutData.MarginLeft, -_layoutData.MarginTop + _layoutData.MarginBottom);
-                    Instance.sizeDelta = new Vector2(_layoutData.Width, _layoutData.Height);
+                    Instance.anchoredPosition = new Vector2(-marginX - layoutData.MarginRight + layoutData.MarginLeft, -layoutData.MarginTop + layoutData.MarginBottom);
+                    Instance.sizeDelta = new Vector2(layoutData.Width, layoutData.Height);
                     break;
                 case AlignType.BottomLeft:
-                    Instance.anchoredPosition = new Vector2(marginX + _layoutData.MarginLeft - _layoutData.MarginRight, marginY + _layoutData.MarginBottom - _layoutData.MarginTop);
-                    Instance.sizeDelta = new Vector2(_layoutData.Width, _layoutData.Height);
+                    Instance.anchoredPosition = new Vector2(marginX + layoutData.MarginLeft - layoutData.MarginRight, marginY + layoutData.MarginBottom - layoutData.MarginTop);
+                    Instance.sizeDelta = new Vector2(layoutData.Width, layoutData.Height);
                     break;
                 case AlignType.BottomCenter:
-                    Instance.anchoredPosition = new Vector2(_layoutData.MarginLeft - _layoutData.MarginRight, marginY + _layoutData.MarginBottom - _layoutData.MarginTop);
-                    Instance.sizeDelta = new Vector2(_layoutData.Width, _layoutData.Height);
+                    Instance.anchoredPosition = new Vector2(layoutData.MarginLeft - layoutData.MarginRight, marginY + layoutData.MarginBottom - layoutData.MarginTop);
+                    Instance.sizeDelta = new Vector2(layoutData.Width, layoutData.Height);
                     break;
                 case AlignType.BottomRight:
-                    Instance.anchoredPosition = new Vector2(-marginX - _layoutData.MarginRight + _layoutData.MarginLeft, marginY + _layoutData.MarginBottom - _layoutData.MarginTop);
-                    Instance.sizeDelta = new Vector2(_layoutData.Width, _layoutData.Height);
+                    Instance.anchoredPosition = new Vector2(-marginX - layoutData.MarginRight + layoutData.MarginLeft, marginY + layoutData.MarginBottom - layoutData.MarginTop);
+                    Instance.sizeDelta = new Vector2(layoutData.Width, layoutData.Height);
                     break;
                 case AlignType.TopStretch:
                     {
-                        var posX = (marginX + _layoutData.MarginLeft) * pivot.x - (marginX + _layoutData.MarginRight) * (1f - pivot.x);
-                        Instance.anchoredPosition = new Vector2(posX, -marginY - _layoutData.MarginTop + _layoutData.MarginBottom);
-                        Instance.sizeDelta = new Vector2(-marginX * 2 - _layoutData.MarginRight - _layoutData.MarginLeft, _layoutData.Height);
+                        var posX = (marginX + layoutData.MarginLeft) * pivot.x - (marginX + layoutData.MarginRight) * (1f - pivot.x);
+                        Instance.anchoredPosition = new Vector2(posX, -marginY - layoutData.MarginTop + layoutData.MarginBottom);
+                        Instance.sizeDelta = new Vector2(-marginX * 2 - layoutData.MarginRight - layoutData.MarginLeft, layoutData.Height);
                         break;
                     }
                 case AlignType.MiddleStretch:
                     {
-                        var posX = (marginX + _layoutData.MarginLeft) * pivot.x - (marginX + _layoutData.MarginRight) * (1f - pivot.x);
-                        Instance.anchoredPosition = new Vector2(posX, -_layoutData.MarginTop + _layoutData.MarginBottom);
-                        Instance.sizeDelta = new Vector2(-marginX * 2 - _layoutData.MarginRight - _layoutData.MarginLeft, _layoutData.Height);
+                        var posX = (marginX + layoutData.MarginLeft) * pivot.x - (marginX + layoutData.MarginRight) * (1f - pivot.x);
+                        Instance.anchoredPosition = new Vector2(posX, -layoutData.MarginTop + layoutData.MarginBottom);
+                        Instance.sizeDelta = new Vector2(-marginX * 2 - layoutData.MarginRight - layoutData.MarginLeft, layoutData.Height);
                         break;
                     }
                 case AlignType.BottomStretch:
                     {
-                        var posX = (marginX + _layoutData.MarginLeft) * pivot.x - (marginX + _layoutData.MarginRight) * (1f - pivot.x);
-                        Instance.anchoredPosition = new Vector2(posX, marginY + _layoutData.MarginBottom - _layoutData.MarginTop);
-                        Instance.sizeDelta = new Vector2(-marginX * 2 - _layoutData.MarginRight - _layoutData.MarginLeft, _layoutData.Height);
+                        var posX = (marginX + layoutData.MarginLeft) * pivot.x - (marginX + layoutData.MarginRight) * (1f - pivot.x);
+                        Instance.anchoredPosition = new Vector2(posX, marginY + layoutData.MarginBottom - layoutData.MarginTop);
+                        Instance.sizeDelta = new Vector2(-marginX * 2 - layoutData.MarginRight - layoutData.MarginLeft, layoutData.Height);
                         break;
                     }
                 case AlignType.LeftStretch:
                     {
-                        var posY = (marginY + _layoutData.MarginBottom) * pivot.y - (marginY + _layoutData.MarginTop) * (1f - pivot.y);
-                        Instance.anchoredPosition = new Vector2(marginX + _layoutData.MarginLeft - _layoutData.MarginRight, posY);
-                        Instance.sizeDelta = new Vector2(_layoutData.Width, -marginY * 2 - _layoutData.MarginBottom - _layoutData.MarginTop);
+                        var posY = (marginY + layoutData.MarginBottom) * pivot.y - (marginY + layoutData.MarginTop) * (1f - pivot.y);
+                        Instance.anchoredPosition = new Vector2(marginX + layoutData.MarginLeft - layoutData.MarginRight, posY);
+                        Instance.sizeDelta = new Vector2(layoutData.Width, -marginY * 2 - layoutData.MarginBottom - layoutData.MarginTop);
                         break;
                     }
                 case AlignType.CenterStretch:
                     {
-                        var posY = (marginY + _layoutData.MarginBottom) * pivot.y - (marginY + _layoutData.MarginTop) * (1f - pivot.y);
-                        Instance.anchoredPosition = new Vector2(_layoutData.MarginLeft - _layoutData.MarginRight, posY);
-                        Instance.sizeDelta = new Vector2(_layoutData.Width, -marginY * 2 - _layoutData.MarginBottom - _layoutData.MarginTop);
+                        var posY = (marginY + layoutData.MarginBottom) * pivot.y - (marginY + layoutData.MarginTop) * (1f - pivot.y);
+                        Instance.anchoredPosition = new Vector2(layoutData.MarginLeft - layoutData.MarginRight, posY);
+                        Instance.sizeDelta = new Vector2(layoutData.Width, -marginY * 2 - layoutData.MarginBottom - layoutData.MarginTop);
                         break;
                     }
                 case AlignType.RightStretch:
                     {
-                        var posY = (marginY + _layoutData.MarginBottom) * pivot.y - (marginY + _layoutData.MarginTop) * (1f - pivot.y);
-                        Instance.anchoredPosition = new Vector2(_layoutData.MarginLeft - _layoutData.MarginRight, posY);
-                        Instance.sizeDelta = new Vector2(_layoutData.Width, -marginY * 2 - _layoutData.MarginBottom - _layoutData.MarginTop);
+                        var posY = (marginY + layoutData.MarginBottom) * pivot.y - (marginY + layoutData.MarginTop) * (1f - pivot.y);
+                        Instance.anchoredPosition = new Vector2(layoutData.MarginLeft - layoutData.MarginRight, posY);
+                        Instance.sizeDelta = new Vector2(layoutData.Width, -marginY * 2 - layoutData.MarginBottom - layoutData.MarginTop);
                         break;
                     }
                 case AlignType.Stretch:
                     {
-                        var posX = (marginX + _layoutData.MarginLeft) * pivot.x - (marginX + _layoutData.MarginRight) * (1f - pivot.x);
-                        var posY = (marginY + _layoutData.MarginBottom) * pivot.y - (marginY + _layoutData.MarginTop) * (1f - pivot.y);
-                        var sizeX = -marginX * 2 - _layoutData.MarginRight - _layoutData.MarginLeft;
-                        var sizeY = -marginY * 2 - _layoutData.MarginBottom - _layoutData.MarginTop;
+                        var posX = (marginX + layoutData.MarginLeft) * pivot.x - (marginX + layoutData.MarginRight) * (1f - pivot.x);
+                        var posY = (marginY + layoutData.MarginBottom) * pivot.y - (marginY + layoutData.MarginTop) * (1f - pivot.y);
+                        var sizeX = -marginX * 2 - layoutData.MarginRight - layoutData.MarginLeft;
+                        var sizeY = -marginY * 2 - layoutData.MarginBottom - layoutData.MarginTop;
                         Instance.anchoredPosition = new Vector2(posX, posY);
                         Instance.sizeDelta = new Vector2(sizeX, sizeY);
                         break;
                     }
             }
 
-            Instance.localRotation = Quaternion.Euler(0, 0, _layoutData.Rotation);
+            Instance.localRotation = Quaternion.Euler(0, 0, layoutData.Rotation);
 
             var shouldHaveElementLayout = Instance.parent.GetComponent<LayoutGroup>() != null;
             var layoutElement = _layoutElementData.Instance;
@@ -469,22 +524,22 @@ namespace TSF.Oolong.UGUI
 
             if (layoutElement && shouldHaveElementLayout)
             {
-                var width = Mathf.Max(_layoutData.Width, _layoutElementData.MinWidth);
-                var height = Mathf.Max(_layoutData.Height, _layoutElementData.MinHeight);
+                var width = Mathf.Max(layoutData.Width, layoutData.MinWidth);
+                var height = Mathf.Max(layoutData.Height, layoutData.MinHeight);
                 if (width == 0) width = -1;
                 if (height == 0) height = -1;
 
-                layoutElement.minWidth = _layoutElementData.MinWidth;
-                layoutElement.minHeight = _layoutElementData.MinHeight;
+                layoutElement.minWidth = layoutData.MinWidth;
+                layoutElement.minHeight = layoutData.MinHeight;
                 layoutElement.preferredWidth = width;
                 layoutElement.preferredHeight = height;
-                layoutElement.flexibleWidth = _layoutElementData.FlexWidth;
-                layoutElement.flexibleHeight = _layoutElementData.FlexHeight;
+                layoutElement.flexibleWidth = layoutData.FlexWidth;
+                layoutElement.flexibleHeight = layoutData.FlexHeight;
                 layoutElement.ignoreLayout = _layoutElementData.IgnoreLayout;
             }
 
             var localPosition = Instance.localPosition;
-            localPosition.z = -_layoutData.Z;
+            localPosition.z = -layoutData.Z;
             Instance.localPosition = localPosition;
         }
 
@@ -495,15 +550,14 @@ namespace TSF.Oolong.UGUI
 
         public override void Reset()
         {
+            _layoutDataTransition.Reset();
             _layoutData = default;
-            var backupInstance = _layoutElementData.Instance;
-            _layoutElementData = default;
-            _layoutElementData.FlexHeight = -1;
-            _layoutElementData.FlexWidth = -1;
-            _layoutElementData.MinHeight = -1;
-            _layoutElementData.MinHeight = -1;
+            _layoutData.FlexHeight = -1;
+            _layoutData.FlexWidth = -1;
+            _layoutData.MinHeight = -1;
+            _layoutData.MinHeight = -1;
             _layoutElementData.IgnoreLayout = false;
-            _layoutElementData.Instance = backupInstance;
+            _layoutElementData.Priority = 0.0f;
 
             _align = AlignType.Stretch;
             _anchor = Vector2.zero;

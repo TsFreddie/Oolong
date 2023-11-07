@@ -7,6 +7,7 @@ namespace TSF.Oolong.UGUI
 {
     public static class DocumentUtils
     {
+        public static Action OnDocumentPreUpdate;
         public static Action OnDocumentUpdate;
         public static Action OnDocumentLateUpdate;
 
@@ -205,6 +206,7 @@ namespace TSF.Oolong.UGUI
 
         public static void UpdateLayout()
         {
+            OnDocumentPreUpdate?.Invoke();
             OnDocumentUpdate?.Invoke();
         }
 
