@@ -13,8 +13,6 @@ These are some of the critical features that is missing
 
 - You can't set the font of `<text>`
 - There is no `<dropdown>` element yet
-- No direct animation support, but you can code animations via `SetTimeout` or `SetInterval` and update the DOM (which
-  is just Unity Components).
 - Does not support built-in Unity UI sprites (aka the default Unity UI skin).
 
 ## Why MithrilJS?
