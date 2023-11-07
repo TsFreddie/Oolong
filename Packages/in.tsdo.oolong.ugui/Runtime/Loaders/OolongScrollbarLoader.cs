@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace TSF.Oolong.UGUI
 {
-    public class OolongScrollbarLoader : OolongLoader
+    public class OolongScrollbarLoader : OolongLoader<OolongScrollbarLoader>
     {
         /*
          * TODO: Currently implemented for ScrollView only, the following attributes is still missing:
@@ -13,8 +13,11 @@ namespace TSF.Oolong.UGUI
          * size
          * steps
          */
-        private delegate void ScrollbarAttrHandler(OolongScrollbarLoader e, string value);
-        private static readonly Dictionary<string, ScrollbarAttrHandler> s_attr = new Dictionary<string, ScrollbarAttrHandler>() { { "min-length", (e, v) => e.SetMinLength(v) } };
+        protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
+        private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
+        {
+            { "min-length", (e, v) => e.SetMinLength(v) }
+        };
 
         public readonly Scrollbar Instance;
 
@@ -62,32 +65,17 @@ namespace TSF.Oolong.UGUI
 
         private bool SetAttributeInternal(string prefix, string key, string value)
         {
-            if (prefix != null)
-            {
-                if (!key.StartsWith(prefix)) return false;
-                key = key.Substring(prefix.Length);
-            }
-
-            if (_selectable.SetAttribute(key, value)) return true;
-            if (_image.SetAttribute("bg-", key, value)) return true;
-
-            if (!s_attr.ContainsKey(key))
-                return false;
-
-            s_attr[key](this, value);
-            return true;
+            if (base.SetAttribute(prefix, key, value)) return true;
+            if (_selectable.SetAttribute(prefix, key, value)) return true;
+            if (_image.SetAttribute($"bg-{prefix}", key, value)) return true;
+            return false;
         }
 
-        public bool SetAttribute(string prefix, string key, string value)
+        public override bool SetAttribute(string prefix, string key, string value)
         {
             var result = SetAttributeInternal(prefix, key, value);
             Instance.gameObject.SetActive(Enabled);
             return result;
-        }
-
-        public bool SetAttribute(string key, string value)
-        {
-            return SetAttribute(null, key, value);
         }
 
         private void SetMinLength(string v)
@@ -111,7 +99,7 @@ namespace TSF.Oolong.UGUI
         {
             _selectable.Reset();
             _image.Reset();
-            foreach (var kvp in s_attr)
+            foreach (var kvp in s_attrs)
                 kvp.Value(this, null);
         }
 

@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 namespace TSF.Oolong.UGUI
 {
-    public class OolongLayoutLoader : OolongLoader
+    public class OolongLayoutLoader : OolongLoader<OolongLayoutLoader>
     {
-        private delegate void LayoutAttrHandler(OolongLayoutLoader e, string value);
-        private static readonly Dictionary<string, LayoutAttrHandler> s_attr = new Dictionary<string, LayoutAttrHandler>()
+        protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
+        private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
             { "layout", ((e, v) => e.SetLayout(v)) },
             { "fit-content", ((e, v) => e.SetFitContent(v)) },
@@ -84,33 +84,6 @@ namespace TSF.Oolong.UGUI
         public OolongLayoutLoader(GameObject obj)
         {
             _obj = obj;
-        }
-
-        public bool SetAttribute(string prefix, string key, string value)
-        {
-            if (prefix != null)
-            {
-                if (!key.StartsWith(prefix)) return false;
-                key = key.Substring(prefix.Length);
-            }
-
-            if (!s_attr.ContainsKey(key))
-                return false;
-
-            s_attr[key](this, value);
-            return true;
-        }
-
-        public bool SetAttribute(string key, string value)
-        {
-            return SetAttribute(null, key, value);
-        }
-
-        private void SetFloat(ref float f, string v, float def = 0.0f)
-        {
-            var oldF = f;
-            f = string.IsNullOrEmpty(v) ? def : float.Parse(v);
-            if (!oldF.Equals(f)) IsLayoutDirty = true;
         }
 
         private void SetChildAlignment(string v)
@@ -214,7 +187,7 @@ namespace TSF.Oolong.UGUI
 
         public override void Reset()
         {
-            foreach (var kvp in s_attr)
+            foreach (var kvp in s_attrs)
                 kvp.Value(this, null);
         }
 

@@ -7,7 +7,7 @@ namespace TSF.Oolong.UGUI
 {
     [RequireComponent(typeof(RectTransform))]
     [AddComponentMenu("MithrilComponent", order: -999999)]
-    public sealed class MithrilComponent : OolongElement<MithrilComponent>
+    public sealed class MithrilComponent : OolongElement
     {
         public AssetReferenceT<TextAsset> AddressableScript;
         [SerializeField]

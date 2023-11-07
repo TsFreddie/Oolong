@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace TSF.Oolong.UGUI
 {
-    public class OolongImageLoader : OolongLoader
+    public class OolongImageLoader : OolongLoader<OolongImageLoader>
     {
         private struct ExtendData
         {
@@ -20,8 +20,8 @@ namespace TSF.Oolong.UGUI
         private ExtendData _extendData;
         private FlipGraphic _flipGraphic;
 
-        private delegate void ImageAttrHandler(OolongImageLoader e, string value);
-        private static readonly Dictionary<string, ImageAttrHandler> s_attr = new Dictionary<string, ImageAttrHandler>()
+        protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
+        private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
             { "src", (e, v) => e.SetImage(v) },
             { "color", (e, v) => e.SetColor(v) },
@@ -100,36 +100,9 @@ namespace TSF.Oolong.UGUI
             _tagName = tagName;
         }
 
-        private void SetFloat(ref float f, string v)
-        {
-            var oldF = f;
-            f = string.IsNullOrEmpty(v) ? 0 : float.Parse(v);
-            if (!oldF.Equals(f)) IsLayoutDirty = true;
-        }
-
         private void SetAsync(string v)
         {
             _isAsync = v != null;
-        }
-
-        public bool SetAttribute(string prefix, string key, string value)
-        {
-            if (prefix != null)
-            {
-                if (!key.StartsWith(prefix)) return false;
-                key = key.Substring(prefix.Length);
-            }
-
-            if (!s_attr.ContainsKey(key))
-                return false;
-
-            s_attr[key](this, value);
-            return true;
-        }
-
-        public bool SetAttribute(string key, string value)
-        {
-            return SetAttribute(null, key, value);
         }
 
         private void SetMultiplier(string multiplier)
@@ -373,7 +346,7 @@ namespace TSF.Oolong.UGUI
 
         public override void Reset()
         {
-            foreach (var kvp in s_attr)
+            foreach (var kvp in s_attrs)
                 kvp.Value(this, null);
         }
 

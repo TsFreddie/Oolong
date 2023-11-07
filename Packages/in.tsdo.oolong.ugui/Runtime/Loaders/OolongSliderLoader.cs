@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 namespace TSF.Oolong.UGUI
 {
-    public class OolongSliderLoader : OolongLoader
+    public class OolongSliderLoader : OolongLoader<OolongSliderLoader>
     {
-        private delegate void SliderAttrHandler(OolongSliderLoader e, string value);
-        private static readonly Dictionary<string, SliderAttrHandler> s_attr = new Dictionary<string, SliderAttrHandler>()
+        protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
+        private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
             //
             { "direction", (e, v) => { e.SetDirection(v); } },
@@ -28,12 +28,12 @@ namespace TSF.Oolong.UGUI
         public readonly Slider Instance;
 
         private bool _directionLocked = false;
-        private RectTransform _fillArea;
-        private RectTransform _slidingArea;
-        private RectTransform _fillRect;
-        private RectTransform _bgRect;
-        private RectTransform _handleRect;
-        private RectTransform _sliderRect;
+        private readonly RectTransform _fillArea;
+        private readonly RectTransform _slidingArea;
+        private readonly RectTransform _fillRect;
+        private readonly RectTransform _bgRect;
+        private readonly RectTransform _handleRect;
+        private readonly RectTransform _sliderRect;
 
         private readonly OolongSelectableLoader _selectable;
         private readonly OolongImageLoader _image;
@@ -101,33 +101,18 @@ namespace TSF.Oolong.UGUI
 
         private bool SetAttributeInternal(string prefix, string key, string value)
         {
-            if (prefix != null)
-            {
-                if (!key.StartsWith(prefix)) return false;
-                key = key.Substring(prefix.Length);
-            }
-
-            if (_selectable.SetAttribute(key, value)) return true;
-            if (_image.SetAttribute("bg-", key, value)) return true;
-            if (_fill.SetAttribute("fill-", key, value)) return true;
-
-            if (!s_attr.ContainsKey(key))
-                return false;
-
-            s_attr[key](this, value);
+            if (base.SetAttribute(prefix, key, value)) return true;
+            if (_selectable.SetAttribute(prefix, key, value)) return true;
+            if (_image.SetAttribute($"bg-{prefix}", key, value)) return true;
+            if (_fill.SetAttribute($"fill-{prefix}", key, value)) return true;
             return true;
         }
 
-        public bool SetAttribute(string prefix, string key, string value)
+        public override bool SetAttribute(string prefix, string key, string value)
         {
             var result = SetAttributeInternal(prefix, key, value);
             Instance.gameObject.SetActive(Enabled);
             return result;
-        }
-
-        public bool SetAttribute(string key, string value)
-        {
-            return SetAttribute(null, key, value);
         }
 
         private void SetValue(string v)
@@ -156,28 +141,13 @@ namespace TSF.Oolong.UGUI
         private void SetDirection(string v)
         {
             if (_directionLocked) return;
-            switch (v)
+            _direction = v switch
             {
-                case "rl":
-                    _direction = Slider.Direction.RightToLeft;
-                    break;
-                case "bt":
-                    _direction = Slider.Direction.BottomToTop;
-                    break;
-                case "tb":
-                    _direction = Slider.Direction.TopToBottom;
-                    break;
-                default:
-                    _direction = Slider.Direction.LeftToRight;
-                    break;
-            }
-        }
-
-        private void SetFloat(ref float f, string v, float def = 0.0f)
-        {
-            var oldF = f;
-            f = string.IsNullOrEmpty(v) ? def : float.Parse(v);
-            if (!oldF.Equals(f)) IsLayoutDirty = true;
+                "rl" => Slider.Direction.RightToLeft,
+                "bt" => Slider.Direction.BottomToTop,
+                "tb" => Slider.Direction.TopToBottom,
+                _ => Slider.Direction.LeftToRight
+            };
         }
 
         protected override void OnLayout()
@@ -227,7 +197,7 @@ namespace TSF.Oolong.UGUI
             _image.Reset();
             _fill.Reset();
 
-            foreach (var kvp in s_attr)
+            foreach (var kvp in s_attrs)
                 kvp.Value(this, null);
         }
 

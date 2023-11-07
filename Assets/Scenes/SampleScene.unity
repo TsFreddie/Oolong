@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 256359330}
   - component: {fileID: 256359331}
   m_Layer: 5
-  m_Name: Partial1
+  m_Name: AnimationTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

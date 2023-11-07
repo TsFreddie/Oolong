@@ -1,14 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace TSF.Oolong.UGUI
 {
-    public abstract class OolongLoader
+    public abstract class OolongLoader<T> : IOolongLoader where T : OolongLoader<T>
     {
-        public Dictionary<string, ITransitionProperty> TransitionProperties { get; } = new Dictionary<string, ITransitionProperty>();
+        public delegate void JsCallback(BaseEventData eventData);
+        public delegate void AttrHandler(T loader, string value);
+
+        protected virtual Dictionary<string, AttrHandler> Attrs => null;
+        private HashSet<ITransitionProperty> _transitions;
+        private Dictionary<string, ITransitionProperty> _transitionMap;
 
         private bool _isLayoutDirty;
+        private bool _isLayoutDirtyLate;
+
         protected bool IsLayoutDirty
         {
             get { return _isLayoutDirty; }
@@ -23,9 +29,6 @@ namespace TSF.Oolong.UGUI
             }
         }
 
-        protected virtual void OnLayout() { IsLayoutDirty = false; }
-
-        private bool _isLayoutDirtyLate;
         protected bool IsLayoutDirtyLate
         {
             get { return _isLayoutDirtyLate; }
@@ -39,7 +42,6 @@ namespace TSF.Oolong.UGUI
                     DocumentUtils.OnDocumentLateUpdate -= OnLateLayout;
             }
         }
-        protected virtual void OnLateLayout() { IsLayoutDirtyLate = false; }
 
         public virtual void Release()
         {
@@ -48,12 +50,34 @@ namespace TSF.Oolong.UGUI
             ResetTransitions();
         }
 
+        public virtual bool AddListener(string key, IOolongLoader.JsCallback callback) => false;
+        public virtual bool RemoveListener(string key) => false;
+        protected virtual void OnLayout() { IsLayoutDirty = false; }
+        protected virtual void OnLateLayout() { IsLayoutDirtyLate = false; }
         public abstract void Reset();
         public abstract void Reuse();
 
+        public virtual bool SetAttribute(string prefix, string key, string value)
+        {
+            if (this is not T loader) return false;
+
+            if (prefix != null)
+            {
+                if (!key.StartsWith(prefix)) return false;
+                key = key.Substring(prefix.Length);
+            }
+
+            if (!Attrs.ContainsKey(key))
+                return false;
+
+            Attrs[key](loader, value);
+            return true;
+        }
+
         public void ResetTransitions()
         {
-            foreach (var prop in TransitionProperties.Values)
+            if (_transitions == null) return;
+            foreach (var prop in _transitions)
             {
                 prop.Reset();
             }
@@ -61,13 +85,14 @@ namespace TSF.Oolong.UGUI
 
         public bool SetTransition(string prefix, string key, float duration, CubicBezier timingFunction, float delay)
         {
+            if (_transitions == null) return false;
             if (prefix != null)
             {
                 if (!key.StartsWith(prefix)) return false;
                 key = key.Substring(prefix.Length);
             }
 
-            if (!TransitionProperties.TryGetValue(key, out var prop))
+            if (!_transitionMap.TryGetValue(key, out var prop))
                 return false;
 
             prop.Duration = duration;
@@ -79,6 +104,13 @@ namespace TSF.Oolong.UGUI
         public bool SetTransition(string key, float duration, CubicBezier timingFunction, float delay)
         {
             return SetTransition(null, key, duration, timingFunction, delay);
+        }
+
+        protected void SetFloat(ref float f, string v, float def = 0.0f)
+        {
+            var oldF = f;
+            f = string.IsNullOrEmpty(v) || !float.TryParse(v, out var value) ? def : value;
+            if (!oldF.Equals(f)) IsLayoutDirty = true;
         }
     }
 }

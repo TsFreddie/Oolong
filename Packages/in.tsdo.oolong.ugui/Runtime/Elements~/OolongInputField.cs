@@ -207,7 +207,7 @@ namespace TSF.Oolong.UGUI
             return false;
         }
 
-        public override bool AddListener(string key, IOolongElement.JsCallback callback)
+        public override bool AddListener(string key, OolongElement.JsCallback callback)
         {
             if (base.AddListener(key, callback)) return true;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TSF.Oolong.UGUI
 {
-    public class OolongTextLoader : OolongLoader
+    public class OolongTextLoader : OolongLoader<OolongTextLoader>
     {
         private struct ExtendData
         {
@@ -19,8 +19,8 @@ namespace TSF.Oolong.UGUI
 
         private ExtendData _extendData;
 
-        private delegate void TextAttrHandler(OolongTextLoader e, string value);
-        private static readonly Dictionary<string, TextAttrHandler> s_attr = new Dictionary<string, TextAttrHandler>()
+        protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
+        private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
             { "#", (e, v) => e.SetText(v) },
             { "text-align", (e, v) => e.SetTextAlign(v) },
@@ -48,6 +48,7 @@ namespace TSF.Oolong.UGUI
         };
 
         private readonly Dictionary<string, string> _textAttr = new Dictionary<string, string>();
+        public IReadOnlyDictionary<string, string> TextAttr => _textAttr;
 
         public readonly TextMeshProUGUI Instance;
 
@@ -118,9 +119,9 @@ namespace TSF.Oolong.UGUI
         private string _font;
         private bool _fontInitialized = false;
 
-        public OolongTextLoader(TextMeshProUGUI text)
+        public OolongTextLoader(GameObject gameObject)
         {
-            Instance = text;
+            Instance = gameObject.AddComponent<TextMeshProUGUI>();
             Instance.alignment = TextAlignmentOptions.Center;
             Instance.color = Color.black;
             Instance.enableKerning = TMP_Settings.enableKerning;
@@ -165,35 +166,11 @@ namespace TSF.Oolong.UGUI
             _fontInitialized = true;
         }
 
-        public bool SetAttribute(string prefix, string key, string value)
+        public override bool SetAttribute(string prefix, string key, string value)
         {
-            if (prefix != null)
-            {
-                if (!key.StartsWith(prefix)) return false;
-                key = key.Substring(prefix.Length);
-            }
-
-            if (!s_attr.ContainsKey(key))
-            {
-                // Provide arguments for smart strings
-                _textAttr[key] = value;
-                return false;
-            }
-
-            s_attr[key](this, value);
-            return true;
-        }
-
-        public bool SetAttribute(string key, string value)
-        {
-            return SetAttribute(null, key, value);
-        }
-
-        private void SetFloat(ref float f, string v, float def = 0.0f)
-        {
-            var oldF = f;
-            f = string.IsNullOrEmpty(v) ? def : float.Parse(v);
-            if (!oldF.Equals(f)) IsLayoutDirty = true;
+            if (base.SetAttribute(prefix, key, value)) return true;
+            _textAttr[key] = value;
+            return false;
         }
 
         private void SetPassthrough(string v)
@@ -209,7 +186,7 @@ namespace TSF.Oolong.UGUI
 
         private void SetText(string text)
         {
-            Instance.text = OolongUGUI.TransformText(text);
+            Instance.text = OolongUGUI.TransformText(text, this);
         }
 
         private void SetOutlineColor(string v)
@@ -503,7 +480,7 @@ namespace TSF.Oolong.UGUI
 
         public override void Reset()
         {
-            foreach (var kvp in s_attr)
+            foreach (var kvp in s_attrs)
                 kvp.Value(this, null);
 
             ReleaseMaterial();

@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 namespace TSF.Oolong.UGUI
 {
     [AddComponentMenu("")]
-    public abstract class OolongElement<T> : MonoBehaviour, IOolongElement where T : OolongElement<T>
+    public abstract class OolongElement<T> : MonoBehaviour, OolongElement where T : OolongElement<T>
     {
         protected delegate void AttrHandler(T e, string value);
         protected virtual Dictionary<string, AttrHandler> Attrs => null;
@@ -14,23 +14,23 @@ namespace TSF.Oolong.UGUI
         public string TagName { get; set; } = "undefined";
 
         public virtual Transform RootTransform => transform;
-        public IOolongElement ParentElement { get; set; } = null;
+        public OolongElement ParentElement { get; set; } = null;
 
         private OolongRectLoader _rect;
         private UIEventHandler _eventHandler;
-        private HashSet<IOolongElement> _children = new HashSet<IOolongElement>();
+        private HashSet<OolongElement> _children = new HashSet<OolongElement>();
 
         private List<string> _transitionAttrs;
         private List<float> _transitionDelays;
         private List<float> _transitionDurations;
         private List<CubicBezier> _transitionTimingFunctions;
 
-        public void AddChild(IOolongElement e)
+        public void AddChild(OolongElement e)
         {
             _children.Add(e);
         }
 
-        public void RemoveChild(IOolongElement e)
+        public void RemoveChild(OolongElement e)
         {
             _children.Remove(e);
         }
@@ -104,7 +104,7 @@ namespace TSF.Oolong.UGUI
 
         protected virtual bool SetAttribute(string key, string value) => false;
 
-        public virtual bool AddListener(string key, IOolongElement.JsCallback callback)
+        public virtual bool AddListener(string key, OolongElement.JsCallback callback)
         {
             return _eventHandler.AddListener(key, callback);
         }

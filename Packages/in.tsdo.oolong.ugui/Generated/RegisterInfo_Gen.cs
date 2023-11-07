@@ -137,392 +137,6 @@ namespace PuertsStaticWrap
                 }
             };
         }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongButton_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongButton_Wrap.Constructor
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongButton_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"AddListener", new MemberRegisterInfo { Name = "AddListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongButton_Wrap.M_AddListener
-#endif
-                    }},
-                    {"RemoveListener", new MemberRegisterInfo { Name = "RemoveListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongButton_Wrap.M_RemoveListener
-#endif
-                    }},
-                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongButton_Wrap.M_OnReuse
-#endif
-                    }},
-                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongButton_Wrap.M_OnReset
-#endif
-                    }},
-                }
-            };
-        }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongContainer_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongContainer_Wrap.Constructor
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongContainer_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"RootTransform", new MemberRegisterInfo { Name = "RootTransform", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongContainer_Wrap.G_RootTransform
-#endif
-                    }},
-                }
-            };
-        }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongImage_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongImage_Wrap.Constructor
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongImage_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongImage_Wrap.M_OnReuse
-#endif
-                    }},
-                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongImage_Wrap.M_OnReset
-#endif
-                    }},
-                }
-            };
-        }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongInputField_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongInputField_Wrap.Constructor
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongInputField_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"AddListener", new MemberRegisterInfo { Name = "AddListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongInputField_Wrap.M_AddListener
-#endif
-                    }},
-                    {"RemoveListener", new MemberRegisterInfo { Name = "RemoveListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongInputField_Wrap.M_RemoveListener
-#endif
-                    }},
-                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongInputField_Wrap.M_OnReuse
-#endif
-                    }},
-                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongInputField_Wrap.M_OnReset
-#endif
-                    }},
-                    {"RootTransform", new MemberRegisterInfo { Name = "RootTransform", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongInputField_Wrap.G_RootTransform
-#endif
-                    }},
-                    {"Value", new MemberRegisterInfo { Name = "Value", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongInputField_Wrap.G_Value
-#endif
-                    }},
-                }
-            };
-        }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongPanel_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongPanel_Wrap.Constructor
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongPanel_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongPanel_Wrap.M_OnReuse
-#endif
-                    }},
-                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongPanel_Wrap.M_OnReset
-#endif
-                    }},
-                }
-            };
-        }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongScrollView_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongScrollView_Wrap.Constructor
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongScrollView_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"AddListener", new MemberRegisterInfo { Name = "AddListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongScrollView_Wrap.M_AddListener
-#endif
-                    }},
-                    {"RemoveListener", new MemberRegisterInfo { Name = "RemoveListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongScrollView_Wrap.M_RemoveListener
-#endif
-                    }},
-                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongScrollView_Wrap.M_OnReuse
-#endif
-                    }},
-                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongScrollView_Wrap.M_OnReset
-#endif
-                    }},
-                    {"RootTransform", new MemberRegisterInfo { Name = "RootTransform", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongScrollView_Wrap.G_RootTransform
-#endif
-                    }},
-                    {"ScrollPosition", new MemberRegisterInfo { Name = "ScrollPosition", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongScrollView_Wrap.G_ScrollPosition, PropertySetter = TSF_Oolong_UGUI_OolongScrollView_Wrap.S_ScrollPosition
-#endif
-                    }},
-                }
-            };
-        }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongSlider_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongSlider_Wrap.Constructor
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongSlider_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"AddListener", new MemberRegisterInfo { Name = "AddListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongSlider_Wrap.M_AddListener
-#endif
-                    }},
-                    {"RemoveListener", new MemberRegisterInfo { Name = "RemoveListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongSlider_Wrap.M_RemoveListener
-#endif
-                    }},
-                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongSlider_Wrap.M_OnReuse
-#endif
-                    }},
-                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongSlider_Wrap.M_OnReset
-#endif
-                    }},
-                    {"Value", new MemberRegisterInfo { Name = "Value", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongSlider_Wrap.G_Value, PropertySetter = TSF_Oolong_UGUI_OolongSlider_Wrap.S_Value
-#endif
-                    }},
-                }
-            };
-        }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongText_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongText_Wrap.Constructor
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongText_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongText_Wrap.M_OnReuse
-#endif
-                    }},
-                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongText_Wrap.M_OnReset
-#endif
-                    }},
-                }
-            };
-        }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongToggle_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongToggle_Wrap.Constructor
-#endif
-                    }},
-                    {"AddListener", new MemberRegisterInfo { Name = "AddListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongToggle_Wrap.M_AddListener
-#endif
-                    }},
-                    {"RemoveListener", new MemberRegisterInfo { Name = "RemoveListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongToggle_Wrap.M_RemoveListener
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongToggle_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongToggle_Wrap.M_OnReuse
-#endif
-                    }},
-                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongToggle_Wrap.M_OnReset
-#endif
-                    }},
-                    {"IsOn", new MemberRegisterInfo { Name = "IsOn", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongToggle_Wrap.G_IsOn, PropertySetter = TSF_Oolong_UGUI_OolongToggle_Wrap.S_IsOn
-#endif
-                    }},
-                    {"RootTransform", new MemberRegisterInfo { Name = "RootTransform", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongToggle_Wrap.G_RootTransform
-#endif
-                    }},
-                }
-            };
-        }
         public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_UIEventHandler_Wrap() 
         {
             return new RegisterInfo 
@@ -647,7 +261,7 @@ namespace PuertsStaticWrap
                 }
             };
         }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_IOolongElement_Wrap() 
+        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_IOolongLoader_Wrap() 
         {
             return new RegisterInfo 
             {
@@ -658,84 +272,44 @@ namespace PuertsStaticWrap
                 Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
                 {
                     
-                    {"AddChild", new MemberRegisterInfo { Name = "AddChild", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_AddChild
-#endif
-                    }},
-                    {"RemoveChild", new MemberRegisterInfo { Name = "RemoveChild", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_RemoveChild
-#endif
-                    }},
-                    {"SetEventHandler", new MemberRegisterInfo { Name = "SetEventHandler", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_SetEventHandler
-#endif
-                    }},
-                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_OnCreate
-#endif
-                    }},
-                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_OnReuse
-#endif
-                    }},
-                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_OnReset
-#endif
-                    }},
-                    {"SetElementAttribute", new MemberRegisterInfo { Name = "SetElementAttribute", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_SetElementAttribute
-#endif
-                    }},
                     {"AddListener", new MemberRegisterInfo { Name = "AddListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_AddListener
+                    , Method = TSF_Oolong_UGUI_IOolongLoader_Wrap.M_AddListener
 #endif
                     }},
                     {"RemoveListener", new MemberRegisterInfo { Name = "RemoveListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_RemoveListener
+                    , Method = TSF_Oolong_UGUI_IOolongLoader_Wrap.M_RemoveListener
 #endif
                     }},
-                    {"GetComponent", new MemberRegisterInfo { Name = "GetComponent", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+                    {"Release", new MemberRegisterInfo { Name = "Release", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_GetComponent
+                    , Method = TSF_Oolong_UGUI_IOolongLoader_Wrap.M_Release
 #endif
                     }},
-                    {"GetInstanceID", new MemberRegisterInfo { Name = "GetInstanceID", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+                    {"Reuse", new MemberRegisterInfo { Name = "Reuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_IOolongElement_Wrap.M_GetInstanceID
+                    , Method = TSF_Oolong_UGUI_IOolongLoader_Wrap.M_Reuse
 #endif
                     }},
-                    {"transform", new MemberRegisterInfo { Name = "transform", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+                    {"Reset", new MemberRegisterInfo { Name = "Reset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_IOolongElement_Wrap.G_transform
+                    , Method = TSF_Oolong_UGUI_IOolongLoader_Wrap.M_Reset
 #endif
                     }},
-                    {"gameObject", new MemberRegisterInfo { Name = "gameObject", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+                    {"SetAttribute", new MemberRegisterInfo { Name = "SetAttribute", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_IOolongElement_Wrap.G_gameObject
+                    , Method = TSF_Oolong_UGUI_IOolongLoader_Wrap.M_SetAttribute
 #endif
                     }},
-                    {"RootTransform", new MemberRegisterInfo { Name = "RootTransform", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+                    {"ResetTransitions", new MemberRegisterInfo { Name = "ResetTransitions", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_IOolongElement_Wrap.G_RootTransform
+                    , Method = TSF_Oolong_UGUI_IOolongLoader_Wrap.M_ResetTransitions
 #endif
                     }},
-                    {"ParentElement", new MemberRegisterInfo { Name = "ParentElement", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+                    {"SetTransition", new MemberRegisterInfo { Name = "SetTransition", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_IOolongElement_Wrap.G_ParentElement, PropertySetter = TSF_Oolong_UGUI_IOolongElement_Wrap.S_ParentElement
-#endif
-                    }},
-                    {"TagName", new MemberRegisterInfo { Name = "TagName", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_IOolongElement_Wrap.G_TagName, PropertySetter = TSF_Oolong_UGUI_IOolongElement_Wrap.S_TagName
+                    , Method = TSF_Oolong_UGUI_IOolongLoader_Wrap.M_SetTransition
 #endif
                     }},
                 }
@@ -755,11 +329,6 @@ namespace PuertsStaticWrap
                     {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , Constructor = TSF_Oolong_UGUI_OolongImageLoader_Wrap.Constructor
-#endif
-                    }},
-                    {"SetAttribute", new MemberRegisterInfo { Name = "SetAttribute", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongImageLoader_Wrap.M_SetAttribute
 #endif
                     }},
                     {"SetImage", new MemberRegisterInfo { Name = "SetImage", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
@@ -826,11 +395,6 @@ namespace PuertsStaticWrap
                     , Constructor = TSF_Oolong_UGUI_OolongLayoutLoader_Wrap.Constructor
 #endif
                     }},
-                    {"SetAttribute", new MemberRegisterInfo { Name = "SetAttribute", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongLayoutLoader_Wrap.M_SetAttribute
-#endif
-                    }},
                     {"Reuse", new MemberRegisterInfo { Name = "Reuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , Method = TSF_Oolong_UGUI_OolongLayoutLoader_Wrap.M_Reuse
@@ -858,16 +422,6 @@ namespace PuertsStaticWrap
                     {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , Constructor = TSF_Oolong_UGUI_OolongRectLoader_Wrap.Constructor
-#endif
-                    }},
-                    {"SetAttribute", new MemberRegisterInfo { Name = "SetAttribute", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongRectLoader_Wrap.M_SetAttribute
-#endif
-                    }},
-                    {"SetIgnoreLayout", new MemberRegisterInfo { Name = "SetIgnoreLayout", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongRectLoader_Wrap.M_SetIgnoreLayout
 #endif
                     }},
                     {"Reuse", new MemberRegisterInfo { Name = "Reuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
@@ -1081,6 +635,11 @@ namespace PuertsStaticWrap
                     , Method = TSF_Oolong_UGUI_OolongTextLoader_Wrap.M_Release
 #endif
                     }},
+                    {"TextAttr", new MemberRegisterInfo { Name = "TextAttr", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_OolongTextLoader_Wrap.G_TextAttr
+#endif
+                    }},
                     {"DefaultAlign", new MemberRegisterInfo { Name = "DefaultAlign", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , PropertyGetter = TSF_Oolong_UGUI_OolongTextLoader_Wrap.G_DefaultAlign, PropertySetter = TSF_Oolong_UGUI_OolongTextLoader_Wrap.S_DefaultAlign
@@ -1177,7 +736,7 @@ namespace PuertsStaticWrap
                 }
             };
         }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongLoader_Wrap() 
+        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongElement_Wrap() 
         {
             return new RegisterInfo 
             {
@@ -1188,34 +747,74 @@ namespace PuertsStaticWrap
                 Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
                 {
                     
-                    {"Release", new MemberRegisterInfo { Name = "Release", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongLoader_Wrap.M_Release
+                    , Constructor = TSF_Oolong_UGUI_OolongElement_Wrap.Constructor
 #endif
                     }},
-                    {"Reset", new MemberRegisterInfo { Name = "Reset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+                    {"GetInstanceID", new MemberRegisterInfo { Name = "GetInstanceID", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongLoader_Wrap.M_Reset
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_GetInstanceID
 #endif
                     }},
-                    {"Reuse", new MemberRegisterInfo { Name = "Reuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+                    {"AddChild", new MemberRegisterInfo { Name = "AddChild", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongLoader_Wrap.M_Reuse
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_AddChild
 #endif
                     }},
-                    {"ResetTransitions", new MemberRegisterInfo { Name = "ResetTransitions", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+                    {"RemoveChild", new MemberRegisterInfo { Name = "RemoveChild", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongLoader_Wrap.M_ResetTransitions
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_RemoveChild
 #endif
                     }},
-                    {"SetTransition", new MemberRegisterInfo { Name = "SetTransition", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+                    {"SetElementAttribute", new MemberRegisterInfo { Name = "SetElementAttribute", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_UGUI_OolongLoader_Wrap.M_SetTransition
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_SetElementAttribute
 #endif
                     }},
-                    {"TransitionProperties", new MemberRegisterInfo { Name = "TransitionProperties", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+                    {"AddListener", new MemberRegisterInfo { Name = "AddListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongLoader_Wrap.G_TransitionProperties
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_AddListener
+#endif
+                    }},
+                    {"RemoveListener", new MemberRegisterInfo { Name = "RemoveListener", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_RemoveListener
+#endif
+                    }},
+                    {"SetEventHandler", new MemberRegisterInfo { Name = "SetEventHandler", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_SetEventHandler
+#endif
+                    }},
+                    {"OnCreate", new MemberRegisterInfo { Name = "OnCreate", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_OnCreate
+#endif
+                    }},
+                    {"OnReset", new MemberRegisterInfo { Name = "OnReset", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_OnReset
+#endif
+                    }},
+                    {"OnReuse", new MemberRegisterInfo { Name = "OnReuse", IsStatic = false, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_UGUI_OolongElement_Wrap.M_OnReuse
+#endif
+                    }},
+                    {"TagName", new MemberRegisterInfo { Name = "TagName", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_OolongElement_Wrap.G_TagName, PropertySetter = TSF_Oolong_UGUI_OolongElement_Wrap.S_TagName
+#endif
+                    }},
+                    {"RootTransform", new MemberRegisterInfo { Name = "RootTransform", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_OolongElement_Wrap.G_RootTransform
+#endif
+                    }},
+                    {"ParentElement", new MemberRegisterInfo { Name = "ParentElement", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , PropertyGetter = TSF_Oolong_UGUI_OolongElement_Wrap.G_ParentElement, PropertySetter = TSF_Oolong_UGUI_OolongElement_Wrap.S_ParentElement
 #endif
                     }},
                 }
@@ -1232,6 +831,44 @@ namespace PuertsStaticWrap
                 Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
                 {
                     
+                }
+            };
+        }
+        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_BooleanTransitionProperty_Wrap() 
+        {
+            return new RegisterInfo 
+            {
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                BlittableCopy = false,
+#endif
+
+                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
+                {
+                    
+                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Constructor = TSF_Oolong_UGUI_BooleanTransitionProperty_Wrap.Constructor
+#endif
+                    }},
+                }
+            };
+        }
+        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_ColorTransitionProperty_Wrap() 
+        {
+            return new RegisterInfo 
+            {
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                BlittableCopy = false,
+#endif
+
+                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
+                {
+                    
+                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Constructor = TSF_Oolong_UGUI_ColorTransitionProperty_Wrap.Constructor
+#endif
+                    }},
                 }
             };
         }
@@ -1424,57 +1061,14 @@ namespace PuertsStaticWrap
                 }
             };
         }
-        public static RegisterInfo GetRegisterInfo_TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap() 
-        {
-            return new RegisterInfo 
-            {
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                BlittableCopy = false,
-#endif
-
-                Members = new System.Collections.Generic.Dictionary<string, MemberRegisterInfo>
-                {
-                    
-                    {".ctor", new MemberRegisterInfo { Name = ".ctor", IsStatic = false, MemberType = MemberType.Constructor, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Constructor = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.Constructor
-#endif
-                    }},
-                    {"Instance", new MemberRegisterInfo { Name = "Instance", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.G_Instance, PropertySetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.S_Instance
-#endif
-                    }},
-                    {"Priority", new MemberRegisterInfo { Name = "Priority", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.G_Priority, PropertySetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.S_Priority
-#endif
-                    }},
-                    {"IgnoreLayout", new MemberRegisterInfo { Name = "IgnoreLayout", IsStatic = false, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding
-#if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , PropertyGetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.G_IgnoreLayout, PropertySetter = TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap.S_IgnoreLayout
-#endif
-                    }},
-                }
-            };
-        }
 
         public static void AddRegisterInfoGetterIntoJsEnv(JsEnv jsEnv)
         {
             
                 jsEnv.AddRegisterInfoGetter(typeof(OolongUGUI), GetRegisterInfo_OolongUGUI_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.DocumentUtils), GetRegisterInfo_TSF_Oolong_UGUI_DocumentUtils_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongButton), GetRegisterInfo_TSF_Oolong_UGUI_OolongButton_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongContainer), GetRegisterInfo_TSF_Oolong_UGUI_OolongContainer_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongImage), GetRegisterInfo_TSF_Oolong_UGUI_OolongImage_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongInputField), GetRegisterInfo_TSF_Oolong_UGUI_OolongInputField_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongPanel), GetRegisterInfo_TSF_Oolong_UGUI_OolongPanel_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongScrollView), GetRegisterInfo_TSF_Oolong_UGUI_OolongScrollView_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongSlider), GetRegisterInfo_TSF_Oolong_UGUI_OolongSlider_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongText), GetRegisterInfo_TSF_Oolong_UGUI_OolongText_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongToggle), GetRegisterInfo_TSF_Oolong_UGUI_OolongToggle_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.UIEventHandler), GetRegisterInfo_TSF_Oolong_UGUI_UIEventHandler_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.IOolongElement), GetRegisterInfo_TSF_Oolong_UGUI_IOolongElement_Wrap);
+                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.IOolongLoader), GetRegisterInfo_TSF_Oolong_UGUI_IOolongLoader_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongImageLoader), GetRegisterInfo_TSF_Oolong_UGUI_OolongImageLoader_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongLayoutLoader), GetRegisterInfo_TSF_Oolong_UGUI_OolongLayoutLoader_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongRectLoader), GetRegisterInfo_TSF_Oolong_UGUI_OolongRectLoader_Wrap);
@@ -1484,15 +1078,16 @@ namespace PuertsStaticWrap
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongTextLoader), GetRegisterInfo_TSF_Oolong_UGUI_OolongTextLoader_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.MithrilComponent), GetRegisterInfo_TSF_Oolong_UGUI_MithrilComponent_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.UnityWebRequestExtension), GetRegisterInfo_TSF_Oolong_UGUI_UnityWebRequestExtension_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongLoader), GetRegisterInfo_TSF_Oolong_UGUI_OolongLoader_Wrap);
+                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongElement), GetRegisterInfo_TSF_Oolong_UGUI_OolongElement_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongMithril), GetRegisterInfo_TSF_Oolong_UGUI_OolongMithril_Wrap);
+                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.BooleanTransitionProperty), GetRegisterInfo_TSF_Oolong_UGUI_BooleanTransitionProperty_Wrap);
+                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.ColorTransitionProperty), GetRegisterInfo_TSF_Oolong_UGUI_ColorTransitionProperty_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.CubicBezier), GetRegisterInfo_TSF_Oolong_UGUI_CubicBezier_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.FloatTransitionProperty), GetRegisterInfo_TSF_Oolong_UGUI_FloatTransitionProperty_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.ITransitionProperty), GetRegisterInfo_TSF_Oolong_UGUI_ITransitionProperty_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.TransitionUtils), GetRegisterInfo_TSF_Oolong_UGUI_TransitionUtils_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.FlipGraphic), GetRegisterInfo_TSF_Oolong_UGUI_FlipGraphic_Wrap);
                 jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.NonDrawingGraphic), GetRegisterInfo_TSF_Oolong_UGUI_NonDrawingGraphic_Wrap);
-                jsEnv.AddRegisterInfoGetter(typeof(TSF.Oolong.UGUI.OolongRectLoader.LayoutElementData), GetRegisterInfo_TSF_Oolong_UGUI_OolongRectLoader_LayoutElementData_Wrap);
         }
     }
 }

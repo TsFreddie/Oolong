@@ -61,7 +61,7 @@ namespace PuertsStaticWrap
                     object argobj2 = null;
                     ;
                     {
-                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.IOolongElement arg0 = (TSF.Oolong.UGUI.IOolongElement)argobj0;
+                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.OolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.OolongElement arg0 = (TSF.Oolong.UGUI.OolongElement)argobj0;
                         argobj1 = argobj1 != null ? argobj1 : StaticTranslate<Puerts.JSObject>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); Puerts.JSObject arg1 = (Puerts.JSObject)argobj1;
                         bool arg2 = (bool)PuertsDLL.GetBooleanFromValue(isolate, v8Value2, false);
 
@@ -111,10 +111,14 @@ namespace PuertsStaticWrap
                     IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
                     object argobj0 = null;
                     ;
+                    IntPtr v8Value1 = PuertsDLL.GetArgumentValue(info, 1);
+                    object argobj1 = null;
+                    ;
                     {
                         string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
+                        argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.OolongTextLoader>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.OolongTextLoader arg1 = (TSF.Oolong.UGUI.OolongTextLoader)argobj1;
 
-                        var result = OolongUGUI.TransformText (arg0);
+                        var result = OolongUGUI.TransformText (arg0, arg1);
 
                         Puerts.PuertsDLL.ReturnString(isolate, info, result);
                     }

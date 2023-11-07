@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class OolongUGUI
 {
-    private delegate JSObject MithrilMount(IOolongElement element, JSObject component, bool partial);
+    private delegate JSObject MithrilMount(OolongElement element, JSObject component, bool partial);
     private static MithrilMount s_mithrilMount;
     private delegate void MithrilUnmount(JSObject element);
     private static MithrilUnmount s_mithrilUnmount;
@@ -35,7 +35,7 @@ public static class OolongUGUI
         var env = OolongEnvironment.JsEnv;
         env.ExecuteModule("dom");
         env.ExecuteModule("mithril");
-        env.UsingFunc<IOolongElement, JSObject, bool, JSObject>();
+        env.UsingFunc<OolongElement, JSObject, bool, JSObject>();
 
         s_mithrilMount = env.Eval<MithrilMount>("MithrilMount");
         s_mithrilUnmount = env.Eval<MithrilUnmount>("MithrilUnmount");
@@ -47,7 +47,7 @@ public static class OolongUGUI
         s_tick?.Invoke();
     }
 
-    public static JSObject Mount(IOolongElement element, JSObject component, bool partial)
+    public static JSObject Mount(OolongElement element, JSObject component, bool partial)
     {
         return s_mithrilMount?.Invoke(element, component, partial);
     }
@@ -66,9 +66,9 @@ public static class OolongUGUI
         s_tick = null;
     }
 
-    public static string TransformText(string text)
+    public static string TransformText(string text, OolongTextLoader loader)
     {
-        return s_textTransformer.Transform(text);
+        return s_textTransformer.Transform(text, loader);
     }
 
     public static string TransformAddress(string tag, string address)

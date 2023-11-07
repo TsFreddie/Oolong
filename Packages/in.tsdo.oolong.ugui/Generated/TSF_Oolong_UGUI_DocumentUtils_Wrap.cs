@@ -38,8 +38,8 @@ namespace PuertsStaticWrap
                     object argobj1 = null;
                     ;
                     {
-                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.IOolongElement arg0 = (TSF.Oolong.UGUI.IOolongElement)argobj0;
-                        argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.IOolongElement arg1 = (TSF.Oolong.UGUI.IOolongElement)argobj1;
+                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.OolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.OolongElement arg0 = (TSF.Oolong.UGUI.OolongElement)argobj0;
+                        argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.OolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.OolongElement arg1 = (TSF.Oolong.UGUI.OolongElement)argobj1;
 
                         TSF.Oolong.UGUI.DocumentUtils.AttachElement (arg0, arg1);
 
@@ -63,7 +63,7 @@ namespace PuertsStaticWrap
                     object argobj0 = null;
                     ;
                     {
-                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.IOolongElement arg0 = (TSF.Oolong.UGUI.IOolongElement)argobj0;
+                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.OolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.OolongElement arg0 = (TSF.Oolong.UGUI.OolongElement)argobj0;
 
                         TSF.Oolong.UGUI.DocumentUtils.DetachElement (arg0);
 
@@ -90,8 +90,8 @@ namespace PuertsStaticWrap
                     object argobj1 = null;
                     ;
                     {
-                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.IOolongElement arg0 = (TSF.Oolong.UGUI.IOolongElement)argobj0;
-                        argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.IOolongElement arg1 = (TSF.Oolong.UGUI.IOolongElement)argobj1;
+                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.OolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.OolongElement arg0 = (TSF.Oolong.UGUI.OolongElement)argobj0;
+                        argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.OolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.OolongElement arg1 = (TSF.Oolong.UGUI.OolongElement)argobj1;
 
                         TSF.Oolong.UGUI.DocumentUtils.RemoveElement (arg0, arg1);
 
@@ -115,7 +115,7 @@ namespace PuertsStaticWrap
                     object argobj0 = null;
                     ;
                     {
-                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.IOolongElement arg0 = (TSF.Oolong.UGUI.IOolongElement)argobj0;
+                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.OolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.OolongElement arg0 = (TSF.Oolong.UGUI.OolongElement)argobj0;
 
                         TSF.Oolong.UGUI.DocumentUtils.ResetElement (arg0);
 
@@ -145,8 +145,8 @@ namespace PuertsStaticWrap
                     object argobj2 = null;
                     ;
                     {
-                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.IOolongElement arg0 = (TSF.Oolong.UGUI.IOolongElement)argobj0;
-                        argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.IOolongElement arg1 = (TSF.Oolong.UGUI.IOolongElement)argobj1;
+                        argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.UGUI.OolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.UGUI.OolongElement arg0 = (TSF.Oolong.UGUI.OolongElement)argobj0;
+                        argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.OolongElement>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.OolongElement arg1 = (TSF.Oolong.UGUI.OolongElement)argobj1;
                         int arg2 = (int)PuertsDLL.GetNumberFromValue(isolate, v8Value2, false);
 
                         var result = TSF.Oolong.UGUI.DocumentUtils.InsertElement (arg0, arg1, arg2);

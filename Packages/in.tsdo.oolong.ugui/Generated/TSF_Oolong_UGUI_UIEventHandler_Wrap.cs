@@ -49,7 +49,7 @@ namespace PuertsStaticWrap
                     ;
                     {
                         string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
-                        argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.IOolongElement.JsCallback>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.IOolongElement.JsCallback arg1 = (TSF.Oolong.UGUI.IOolongElement.JsCallback)argobj1;
+                        argobj1 = argobj1 != null ? argobj1 : StaticTranslate<TSF.Oolong.UGUI.IOolongLoader.JsCallback>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); TSF.Oolong.UGUI.IOolongLoader.JsCallback arg1 = (TSF.Oolong.UGUI.IOolongLoader.JsCallback)argobj1;
 
                         var result = obj.AddListener (arg0, arg1);
 

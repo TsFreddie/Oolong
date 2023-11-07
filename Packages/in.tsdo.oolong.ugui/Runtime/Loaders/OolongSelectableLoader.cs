@@ -15,10 +15,10 @@ namespace TSF.Oolong.UGUI
         Disabled
     }
 
-    public class OolongSelectableLoader : OolongLoader
+    public class OolongSelectableLoader : OolongLoader<OolongSelectableLoader>
     {
-        private delegate void SelectableAttrHandler(OolongSelectableLoader e, string value);
-        private static readonly Dictionary<string, SelectableAttrHandler> s_attr = new Dictionary<string, SelectableAttrHandler>()
+        protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
+        private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
             { "src", ((e, v) => e.SetImage(ButtonState.Base, v)) },
             { "color", ((e, v) => e.SetColor(ButtonState.Base, v)) },
@@ -112,26 +112,11 @@ namespace TSF.Oolong.UGUI
             _tagName = tagName;
         }
 
-        public bool SetAttribute(string prefix, string key, string value)
+        public override bool SetAttribute(string prefix, string key, string value)
         {
-            if (prefix != null)
-            {
-                if (!key.StartsWith(prefix)) return false;
-                key = key.Substring(prefix.Length);
-            }
-
-            if (s_attr.ContainsKey(key))
-            {
-                s_attr[key](this, value);
-                return true;
-            }
-
-            return _image.SetAttribute(key, value);
-        }
-
-        public bool SetAttribute(string key, string value)
-        {
-            return SetAttribute(null, key, value);
+            if (base.SetAttribute(prefix, key, value)) return true;
+            if (_image.SetAttribute(prefix, key, value)) return true;
+            return false;
         }
 
         private void SetAsync(string v)
@@ -399,7 +384,7 @@ namespace TSF.Oolong.UGUI
 
         public override void Reset()
         {
-            foreach (var kvp in s_attr)
+            foreach (var kvp in s_attrs)
                 kvp.Value(this, null);
 
             _baseSprite.Release();

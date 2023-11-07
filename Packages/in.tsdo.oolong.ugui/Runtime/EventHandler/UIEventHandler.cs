@@ -33,26 +33,26 @@ namespace TSF.Oolong.UGUI
                 enabled = _eventCount > 0;
             }
         }
-        private IOolongElement.JsCallback _onPointerEnter;
-        private IOolongElement.JsCallback _onPointerExit;
-        private IOolongElement.JsCallback _onPointerDown;
-        private IOolongElement.JsCallback _onPointerUp;
-        private IOolongElement.JsCallback _onPointerMove;
-        private IOolongElement.JsCallback _onPointerClick;
-        private IOolongElement.JsCallback _onInitializePotentialDrag;
-        private IOolongElement.JsCallback _onBeginDrag;
-        private IOolongElement.JsCallback _onDrag;
-        private IOolongElement.JsCallback _onEndDrag;
-        private IOolongElement.JsCallback _onDrop;
-        private IOolongElement.JsCallback _onScroll;
-        private IOolongElement.JsCallback _onUpdateSelected;
-        private IOolongElement.JsCallback _onSelect;
-        private IOolongElement.JsCallback _onDeselect;
-        private IOolongElement.JsCallback _onMove;
-        private IOolongElement.JsCallback _onSubmit;
-        private IOolongElement.JsCallback _onCancel;
+        private IOolongLoader.JsCallback _onPointerEnter;
+        private IOolongLoader.JsCallback _onPointerExit;
+        private IOolongLoader.JsCallback _onPointerDown;
+        private IOolongLoader.JsCallback _onPointerUp;
+        private IOolongLoader.JsCallback _onPointerMove;
+        private IOolongLoader.JsCallback _onPointerClick;
+        private IOolongLoader.JsCallback _onInitializePotentialDrag;
+        private IOolongLoader.JsCallback _onBeginDrag;
+        private IOolongLoader.JsCallback _onDrag;
+        private IOolongLoader.JsCallback _onEndDrag;
+        private IOolongLoader.JsCallback _onDrop;
+        private IOolongLoader.JsCallback _onScroll;
+        private IOolongLoader.JsCallback _onUpdateSelected;
+        private IOolongLoader.JsCallback _onSelect;
+        private IOolongLoader.JsCallback _onDeselect;
+        private IOolongLoader.JsCallback _onMove;
+        private IOolongLoader.JsCallback _onSubmit;
+        private IOolongLoader.JsCallback _onCancel;
 
-        public bool AddListener(string key, IOolongElement.JsCallback callback)
+        public bool AddListener(string key, IOolongLoader.JsCallback callback)
         {
             switch (key)
             {

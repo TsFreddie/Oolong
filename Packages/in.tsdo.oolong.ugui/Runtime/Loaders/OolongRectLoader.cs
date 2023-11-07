@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace TSF.Oolong.UGUI
 {
-    public class OolongRectLoader : OolongLoader
+    public class OolongRectLoader : OolongLoader<OolongRectLoader>
     {
         private enum AlignType
         {
@@ -97,15 +97,15 @@ namespace TSF.Oolong.UGUI
             }
         }
 
-        public struct LayoutElementData
+        private struct LayoutElementData
         {
             public LayoutElement Instance;
             public float Priority;
             public bool IgnoreLayout;
         }
 
-        private delegate void RectAttrHandler(OolongRectLoader e, string value);
-        private static readonly Dictionary<string, RectAttrHandler> s_attr = new Dictionary<string, RectAttrHandler>()
+        protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
+        private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
             { "align", (e, v) => e.SetAlign(v) },
             { "width", (e, v) => e.SetFloat(ref e._layoutData.Width, v) },
@@ -149,9 +149,9 @@ namespace TSF.Oolong.UGUI
 
         private bool _autoAnchor = true;
 
-        public OolongRectLoader(RectTransform instance)
+        public OolongRectLoader(GameObject gameObject)
         {
-            Instance = instance;
+            Instance = gameObject.AddComponent<RectTransform>();
             IsLayoutDirty = true;
             _layoutData.FlexHeight = -1;
             _layoutData.FlexWidth = -1;
@@ -159,39 +159,14 @@ namespace TSF.Oolong.UGUI
             _layoutData.MinHeight = -1;
             _layoutElementData.IgnoreLayout = false;
             _layoutDataTransition = new LayoutDataTransitionProperty(ApplyLayout);
-            TransitionProperties.Add("rect", _layoutDataTransition);
+
+            // TODO!: register transitions
+            // TransitionProperties.Add("rect", _layoutDataTransition);
         }
 
-        public bool SetAttribute(string prefix, string key, string value)
-        {
-            if (prefix != null)
-            {
-                if (!key.StartsWith(prefix)) return false;
-                key = key.Substring(prefix.Length);
-            }
-
-            if (!s_attr.ContainsKey(key))
-                return false;
-
-            s_attr[key](this, value);
-            return true;
-        }
-
-        public void SetIgnoreLayout(string v)
+        private void SetIgnoreLayout(string v)
         {
             _layoutElementData.IgnoreLayout = v != null;
-        }
-
-        public bool SetAttribute(string key, string value)
-        {
-            return SetAttribute(null, key, value);
-        }
-
-        private void SetFloat(ref float f, string v, float def = 0.0f)
-        {
-            var oldF = f;
-            f = string.IsNullOrEmpty(v) ? def : float.Parse(v);
-            if (!oldF.Equals(f)) IsLayoutDirty = true;
         }
 
         private void SetAnchor(string value)

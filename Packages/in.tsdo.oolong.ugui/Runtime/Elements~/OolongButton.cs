@@ -20,7 +20,7 @@ namespace TSF.Oolong.UGUI
             _buttonLoader = new OolongSelectableLoader(_button, TagName);
         }
 
-        public override bool AddListener(string key, IOolongElement.JsCallback callback)
+        public override bool AddListener(string key, OolongElement.JsCallback callback)
         {
             if (base.AddListener(key, callback)) return true;
 

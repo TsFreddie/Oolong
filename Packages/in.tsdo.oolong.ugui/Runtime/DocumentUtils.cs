@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace TSF.Oolong.UGUI
@@ -11,20 +13,25 @@ namespace TSF.Oolong.UGUI
         public static Action OnDocumentUpdate;
         public static Action OnDocumentLateUpdate;
 
-        private static readonly Dictionary<string, Queue<IOolongElement>> s_pooledElements = new Dictionary<string, Queue<IOolongElement>>();
+        private static readonly Dictionary<string, Queue<OolongElement>> s_pooledElements = new Dictionary<string, Queue<OolongElement>>();
 
-        private static readonly Dictionary<string, Type> s_elements = new Dictionary<string, Type>()
+        private delegate IOolongLoader ElementLoaderFactory(OolongElement element);
+        private static readonly Dictionary<string, ElementLoaderFactory> s_elements = new Dictionary<string, ElementLoaderFactory>()
         {
-            { "div", typeof(OolongPanel) }, // Empty Component
-            { "panel", typeof(OolongPanel) },
-            { "image", typeof(OolongImage) },
-            { "text", typeof(OolongText) },
-            { "button", typeof(OolongButton) },
-            { "toggle", typeof(OolongToggle) },
-            { "scrollview", typeof(OolongScrollView) },
-            { "input", typeof(OolongInputField) },
-            { "slider", typeof(OolongSlider) },
-            { "container", typeof(OolongContainer) },
+            // { "div", typeof(OolongPanel) }, // Empty Component
+            // { "panel", typeof(OolongPanel) },
+            // { "image", typeof(OolongImage) },
+            // { "text", typeof(OolongText) },
+            // { "button", typeof(OolongButton) },
+            // { "toggle", typeof(OolongToggle) },
+            // { "scrollview", typeof(OolongScrollView) },
+            // { "input", typeof(OolongInputField) },
+            // { "slider", typeof(OolongSlider) },
+            // { "container", typeof(OolongContainer) },
+            { "div", (e) => new OolongRectLoader(e.gameObject) },
+            { "panel", (e) => new OolongRectLoader(e.gameObject) },
+            { "image", (e) => new OolongImageLoader(e.gameObject.AddComponent<Image>(), "image") },
+            { "text", (e) => new OolongTextLoader(e.gameObject) },
         };
 
         private static Transform s_elementPoolRoot = null;
@@ -41,18 +48,19 @@ namespace TSF.Oolong.UGUI
             return s_elementPoolRoot;
         }
 
-        public static void AttachElement(IOolongElement parent, IOolongElement node)
+        public static void AttachElement(OolongElement parent, OolongElement node)
         {
-            var scale = node.transform.localScale;
+            var transform = node.transform;
+            var scale = transform.localScale;
             node.ParentElement = parent;
-            node.transform.SetParent(parent.RootTransform);
+            transform.SetParent(parent.RootTransform);
             parent.AddChild(node);
-            node.transform.localScale = scale;
-            node.transform.localRotation = Quaternion.identity;
+            transform.localScale = scale;
+            transform.localRotation = Quaternion.identity;
             node.gameObject.SetActive(true);
         }
 
-        public static void DetachElement(IOolongElement node)
+        public static void DetachElement(OolongElement node)
         {
             Debug.Log("不应出现");
             // var scale = node.transform.localScale;
@@ -63,22 +71,23 @@ namespace TSF.Oolong.UGUI
             // node.gameObject.SetActive(false);
         }
 
-        public static void RemoveElement(IOolongElement parent, IOolongElement node)
+        public static void RemoveElement(OolongElement parent, OolongElement node)
         {
-            if (node.transform.parent != parent.RootTransform)
+            var transform = node.transform;
+            if (transform.parent != parent.RootTransform)
             {
                 Debug.Log("元素同步出现问题");
             }
 
-            var scale = node.transform.localScale;
+            var scale = transform.localScale;
             var tagName = node.TagName;
             parent.RemoveChild(node);
             node.OnReset();
             node.gameObject.SetActive(false);
             var pool = GetPoolParent();
-            node.transform.SetParent(pool);
-            node.transform.localScale = scale;
-            node.transform.localRotation = Quaternion.identity;
+            transform.SetParent(pool);
+            transform.localScale = scale;
+            transform.localRotation = Quaternion.identity;
 
             // Do not pool destroyed elements
             if (node is MonoBehaviour behaviour && !behaviour)
@@ -90,22 +99,23 @@ namespace TSF.Oolong.UGUI
             }
             else
             {
-                var newQueue = new Queue<IOolongElement>();
+                var newQueue = new Queue<OolongElement>();
                 newQueue.Enqueue(node);
                 s_pooledElements.Add(tagName, newQueue);
             }
         }
 
-        public static void ResetElement(IOolongElement node)
+        public static void ResetElement(OolongElement node)
         {
-            var scale = node.transform.localScale;
+            var transform = node.transform;
+            var scale = transform.localScale;
             var tagName = node.TagName;
             node.OnReset();
             node.gameObject.SetActive(false);
             var pool = GetPoolParent();
-            node.transform.SetParent(pool);
-            node.transform.localScale = scale;
-            node.transform.localRotation = Quaternion.identity;
+            transform.SetParent(pool);
+            transform.localScale = scale;
+            transform.localRotation = Quaternion.identity;
 
             if (s_pooledElements.TryGetValue(tagName, out var queue))
             {
@@ -113,29 +123,42 @@ namespace TSF.Oolong.UGUI
             }
             else
             {
-                var newQueue = new Queue<IOolongElement>();
+                var newQueue = new Queue<OolongElement>();
                 newQueue.Enqueue(node);
                 s_pooledElements.Add(tagName, newQueue);
             }
         }
 
-        public static int InsertElement(IOolongElement parent, IOolongElement node, int index)
+        public static int InsertElement(OolongElement parent, OolongElement node, int index)
         {
-            var scale = node.transform.localScale;
+            var transform = node.transform;
+            var scale = transform.localScale;
             node.ParentElement = parent;
-            node.transform.SetParent(parent.RootTransform);
+            transform.SetParent(parent.RootTransform);
             parent.AddChild(node);
-            node.transform.localScale = scale;
-            node.transform.localRotation = Quaternion.identity;
-            node.transform.SetSiblingIndex(index);
+            transform.localScale = scale;
+            transform.localRotation = Quaternion.identity;
+            transform.SetSiblingIndex(index);
             node.gameObject.SetActive(true);
             return index;
         }
 
-        public static IOolongElement CreateElement(string tagName)
+        private static OolongElement CreateElementOfTag(string tagName)
         {
-            var type = s_elements[tagName];
+            var obj = new GameObject(string.Format("<{0}>", tagName));
+            obj.SetActive(false);
 
+            var eventHandler = obj.AddComponent<UIEventHandler>();
+            eventHandler.enabled = false;
+            var element = obj.AddComponent<OolongElement>();
+            element.TagName = tagName;
+            element.SetEventHandler(eventHandler);
+            element.OnCreate(s_elements.TryGetValue(tagName, out var factory) ? factory(element) : null);
+            return element;
+        }
+
+        public static OolongElement CreateElement(string tagName)
+        {
             if (s_pooledElements.TryGetValue(tagName, out var queue))
             {
                 if (queue.Count > 0)
@@ -146,18 +169,7 @@ namespace TSF.Oolong.UGUI
                 }
             }
 
-            var obj = new GameObject(string.Format("<{0}>", tagName));
-            obj.SetActive(false);
-
-            var eventHandler = obj.AddComponent<UIEventHandler>();
-            eventHandler.enabled = false;
-            if (!(obj.AddComponent(type) is IOolongElement element))
-                throw new Exception("Element must be derived from IOolongElement");
-
-            element.SetEventHandler(eventHandler);
-            element.OnCreate();
-            element.TagName = tagName;
-            return element;
+            return CreateElementOfTag(tagName);
         }
 
         public static void CacheElement(string tagName, int count)
@@ -169,11 +181,7 @@ namespace TSF.Oolong.UGUI
                 var obj = new GameObject(string.Format("<{0}>", tagName));
                 obj.SetActive(false);
 
-                if (!(obj.AddComponent(type) is IOolongElement element))
-                    continue;
-
-                element.OnCreate();
-                element.TagName = tagName;
+                var element = CreateElementOfTag(tagName);
                 ResetElement(element);
             }
         }

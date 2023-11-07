@@ -82,10 +82,6 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        class Type extends System.Reflection.MemberInfo implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._Type, System.Reflection.ICustomAttributeProvider, System.Reflection.IReflect
-        {
-            protected [__keep_incompatibility]: never;
-        }
         class Enum extends System.ValueType implements System.IFormattable, System.IComparable, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
@@ -107,9 +103,9 @@
         {
             protected [__keep_incompatibility]: never;
             public static Initialize () : void
-            public static Mount ($element: TSF.Oolong.UGUI.IOolongElement, $component: Puerts.JSObject, $partial: boolean) : Puerts.JSObject
+            public static Mount ($element: TSF.Oolong.UGUI.OolongElement, $component: Puerts.JSObject, $partial: boolean) : Puerts.JSObject
             public static Unmount ($element: Puerts.JSObject) : void
-            public static TransformText ($text: string) : string
+            public static TransformText ($text: string, $loader: TSF.Oolong.UGUI.OolongTextLoader) : string
             public static TransformAddress ($tag: string, $address: string) : string
         }
         namespace Puerts {
@@ -119,26 +115,136 @@
             protected [__keep_incompatibility]: never;
         }
     }
-    namespace TSF.Oolong.UGUI {
-        interface IOolongElement
+    namespace UnityEngine {
+        /** Base class for all objects Unity can reference.
+        */
+        class Object extends System.Object
         {
-            transform : UnityEngine.Transform
-            gameObject : UnityEngine.GameObject
-            RootTransform : UnityEngine.Transform
-            ParentElement : TSF.Oolong.UGUI.IOolongElement
-            TagName : string
-            AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            OnCreate () : void
-            OnReuse () : void
-            OnReset () : void
-            SetElementAttribute ($key: string, $value: string) : void
-            AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            protected [__keep_incompatibility]: never;
+        }
+        /** Base class for everything attached to a GameObject.
+        */
+        class Component extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        /** Behaviours are Components that can be enabled or disabled.
+        */
+        class Behaviour extends UnityEngine.Component
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        /** MonoBehaviour is a base class that many Unity scripts derive from.
+        */
+        class MonoBehaviour extends UnityEngine.Behaviour
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        /** Position, rotation and scale of an object.
+        */
+        class Transform extends UnityEngine.Component implements System.Collections.IEnumerable
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        /** Position, size, anchor and pivot information for a rectangle.
+        */
+        class RectTransform extends UnityEngine.Transform implements System.Collections.IEnumerable
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        /** Representation of RGBA colors.
+        */
+        class Color extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Color>
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface ICanvasRaycastFilter
+        {
+        }
+        interface ISerializationCallbackReceiver
+        {
+        }
+        /** Base class for all entities in Unity Scenes.
+        */
+        class GameObject extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        /** Represents a raw text or binary file asset.
+        */
+        class TextAsset extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+    }
+    namespace TSF.Oolong.UGUI {
+        class OolongElement extends UnityEngine.MonoBehaviour
+        {
+            protected [__keep_incompatibility]: never;
+            public get TagName(): string;
+            public set TagName(value: string);
+            public get RootTransform(): UnityEngine.Transform;
+            public get ParentElement(): TSF.Oolong.UGUI.OolongElement;
+            public set ParentElement(value: TSF.Oolong.UGUI.OolongElement);
+            public GetInstanceID () : number
+            public AddChild ($e: TSF.Oolong.UGUI.OolongElement) : void
+            public RemoveChild ($e: TSF.Oolong.UGUI.OolongElement) : void
+            public SetElementAttribute ($key: string, $value: string) : void
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener ($key: string) : void
+            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
+            public OnCreate ($loader: TSF.Oolong.UGUI.IOolongLoader) : void
+            public OnReset () : void
+            public OnReuse () : void
+            public constructor ()
+        }
+        class OolongLoader$1<T> extends System.Object implements TSF.Oolong.UGUI.IOolongLoader
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public Release () : void
+            public Reuse () : void
+            public Reset () : void
+            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
+            public ResetTransitions () : void
+            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
+        }
+        interface IOolongLoader
+        {
+            AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
             RemoveListener ($key: string) : boolean
-            GetComponent ($type: System.Type) : UnityEngine.Component
-            GetComponent ($type: string) : UnityEngine.Component
-            GetInstanceID () : number
+            Release () : void
+            Reuse () : void
+            Reset () : void
+            SetAttribute ($prefix: string, $key: string, $value: string) : boolean
+            ResetTransitions () : void
+            SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
+        }
+        class OolongTextLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongTextLoader> implements TSF.Oolong.UGUI.IOolongLoader
+        {
+            protected [__keep_incompatibility]: never;
+            public Instance : TMPro.TextMeshProUGUI
+            public get TextAttr(): System.Collections.Generic.IReadOnlyDictionary$2<string, string>;
+            public get DefaultAlign(): TMPro.TextAlignmentOptions;
+            public set DefaultAlign(value: TMPro.TextAlignmentOptions);
+            public get DefaultOverflow(): TMPro.TextOverflowModes;
+            public set DefaultOverflow(value: TMPro.TextOverflowModes);
+            public get DefaultWrap(): boolean;
+            public set DefaultWrap(value: boolean);
+            public get DefaultColor(): UnityEngine.Color;
+            public set DefaultColor(value: UnityEngine.Color);
+            public get DefaultStyle(): TMPro.FontStyles;
+            public set DefaultStyle(value: TMPro.FontStyles);
+            public constructor ($gameObject: UnityEngine.GameObject)
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public Release () : void
+            public Reuse () : void
+            public Reset () : void
+            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
+            public ResetTransitions () : void
+            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
         }
         class DocumentUtils extends System.Object
         {
@@ -146,12 +252,12 @@
             public static OnDocumentPreUpdate : System.Action
             public static OnDocumentUpdate : System.Action
             public static OnDocumentLateUpdate : System.Action
-            public static AttachElement ($parent: TSF.Oolong.UGUI.IOolongElement, $node: TSF.Oolong.UGUI.IOolongElement) : void
-            public static DetachElement ($node: TSF.Oolong.UGUI.IOolongElement) : void
-            public static RemoveElement ($parent: TSF.Oolong.UGUI.IOolongElement, $node: TSF.Oolong.UGUI.IOolongElement) : void
-            public static ResetElement ($node: TSF.Oolong.UGUI.IOolongElement) : void
-            public static InsertElement ($parent: TSF.Oolong.UGUI.IOolongElement, $node: TSF.Oolong.UGUI.IOolongElement, $index: number) : number
-            public static CreateElement ($tagName: string) : TSF.Oolong.UGUI.IOolongElement
+            public static AttachElement ($parent: TSF.Oolong.UGUI.OolongElement, $node: TSF.Oolong.UGUI.OolongElement) : void
+            public static DetachElement ($node: TSF.Oolong.UGUI.OolongElement) : void
+            public static RemoveElement ($parent: TSF.Oolong.UGUI.OolongElement, $node: TSF.Oolong.UGUI.OolongElement) : void
+            public static ResetElement ($node: TSF.Oolong.UGUI.OolongElement) : void
+            public static InsertElement ($parent: TSF.Oolong.UGUI.OolongElement, $node: TSF.Oolong.UGUI.OolongElement, $index: number) : number
+            public static CreateElement ($tagName: string) : TSF.Oolong.UGUI.OolongElement
             public static CacheElement ($tagName: string, $count: number) : void
             public static CreateChildRect ($parent: UnityEngine.Transform, $name: string) : UnityEngine.RectTransform
             public static ParseColor ($color: string) : UnityEngine.Color
@@ -159,256 +265,10 @@
             public static UpdateLayout () : void
             public static LateUpdateLayout () : void
         }
-        class OolongElement$1<T> extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get RootTransform(): UnityEngine.Transform;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongButton extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongButton> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get RootTransform(): UnityEngine.Transform;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongContainer extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongContainer> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get RootTransform(): UnityEngine.Transform;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongImage extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongImage> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get RootTransform(): UnityEngine.Transform;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongInputField extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongInputField> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get RootTransform(): UnityEngine.Transform;
-            public get Value(): string;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongPanel extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongPanel> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get RootTransform(): UnityEngine.Transform;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongScrollView extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongScrollView> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get RootTransform(): UnityEngine.Transform;
-            public get ScrollPosition(): UnityEngine.Vector2;
-            public set ScrollPosition(value: UnityEngine.Vector2);
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongSlider extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongSlider> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get Value(): number;
-            public set Value(value: number);
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get RootTransform(): UnityEngine.Transform;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongText extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongText> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get RootTransform(): UnityEngine.Transform;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class OolongToggle extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.OolongToggle> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public get IsOn(): boolean;
-            public set IsOn(value: boolean);
-            public get RootTransform(): UnityEngine.Transform;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
         class UIEventHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.EventSystems.ICancelHandler, UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.EventSystems.IEndDragHandler, UnityEngine.EventSystems.IDropHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IScrollHandler, UnityEngine.EventSystems.IPointerMoveHandler, UnityEngine.EventSystems.IUpdateSelectedHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IMoveHandler, UnityEngine.EventSystems.IPointerUpHandler
         {
             protected [__keep_incompatibility]: never;
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
             public RemoveListener ($key: string) : boolean
             public OnPointerEnter ($eventData: UnityEngine.EventSystems.PointerEventData) : void
             public OnPointerExit ($eventData: UnityEngine.EventSystems.PointerEventData) : void
@@ -431,139 +291,6 @@
             public Reset () : void
             public constructor ()
         }
-        class OolongLoader extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            public get TransitionProperties(): System.Collections.Generic.Dictionary$2<string, TSF.Oolong.UGUI.ITransitionProperty>;
-            public Release () : void
-            public Reset () : void
-            public Reuse () : void
-            public ResetTransitions () : void
-            public SetTransition ($prefix: string, $key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
-            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
-        }
-        class OolongImageLoader extends TSF.Oolong.UGUI.OolongLoader
-        {
-            protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.Image
-            public get DefaultType(): string;
-            public set DefaultType(value: string);
-            public get HasImage(): boolean;
-            public get Loaded(): boolean;
-            public get Enabled(): boolean;
-            public set Enabled(value: boolean);
-            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
-            public SetAttribute ($key: string, $value: string) : boolean
-            public SetImage ($address: string) : void
-            public constructor ($instance: UnityEngine.UI.Image, $tagName: string)
-        }
-        class OolongLayoutLoader extends TSF.Oolong.UGUI.OolongLoader
-        {
-            protected [__keep_incompatibility]: never;
-            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
-            public SetAttribute ($key: string, $value: string) : boolean
-            public constructor ($obj: UnityEngine.GameObject)
-        }
-        class OolongRectLoader extends TSF.Oolong.UGUI.OolongLoader
-        {
-            protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.RectTransform
-            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
-            public SetIgnoreLayout ($v: string) : void
-            public SetAttribute ($key: string, $value: string) : boolean
-            public constructor ($instance: UnityEngine.RectTransform)
-        }
-        class OolongScrollbarLoader extends TSF.Oolong.UGUI.OolongLoader
-        {
-            protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.Scrollbar
-            public get Enabled(): boolean;
-            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
-            public SetAttribute ($key: string, $value: string) : boolean
-            public constructor ($obj: UnityEngine.GameObject, $tagName: string)
-            public constructor ($obj: UnityEngine.GameObject, $direction: UnityEngine.UI.Scrollbar.Direction, $tagName: string)
-        }
-        class OolongSelectableLoader extends TSF.Oolong.UGUI.OolongLoader
-        {
-            protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.Selectable
-            public get HasImage(): boolean;
-            public get Loaded(): boolean;
-            public get Enabled(): boolean;
-            public set Enabled(value: boolean);
-            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
-            public SetAttribute ($key: string, $value: string) : boolean
-            public constructor ($instance: UnityEngine.UI.Selectable, $tagName: string)
-        }
-        class OolongSliderLoader extends TSF.Oolong.UGUI.OolongLoader
-        {
-            protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.Slider
-            public get Enabled(): boolean;
-            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
-            public SetAttribute ($key: string, $value: string) : boolean
-            public constructor ($obj: UnityEngine.GameObject, $tagName: string)
-            public constructor ($obj: UnityEngine.GameObject, $direction: UnityEngine.UI.Slider.Direction, $tagName: string)
-        }
-        class OolongTextLoader extends TSF.Oolong.UGUI.OolongLoader
-        {
-            protected [__keep_incompatibility]: never;
-            public Instance : TMPro.TextMeshProUGUI
-            public get DefaultAlign(): TMPro.TextAlignmentOptions;
-            public set DefaultAlign(value: TMPro.TextAlignmentOptions);
-            public get DefaultOverflow(): TMPro.TextOverflowModes;
-            public set DefaultOverflow(value: TMPro.TextOverflowModes);
-            public get DefaultWrap(): boolean;
-            public set DefaultWrap(value: boolean);
-            public get DefaultColor(): UnityEngine.Color;
-            public set DefaultColor(value: UnityEngine.Color);
-            public get DefaultStyle(): TMPro.FontStyles;
-            public set DefaultStyle(value: TMPro.FontStyles);
-            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
-            public SetAttribute ($key: string, $value: string) : boolean
-            public constructor ($text: TMPro.TextMeshProUGUI)
-        }
-        class MithrilComponent extends TSF.Oolong.UGUI.OolongElement$1<TSF.Oolong.UGUI.MithrilComponent> implements TSF.Oolong.UGUI.IOolongElement
-        {
-            protected [__keep_incompatibility]: never;
-            public AddressableScript : UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.TextAsset>
-            public get HasScript(): boolean;
-            public get PartialRedraw(): boolean;
-            public get transform(): UnityEngine.Transform;
-            public get gameObject(): UnityEngine.GameObject;
-            public get RootTransform(): UnityEngine.Transform;
-            public get ParentElement(): TSF.Oolong.UGUI.IOolongElement;
-            public set ParentElement(value: TSF.Oolong.UGUI.IOolongElement);
-            public get TagName(): string;
-            public set TagName(value: string);
-            public constructor ()
-            public AddChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public RemoveChild ($e: TSF.Oolong.UGUI.IOolongElement) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
-            public OnCreate () : void
-            public OnReuse () : void
-            public OnReset () : void
-            public SetElementAttribute ($key: string, $value: string) : void
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongElement.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            public GetComponent ($type: string) : UnityEngine.Component
-            public GetInstanceID () : number
-        }
-        class UnityWebRequestExtension extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            public static SetBody ($request: UnityEngine.Networking.UnityWebRequest, $body: ArrayBuffer) : void
-            public static SendWithCallback ($request: UnityEngine.Networking.UnityWebRequest, $callback: TSF.Oolong.UGUI.UnityWebRequestExtension.JsWebCallback) : void
-            public static GetArrayBuffer ($handler: UnityEngine.Networking.DownloadHandlerBuffer) : ArrayBuffer
-        }
-        interface ITransitionProperty
-        {
-            TimingFunction : TSF.Oolong.UGUI.CubicBezier
-            Delay : number
-            Duration : number
-            Reset () : void
-        }
         class CubicBezier extends System.ValueType
         {
             protected [__keep_incompatibility]: never;
@@ -574,6 +301,119 @@
             public static EaseInOut : TSF.Oolong.UGUI.CubicBezier
             public Evaluate ($x: number) : number
             public constructor ($p1X: number, $p1Y: number, $p2X: number, $p2Y: number)
+        }
+        class OolongImageLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongImageLoader> implements TSF.Oolong.UGUI.IOolongLoader
+        {
+            protected [__keep_incompatibility]: never;
+            public Instance : UnityEngine.UI.Image
+            public get DefaultType(): string;
+            public set DefaultType(value: string);
+            public get HasImage(): boolean;
+            public get Loaded(): boolean;
+            public get Enabled(): boolean;
+            public set Enabled(value: boolean);
+            public SetImage ($address: string) : void
+            public constructor ($instance: UnityEngine.UI.Image, $tagName: string)
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public Release () : void
+            public Reuse () : void
+            public Reset () : void
+            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
+            public ResetTransitions () : void
+            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
+        }
+        class OolongLayoutLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongLayoutLoader> implements TSF.Oolong.UGUI.IOolongLoader
+        {
+            protected [__keep_incompatibility]: never;
+            public constructor ($obj: UnityEngine.GameObject)
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public Release () : void
+            public Reuse () : void
+            public Reset () : void
+            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
+            public ResetTransitions () : void
+            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
+        }
+        class OolongRectLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongRectLoader> implements TSF.Oolong.UGUI.IOolongLoader
+        {
+            protected [__keep_incompatibility]: never;
+            public Instance : UnityEngine.RectTransform
+            public constructor ($gameObject: UnityEngine.GameObject)
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public Release () : void
+            public Reuse () : void
+            public Reset () : void
+            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
+            public ResetTransitions () : void
+            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
+        }
+        class OolongScrollbarLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongScrollbarLoader> implements TSF.Oolong.UGUI.IOolongLoader
+        {
+            protected [__keep_incompatibility]: never;
+            public Instance : UnityEngine.UI.Scrollbar
+            public get Enabled(): boolean;
+            public constructor ($obj: UnityEngine.GameObject, $tagName: string)
+            public constructor ($obj: UnityEngine.GameObject, $direction: UnityEngine.UI.Scrollbar.Direction, $tagName: string)
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public Release () : void
+            public Reuse () : void
+            public Reset () : void
+            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
+            public ResetTransitions () : void
+            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
+        }
+        class OolongSelectableLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongSelectableLoader> implements TSF.Oolong.UGUI.IOolongLoader
+        {
+            protected [__keep_incompatibility]: never;
+            public Instance : UnityEngine.UI.Selectable
+            public get HasImage(): boolean;
+            public get Loaded(): boolean;
+            public get Enabled(): boolean;
+            public set Enabled(value: boolean);
+            public constructor ($instance: UnityEngine.UI.Selectable, $tagName: string)
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public Release () : void
+            public Reuse () : void
+            public Reset () : void
+            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
+            public ResetTransitions () : void
+            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
+        }
+        class OolongSliderLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongSliderLoader> implements TSF.Oolong.UGUI.IOolongLoader
+        {
+            protected [__keep_incompatibility]: never;
+            public Instance : UnityEngine.UI.Slider
+            public get Enabled(): boolean;
+            public constructor ($obj: UnityEngine.GameObject, $tagName: string)
+            public constructor ($obj: UnityEngine.GameObject, $direction: UnityEngine.UI.Slider.Direction, $tagName: string)
+            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
+            public RemoveListener ($key: string) : boolean
+            public Release () : void
+            public Reuse () : void
+            public Reset () : void
+            public SetAttribute ($prefix: string, $key: string, $value: string) : boolean
+            public ResetTransitions () : void
+            public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : boolean
+        }
+        class MithrilComponent extends TSF.Oolong.UGUI.OolongElement
+        {
+            protected [__keep_incompatibility]: never;
+            public AddressableScript : UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.TextAsset>
+            public get HasScript(): boolean;
+            public get PartialRedraw(): boolean;
+            public constructor ()
+        }
+        class UnityWebRequestExtension extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public static SetBody ($request: UnityEngine.Networking.UnityWebRequest, $body: ArrayBuffer) : void
+            public static SendWithCallback ($request: UnityEngine.Networking.UnityWebRequest, $callback: TSF.Oolong.UGUI.UnityWebRequestExtension.JsWebCallback) : void
+            public static GetArrayBuffer ($handler: UnityEngine.Networking.DownloadHandlerBuffer) : ArrayBuffer
         }
         class OolongMithril extends System.Object
         {
@@ -588,6 +428,37 @@
             public set Delay(value: number);
             public get Duration(): number;
             public set Duration(value: number);
+            public Reset () : void
+        }
+        interface ITransitionProperty
+        {
+            TimingFunction : TSF.Oolong.UGUI.CubicBezier
+            Delay : number
+            Duration : number
+            Reset () : void
+        }
+        class BooleanTransitionProperty extends TSF.Oolong.UGUI.TransitionProperty$1<boolean> implements TSF.Oolong.UGUI.ITransitionProperty
+        {
+            protected [__keep_incompatibility]: never;
+            public get TimingFunction(): TSF.Oolong.UGUI.CubicBezier;
+            public set TimingFunction(value: TSF.Oolong.UGUI.CubicBezier);
+            public get Delay(): number;
+            public set Delay(value: number);
+            public get Duration(): number;
+            public set Duration(value: number);
+            public constructor ($applyCallback: System.Action$1<boolean>)
+            public Reset () : void
+        }
+        class ColorTransitionProperty extends TSF.Oolong.UGUI.TransitionProperty$1<UnityEngine.Color> implements TSF.Oolong.UGUI.ITransitionProperty
+        {
+            protected [__keep_incompatibility]: never;
+            public get TimingFunction(): TSF.Oolong.UGUI.CubicBezier;
+            public set TimingFunction(value: TSF.Oolong.UGUI.CubicBezier);
+            public get Delay(): number;
+            public set Delay(value: number);
+            public get Duration(): number;
+            public set Duration(value: number);
+            public constructor ($applyCallback: System.Action$1<UnityEngine.Color>)
             public Reset () : void
         }
         class FloatTransitionProperty extends TSF.Oolong.UGUI.TransitionProperty$1<number> implements TSF.Oolong.UGUI.ITransitionProperty
@@ -627,11 +498,6 @@
         interface IEnumerable$1<T> extends System.Collections.IEnumerable
         {
         }
-        class Dictionary$2<TKey, TValue> extends System.Object implements System.Runtime.Serialization.IDeserializationCallback, System.Collections.Generic.IReadOnlyDictionary$2<TKey, TValue>, System.Collections.Generic.IDictionary$2<TKey, TValue>, System.Runtime.Serialization.ISerializable, System.Collections.ICollection, System.Collections.IDictionary, System.Collections.Generic.IEnumerable$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.IEnumerable, System.Collections.Generic.IReadOnlyCollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.Generic.ICollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
-        {
-            protected [__keep_incompatibility]: never;
-            public [Symbol.iterator]() : IterableIterator<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
-        }
         interface IReadOnlyDictionary$2<TKey, TValue> extends System.Collections.Generic.IEnumerable$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.IEnumerable, System.Collections.Generic.IReadOnlyCollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
         {
         }
@@ -642,27 +508,18 @@
         interface IReadOnlyCollection$1<T> extends System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable
         {
         }
-        interface IDictionary$2<TKey, TValue> extends System.Collections.Generic.IEnumerable$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.IEnumerable, System.Collections.Generic.ICollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
-        {
-        }
-        interface ICollection$1<T> extends System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable
-        {
-        }
     }
     namespace System.Collections {
         interface IEnumerable
-        {
-        }
-        interface ICollection extends System.Collections.IEnumerable
-        {
-        }
-        interface IDictionary extends System.Collections.ICollection, System.Collections.IEnumerable
         {
         }
         interface IStructuralComparable
         {
         }
         interface IStructuralEquatable
+        {
+        }
+        interface ICollection extends System.Collections.IEnumerable
         {
         }
         interface IList extends System.Collections.ICollection, System.Collections.IEnumerable
@@ -673,95 +530,8 @@
         interface ISerializable
         {
         }
-        interface IDeserializationCallback
-        {
-        }
-    }
-    namespace UnityEngine {
-        /** Base class for all objects Unity can reference.
-        */
-        class Object extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        /** Base class for everything attached to a GameObject.
-        */
-        class Component extends UnityEngine.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        /** Position, rotation and scale of an object.
-        */
-        class Transform extends UnityEngine.Component implements System.Collections.IEnumerable
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        /** Position, size, anchor and pivot information for a rectangle.
-        */
-        class RectTransform extends UnityEngine.Transform implements System.Collections.IEnumerable
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        /** Representation of RGBA colors.
-        */
-        class Color extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Color>
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        /** Behaviours are Components that can be enabled or disabled.
-        */
-        class Behaviour extends UnityEngine.Component
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        /** MonoBehaviour is a base class that many Unity scripts derive from.
-        */
-        class MonoBehaviour extends UnityEngine.Behaviour
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        /** Representation of 2D vectors and points.
-        */
-        class Vector2 extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Vector2>
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        /** Base class for all entities in Unity Scenes.
-        */
-        class GameObject extends UnityEngine.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface ICanvasRaycastFilter
-        {
-        }
-        interface ISerializationCallbackReceiver
-        {
-        }
-        /** Represents a raw text or binary file asset.
-        */
-        class TextAsset extends UnityEngine.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-    }
-    namespace TSF.Oolong.UGUI.IOolongElement {
-        interface JsCallback
-        { 
-        (eventData: UnityEngine.EventSystems.BaseEventData) : void; 
-        Invoke?: (eventData: UnityEngine.EventSystems.BaseEventData) => void;
-        }
-        var JsCallback: { new (func: (eventData: UnityEngine.EventSystems.BaseEventData) => void): JsCallback; }
     }
     namespace UnityEngine.EventSystems {
-        class AbstractEventData extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class BaseEventData extends UnityEngine.EventSystems.AbstractEventData
-        {
-            protected [__keep_incompatibility]: never;
-        }
         interface ISubmitHandler extends UnityEngine.EventSystems.IEventSystemHandler
         {
         }
@@ -819,6 +589,14 @@
         interface IPointerUpHandler extends UnityEngine.EventSystems.IEventSystemHandler
         {
         }
+        class AbstractEventData extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class BaseEventData extends UnityEngine.EventSystems.AbstractEventData
+        {
+            protected [__keep_incompatibility]: never;
+        }
         class PointerEventData extends UnityEngine.EventSystems.BaseEventData
         {
             protected [__keep_incompatibility]: never;
@@ -832,25 +610,13 @@
             protected [__keep_incompatibility]: never;
         }
     }
-    namespace System.Reflection {
-        class MemberInfo extends System.Object implements System.Runtime.InteropServices._MemberInfo, System.Reflection.ICustomAttributeProvider
-        {
-            protected [__keep_incompatibility]: never;
+    namespace TSF.Oolong.UGUI.IOolongLoader {
+        interface JsCallback
+        { 
+        (eventData: UnityEngine.EventSystems.BaseEventData) : void; 
+        Invoke?: (eventData: UnityEngine.EventSystems.BaseEventData) => void;
         }
-        interface ICustomAttributeProvider
-        {
-        }
-        interface IReflect
-        {
-        }
-    }
-    namespace System.Runtime.InteropServices {
-        interface _MemberInfo
-        {
-        }
-        interface _Type
-        {
-        }
+        var JsCallback: { new (func: (eventData: UnityEngine.EventSystems.BaseEventData) => void): JsCallback; }
     }
     namespace UnityEngine.UI {
         class Graphic extends UnityEngine.EventSystems.UIBehaviour implements UnityEngine.UI.ICanvasElement
@@ -902,13 +668,6 @@
         class VertexHelper extends System.Object implements System.IDisposable
         {
             protected [__keep_incompatibility]: never;
-        }
-        class LayoutElement extends UnityEngine.EventSystems.UIBehaviour implements UnityEngine.UI.ILayoutIgnorer, UnityEngine.UI.ILayoutElement
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface ILayoutIgnorer
-        {
         }
     }
     namespace UnityEngine.UI.Scrollbar {
@@ -986,14 +745,5 @@
         Invoke?: () => void;
         }
         var JsWebCallback: { new (func: () => void): JsWebCallback; }
-    }
-    namespace TSF.Oolong.UGUI.OolongRectLoader {
-        class LayoutElementData extends System.ValueType
-        {
-            protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.LayoutElement
-            public Priority : number
-            public IgnoreLayout : boolean
-        }
     }
 }

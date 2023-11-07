@@ -1,13 +1,15 @@
 #if UNITY_LOCALIZATION
 
+using TSF.Oolong.UGUI;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 
 public class LocalizationTransformer : ITextTransformer
 {
     public TableReference DefaultTable = default;
+    private static readonly object[] s_cachedArgs = new object[1];
 
-    public string Transform(string text)
+    public string Transform(string text, OolongTextLoader loader)
     {
         if (string.IsNullOrEmpty(text)) return text;
         if (text[0] != '#') return text;
@@ -33,7 +35,16 @@ public class LocalizationTransformer : ITextTransformer
 
         var entry = LocalizationSettings.StringDatabase.GetTableEntry(table, text[entryIndex..]);
         if (entry.Entry == null) return text;
+
+        if (loader.TextAttr != null && loader.TextAttr.Count > 0)
+        {
+            s_cachedArgs[0] = loader.TextAttr;
+            var result = entry.Entry.GetLocalizedString(s_cachedArgs);
+            s_cachedArgs[0] = null;
+            return result;
+        }
         return entry.Entry.GetLocalizedString();
+
     }
 }
 

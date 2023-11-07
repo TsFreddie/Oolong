@@ -302,15 +302,15 @@ const runEvent = (
 };
 
 export class UnityElement<
-  T extends CS.TSF.Oolong.UGUI.IOolongElement = CS.TSF.Oolong.UGUI.IOolongElement
+  T extends CS.TSF.Oolong.UGUI.OolongElement = CS.TSF.Oolong.UGUI.OolongElement
 > extends UnityNode {
   public element: T;
   public mountId: number;
   private events: { [key: string]: EventHandler };
 
-  constructor(element: CS.TSF.Oolong.UGUI.IOolongElement, mount?: boolean);
+  constructor(element: CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean);
   constructor(tagName: string, mount?: boolean);
-  constructor(tagNameOrElement: string | CS.TSF.Oolong.UGUI.IOolongElement, mount?: boolean) {
+  constructor(tagNameOrElement: string | CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean) {
     super();
     if (typeof tagNameOrElement == 'string') {
       this.element = CS.TSF.Oolong.UGUI.DocumentUtils.CreateElement(tagNameOrElement) as T;

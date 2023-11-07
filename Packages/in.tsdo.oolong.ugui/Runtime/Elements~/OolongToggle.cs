@@ -88,7 +88,7 @@ namespace TSF.Oolong.UGUI
             set { _toggle.SetIsOnWithoutNotify(value); }
         }
 
-        public override bool AddListener(string key, IOolongElement.JsCallback callback)
+        public override bool AddListener(string key, OolongElement.JsCallback callback)
         {
             if (base.AddListener(key, callback)) return true;
 

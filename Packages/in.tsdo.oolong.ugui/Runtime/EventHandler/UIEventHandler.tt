@@ -46,12 +46,12 @@ namespace TSF.Oolong.UGUI
     foreach (var handler in handlers)
     {
 #>
-        private IOolongElement.JsCallback _on<#= handler.Item1 #>;
+        private IOolongLoader.JsCallback _on<#= handler.Item1 #>;
 <#
     }
 #>
 
-        public bool AddListener(string key, IOolongElement.JsCallback callback)
+        public bool AddListener(string key, IOolongLoader.JsCallback callback)
         {
             switch (key)
             {
