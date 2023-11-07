@@ -15,20 +15,32 @@ namespace TSF.Oolong.Editor
         public override void OnInspectorGUI()
         {
             var importer = target as TsConfigImporter;
-            if (!importer) return;
-
-            if (!IsInAssetsFolder(importer.assetPath)) return;
-
-            if (GUILayout.Button("Generate"))
+            if (!importer)
             {
-                Apply();
-                importer.Generate();
+                ApplyRevertGUI();
+                return;
             }
 
-            var configProperty = serializedObject.FindProperty("Config");
-            // draw text area
-            EditorGUILayout.PropertyField(configProperty, GUIContent.none);
+            EditorGUILayout.HelpBox("This is a tsconfig.json generator.\nThis is designed to work with Unity import system.\nA tsconfig.json file will be generated to reference this generator file.", MessageType.Info);
 
+            using (new EditorGUI.DisabledScope(!IsInAssetsFolder(importer.assetPath)))
+            {
+                var outputProperty = serializedObject.FindProperty("OutputFile");
+                var configProperty = serializedObject.FindProperty("Config");
+                var customTypingRootsProperty = serializedObject.FindProperty("CustomTypingRoots");
+
+                if (GUILayout.Button("Generate"))
+                {
+                    Apply();
+                    serializedObject.ApplyModifiedProperties();
+                    TsConfigImporter.Generate(importer.Config, importer.assetPath, importer.OutputFile, importer.CustomTypingRoots);
+                    importer.SaveAndReimport();
+                }
+
+                EditorGUILayout.PropertyField(outputProperty);
+                EditorGUILayout.PropertyField(customTypingRootsProperty);
+                EditorGUILayout.PropertyField(configProperty, GUIContent.none);
+            }
             serializedObject.ApplyModifiedProperties();
             ApplyRevertGUI();
         }

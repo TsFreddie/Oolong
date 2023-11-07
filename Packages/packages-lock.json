@@ -285,7 +285,8 @@
       "source": "embedded",
       "dependencies": {
         "com.tencent.puerts.core": "2.0.3",
-        "com.unity.addressables": "1.21.17"
+        "com.unity.addressables": "1.21.17",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
       }
     },
     "in.tsdo.oolong.ugui": {

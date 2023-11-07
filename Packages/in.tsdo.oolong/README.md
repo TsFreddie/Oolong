@@ -22,7 +22,7 @@ This is the roadmap planned out before I stopped working on generalizing the too
 
 - [x] ScriptBehaviour running and managing
 - [x] In editor TypeScript transpiling
-- [ ] tsconfig.json Generator
+- [x] tsconfig.json Generator
 - [ ] Source map support
 - [ ] Debugging support
 - [ ] Typescript Schema Server (for generating schema from TypeScript source)

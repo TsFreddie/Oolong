@@ -12,6 +12,12 @@
         "noEmit": true,
         "jsx": "react",
         "jsxFactory": "m",
-        "jsxFragmentFactory": "m.Fragment"
+        "jsxFragmentFactory": "m.Fragment",
+        "typeRoots": [
+            "../../Packages/in.tsdo.oolong.ugui/Generated/Typings~",
+            "../../Packages/in.tsdo.oolong.ugui/Typings~",
+            "../../Packages/in.tsdo.oolong/Generated/Typings~",
+            "../../Packages/in.tsdo.oolong/Typings~"
+        ]
     }
 }

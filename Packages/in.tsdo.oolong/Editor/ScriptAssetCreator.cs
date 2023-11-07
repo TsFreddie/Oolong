@@ -15,7 +15,7 @@ namespace TSF.Oolong.Editor
                 var template = AssetDatabase.GUIDToAssetPath(TemplateGuid);
                 ProjectWindowUtil.CreateScriptAssetFromTemplateFile(template, "NewTypeScript.ts");
             }
-            catch (Exception e)
+            catch
             {
                 // ignored
             }

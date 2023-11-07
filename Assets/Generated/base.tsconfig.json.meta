@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f0a10068e0d655843b1621870407e99d
+guid: 155f62b2a9c91c8448639026f0f9f357
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -8,8 +8,10 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 760af68b6121b444eabdc1528ab1edc1, type: 3}
-  Config: "{\r\n    \"compilerOptions\": {\r\n        \"target\": \"ES2021\",\r\n       
-    \"module\": \"ES2020\",\r\n        \"noImplicitAny\": true,\r\n        \"esModuleInterop\":
-    true,\r\n        \"isolatedModules\": true,\r\n        \"skipLibCheck\": true,\r\n       
-    \"emitDecoratorMetadata\": true,\r\n        \"experimentalDecorators\": true,\r\n       
-    \"sourceMap\": true,\r\n        \"noEmit\": true\r\n    }\r\n}\r"
+  OutputFile: ../tsconfig.json
+  Config: "{\n    \"compilerOptions\": {\n        \"target\": \"ES2021\",\n       
+    \"module\": \"ES2020\",\n        \"noImplicitAny\": true,\n        \"esModuleInterop\":
+    true,\n        \"isolatedModules\": true,\n        \"skipLibCheck\": true,\n       
+    \"emitDecoratorMetadata\": true,\n        \"experimentalDecorators\": true,\n       
+    \"sourceMap\": true,\n        \"noEmit\": true\n    }\n}\n"
+  CustomTypingRoots: []

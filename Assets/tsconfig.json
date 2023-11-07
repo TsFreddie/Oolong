@@ -1,3 +1,3 @@
-{
+﻿{
   "extends": "./Generated/base.tsconfig.json",
 }
