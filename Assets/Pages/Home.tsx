@@ -1,17 +1,22 @@
 export default class Menu extends MithrilComponent {
     private count: number = 0;
     private margin: number = 0;
+    private marginX: number = 0;
 
     view(vnode: m.Vnode<{}, this>) {
         return (
             <image src="#" color="#2c2c2c">
                 <button
                     src="#"
-                    margin={this.margin}
-                    color="#ececec"
-                    transition-property="rect"
+                    transition-property="margin-x"
                     transition-duration="1s"
-                    onclick={() => (this.margin = 100 - this.margin)}
+                    margin={this.margin}
+                    margin-x={this.marginX}
+                    color="#ececec"
+                    onclick={() => {
+                        this.margin = 100 - this.margin;
+                        this.marginX = 100 - this.marginX;
+                    }}
                 >
                     <toggle
                         src="#"

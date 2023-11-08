@@ -148,9 +148,7 @@ namespace TSF.Oolong.UGUI
                 if (_isTransitionDirty == value) return;
                 _isTransitionDirty = value;
                 if (_isTransitionDirty)
-                    DocumentUtils.OnDocumentPreUpdate += OnTransitionDirty;
-                else
-                    DocumentUtils.OnDocumentPreUpdate -= OnTransitionDirty;
+                    DocumentUtils.OnTransitionUpdate += OnTransitionDirty;
             }
         }
 

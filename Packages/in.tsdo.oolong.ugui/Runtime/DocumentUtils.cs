@@ -8,7 +8,8 @@ namespace TSF.Oolong.UGUI
 {
     public static class DocumentUtils
     {
-        public static Action OnDocumentPreUpdate;
+        public static Action OnTransitionUpdate;
+        public static Action OnTransitionValueUpdate;
         public static Action OnDocumentUpdate;
         public static Action OnDocumentLateUpdate;
 
@@ -293,7 +294,10 @@ namespace TSF.Oolong.UGUI
 
         public static void UpdateLayout()
         {
-            OnDocumentPreUpdate?.Invoke();
+            OnTransitionUpdate?.Invoke();
+            OnTransitionValueUpdate?.Invoke();
+            OnTransitionUpdate = null;
+            OnTransitionValueUpdate = null;
             OnDocumentUpdate?.Invoke();
         }
 

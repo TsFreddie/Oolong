@@ -94,11 +94,23 @@ namespace TSF.Oolong.UGUI
             }
         }
 
-        public void SetTransition(string key, float duration, CubicBezier timingFunction, float delay)
+        public virtual void SetTransition(string key, float duration, CubicBezier timingFunction, float delay)
         {
             if (_transitions == null) return;
             if (!_transitions.TryGetValue(key, out var prop))
                 return;
+
+            if (key == "all")
+            {
+                // all transitions are enabled for "all" key
+                foreach (var p in _transitions.Values)
+                {
+                    p.Duration = duration;
+                    p.TimingFunction = timingFunction;
+                    p.Delay = delay;
+                }
+                return;
+            }
 
             prop.Duration = duration;
             prop.TimingFunction = timingFunction;
@@ -109,6 +121,13 @@ namespace TSF.Oolong.UGUI
         {
             var oldF = f;
             f = string.IsNullOrEmpty(v) || !float.TryParse(v, out var value) ? def : value;
+            if (!oldF.Equals(f)) IsUpdatePending = true;
+        }
+
+        protected void SetInt(ref int f, string v, int def = 0)
+        {
+            var oldF = f;
+            f = string.IsNullOrEmpty(v) || !int.TryParse(v, out var value) ? def : value;
             if (!oldF.Equals(f)) IsUpdatePending = true;
         }
 

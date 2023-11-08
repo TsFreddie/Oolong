@@ -12,6 +12,7 @@ namespace TSF.Oolong.UGUI
         private T _start;
         private T _to;
         private T _current;
+        private T _defaultValue;
         private float _progress;
         private bool _hasInitialValue;
         private float _duration;
@@ -21,8 +22,9 @@ namespace TSF.Oolong.UGUI
         public float Duration { get; set; } = 0.0f;
         public T Current => _current;
 
-        public TransitionProperty(Action<T> applyCallback)
+        public TransitionProperty(Action<T> applyCallback = null, T defaultValue = default)
         {
+            _defaultValue = defaultValue;
             _applyCallback = applyCallback;
         }
 
@@ -35,7 +37,7 @@ namespace TSF.Oolong.UGUI
                 _start = value;
                 _from = value;
                 _to = value;
-                _applyCallback(value);
+                _applyCallback?.Invoke(value);
                 return;
             }
 
@@ -46,7 +48,7 @@ namespace TSF.Oolong.UGUI
                 _start = value;
                 _from = value;
                 _to = value;
-                _applyCallback(value);
+                _applyCallback?.Invoke(value);
                 return;
             }
 
@@ -105,7 +107,7 @@ namespace TSF.Oolong.UGUI
 
             _progress = TimingFunction.Evaluate(t);
             _current = Lerp(_start, _to, _progress);
-            _applyCallback(_current);
+            _applyCallback?.Invoke(_current);
         }
 
         public void Reset()
@@ -114,7 +116,7 @@ namespace TSF.Oolong.UGUI
             Duration = 0.0f;
             TimingFunction = CubicBezier.Ease;
             _hasInitialValue = false;
-            _current = default;
+            _current = _defaultValue;
             Stop();
         }
 
