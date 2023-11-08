@@ -36,9 +36,9 @@ public class LocalizationTransformer : ITextTransformer
         var entry = LocalizationSettings.StringDatabase.GetTableEntry(table, text[entryIndex..]);
         if (entry.Entry == null) return text;
 
-        if (loader.TextAttr != null && loader.TextAttr.Count > 0)
+        if (loader.Element.Attrs != null && loader.Element.Attrs.Count > 0)
         {
-            s_cachedArgs[0] = loader.TextAttr;
+            s_cachedArgs[0] = loader.Element.Attrs;
             var result = entry.Entry.GetLocalizedString(s_cachedArgs);
             s_cachedArgs[0] = null;
             return result;
