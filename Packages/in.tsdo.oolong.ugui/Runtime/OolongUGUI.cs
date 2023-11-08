@@ -22,7 +22,7 @@ public static class OolongUGUI
         OolongEnvironment.OnInitialize += Init;
         OolongEnvironment.OnDispose += Dispose;
 
-        OolongEnvironment.OnTick += Tick;
+        OolongEnvironment.OnPreUpdate += PreUpdate;
         OolongEnvironment.OnUpdate += DocumentUtils.UpdateLayout;
         OolongEnvironment.OnLateUpdate += DocumentUtils.LateUpdateLayout;
 
@@ -42,7 +42,7 @@ public static class OolongUGUI
         s_tick = env.Eval<OolongEnvironment.JsUpdate>("MithrilTick");
     }
 
-    private static void Tick()
+    private static void PreUpdate()
     {
         s_tick?.Invoke();
     }

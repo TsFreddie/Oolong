@@ -352,8 +352,8 @@ export class UnityElement<T extends object = any> extends UnityNode {
   }
 
   public setAttribute(name: string, value: any) {
-    if (name == 'id') this.id = value.toString();
-    return this.element.SetElementAttribute(name, value.toString());
+    if (name == 'id') this.id = value == null ? undefined : value.toString();
+    return this.element.SetElementAttribute(name, value == null ? null : value.toString());
   }
 
   public getAttribute(name: string) {

@@ -15,7 +15,7 @@ namespace TSF.Oolong
             protected override void Invoke()
             {
                 JsEnv?.Tick();
-                OnTick?.Invoke();
+                OnPreUpdate?.Invoke();
                 OnUpdate?.Invoke();
             }
         }
@@ -39,7 +39,7 @@ namespace TSF.Oolong
         private static OolongEnvironment s_instance;
 
         public delegate void JsUpdate();
-        public static event JsUpdate OnTick;
+        public static event JsUpdate OnPreUpdate;
         public static event JsUpdate OnUpdate;
         public static event JsUpdate OnFixedUpdate;
         public static event JsUpdate OnLateUpdate;

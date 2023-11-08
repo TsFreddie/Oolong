@@ -98,6 +98,14 @@ namespace TSF.Oolong.UGUI
 
         private void OnLateUpdate()
         {
+            if (_duration < Mathf.Epsilon)
+            {
+                // safe guard 0 duration
+                _current = _to;
+                _applyCallback?.Invoke(_current);
+                return;
+            }
+
             var t = Mathf.Clamp01((Time.time - _startTime - Delay) / _duration);
             if (t < 0.0f)
                 return;
@@ -108,6 +116,15 @@ namespace TSF.Oolong.UGUI
             _progress = TimingFunction.Evaluate(t);
             _current = Lerp(_start, _to, _progress);
             _applyCallback?.Invoke(_current);
+        }
+
+        public void Clear()
+        {
+            _hasInitialValue = false;
+            _current = _defaultValue;
+            _progress = 0.0f;
+            _duration = Duration;
+            Stop();
         }
 
         public void Reset()

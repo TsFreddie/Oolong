@@ -310,7 +310,7 @@ namespace PuertsStaticWrap
                 IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
                 object argobj0 = null;
                 argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.OolongEnvironment.JsUpdate>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.OolongEnvironment.JsUpdate arg0 = (TSF.Oolong.OolongEnvironment.JsUpdate)argobj0;
-                TSF.Oolong.OolongEnvironment.OnTick += arg0;
+                TSF.Oolong.OolongEnvironment.OnPreUpdate += arg0;
             }
             catch (Exception e)
             {
@@ -325,7 +325,7 @@ namespace PuertsStaticWrap
                 IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
                 object argobj0 = null;
                 argobj0 = argobj0 != null ? argobj0 : StaticTranslate<TSF.Oolong.OolongEnvironment.JsUpdate>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); TSF.Oolong.OolongEnvironment.JsUpdate arg0 = (TSF.Oolong.OolongEnvironment.JsUpdate)argobj0;
-                TSF.Oolong.OolongEnvironment.OnTick -= arg0;
+                TSF.Oolong.OolongEnvironment.OnPreUpdate -= arg0;
             }
             catch (Exception e)
             {

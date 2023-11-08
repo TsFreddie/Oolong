@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace TSF.Oolong.UGUI
@@ -138,25 +139,24 @@ namespace TSF.Oolong.UGUI
         {
             if (string.IsNullOrEmpty(v) || !float.TryParse(v, out var value))
             {
-                f.Reset();
+                DocumentUtils.OnTransitionValueUpdate += f.Clear;
                 return;
             }
-            DocumentUtils.OnTransitionValueUpdate += () => f.SetValue(value);
+            DocumentUtils.OnTransitionValueUpdate += () =>
+            {
+                f.SetValue(value);
+                Debug.Log(value);
+            };
         }
 
         protected void SetLayoutTransition(ColorTransitionProperty f, string v)
         {
             if (string.IsNullOrEmpty(v) || !DocumentUtils.TryParseColor(v, out var value))
             {
-                f.Reset();
+                DocumentUtils.OnTransitionValueUpdate += f.Clear;
                 return;
             }
             DocumentUtils.OnTransitionValueUpdate += () => f.SetValue(value);
-        }
-
-        protected void SetFloatWithoutUpdate(ref float f, string v, float def = 0.0f)
-        {
-            f = string.IsNullOrEmpty(v) || !float.TryParse(v, out var value) ? def : value;
         }
     }
 }
