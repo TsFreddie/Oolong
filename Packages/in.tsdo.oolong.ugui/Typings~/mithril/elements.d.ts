@@ -254,7 +254,7 @@ type PrefixAttributes<T, P extends string> = {
 type ScrollbarAttributes = SelectableAttributes &
     PrefixAttributes<ImageAttributes, "bg-">;
 
-type ScrollScrollView = {
+type ScrollRectAttributes = {
     "sx-width"?: AttributeNumber;
     "sx-height"?: AttributeNumber;
     "sx-occupy-width"?: AttributeNumber;
@@ -279,7 +279,6 @@ type InputAttributes = {
     "padding-bottom"?: AttributeNumber;
     "padding-x"?: AttributeNumber;
     "padding-y"?: AttributeNumber;
-    "clip-border"?: AttributeNumber;
     "caret-width"?: AttributeNumber;
     "caret-blink-rate"?: AttributeNumber;
     "caret-color"?: string;
@@ -301,7 +300,7 @@ type SliderAttributes = {
     "handle-offset-y"?: AttributeNumber;
 };
 
-type ContainerAttributes = {
+type CanvasGroupAttributes = {
     alpha?: AttributeNumber;
     disabled?: boolean;
     passthrough?: boolean;
@@ -343,7 +342,7 @@ type SliderCallbacks = {
     onvaluechanged?: EventHandler<UnitySlider>;
 };
 
-type ScrollViewCallbacks = {
+type ScrollRectCallbacks = {
     onvaluechanged?: EventHandler<UnityScrollView>;
 };
 

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace TSF.Oolong.UGUI
@@ -18,9 +17,6 @@ namespace TSF.Oolong.UGUI
         private delegate IOolongLoader ElementLoaderFactory(OolongElement element);
         private static readonly Dictionary<string, ElementLoaderFactory> s_elements = new Dictionary<string, ElementLoaderFactory>()
         {
-            // { "input", typeof(OolongInputField) },
-            // { "slider", typeof(OolongSlider) },
-            // { "container", typeof(OolongContainer) },
             {
                 "div", (e) =>
                     new OolongRectLoader(e.transform)
@@ -28,6 +24,12 @@ namespace TSF.Oolong.UGUI
             {
                 "panel", (e) =>
                     new OolongRectLoader(e.transform)
+            },
+            {
+                "canvasgroup", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongCanvasGroupLoader(e.transform))
             },
             {
                 "image", (e) =>
@@ -67,7 +69,46 @@ namespace TSF.Oolong.UGUI
                         .Add(new OolongScrollRectLoader(e.gameObject, e.TagName), out var scrollRect)
                         .Add("content-", new OolongRectLoader(scrollRect.Content))
                         .Add(new OolongLayoutLoader(scrollRect.Content.gameObject))
+                        .Add(new OolongRectMaskLoader(scrollRect.Viewport.gameObject, true))
                         .SetRoot(e, scrollRect.Content)
+            },
+            {
+                "slider", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongSliderLoader(e.gameObject, e.TagName))
+            },
+            {
+                "input", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .CreateChildRect(e.transform, "::textarea", out var textAreaRect)
+                        .CreateChildRect(textAreaRect, "::placeholder", out var placeHolderRect)
+                        .CreateChildRect(textAreaRect, "::text", out var textRect)
+                        .Add("ph-", new OolongTextLoader(placeHolderRect.gameObject)
+                        {
+                            DefaultAlign = TextAlignmentOptions.Left,
+                            DefaultOverflow = TextOverflowModes.Ellipsis,
+                            DefaultStyle = FontStyles.Italic,
+                            DefaultColor = Color.gray,
+                            Instance =
+                            {
+                                enableWordWrapping = false
+                            }
+                        }, out var placeHolder)
+                        .Add("text-", new OolongTextLoader(textRect.gameObject)
+                        {
+                            DefaultAlign = TextAlignmentOptions.Left,
+                            DefaultOverflow = TextOverflowModes.Overflow,
+                            Instance =
+                            {
+                                enableWordWrapping = false
+                            }
+                        }, out var text)
+                        .Add(new OolongInputLoader(e.gameObject, textAreaRect, placeHolder.Instance, text.Instance), out var input)
+                        .Add(new OolongSelectableLoader(input.Instance, e.TagName, true))
+                        .Add(new OolongRectMaskLoader(textAreaRect.gameObject))
+                        .SetRoot(e, input.Content)
             }
         };
 

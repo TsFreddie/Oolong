@@ -115,6 +115,32 @@ namespace TSF.Oolong.UGUI
             return result;
         }
 
+        public override bool AddListener(string key, IOolongLoader.JsCallback callback)
+        {
+            if (base.AddListener(key, callback)) return true;
+
+            switch (key)
+            {
+                case "valuechanged":
+                    Instance.onValueChanged.AddListener(_ => callback(null));
+                    return true;
+            }
+            return false;
+        }
+
+        public override bool RemoveListener(string key)
+        {
+            if (base.RemoveListener(key)) return true;
+
+            switch (key)
+            {
+                case "valuechanged":
+                    Instance.onValueChanged.RemoveAllListeners();
+                    return true;
+            }
+            return false;
+        }
+
         private void SetValue(string v)
         {
             if (v == null) return;
@@ -191,6 +217,7 @@ namespace TSF.Oolong.UGUI
         public override void Reset()
         {
             base.Reset();
+            Instance.onValueChanged.RemoveAllListeners();
             _selectable.Reset();
             _image.Reset();
             _fill.Reset();
@@ -199,6 +226,7 @@ namespace TSF.Oolong.UGUI
         public override void Release()
         {
             base.Release();
+            Instance.onValueChanged.RemoveAllListeners();
             _selectable.Release();
             _image.Release();
             _fill.Release();

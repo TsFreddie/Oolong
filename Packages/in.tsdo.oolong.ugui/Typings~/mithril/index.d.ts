@@ -475,12 +475,12 @@ declare global {
                 ElementCallbacks;
             scrollrect: Mithril.Attributes &
                 RectAttributes &
-                ScrollScrollView &
+                ScrollRectAttributes &
                 PrefixAttributes<ScrollbarAttributes, "sx-"> &
                 PrefixAttributes<ScrollbarAttributes, "sy-"> &
                 PrefixAttributes<RectAttributes, "content-"> &
                 LayoutAttributes &
-                ScrollViewCallbacks &
+                ScrollRectCallbacks &
                 ElementCallbacks;
             input: Mithril.Attributes &
                 RectAttributes &
@@ -499,9 +499,9 @@ declare global {
                 PrefixAttributes<ImageAttributes, "fill-"> &
                 SliderCallbacks &
                 ElementCallbacks;
-            container: Mithril.Attributes &
+            canvasgroup: Mithril.Attributes &
                 RectAttributes &
-                ContainerAttributes &
+                CanvasGroupAttributes &
                 ElementCallbacks;
 
             // Special Mithril types

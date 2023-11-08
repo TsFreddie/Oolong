@@ -23,6 +23,7 @@ namespace TSF.Oolong.UGUI
         private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
             { "#", (e, v) => e.SetText(v) },
+            { "text", (e, v) => e.SetText(v) },
             { "text-align", (e, v) => e.SetTextAlign(v) },
             { "size", (e, v) => e.SetFontSize(v) },
             { "min-size", (e, v) => e.SetMinFontSize(v) },

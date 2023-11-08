@@ -58,11 +58,6 @@ namespace TSF.Oolong.UGUI
             _tagName = tagName;
 
             Viewport = DocumentUtils.CreateChildRect(obj.transform, "::viewport");
-            var viewportObj = Viewport.gameObject;
-
-            // TODO: Support setting attributes for RectMask2D
-            viewportObj.AddComponent<RectMask2D>();
-            viewportObj.AddComponent<NonDrawingGraphic>();
             Instance.viewport = Viewport;
             Content = DocumentUtils.CreateChildRect(Viewport, "::content");
             Instance.content = Content;
