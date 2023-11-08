@@ -11,8 +11,8 @@ DOM elements based on Unity UI is also provided.
 
 These are some of the critical features that is missing
 
-- You can't set the font of `<text>`
-- There is no `<dropdown>` element yet
+-   You can't set the font of `<text>`
+-   There is no `<dropdown>` element yet
 
 ## Why MithrilJS?
 
@@ -72,18 +72,18 @@ supported on `<image>` elements.
 
 Currently the following elements are provided:
 
-- `<panel>` - equivalent of a `RectTransform`, does not include an Image like Unity does. Also supports horizontal,
-  vertical and grid layout if specified.
-- `<image>` - equivalent of a `Image`.
-- `<text>` - equivalent of a `TextMeshPro UGUI` text. The child of a text element should ideally be a string. You can
-  have children elements under a `<text>` element, but it is not recommended.
-- `<button>` - equivalent of a `Button`, does not include text. You should add the text using `<text>` element manually.
-- `<toggle>` - equivalent of a `Toggle`, does not include text either.
-- `<scrollrect>` - equivalent of a `ScrollRect`, includes multiple GameObjects that handles masking and scrollbars.
-- `<input>` - equivalent of a `TextMeshPro InputField`.
-- `<slider>` - equivalent of a `Slider`.
-- `<container>` - a special kind of `<panel>` that also includes a `CanvasGroup` component for alpha and interaction
-  control.
+-   `<panel>` - equivalent of a `RectTransform`, does not include an Image like Unity does. Also supports horizontal,
+    vertical and grid layout if specified.
+-   `<image>` - equivalent of a `Image`.
+-   `<text>` - equivalent of a `TextMeshPro UGUI` text. The child of a text element should ideally be a string. You can
+    have children elements under a `<text>` element, but it is not recommended.
+-   `<button>` - equivalent of a `Button`, does not include text. You should add the text using `<text>` element manually.
+-   `<toggle>` - equivalent of a `Toggle`, does not include text either.
+-   `<scrollrect>` - equivalent of a `ScrollRect`, includes multiple GameObjects that handles masking and scrollbars.
+-   `<input>` - equivalent of a `TextMeshPro InputField`.
+-   `<slider>` - equivalent of a `Slider`.
+-   `<canvasgroup>` - a special kind of `<panel>` that also includes a `CanvasGroup` component for alpha and interaction
+    control.
 
 Check the built-in Mithril typings for detail about the attributes and events.
 
@@ -113,9 +113,11 @@ export default class PartialRedrawComponent extends MithrilComponent {
     }
 
     view() {
-        return (<panel>
-            <text>{Math.random().toString()}</text>
-        </panel>);
+        return (
+            <panel>
+                <text>{Math.random().toString()}</text>
+            </panel>
+        );
     }
 }
 ```
@@ -139,13 +141,7 @@ But if you ever find yourself needing a UI element to update in realtime, a `<Re
 you can pass a render function to be called every frame.
 
 ```tsx
-<Realtime>
-    {() => (
-        <text>
-            {Math.random().toString()}
-        </text>
-    )}
-</Realtime>
+<Realtime>{() => <text>{Math.random().toString()}</text>}</Realtime>
 ```
 
 By using `<Realtime>` component, only the realtime part will be updated instead of the entire mounted component.
