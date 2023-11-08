@@ -6,6 +6,10 @@ namespace TSF.Oolong.UGUI
 {
     public class OolongTextLoader : OolongLoader<OolongTextLoader>
     {
+        public readonly TextMeshProUGUI Instance;
+        // Keep a copy of the element so TextTransformer can use the element's attributes
+        public readonly OolongElement Element;
+
         private struct ExtendData
         {
             public float ExtendLeft;
@@ -47,11 +51,6 @@ namespace TSF.Oolong.UGUI
             { "paragraph-spacing", (e, v) => e.SetFloat(ref e._paragraphSpacing, v) },
             { "font", (e, v) => e.SetFont(v) },
         };
-
-        private readonly Dictionary<string, string> _textAttr = new Dictionary<string, string>();
-        public IReadOnlyDictionary<string, string> TextAttr => _textAttr;
-
-        public readonly TextMeshProUGUI Instance;
 
         private TextAlignmentOptions _defaultAlign = TextAlignmentOptions.Center;
         public TextAlignmentOptions DefaultAlign
@@ -120,7 +119,7 @@ namespace TSF.Oolong.UGUI
         private string _font;
         private bool _fontInitialized = false;
 
-        public OolongTextLoader(GameObject gameObject)
+        public OolongTextLoader(GameObject gameObject, OolongElement element)
         {
             Instance = gameObject.AddComponent<TextMeshProUGUI>();
             Instance.alignment = TextAlignmentOptions.Center;
@@ -136,6 +135,8 @@ namespace TSF.Oolong.UGUI
 
             Instance.raycastTarget = true;
             Instance.enableWordWrapping = false;
+
+            Element = element;
 
             IsLateUpdatePending = true;
         }
@@ -165,13 +166,6 @@ namespace TSF.Oolong.UGUI
         {
             Instance.font = TMP_Settings.defaultFontAsset;
             _fontInitialized = true;
-        }
-
-        public override bool SetAttribute(string key, string value)
-        {
-            if (base.SetAttribute(key, value)) return true;
-            _textAttr[key] = value;
-            return false;
         }
 
         private void SetPassthrough(string v)

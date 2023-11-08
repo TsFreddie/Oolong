@@ -1,5 +1,8 @@
 /// <reference types="csharp"/>
 
+// TODO: I need to double check this typing at some point
+// Or I can write a generator for this typing I guess
+
 interface EventData<T = UnityElement> {
     type: string;
     target: T;
@@ -203,6 +206,7 @@ type ImageAttributes = {
 };
 
 type TextAttributes = {
+    text?: string;
     "text-align"?: TextAlign;
     size?: AttributeNumber;
     "min-size"?: AttributeNumber;
@@ -270,7 +274,6 @@ type ScrollRectAttributes = {
 };
 
 type InputAttributes = {
-    "ph-text"?: string;
     value?: string;
     padding?: AttributeNumber;
     "padding-left"?: AttributeNumber;

@@ -14,12 +14,13 @@ export default class Menu extends MithrilComponent {
                     onclick={() => (this.margin = 100 - this.margin)}
                 >
                     <scrollrect>
-                        <input
+                        <slider
                             src="#"
                             align="center"
+                            bg-src="#"
                             width={200}
                             height={64}
-                        ></input>
+                        ></slider>
                     </scrollrect>
                 </button>
             </image>

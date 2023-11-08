@@ -41,7 +41,7 @@ namespace TSF.Oolong.UGUI
                 "text", (e) =>
                     new OolongChainLoader()
                         .Add(new OolongRectLoader(e.transform))
-                        .Add(new OolongTextLoader(e.gameObject))
+                        .Add(new OolongTextLoader(e.gameObject, e))
             },
             {
                 "button", (e) =>
@@ -85,7 +85,7 @@ namespace TSF.Oolong.UGUI
                         .CreateChildRect(e.transform, "::textarea", out var textAreaRect)
                         .CreateChildRect(textAreaRect, "::placeholder", out var placeHolderRect)
                         .CreateChildRect(textAreaRect, "::text", out var textRect)
-                        .Add("ph-", new OolongTextLoader(placeHolderRect.gameObject)
+                        .Add("ph-", new OolongTextLoader(placeHolderRect.gameObject, e)
                         {
                             DefaultAlign = TextAlignmentOptions.Left,
                             DefaultOverflow = TextOverflowModes.Ellipsis,
@@ -96,7 +96,7 @@ namespace TSF.Oolong.UGUI
                                 enableWordWrapping = false
                             }
                         }, out var placeHolder)
-                        .Add("text-", new OolongTextLoader(textRect.gameObject)
+                        .Add("text-", new OolongTextLoader(textRect.gameObject, e)
                         {
                             DefaultAlign = TextAlignmentOptions.Left,
                             DefaultOverflow = TextOverflowModes.Overflow,

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Scripting;
 
 namespace TSF.Oolong.UGUI
 {
@@ -35,6 +36,11 @@ namespace TSF.Oolong.UGUI
         }
         public OolongElement ParentElement { get; set; } = null;
         public new int GetInstanceID() => base.GetInstanceID();
+
+        /// <summary>
+        /// Keep track of all attribute values
+        /// </summary>
+        public Dictionary<string, string> Attrs = new Dictionary<string, string>();
         #endregion
 
         protected virtual void OnDestroy()
@@ -52,8 +58,14 @@ namespace TSF.Oolong.UGUI
             _children.Remove(e);
         }
 
+        [Preserve]
         public void SetElementAttribute(string key, string value)
         {
+            if (value == null)
+                Attrs.Remove(key);
+            else
+                Attrs[key] = value;
+
             switch (key)
             {
                 case "id":
@@ -76,12 +88,14 @@ namespace TSF.Oolong.UGUI
             _loader?.SetAttribute(key, value);
         }
 
+        [Preserve]
         public void AddListener(string key, IOolongLoader.JsCallback callback)
         {
             if (_eventHandler.AddListener(key, callback)) return;
             _loader?.AddListener(key, callback);
         }
 
+        [Preserve]
         public void RemoveListener(string key)
         {
             if (_eventHandler.RemoveListener(key)) return;
