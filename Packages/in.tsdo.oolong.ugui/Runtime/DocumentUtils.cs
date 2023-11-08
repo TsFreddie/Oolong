@@ -30,7 +30,7 @@ namespace TSF.Oolong.UGUI
                 "canvasgroup", (e) =>
                     new OolongChainLoader()
                         .Add(new OolongRectLoader(e.transform))
-                        .Add(new OolongCanvasGroupLoader(e.transform))
+                        .Add(new OolongCanvasGroupLoader(e.gameObject))
             },
             {
                 "image", (e) =>

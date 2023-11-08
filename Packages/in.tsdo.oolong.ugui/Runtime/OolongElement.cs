@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.Scripting;
@@ -17,6 +18,7 @@ namespace TSF.Oolong.UGUI
         private List<float> _transitionDelays;
         private List<float> _transitionDurations;
         private List<CubicBezier> _transitionTimingFunctions;
+        private static Regex s_functionListRegex = new Regex(@"\s*([^,(]+(?:\([^)]*\))?)\s*");
 
         private IOolongLoader _loader;
         private Transform _rootTransform;
@@ -81,7 +83,7 @@ namespace TSF.Oolong.UGUI
                     SetTransitionList(ref _transitionDurations, value, TransitionUtils.ParseHumanTime);
                     return true;
                 case "transition-timing-function":
-                    SetTransitionList(ref _transitionTimingFunctions, value, TransitionUtils.ParseTimingFunction);
+                    SetTransitionFunctionList(ref _transitionTimingFunctions, value, TransitionUtils.ParseTimingFunction);
                     return true;
             }
 
@@ -183,6 +185,23 @@ namespace TSF.Oolong.UGUI
             foreach (var v in values)
             {
                 list.Add(parse(v));
+            }
+            IsTransitionDirty = true;
+        }
+
+        private void SetTransitionFunctionList<TK>(ref List<TK> list, string value, Func<string, TK> parse)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                ClearList(ref list);
+                return;
+            }
+
+            EnsureList(ref list);
+            var matches = s_functionListRegex.Matches(value);
+            foreach (Match match in matches)
+            {
+                list.Add(parse(match.Groups[0].Value));
             }
             IsTransitionDirty = true;
         }

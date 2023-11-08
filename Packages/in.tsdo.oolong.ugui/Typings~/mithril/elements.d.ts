@@ -109,6 +109,8 @@ type RectAttributes = {
     "margin-bottom"?: AttributeNumber;
     "margin-x"?: AttributeNumber;
     "margin-y"?: AttributeNumber;
+    x?: AttributeNumber;
+    y?: AttributeNumber;
     z?: AttributeNumber;
     rotation?: AttributeNumber;
     anchor?: `${number} ${number}`;
@@ -267,8 +269,9 @@ type CanvasGroupAttributes = {
     disabled?: boolean;
     passthrough?: boolean;
     scale?: AttributeNumber;
+    "scale-x"?: AttributeNumber;
+    "scale-y"?: AttributeNumber;
     delayed?: boolean;
-    rotation?: AttributeNumber;
 };
 
 // Values
@@ -276,6 +279,14 @@ type CanvasGroupAttributes = {
 type ScrollRectValueAttributes = {
     scrollX?: StringNumber;
     scrollY?: StringNumber;
+};
+
+// Transitions
+type TransitionAttributes = {
+    "transition-property"?: string;
+    "transition-duration"?: string;
+    "transition-timing-function"?: string;
+    "transition-delay"?: string;
 };
 
 // Elements

@@ -38,6 +38,8 @@ namespace TSF.Oolong.UGUI
             public FloatTransitionProperty MarginY;
             public FloatTransitionProperty Margin;
             public FloatTransitionProperty Rotation;
+            public FloatTransitionProperty X;
+            public FloatTransitionProperty Y;
             public FloatTransitionProperty Z;
             public FloatTransitionProperty MinWidth;
             public FloatTransitionProperty MinHeight;
@@ -66,6 +68,8 @@ namespace TSF.Oolong.UGUI
             { "margin-bottom", (e, v) => e.SetLayoutTransition(e._layoutData.MarginBottom, v) },
             { "margin-x", (e, v) => e.SetLayoutTransition(e._layoutData.MarginX, v) },
             { "margin-y", (e, v) => e.SetLayoutTransition(e._layoutData.MarginY, v) },
+            { "x", (e, v) => e.SetLayoutTransition(e._layoutData.X, v) },
+            { "y", (e, v) => e.SetLayoutTransition(e._layoutData.Y, v) },
             { "z", (e, v) => e.SetLayoutTransition(e._layoutData.Z, v) },
             { "rotation", (e, v) => e.SetLayoutTransition(e._layoutData.Rotation, v) },
             { "min-width", (e, v) => e.SetLayoutTransition(e._layoutData.MinWidth, v) },
@@ -88,8 +92,7 @@ namespace TSF.Oolong.UGUI
         };
 
         public readonly RectTransform Instance;
-        // private LayoutData _layoutData;
-        private LayoutDataTransition _layoutData;
+        private readonly LayoutDataTransition _layoutData;
         private LayoutElementData _layoutElementData;
 
         private AlignType _align = AlignType.Stretch;
@@ -118,6 +121,8 @@ namespace TSF.Oolong.UGUI
                 MarginY = new FloatTransitionProperty(TriggerLayoutUpdate),
                 Margin = new FloatTransitionProperty(TriggerLayoutUpdate),
                 Rotation = new FloatTransitionProperty(TriggerLayoutUpdate),
+                X = new FloatTransitionProperty(TriggerLayoutUpdate),
+                Y = new FloatTransitionProperty(TriggerLayoutUpdate),
                 Z = new FloatTransitionProperty(TriggerLayoutUpdate),
                 MinWidth = new FloatTransitionProperty(TriggerLayoutUpdate, -1),
                 MinHeight = new FloatTransitionProperty(TriggerLayoutUpdate, -1),
@@ -136,6 +141,8 @@ namespace TSF.Oolong.UGUI
                 Transitions.Add("margin-y", _layoutData.MarginY);
                 Transitions.Add("margin", _layoutData.Margin);
                 Transitions.Add("rotation", _layoutData.Rotation);
+                Transitions.Add("x", _layoutData.X);
+                Transitions.Add("y", _layoutData.Y);
                 Transitions.Add("z", _layoutData.Z);
                 Transitions.Add("min-width", _layoutData.MinWidth);
                 Transitions.Add("min-height", _layoutData.MinHeight);
@@ -501,6 +508,8 @@ namespace TSF.Oolong.UGUI
             }
 
             var localPosition = Instance.localPosition;
+            localPosition.x += layoutData.X.Current;
+            localPosition.y -= layoutData.Y.Current;
             localPosition.z = -layoutData.Z.Current;
             Instance.localPosition = localPosition;
         }
