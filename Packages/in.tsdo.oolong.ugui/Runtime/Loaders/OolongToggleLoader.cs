@@ -23,15 +23,16 @@ namespace TSF.Oolong.UGUI
         }
 
         private static readonly Dictionary<string, RefCountToggleGroup> s_toggleGroups = new Dictionary<string, RefCountToggleGroup>();
+
+        public readonly Toggle Instance;
+
         protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
         private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
-            { "active", (e, v) => e.SetActive(v) },
+            { "value", (e, v) => e.SetIsOn(v) },
             { "tab", (e, v) => e.SetGroup(v, false) },
             { "group", (e, v) => e.SetGroup(v, true) },
         };
-
-        public readonly Toggle Instance;
 
         public OolongToggleLoader(GameObject gameObject, Graphic checkmark = null)
         {
@@ -41,23 +42,29 @@ namespace TSF.Oolong.UGUI
                 Instance.graphic = checkmark;
         }
 
-        private void SetGroup(string v, bool allowOff = false)
+        private void RemoveGroup()
         {
             // remove from group
             var group = Instance.group;
-            if (group != null)
-            {
-                var groupName = group.name;
-                Instance.group = null;
-                if (s_toggleGroups.ContainsKey(groupName))
-                {
-                    if (s_toggleGroups[groupName].DecreaseCounter())
-                    {
-                        s_toggleGroups.Remove(groupName);
-                        Object.Destroy(group.gameObject);
-                    }
-                }
-            }
+            if (group == null)
+                return;
+
+            var groupName = group.name;
+            Instance.group = null;
+            if (!s_toggleGroups.ContainsKey(groupName))
+                return;
+
+            if (!s_toggleGroups[groupName].DecreaseCounter())
+                return;
+
+            s_toggleGroups.Remove(groupName);
+            Object.Destroy(group.gameObject);
+        }
+
+        private void SetGroup(string v, bool allowOff = false)
+        {
+            // remove from group
+            RemoveGroup();
 
             if (v == null)
                 return;
@@ -76,9 +83,59 @@ namespace TSF.Oolong.UGUI
             }
         }
 
-        private void SetActive(string v)
+        private void SetIsOn(string v)
         {
-            Instance.SetIsOnWithoutNotify(v != null);
+            Instance.SetIsOnWithoutNotify(v != "off");
+        }
+
+        public override bool AddListener(string key, IOolongLoader.JsCallback callback)
+        {
+            if (base.AddListener(key, callback)) return true;
+
+            switch (key)
+            {
+                case "valuechanged":
+                    Instance.onValueChanged.AddListener(_ => callback(null));
+                    return true;
+            }
+            return false;
+        }
+
+        public override bool RemoveListener(string key)
+        {
+            if (base.RemoveListener(key)) return true;
+
+            switch (key)
+            {
+                case "valuechanged":
+                    Instance.onValueChanged.RemoveAllListeners();
+                    return true;
+            }
+            return false;
+        }
+
+        public override bool TryReadValue(string key, out string value)
+        {
+            switch (key)
+            {
+                case "value":
+                    value = Instance.isOn ? "on" : "off";
+                    return true;
+            }
+            return base.TryReadValue(key, out value);
+        }
+
+        public override void Reuse()
+        {
+            base.Reuse();
+            RemoveGroup();
+            Instance.SetIsOnWithoutNotify(false);
+        }
+
+        public override void Release()
+        {
+            base.Release();
+            RemoveGroup();
         }
     }
 }

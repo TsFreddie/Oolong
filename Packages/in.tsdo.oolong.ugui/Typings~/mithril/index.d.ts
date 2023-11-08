@@ -1,4 +1,4 @@
-/// <reference types="csharp"/>
+/// <reference types="../../Generated/Typings~/csharp-oolong-ugui"/>
 /// <reference path="./elements.d.ts" />
 
 // Type definitions for Mithril 2.0
@@ -449,60 +449,37 @@ declare global {
         interface IntrinsicElements {
             // Unity
             panel: Mithril.Attributes &
-                RectAttributes &
-                LayoutAttributes &
-                ElementCallbacks;
+                PanelElementAttributes &
+                ElementCallbacks<PanelElementAttributes>;
             image: Mithril.Attributes &
-                RectAttributes &
-                ImageAttributes &
-                ElementCallbacks;
+                ImageElementAttributes &
+                ElementCallbacks<ImageElementAttributes>;
             text: Mithril.Attributes &
-                RectAttributes &
-                TextAttributes &
-                ElementCallbacks;
+                TextElementAttributes &
+                ElementCallbacks<TextElementAttributes>;
             button: Mithril.Attributes &
-                RectAttributes &
-                SelectableAttributes &
-                ButtonCallbacks &
-                ElementCallbacks;
+                ButtonElementAttributes &
+                ElementCallbacks<ButtonElementAttributes> &
+                ButtonCallbacks;
             toggle: Mithril.Attributes &
-                RectAttributes &
-                SelectableAttributes &
-                ToggleAttributes &
-                PrefixAttributes<ImageAttributes, "cm-"> &
-                PrefixAttributes<RectAttributes, "cm-"> &
-                ToggleCallbacks &
-                ElementCallbacks;
+                ToggleElementAttributes &
+                ElementCallbacks<ToggleElementAttributes> &
+                ToggleCallbacks;
             scrollrect: Mithril.Attributes &
-                RectAttributes &
-                ScrollRectAttributes &
-                PrefixAttributes<ScrollbarAttributes, "sx-"> &
-                PrefixAttributes<ScrollbarAttributes, "sy-"> &
-                PrefixAttributes<RectAttributes, "content-"> &
-                LayoutAttributes &
-                ScrollRectCallbacks &
-                ElementCallbacks;
+                ScrollRectElementAttributes &
+                ElementCallbacks<ScrollRectElementAttributes> &
+                ScrollRectCallbacks;
             input: Mithril.Attributes &
-                RectAttributes &
-                InputAttributes &
-                SelectableAttributes &
-                PrefixAttributes<TextAttributes, "text-"> &
-                PrefixAttributes<TextAttributes, "ph-"> &
-                InputCallbacks &
-                ElementCallbacks;
+                InputElementAttributes &
+                ElementCallbacks<InputElementAttributes> &
+                InputCallbacks;
             slider: Mithril.Attributes &
-                RectAttributes &
-                InputAttributes &
-                SliderAttributes &
-                SelectableAttributes &
-                PrefixAttributes<ImageAttributes, "bg-"> &
-                PrefixAttributes<ImageAttributes, "fill-"> &
-                SliderCallbacks &
-                ElementCallbacks;
+                SliderElementAttributes &
+                ElementCallbacks<SliderElementAttributes> &
+                SliderCallbacks;
             canvasgroup: Mithril.Attributes &
-                RectAttributes &
-                CanvasGroupAttributes &
-                ElementCallbacks;
+                CanvasGroupElementAttributes &
+                ElementCallbacks<CanvasGroupElementAttributes>;
 
             // Special Mithril types
             "[": Mithril.Attributes;

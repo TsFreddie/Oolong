@@ -24,7 +24,7 @@ namespace TSF.Oolong.UGUI
         }
 
         [Preserve]
-        public static Puerts.ArrayBuffer GetArrayBuffer(this DownloadHandlerBuffer handler)
+        public static Puerts.ArrayBuffer GetArrayBuffer(this DownloadHandler handler)
         {
             return new Puerts.ArrayBuffer(handler.data);
         }

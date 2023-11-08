@@ -13,15 +13,18 @@ export default class Menu extends MithrilComponent {
                     transition-duration="1s"
                     onclick={() => (this.margin = 100 - this.margin)}
                 >
-                    <scrollrect>
-                        <slider
-                            src="#"
-                            align="center"
-                            bg-src="#"
-                            width={200}
-                            height={64}
-                        ></slider>
-                    </scrollrect>
+                    <toggle
+                        src="#"
+                        align="center"
+                        bg-src="#"
+                        width={64}
+                        height={64}
+                        cm-src="#"
+                        cm-color="#000000"
+                        onvaluechanged={(event) => {
+                            console.log(event.target.attrs.value);
+                        }}
+                    ></toggle>
                 </button>
             </image>
         );

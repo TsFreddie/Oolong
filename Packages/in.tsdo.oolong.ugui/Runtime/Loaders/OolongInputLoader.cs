@@ -28,8 +28,6 @@ namespace TSF.Oolong.UGUI
             { "font", (e, v) => e.SetFont(v) },
         };
 
-        public string Value => Instance.text;
-
         private float _padding;
         private float _paddingLeft;
         private float _paddingTop;
@@ -185,6 +183,17 @@ namespace TSF.Oolong.UGUI
                     return true;
             }
             return false;
+        }
+
+        public override bool TryReadValue(string key, out string value)
+        {
+            switch (key)
+            {
+                case "value":
+                    value = Instance.text;
+                    return true;
+            }
+            return base.TryReadValue(key, out value);
         }
 
         public override void Reuse()

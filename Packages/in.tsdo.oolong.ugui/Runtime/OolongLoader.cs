@@ -14,6 +14,7 @@ namespace TSF.Oolong.UGUI
 
         private bool _isUpdatePending;
         private bool _isLateUpdatePending;
+        private IOolongLoader _oolongLoaderImplementation;
 
         protected bool IsUpdatePending
         {
@@ -76,6 +77,12 @@ namespace TSF.Oolong.UGUI
 
             Attrs[key](loader, value);
             return true;
+        }
+
+        public virtual bool TryReadValue(string key, out string value)
+        {
+            value = null;
+            return false;
         }
 
         public void ResetTransitions()

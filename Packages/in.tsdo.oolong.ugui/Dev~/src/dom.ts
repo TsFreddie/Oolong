@@ -301,11 +301,18 @@ const runEvent = (
   }
 };
 
-export class UnityElement<
-  T extends CS.TSF.Oolong.UGUI.OolongElement = CS.TSF.Oolong.UGUI.OolongElement
-> extends UnityNode {
-  public element: T;
+export class UnityElement<T extends object = any> extends UnityNode {
+  public element: CS.TSF.Oolong.UGUI.OolongElement;
   public mountId: number;
+  public attrs: T = new Proxy(this, {
+    get(target, prop) {
+      return target.getAttribute(prop.toString());
+    },
+    set(target, prop, value) {
+      return target.setAttribute(prop.toString(), value);
+    },
+  }) as any as T;
+
   private events: { [key: string]: EventHandler };
 
   constructor(element: CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean);
@@ -313,9 +320,9 @@ export class UnityElement<
   constructor(tagNameOrElement: string | CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean) {
     super();
     if (typeof tagNameOrElement == 'string') {
-      this.element = CS.TSF.Oolong.UGUI.DocumentUtils.CreateElement(tagNameOrElement) as T;
+      this.element = CS.TSF.Oolong.UGUI.DocumentUtils.CreateElement(tagNameOrElement);
     } else {
-      this.element = tagNameOrElement as T;
+      this.element = tagNameOrElement;
     }
     this.tag = this.element.TagName;
     this.events = {};
@@ -346,7 +353,12 @@ export class UnityElement<
 
   public setAttribute(name: string, value: any) {
     if (name == 'id') this.id = value.toString();
-    this.element.SetElementAttribute(name, value.toString());
+    return this.element.SetElementAttribute(name, value.toString());
+  }
+
+  public getAttribute(name: string) {
+    if (name == 'id') return this.id;
+    return this.element.GetElementAttribute(name);
   }
 
   public removeAttribute(name: string) {

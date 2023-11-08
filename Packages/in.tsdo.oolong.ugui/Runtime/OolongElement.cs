@@ -59,7 +59,7 @@ namespace TSF.Oolong.UGUI
         }
 
         [Preserve]
-        public void SetElementAttribute(string key, string value)
+        public bool SetElementAttribute(string key, string value)
         {
             if (value == null)
                 Attrs.Remove(key);
@@ -70,22 +70,31 @@ namespace TSF.Oolong.UGUI
             {
                 case "id":
                     name = string.Concat("#", value);
-                    return;
+                    return true;
                 case "transition-property":
                     SetTransitionList(ref _transitionAttrs, value, v => v.Trim());
-                    return;
+                    return true;
                 case "transition-delay":
                     SetTransitionList(ref _transitionDelays, value, TransitionUtils.ParseHumanTime);
-                    return;
+                    return true;
                 case "transition-duration":
                     SetTransitionList(ref _transitionDurations, value, TransitionUtils.ParseHumanTime);
-                    return;
+                    return true;
                 case "transition-timing-function":
                     SetTransitionList(ref _transitionTimingFunctions, value, TransitionUtils.ParseTimingFunction);
-                    return;
+                    return true;
             }
 
-            _loader?.SetAttribute(key, value);
+            return _loader?.SetAttribute(key, value) ?? false;
+        }
+
+        [Preserve]
+        public string GetElementAttribute(string key)
+        {
+            if (_loader?.TryReadValue(key, out var value) ?? false)
+                return value;
+
+            return Attrs.TryGetValue(key, out value) ? value : null;
         }
 
         [Preserve]

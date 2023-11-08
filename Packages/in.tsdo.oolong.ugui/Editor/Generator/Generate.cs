@@ -21,7 +21,18 @@ namespace TSF.Oolong.UGUI.Editor.Generator
         private static List<Type> s_bindings = new List<Type>();
 
         [MenuItem("Oolong/Generate oolong ugui")]
-        public static void GenerateOolong()
+        public static void GenerateOolongFull()
+        {
+            GenerateOolong(false);
+        }
+
+        [MenuItem("Oolong/Generate oolong ugui typing only")]
+        public static void GenerateOolongTypingOnly()
+        {
+            GenerateOolong(true);
+        }
+
+        public static void GenerateOolong(bool typingOnly)
         {
             s_bindings.AddRange(typeof(OolongUGUI).Assembly.GetExportedTypes()
                 .Where(t =>
@@ -32,11 +43,17 @@ namespace TSF.Oolong.UGUI.Editor.Generator
                     !t.IsEnum
                 ));
 
-            GenerateDts();
-            GenerateWrappers();
-            GenerateRegisterInfo();
+            s_bindings.Add(typeof(UnityEngine.Networking.DownloadHandler));
+            s_bindings.Add(typeof(UnityEngine.Networking.UnityWebRequest));
 
-            AssetDatabase.ImportAsset(AssetDatabase.GUIDToAssetPath(GeneratedDirectory), ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
+            GenerateDts();
+            if (!typingOnly)
+            {
+                GenerateWrappers();
+                GenerateRegisterInfo();
+                AssetDatabase.ImportAsset(AssetDatabase.GUIDToAssetPath(GeneratedDirectory), ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
+            }
+
             s_bindings.Clear();
         }
 

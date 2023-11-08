@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 namespace TSF.Oolong.UGUI
@@ -38,6 +39,7 @@ namespace TSF.Oolong.UGUI
         protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
         private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
+            // TODO: allow changing scroll position?
             { "sx-width", ((e, v) => e.SetFloat(ref e._scrollViewData.ScrollbarWidth, v, 20)) },
             { "sy-height", ((e, v) => e.SetFloat(ref e._scrollViewData.ScrollbarHeight, v, 20)) },
             { "sx-occupy-width", ((e, v) => e.SetFloat(ref e._scrollViewData.ScrollbarOccupyWidth, v, -1)) },
@@ -285,6 +287,20 @@ namespace TSF.Oolong.UGUI
 
             Instance.onValueChanged.RemoveAllListeners();
             return true;
+        }
+
+        public override bool TryReadValue(string key, out string value)
+        {
+            switch (key)
+            {
+                case "scrollX":
+                    value = Instance.normalizedPosition.x.ToString(CultureInfo.InvariantCulture);
+                    return true;
+                case "scrollY":
+                    value = Instance.normalizedPosition.y.ToString(CultureInfo.InvariantCulture);
+                    return true;
+            }
+            return base.TryReadValue(key, out value);
         }
 
         public override void Reuse()

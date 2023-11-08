@@ -76,6 +76,25 @@ namespace TSF.Oolong.UGUI
             return false;
         }
 
+        public bool TryReadValue(string key, out string value)
+        {
+            foreach (var node in _chain)
+            {
+                if (node.Prefix == null)
+                {
+                    if (node.Loader.TryReadValue(key, out value))
+                        return true;
+                }
+                else if (key.StartsWith(node.Prefix))
+                {
+                    if (node.Loader.TryReadValue(key.Substring(node.Prefix.Length), out value))
+                        return true;
+                }
+            }
+            value = null;
+            return false;
+        }
+
         public void ResetTransitions()
         {
             foreach (var node in _chain)

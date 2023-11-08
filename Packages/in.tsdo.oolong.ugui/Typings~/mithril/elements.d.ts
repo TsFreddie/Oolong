@@ -1,61 +1,17 @@
-/// <reference types="csharp"/>
+/// <reference types="../oolong-ugui"/>
+/// <reference types="../../Generated/Typings~/csharp-oolong-ugui"/>
 
 // TODO: I need to double check this typing at some point
 // Or I can write a generator for this typing I guess
 
-interface EventData<T = UnityElement> {
+interface EventData<T extends object = any> {
     type: string;
-    target: T;
+    target: UnityElement<T>;
     eventData: CS.UnityEngine.EventSystems.BaseEventData;
     redraw: boolean;
 }
 
-type EventHandler<T = UnityElement> = (ev: EventData<T>) => void;
-
-interface UnityElement {
-    element: IOolongElement;
-}
-
-interface UnityToggle {
-    element: OolongToggle;
-}
-
-interface UnityScrollView {
-    element: OolongScrollView;
-}
-
-interface UnityInput {
-    element: OolongInput;
-}
-
-interface UnitySlider {
-    element: OolongSlider;
-}
-
-interface IOolongElement {
-    transform: CS.UnityEngine.Transform;
-    gameObject: CS.UnityEngine.GameObject;
-    RootTransform: CS.UnityEngine.Transform;
-    TagName: string;
-    GetComponent(type: CS.System.Type): CS.UnityEngine.Component;
-    GetComponent(type: string): CS.UnityEngine.Component;
-}
-
-interface OolongSlider extends IOolongElement {
-    Value: number;
-}
-
-interface OolongToggle extends IOolongElement {
-    IsOn: boolean;
-}
-
-interface OolongScrollView extends IOolongElement {
-    ScrollPosition: CS.UnityEngine.Vector2;
-}
-
-interface OolongInput extends IOolongElement {
-    Value: string;
-}
+type OolongEventHandler<T extends object = any> = (ev: EventData<T>) => void;
 
 type RectAlignHorizontal = "top" | "middle" | "bottom";
 type RectAlignVertical = "left" | "center" | "right";
@@ -137,7 +93,10 @@ type TextOverflow =
     | "page"
     | "none";
 
-type AttributeNumber = number | `${number}`;
+type StringNumber = `${number}`;
+type AttributeNumber = number | StringNumber;
+
+// Loaders
 
 type RectAttributes = {
     align?: RectAlign;
@@ -246,7 +205,7 @@ type SelectableAttributes =
     | ImageAttributes;
 
 type ToggleAttributes = {
-    active?: boolean;
+    value?: "on" | "off";
     tab?: string;
     group?: string;
 };
@@ -312,46 +271,87 @@ type CanvasGroupAttributes = {
     rotation?: AttributeNumber;
 };
 
-type ElementCallbacks = {
-    onpointerenter?: EventHandler<UnityElement>;
-    onpointerexit?: EventHandler<UnityElement>;
-    onpointerdown?: EventHandler<UnityElement>;
-    onpointerup?: EventHandler<UnityElement>;
-    onpointermove?: EventHandler<UnityElement>;
-    onpointerclick?: EventHandler<UnityElement>;
-    oninitializepotentialdrag?: EventHandler<UnityElement>;
-    onbegindrag?: EventHandler<UnityElement>;
-    ondrag?: EventHandler<UnityElement>;
-    onenddrag?: EventHandler<UnityElement>;
-    ondrop?: EventHandler<UnityElement>;
-    onscroll?: EventHandler<UnityElement>;
-    onupdateselected?: EventHandler<UnityElement>;
-    onselect?: EventHandler<UnityElement>;
-    ondeselect?: EventHandler<UnityElement>;
-    onmove?: EventHandler<UnityElement>;
-    onsubmit?: EventHandler<UnityElement>;
-    oncancel?: EventHandler<UnityElement>;
+// Values
+
+type ScrollRectValueAttributes = {
+    scrollX?: StringNumber;
+    scrollY?: StringNumber;
+};
+
+// Elements
+
+type PanelElementAttributes = RectAttributes & LayoutAttributes;
+type ImageElementAttributes = RectAttributes & ImageAttributes;
+type TextElementAttributes = RectAttributes & TextAttributes;
+type ButtonElementAttributes = RectAttributes & SelectableAttributes;
+type ToggleElementAttributes = RectAttributes &
+    ToggleAttributes &
+    SelectableAttributes &
+    PrefixAttributes<ImageAttributes, "cm-"> &
+    PrefixAttributes<RectAttributes, "cm-">;
+type ScrollRectElementAttributes = RectAttributes &
+    ScrollRectAttributes &
+    PrefixAttributes<ScrollbarAttributes, "sx-"> &
+    PrefixAttributes<ScrollbarAttributes, "sy-"> &
+    PrefixAttributes<RectAttributes, "content-"> &
+    LayoutAttributes;
+type InputElementAttributes = RectAttributes &
+    InputAttributes &
+    SelectableAttributes &
+    PrefixAttributes<TextAttributes, "text-"> &
+    PrefixAttributes<TextAttributes, "ph-">;
+type SliderElementAttributes = RectAttributes &
+    InputAttributes &
+    SliderAttributes &
+    SelectableAttributes &
+    PrefixAttributes<ImageAttributes, "bg-"> &
+    PrefixAttributes<ImageAttributes, "fill-">;
+type CanvasGroupElementAttributes = RectAttributes & CanvasGroupAttributes;
+
+// Events
+
+type ElementCallbacks<T extends object = any> = {
+    onpointerenter?: OolongEventHandler<T>;
+    onpointerexit?: OolongEventHandler<T>;
+    onpointerdown?: OolongEventHandler<T>;
+    onpointerup?: OolongEventHandler<T>;
+    onpointermove?: OolongEventHandler<T>;
+    onpointerclick?: OolongEventHandler<T>;
+    oninitializepotentialdrag?: OolongEventHandler<T>;
+    onbegindrag?: OolongEventHandler<T>;
+    ondrag?: OolongEventHandler<T>;
+    onenddrag?: OolongEventHandler<T>;
+    ondrop?: OolongEventHandler<T>;
+    onscroll?: OolongEventHandler<T>;
+    onupdateselected?: OolongEventHandler<T>;
+    onselect?: OolongEventHandler<T>;
+    ondeselect?: OolongEventHandler<T>;
+    onmove?: OolongEventHandler<T>;
+    onsubmit?: OolongEventHandler<T>;
+    oncancel?: OolongEventHandler<T>;
 };
 
 type ButtonCallbacks = {
-    onclick?: EventHandler<UnityElement>;
+    onclick?: OolongEventHandler<ButtonElementAttributes>;
 };
 
 type ToggleCallbacks = {
-    onvaluechanged?: EventHandler<UnityToggle>;
+    onvaluechanged?: OolongEventHandler<ToggleElementAttributes>;
 };
 
 type SliderCallbacks = {
-    onvaluechanged?: EventHandler<UnitySlider>;
+    onvaluechanged?: OolongEventHandler<SliderElementAttributes>;
 };
 
 type ScrollRectCallbacks = {
-    onvaluechanged?: EventHandler<UnityScrollView>;
+    onvaluechanged?: OolongEventHandler<
+        ScrollRectElementAttributes & ScrollRectValueAttributes
+    >;
 };
 
 type InputCallbacks = {
-    onvaluechanged?: EventHandler<UnityInput>;
-    onendedit?: EventHandler<UnityInput>;
-    oninputselect?: EventHandler<UnityInput>;
-    oninputdeselect?: EventHandler<UnityInput>;
+    onvaluechanged?: OolongEventHandler<InputElementAttributes>;
+    onendedit?: OolongEventHandler<InputElementAttributes>;
+    oninputselect?: OolongEventHandler<InputElementAttributes>;
+    oninputdeselect?: OolongEventHandler<InputElementAttributes>;
 };

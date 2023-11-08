@@ -24,6 +24,13 @@ const options = {
   skipLibCheck: true,
   declaration: true,
   emitDeclarationOnly: true,
+  typeRoots: [
+    '../../../Library/PackageCache/com.tencent.puerts.core@2.0.3/Typing',
+    '../../../Assets/Generated/Puerts/Typing',
+    '../../../Packages/in.tsdo.oolong/Typings~',
+    '../../../Packages/in.tsdo.oolong/Generated/Typings~',
+    '../Generated/Typings~',
+  ],
 };
 
 const factory = ts.factory;
@@ -60,7 +67,8 @@ const program = ts.createProgram(
   host
 );
 
-program.emit();
+var result = program.emit();
+console.log(result.diagnostics);
 
 const declarationFile = factory.createSourceFile(
   [

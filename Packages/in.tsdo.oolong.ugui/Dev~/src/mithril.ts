@@ -1,6 +1,6 @@
 import type * as dom from './dom.js';
 
-declare class UnityElement extends dom.UnityElement {}
+declare class UnityElement<T extends object = any> extends dom.UnityElement<T> {}
 
 import m from 'mithril';
 
@@ -14,7 +14,7 @@ export const PartialRedraw = (mountId: number) => {
 };
 
 export const MithrilMount = (
-  element: CS.TSF.Oolong.UGUI.IOolongElement,
+  element: CS.TSF.Oolong.UGUI.OolongElement,
   component: MithrilComponent,
   partial: boolean
 ) => {
