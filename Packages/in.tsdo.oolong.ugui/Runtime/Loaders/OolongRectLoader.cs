@@ -281,16 +281,6 @@ namespace TSF.Oolong.UGUI
             IsUpdatePending = true;
         }
 
-        private void SetLayoutTransition(FloatTransitionProperty f, string v)
-        {
-            if (string.IsNullOrEmpty(v) || !float.TryParse(v, out var value))
-            {
-                f.Reset();
-                return;
-            }
-            DocumentUtils.OnTransitionValueUpdate += () => f.SetValue(value);
-        }
-
         private void ApplyLayout(LayoutDataTransition layoutData)
         {
             // Set Align
@@ -540,23 +530,6 @@ namespace TSF.Oolong.UGUI
         public override void Reset()
         {
             base.Reset();
-
-            _layoutData.Width.Reset();
-            _layoutData.Height.Reset();
-            _layoutData.MarginLeft.Reset();
-            _layoutData.MarginTop.Reset();
-            _layoutData.MarginRight.Reset();
-            _layoutData.MarginBottom.Reset();
-            _layoutData.MarginX.Reset();
-            _layoutData.MarginY.Reset();
-            _layoutData.Margin.Reset();
-            _layoutData.Rotation.Reset();
-            _layoutData.Z.Reset();
-            _layoutData.MinWidth.Reset();
-            _layoutData.MinHeight.Reset();
-            _layoutData.FlexWidth.Reset();
-            _layoutData.FlexHeight.Reset();
-
             _layoutElementData.IgnoreLayout = false;
             _layoutElementData.Priority = 0;
 

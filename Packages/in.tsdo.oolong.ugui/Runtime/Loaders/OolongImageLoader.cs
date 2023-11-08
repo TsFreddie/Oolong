@@ -24,11 +24,9 @@ namespace TSF.Oolong.UGUI
         private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
         {
             { "src", (e, v) => e.SetImage(v) },
-            { "color", (e, v) => e.SetColor(v) },
             { "type", (e, v) => e.SetType(v) },
             { "fit", (e, v) => e.SetFit(v) },
             { "clockwise", (e, v) => e.SetClockwise(v) },
-            { "amount", (e, v) => e.SetAmount(v) },
             { "passthrough", ((e, v) => e.SetClickThrough(v)) },
             { "extend", (e, v) => e.SetFloat(ref e._extendData.Extend, v) },
             { "extend-left", (e, v) => e.SetFloat(ref e._extendData.ExtendLeft, v) },
@@ -42,6 +40,8 @@ namespace TSF.Oolong.UGUI
             { "flip-y", (e, v) => e.SetFlipY(v) },
             { "ppu", (e, v) => e.SetMultiplier(v) },
             { "async", (e, v) => e.SetAsync(v) },
+            { "color", (e, v) => e.SetLayoutTransition(e._color, v) },
+            { "fill-amount", (e, v) => e.SetLayoutTransition(e._amount, v) },
         };
 
         private string _defaultType;
@@ -63,6 +63,9 @@ namespace TSF.Oolong.UGUI
         private string _address;
         private readonly string _tagName;
         private AddressableHolder<Sprite> _handle;
+
+        private readonly ColorTransitionProperty _color;
+        private readonly FloatTransitionProperty _amount;
 
         public bool HasImage { get; private set; } = false;
 
@@ -101,7 +104,22 @@ namespace TSF.Oolong.UGUI
             HasImage = false;
             IsUpdatePending = true;
 
+            _color = new ColorTransitionProperty(SetColor, Color.white);
+            _amount = new FloatTransitionProperty(SetFillAmount, 1.0f);
+            Transitions.Add("color", _color);
+            Transitions.Add("fill-amount", _amount);
+
             _tagName = tagName;
+        }
+
+        private void SetFillAmount(float v)
+        {
+            Instance.fillAmount = v / 100.0f;
+        }
+
+        private void SetColor(Color v)
+        {
+            Instance.color = v;
         }
 
         private void SetAsync(string v)
@@ -140,17 +158,6 @@ namespace TSF.Oolong.UGUI
         private void SetFit(string v)
         {
             Instance.preserveAspect = v != null;
-        }
-
-        private void SetAmount(string v)
-        {
-            if (string.IsNullOrEmpty(v))
-            {
-                Instance.fillAmount = 1;
-                return;
-            }
-
-            Instance.fillAmount = float.Parse(v) / 100.0f;
         }
 
         private void SetClockwise(string v)
@@ -315,23 +322,16 @@ namespace TSF.Oolong.UGUI
                 else
                     sprite = _handle.LoadSync(_address);
             }
+            else
+            {
+                sprite = Resources.Load<Sprite>("Stub/White");
+            }
 
-            if (sprite == null && !isNone)
+            if (sprite == null)
                 return;
 
             Instance.sprite = sprite;
             Loaded = true;
-        }
-
-        private void SetColor(string color)
-        {
-            if (string.IsNullOrEmpty(color))
-            {
-                Instance.color = Color.white;
-                return;
-            }
-
-            Instance.color = DocumentUtils.ParseColor(color);
         }
 
         protected override void OnUpdate()

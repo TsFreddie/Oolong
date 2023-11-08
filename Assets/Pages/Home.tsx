@@ -2,11 +2,27 @@ export default class Menu extends MithrilComponent {
     private count: number = 0;
     private margin: number = 0;
     private marginX: number = 0;
+    private color = "#442c2c";
 
     view(vnode: m.Vnode<{}, this>) {
         return (
-            <image src="#" color="#2c2c2c">
-                <button
+            <image
+                src="#"
+                color={this.color}
+                onpointerenter={() => {
+                    this.color = "#2c442c";
+                    this.count = (this.count + 25) % 101;
+                }}
+                onpointerexit={() => {
+                    this.color = "#442c2c";
+                    this.count = (this.count + 25) % 101;
+                }}
+                transition-property="color, fill-amount"
+                transition-duration="100ms,1s"
+                type="fan-right"
+                amount={this.count}
+            >
+                {/* <button
                     src="#"
                     transition-property="margin-x"
                     transition-duration="1s"
@@ -30,7 +46,7 @@ export default class Menu extends MithrilComponent {
                             console.log(event.target.attrs.value);
                         }}
                     ></toggle>
-                </button>
+                </button> */}
             </image>
         );
     }

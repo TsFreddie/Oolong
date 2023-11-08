@@ -287,6 +287,22 @@ namespace TSF.Oolong.UGUI
             return ColorUtility.TryParseHtmlString(color, out var c) ? c : Color.white;
         }
 
+        public static bool TryParseColor(string color, out Color value)
+        {
+            if (string.IsNullOrEmpty(color))
+            {
+                value = Color.white;
+                return true;
+            }
+
+            var result = ColorUtility.TryParseHtmlString(color, out value);
+            if (!result)
+                value = Color.white;
+
+            return result;
+        }
+
+
         public static void Dispose()
         {
             s_pooledElements.Clear();

@@ -49,6 +49,7 @@ namespace TSF.Oolong.UGUI
             IsUpdatePending = false;
             IsLateUpdatePending = false;
             ResetTransitions();
+            Transitions.Clear();
         }
 
         public virtual bool AddListener(string key, IOolongLoader.JsCallback callback) => false;
@@ -63,6 +64,8 @@ namespace TSF.Oolong.UGUI
 
             foreach (var handler in Attrs.Values)
                 handler(loader, null);
+
+            ResetTransitions();
         }
 
         public virtual void Reuse() { }
@@ -129,6 +132,26 @@ namespace TSF.Oolong.UGUI
             var oldF = f;
             f = string.IsNullOrEmpty(v) || !int.TryParse(v, out var value) ? def : value;
             if (!oldF.Equals(f)) IsUpdatePending = true;
+        }
+
+        protected void SetLayoutTransition(FloatTransitionProperty f, string v)
+        {
+            if (string.IsNullOrEmpty(v) || !float.TryParse(v, out var value))
+            {
+                f.Reset();
+                return;
+            }
+            DocumentUtils.OnTransitionValueUpdate += () => f.SetValue(value);
+        }
+
+        protected void SetLayoutTransition(ColorTransitionProperty f, string v)
+        {
+            if (string.IsNullOrEmpty(v) || !DocumentUtils.TryParseColor(v, out var value))
+            {
+                f.Reset();
+                return;
+            }
+            DocumentUtils.OnTransitionValueUpdate += () => f.SetValue(value);
         }
 
         protected void SetFloatWithoutUpdate(ref float f, string v, float def = 0.0f)

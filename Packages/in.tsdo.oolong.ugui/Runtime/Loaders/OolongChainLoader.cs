@@ -107,7 +107,14 @@ namespace TSF.Oolong.UGUI
         {
             foreach (var node in _chain)
             {
-                node.Loader.SetTransition(key, duration, timingFunction, delay);
+                if (node.Prefix == null)
+                {
+                    node.Loader.SetTransition(key, duration, timingFunction, delay);
+                }
+                else if (key.StartsWith(node.Prefix))
+                {
+                    node.Loader.SetTransition(key.Substring(node.Prefix.Length), duration, timingFunction, delay);
+                }
             }
         }
 

@@ -149,7 +149,7 @@ type ImageAttributes = {
     type?: ImageType;
     fit?: boolean;
     clockwise?: boolean;
-    amount?: AttributeNumber;
+    "fill-amount"?: AttributeNumber;
     passthrough?: boolean;
     extend?: AttributeNumber;
     "extend-left"?: AttributeNumber;
@@ -198,7 +198,7 @@ type SelectableAttributes =
           press?: string;
           select?: string;
           disable?: string;
-          fade?: AttributeNumber;
+          "fade-duration"?: AttributeNumber;
           disabled?: boolean;
           async?: boolean;
       }

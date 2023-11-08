@@ -125,9 +125,9 @@ namespace TSF.Oolong.UGUI
             return base.TryReadValue(key, out value);
         }
 
-        public override void Reuse()
+        public override void Reset()
         {
-            base.Reuse();
+            base.Reset();
             RemoveGroup();
             Instance.SetIsOnWithoutNotify(false);
         }

@@ -61,13 +61,13 @@ namespace TSF.Oolong.UGUI
                     else e.SetImage(ButtonState.Disabled, v);
                 })
             },
-            { "fade", ((e, v) => e.SetFade(v)) },
+            { "fade-duration", ((e, v) => e.SetFadeDuration(v)) },
             { "disabled", ((e, v) => e.SetDisabled(v)) },
             { "async", ((e, v) => e.SetAsync(v)) },
         };
 
         public readonly Selectable Instance;
-        private readonly OolongImageLoader _image; // Not using it's loader. Selectable will manage the sprite.
+        private readonly OolongImageLoader _image; // ignoring src and color
         private AddressableHolder<Sprite> _baseSprite;
         private AddressableHolder<Sprite> _highlightSprite;
         private AddressableHolder<Sprite> _selectedSprite;
@@ -130,7 +130,7 @@ namespace TSF.Oolong.UGUI
         }
 
 
-        private void SetFade(string fade)
+        private void SetFadeDuration(string fade)
         {
             var block = Instance.colors;
             if (string.IsNullOrEmpty(fade))
@@ -357,7 +357,7 @@ namespace TSF.Oolong.UGUI
                 case ButtonState.Base:
                     HasImage = true;
                     if (isNone)
-                        sprite = null;
+                        sprite = Resources.Load<Sprite>("Stub/White");
                     else
                         sprite = _isAsync ? await _baseSprite.Load(address) : _baseSprite.LoadSync(address);
                     Loaded = true;
