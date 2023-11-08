@@ -282,6 +282,7 @@ type ScrollRectValueAttributes = {
 };
 
 // Transitions
+
 type TransitionAttributes = {
     "transition-property"?: string;
     "transition-duration"?: string;

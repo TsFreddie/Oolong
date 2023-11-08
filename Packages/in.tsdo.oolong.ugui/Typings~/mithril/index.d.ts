@@ -450,35 +450,44 @@ declare global {
             // Unity
             panel: Mithril.Attributes &
                 PanelElementAttributes &
+                TransitionAttributes &
                 ElementCallbacks<PanelElementAttributes>;
             image: Mithril.Attributes &
                 ImageElementAttributes &
+                TransitionAttributes &
                 ElementCallbacks<ImageElementAttributes>;
             text: Mithril.Attributes &
                 TextElementAttributes &
+                TransitionAttributes &
                 ElementCallbacks<TextElementAttributes>;
             button: Mithril.Attributes &
                 ButtonElementAttributes &
+                TransitionAttributes &
                 ElementCallbacks<ButtonElementAttributes> &
                 ButtonCallbacks;
             toggle: Mithril.Attributes &
                 ToggleElementAttributes &
+                TransitionAttributes &
                 ElementCallbacks<ToggleElementAttributes> &
                 ToggleCallbacks;
             scrollrect: Mithril.Attributes &
                 ScrollRectElementAttributes &
+                TransitionAttributes &
                 ElementCallbacks<ScrollRectElementAttributes> &
                 ScrollRectCallbacks;
             input: Mithril.Attributes &
                 InputElementAttributes &
+                TransitionAttributes &
                 ElementCallbacks<InputElementAttributes> &
                 InputCallbacks;
             slider: Mithril.Attributes &
                 SliderElementAttributes &
+                TransitionAttributes &
                 ElementCallbacks<SliderElementAttributes> &
                 SliderCallbacks;
             canvasgroup: Mithril.Attributes &
                 CanvasGroupElementAttributes &
+                TransitionAttributes &
                 ElementCallbacks<CanvasGroupElementAttributes>;
 
             // Special Mithril types
