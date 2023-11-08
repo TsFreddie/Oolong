@@ -142,11 +142,7 @@ namespace TSF.Oolong.UGUI
                 DocumentUtils.OnTransitionValueUpdate += f.Clear;
                 return;
             }
-            DocumentUtils.OnTransitionValueUpdate += () =>
-            {
-                f.SetValue(value);
-                Debug.Log(value);
-            };
+            DocumentUtils.OnTransitionValueUpdate += () => f.SetValue(value);
         }
 
         protected void SetLayoutTransition(ColorTransitionProperty f, string v)
