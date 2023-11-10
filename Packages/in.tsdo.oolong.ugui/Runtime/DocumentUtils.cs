@@ -24,12 +24,15 @@ namespace TSF.Oolong.UGUI
             },
             {
                 "panel", (e) =>
-                    new OolongRectLoader(e.transform)
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongLayoutLoader(e.gameObject))
             },
             {
                 "canvasgroup", (e) =>
                     new OolongChainLoader()
                         .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongLayoutLoader(e.gameObject))
                         .Add(new OolongCanvasGroupLoader(e.gameObject))
             },
             {

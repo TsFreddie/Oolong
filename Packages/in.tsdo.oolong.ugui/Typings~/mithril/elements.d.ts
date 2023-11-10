@@ -318,7 +318,9 @@ type SliderElementAttributes = RectAttributes &
     SelectableAttributes &
     PrefixAttributes<ImageAttributes, "bg-"> &
     PrefixAttributes<ImageAttributes, "fill-">;
-type CanvasGroupElementAttributes = RectAttributes & CanvasGroupAttributes;
+type CanvasGroupElementAttributes = RectAttributes &
+    CanvasGroupAttributes &
+    LayoutAttributes;
 
 // Events
 
