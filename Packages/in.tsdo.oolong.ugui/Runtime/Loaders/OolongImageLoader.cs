@@ -127,9 +127,11 @@ namespace TSF.Oolong.UGUI
             _isAsync = v != null;
         }
 
-        private void SetMultiplier(string multiplier)
+        private void SetMultiplier(string value)
         {
-            Instance.pixelsPerUnitMultiplier = float.Parse(multiplier);
+            if (!float.TryParse(value, out var multiplier))
+                multiplier = 1.0f;
+            Instance.pixelsPerUnitMultiplier = multiplier;
         }
 
         private void SetClickThrough(string v)
