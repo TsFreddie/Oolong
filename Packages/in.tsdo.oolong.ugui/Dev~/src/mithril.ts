@@ -60,9 +60,7 @@ export const MithrilUnmount = (element: UnityElement) => {
 };
 
 export abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {
-  /** @internal */
-  private __tsx_attrs: A & { key?: string | number };
-  /** @internal */
+  constructor(attrs: A) {}
   private __mountId: number;
   /** The oninit hook is called before a vnode is touched by the virtual DOM engine. */
   oninit?(vnode: m.Vnode<A, this>): any;

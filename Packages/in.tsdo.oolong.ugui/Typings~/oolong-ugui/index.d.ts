@@ -145,7 +145,7 @@ declare global {
     export declare const MithrilMount: (element: CS.TSF.Oolong.UGUI.OolongElement, component: MithrilComponent, partial: boolean) => any;
     export declare const MithrilUnmount: (element: UnityElement) => void;
     export declare abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {
-        private __tsx_attrs;
+        constructor(attrs: A);
         private __mountId;
         oninit?(vnode: m.Vnode<A, this>): any;
         oncreate?(vnode: m.VnodeDOM<A, this>): any;
