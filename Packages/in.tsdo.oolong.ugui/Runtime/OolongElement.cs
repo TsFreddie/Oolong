@@ -177,6 +177,7 @@ namespace TSF.Oolong.UGUI
             if (string.IsNullOrEmpty(value))
             {
                 ClearList(ref list);
+                IsTransitionDirty = true;
                 return;
             }
 
@@ -194,6 +195,7 @@ namespace TSF.Oolong.UGUI
             if (string.IsNullOrEmpty(value))
             {
                 ClearList(ref list);
+                IsTransitionDirty = true;
                 return;
             }
 
