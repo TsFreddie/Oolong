@@ -209,6 +209,27 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        internal static void F_GetCachePath(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+        
+                {
+            
+                    {
+
+                        var result = TSF.Oolong.OolongEnvironment.GetCachePath ();
+
+                        Puerts.PuertsDLL.ReturnString(isolate, info, result);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
     // ==================== methods end ====================
 
     // ==================== properties start ====================
@@ -303,7 +324,7 @@ namespace PuertsStaticWrap
     // ==================== operator end ====================
     // ==================== events start ====================
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        internal static void A_OnTick(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        internal static void A_OnPreUpdate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
@@ -318,7 +339,7 @@ namespace PuertsStaticWrap
             }
         }
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        internal static void R_OnTick(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        internal static void R_OnPreUpdate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {

@@ -110,6 +110,7 @@ namespace TSF.Oolong
             InjectWrapper();
 
             _environment.ExecuteModule("oolong");
+            _environment.ExecuteModule("oolong/source-map");
             _environment.UsingAction<ScriptBehaviour, string, string>();
             _environment.UsingAction<int, JSObject>();
             _environment.UsingAction<int>();
@@ -167,7 +168,7 @@ namespace TSF.Oolong
     #if UNITY_EDITOR_WIN
                 assetPath = assetPath.Replace('/', '\\');
     #endif
-                debugPath = Path.Combine(Directory.GetCurrentDirectory(), "ScriptDebug", "Assets", assetPath);
+                debugPath = Path.Combine(GetCachePath(), "Assets", assetPath) + ".js";
 #endif
                 var result = op.Result.text;
                 Addressables.Release(op);
@@ -185,6 +186,13 @@ namespace TSF.Oolong
             specifier = PathHelper.normalize(PathHelper.Dirname(referrer) + "/" + specifier);
             return FileExists(specifier) ? specifier : null;
         }
+
+#if UNITY_EDITOR
+        public static string GetCachePath()
+        {
+            return Path.Combine(Directory.GetCurrentDirectory(), "Library", "OolongCache");
+        }
+#endif
 
         private void Dispose()
         {

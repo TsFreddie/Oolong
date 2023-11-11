@@ -29,14 +29,9 @@ namespace TSF.Oolong.Editor
             return executable != null ? Path.GetFullPath($"Packages/in.tsdo.oolong/Support~/swc/{executable}") : null;
         }
 
-        public static string GetCachePath()
-        {
-            return Path.Combine(Directory.GetCurrentDirectory(), "Library", "OolongCache");
-        }
-
         private static void ClearCacheInternal()
         {
-            var cachePath = GetCachePath();
+            var cachePath = OolongEnvironment.GetCachePath();
             if (Directory.Exists(cachePath))
                 Directory.Delete(cachePath, true);
         }
@@ -119,7 +114,7 @@ namespace TSF.Oolong.Editor
             // Do not import definitions
             if (ctx.assetPath.EndsWith(".d.ts")) return null;
 
-            var cachePath = GetCachePath();
+            var cachePath = OolongEnvironment.GetCachePath();
             var path = ctx.assetPath;
             var dir = Path.GetDirectoryName(path) ?? string.Empty;
             var targetFilename = Path.Combine(cachePath, dir, $"{Path.GetFileNameWithoutExtension(path)}.js");

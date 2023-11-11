@@ -20,6 +20,7 @@ esbuild.build({
   outfile: '../Runtime/Resources/mithril.js',
 });
 
+// build typings
 const options = {
   skipLibCheck: true,
   declaration: true,

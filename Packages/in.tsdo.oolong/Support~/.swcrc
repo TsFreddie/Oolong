@@ -23,7 +23,7 @@
         "externalHelpers": true,
         "keepClassNames": false
     },
-    "minify": false,
+    "minify": true,
     "module": {
         "type": "es6",
         "strict": false,

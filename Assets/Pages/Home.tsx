@@ -7,6 +7,7 @@ export default class Menu extends MithrilComponent {
     oncreate(vnode: m.VnodeDOM<{}, this>) {
         vnode.dom.attrs.x = 2000;
         vnode.dom.attrs.x = 0;
+        throw new Error("Method not implemented.");
     }
 
     view(vnode: m.Vnode<{}, this>) {

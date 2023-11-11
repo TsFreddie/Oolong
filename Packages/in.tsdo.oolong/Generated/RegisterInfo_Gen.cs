@@ -139,14 +139,14 @@ namespace PuertsStaticWrap
                     , Method = TSF_Oolong_OolongEnvironment_Wrap.M_Resolve
 #endif
                     }},
-                    {"add_OnTick_static", new MemberRegisterInfo { Name = "add_OnTick", IsStatic = true, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+                    {"add_OnPreUpdate_static", new MemberRegisterInfo { Name = "add_OnPreUpdate", IsStatic = true, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_OolongEnvironment_Wrap.A_OnTick
+                    , Method = TSF_Oolong_OolongEnvironment_Wrap.A_OnPreUpdate
 #endif
                     }},
-                    {"remove_OnTick_static", new MemberRegisterInfo { Name = "remove_OnTick", IsStatic = true, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+                    {"remove_OnPreUpdate_static", new MemberRegisterInfo { Name = "remove_OnPreUpdate", IsStatic = true, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
-                    , Method = TSF_Oolong_OolongEnvironment_Wrap.R_OnTick
+                    , Method = TSF_Oolong_OolongEnvironment_Wrap.R_OnPreUpdate
 #endif
                     }},
                     {"add_OnUpdate_static", new MemberRegisterInfo { Name = "add_OnUpdate", IsStatic = true, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
@@ -187,6 +187,11 @@ namespace PuertsStaticWrap
                     {"DisposeInstance_static", new MemberRegisterInfo { Name = "DisposeInstance", IsStatic = true, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
 #if !EXPERIMENTAL_IL2CPP_PUERTS
                     , Method = TSF_Oolong_OolongEnvironment_Wrap.F_DisposeInstance
+#endif
+                    }},
+                    {"GetCachePath_static", new MemberRegisterInfo { Name = "GetCachePath", IsStatic = true, MemberType = MemberType.Method, UseBindingMode = BindingMode.FastBinding
+#if !EXPERIMENTAL_IL2CPP_PUERTS
+                    , Method = TSF_Oolong_OolongEnvironment_Wrap.F_GetCachePath
 #endif
                     }},
                     {"JsEnv_static", new MemberRegisterInfo { Name = "JsEnv", IsStatic = true, MemberType = MemberType.Property, UseBindingMode = BindingMode.FastBinding

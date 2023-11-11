@@ -151,8 +151,8 @@
             public static OnDispose : System.Action
             public static get JsEnv(): Puerts.JsEnv;
             public static get Instance(): TSF.Oolong.OolongEnvironment;
-            public static add_OnTick ($value: TSF.Oolong.OolongEnvironment.JsUpdate) : void
-            public static remove_OnTick ($value: TSF.Oolong.OolongEnvironment.JsUpdate) : void
+            public static add_OnPreUpdate ($value: TSF.Oolong.OolongEnvironment.JsUpdate) : void
+            public static remove_OnPreUpdate ($value: TSF.Oolong.OolongEnvironment.JsUpdate) : void
             public static add_OnUpdate ($value: TSF.Oolong.OolongEnvironment.JsUpdate) : void
             public static remove_OnUpdate ($value: TSF.Oolong.OolongEnvironment.JsUpdate) : void
             public static add_OnFixedUpdate ($value: TSF.Oolong.OolongEnvironment.JsUpdate) : void
@@ -166,6 +166,7 @@
             public FileExists ($filePath: string) : boolean
             public ReadFile ($filePath: string, $debugPath: $Ref<string>) : string
             public Resolve ($specifier: string, $referrer: string) : string
+            public static GetCachePath () : string
         }
     }
     namespace UnityEngine.AddressableAssets {

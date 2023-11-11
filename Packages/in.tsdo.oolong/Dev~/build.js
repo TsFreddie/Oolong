@@ -11,6 +11,16 @@ esbuild.build({
   outfile: '../Runtime/Resources/oolong.js',
 });
 
+// build SourceMap
+esbuild.build({
+  entryPoints: ['./src/source-map.ts'],
+  bundle: true,
+  format: 'esm',
+  minify: true,
+  platform: 'node',
+  outfile: '../Editor/Resources/oolong/source-map.js',
+});
+
 const options = {
   skipLibCheck: true,
   declaration: true,
@@ -51,7 +61,8 @@ host.writeFile = (fileName, text, _, __, sourceFiles) => {
 };
 const program = ts.createProgram(['./src/oolong.ts'], options, host);
 
-program.emit();
+var result = program.emit();
+console.log(result.diagnostics);
 
 const declarationFile = factory.createSourceFile(
   [
