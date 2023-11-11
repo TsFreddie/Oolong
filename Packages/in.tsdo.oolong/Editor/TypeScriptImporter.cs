@@ -9,7 +9,7 @@ using Debug = UnityEngine.Debug;
 
 namespace TSF.Oolong.Editor
 {
-    [ScriptedImporter(1, "ts", AllowCaching = true)]
+    [ScriptedImporter(1, "ts", AllowCaching = false)]
     public class TypeScriptImporter : JavaScriptImporter
     {
         protected override Texture2D Icon => Icons.TypeScriptIcon;
