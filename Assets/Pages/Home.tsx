@@ -70,7 +70,7 @@ export default class Menu extends MithrilComponent {
                         }}
                     ></toggle>
                 </button> */}
-                    <Realtime>{() => <text>{Math.random()}</text>}</Realtime>
+                    <Realtime>{() => <text font="unifont" material="unifont-outline">{Math.random()}</text>}</Realtime>
                 </image>
             </canvasgroup>
         );

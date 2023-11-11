@@ -189,7 +189,9 @@ type TextAttributes = {
     "word-spacing"?: AttributeNumber;
     "line-spacing"?: AttributeNumber;
     "paragraph-spacing"?: AttributeNumber;
+    "rich-text"?: "enabled" | "disabled" | boolean;
     font?: string;
+    material?: string;
 };
 
 type SelectableAttributes =

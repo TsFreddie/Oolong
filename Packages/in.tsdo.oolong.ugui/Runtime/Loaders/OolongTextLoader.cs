@@ -28,6 +28,7 @@ namespace TSF.Oolong.UGUI
         {
             { "#", (e, v) => e.SetText(v) },
             { "text", (e, v) => e.SetText(v) },
+            { "material", (e, v) => e.SetMaterial(v) },
             { "text-align", (e, v) => e.SetTextAlign(v) },
             { "size", (e, v) => e.SetFontSize(v) },
             { "min-size", (e, v) => e.SetMinFontSize(v) },
@@ -35,6 +36,7 @@ namespace TSF.Oolong.UGUI
             { "overflow", (e, v) => e.SetOverflow(v) },
             { "wrap", (e, v) => e.SetWrap(v) },
             { "passthrough", (e, v) => e.SetPassthrough(v) },
+            { "rich-text", (e, v) => e.SetRichText(v) },
             { "extend", (e, v) => e.SetFloat(ref e._extendData.Extend, v) },
             { "extend-left", (e, v) => e.SetFloat(ref e._extendData.ExtendLeft, v) },
             { "extend-top", (e, v) => e.SetFloat(ref e._extendData.ExtendTop, v) },
@@ -117,6 +119,7 @@ namespace TSF.Oolong.UGUI
         private Material _materialInstance;
 
         private string _font;
+        private string _material;
         private bool _fontInitialized = false;
 
         public OolongTextLoader(GameObject gameObject, OolongElement element)
@@ -143,28 +146,23 @@ namespace TSF.Oolong.UGUI
 
         private void SetFont(string v)
         {
-            if (string.IsNullOrEmpty(v))
-            {
-                _font = null;
-                return;
-            }
-
-            _font = v;
+            _font = string.IsNullOrEmpty(v) ? null : v;
             _fontInitialized = false;
             IsLateUpdatePending = true;
         }
 
-        private void OnFontChanged()
+        private void SetMaterial(string v)
         {
-            ReleaseMaterial();
-            Instance.font = null;
+            _material = string.IsNullOrEmpty(v) ? null : v;
             _fontInitialized = false;
             IsLateUpdatePending = true;
         }
 
         private void SetupFont()
         {
-            Instance.font = TMP_Settings.defaultFontAsset;
+            OolongTextMeshPro.GetFont(_font, _material, out var font, out var material);
+            Instance.font = font;
+            Instance.fontSharedMaterial = material;
             _fontInitialized = true;
         }
 
@@ -177,6 +175,17 @@ namespace TSF.Oolong.UGUI
             }
 
             Instance.raycastTarget = false;
+        }
+
+        private void SetRichText(string v)
+        {
+            if (v == null)
+            {
+                Instance.richText = false;
+                return;
+            }
+
+            Instance.richText = v != "disabled";
         }
 
         private void SetText(string text)
@@ -211,15 +220,15 @@ namespace TSF.Oolong.UGUI
             IsLateUpdatePending = true;
         }
 
-        private void SetWrap(string wrap)
+        private void SetWrap(string v)
         {
-            if (wrap == null)
+            if (v == null)
             {
                 Instance.enableWordWrapping = false;
                 return;
             }
 
-            Instance.enableWordWrapping = wrap != "disabled";
+            Instance.enableWordWrapping = v != "disabled";
         }
 
         private void SetOverflow(string overflow)
@@ -457,11 +466,9 @@ namespace TSF.Oolong.UGUI
             }
             else
             {
-                var material = GetMaterial();
-                material.DisableKeyword(ShaderUtilities.Keyword_Outline);
-                material.SetFloat(ShaderUtilities.ID_OutlineWidth, 0);
-                material.SetFloat(ShaderUtilities.ID_FaceDilate, 0);
+                Instance.material = null;
                 Instance.UpdateMeshPadding();
+                ReleaseMaterial();
             }
         }
 
@@ -472,7 +479,6 @@ namespace TSF.Oolong.UGUI
             Instance.font = null;
             _fontInitialized = false;
             IsLateUpdatePending = true;
-            // Instance.enabled = true;
         }
 
         public override void Reset()
@@ -480,7 +486,6 @@ namespace TSF.Oolong.UGUI
             base.Reset();
 
             ReleaseMaterial();
-            // Instance.enabled = false;
             Instance.text = null;
             IsLateUpdatePending = false;
         }

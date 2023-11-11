@@ -58,16 +58,10 @@ namespace TSF.Oolong.UGUI
             IsLateUpdatePending = true;
         }
 
-        private void OnFontChanged()
-        {
-            Instance.fontAsset = null;
-            _fontInitialized = false;
-            IsLateUpdatePending = true;
-        }
-
         private void SetupFont()
         {
-            Instance.fontAsset = TMP_Settings.defaultFontAsset;
+            OolongTextMeshPro.GetFont(_font, null, out var font, out var _);
+            Instance.fontAsset = font;
             _fontInitialized = true;
         }
 
