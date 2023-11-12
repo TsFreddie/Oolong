@@ -64,7 +64,7 @@ namespace TSF.Oolong.Editor
                     if (importers == null)
                         continue;
 
-                    if (importers.Any(importer => importer == typeof(TypeScriptImporter)))
+                    if (importers.Any(importer => typeof(TypeScriptImporter).IsAssignableFrom(importer)))
                     {
                         AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
                     }
@@ -89,6 +89,8 @@ namespace TSF.Oolong.Editor
                     SwcConfig,
                     "--source-maps",
                     "true",
+                    "--source-file-name",
+                    Path.GetFullPath(filePath),
                     "--out-dir",
                     outDir,
                     filePath
@@ -121,7 +123,6 @@ namespace TSF.Oolong.Editor
 
             // delete old file if exists
             if (File.Exists(targetFilename)) File.Delete(targetFilename);
-
             CompileFile(cachePath, ctx.assetPath);
             return File.ReadAllText(targetFilename);
         }
