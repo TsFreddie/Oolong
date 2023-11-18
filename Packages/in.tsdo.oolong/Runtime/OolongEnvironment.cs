@@ -213,6 +213,7 @@ namespace TSF.Oolong
 
         private void Dispose()
         {
+            _waitDebuggerTask = null;
             OnDispose?.Invoke();
             _environment.Eval("Oolong.dispose();");
             _environment.Dispose();

@@ -8,13 +8,6 @@
             "decorators": true
         },
         "transform": {
-            "react": {
-                "pragma": "m",
-                "pragmaFrag": "m.Fragment",
-                "throwIfNamespace": true,
-                "development": false,
-                "useBuiltins": true
-            },
             "decoratorVersion": "2022-03",
             "decoratorMetadata": true
         },

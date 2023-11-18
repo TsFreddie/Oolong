@@ -12,11 +12,13 @@ namespace TSF.Oolong.Editor
     [ScriptedImporter(1, "ts", AllowCaching = false)]
     public class TypeScriptImporter : JavaScriptImporter
     {
+        public static string SwcConfig = Path.GetFullPath("Packages/in.tsdo.oolong/Support~/.swcrc");
+
         protected override Texture2D Icon => Icons.TypeScriptIcon;
+        protected virtual string SwcConfigPath => SwcConfig;
 
         private static string s_compilerPath = null;
 
-        public static string SwcConfig = Path.GetFullPath("Packages/in.tsdo.oolong/Support~/.swcrc");
         public static string GetCompilerPath()
         {
             const string executable =
@@ -72,7 +74,7 @@ namespace TSF.Oolong.Editor
             }
         }
 
-        public static void CompileFile(string outDir, string filePath)
+        public void CompileFile(string outDir, string filePath)
         {
             s_compilerPath ??= GetCompilerPath();
             if (s_compilerPath == null)
@@ -86,7 +88,7 @@ namespace TSF.Oolong.Editor
                 {
                     "compile",
                     "--config-file",
-                    SwcConfig,
+                    SwcConfigPath,
                     "--source-maps",
                     "true",
                     "--source-file-name",
