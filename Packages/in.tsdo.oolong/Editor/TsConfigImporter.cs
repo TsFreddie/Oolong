@@ -132,7 +132,7 @@ namespace TSF.Oolong.Editor
             ctx.SetMainObject(asset);
         }
 
-        [MenuItem("Tools/PuerTS/Oolong/Create tsconfig", priority = 10000)]
+        [MenuItem("Tools/Oolong/Create tsconfig", priority = 10000)]
         public static void Create()
         {
             var assets = AssetDatabase.FindAssets(".tsconfig t:TextAsset", new[] { "Assets" });

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Puerts;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -52,6 +54,8 @@ namespace TSF.Oolong
         private JsEnv _environment;
         private ILoader _defaultLoader;
 
+        private Task _waitDebuggerTask;
+
         public static JsEnv JsEnv => s_instance?._environment;
         public static OolongEnvironment Instance => s_instance;
         public static Action OnInitialize;
@@ -100,8 +104,21 @@ namespace TSF.Oolong
         internal void InitializeJsEnv()
         {
 #if UNITY_EDITOR
-            const int debuggerPort = 1000;
-            _environment = new JsEnv(this, debuggerPort);
+            _environment = new JsEnv(this, DebuggerSettings.instance.Port);
+            _waitDebuggerTask = _environment.WaitDebuggerAsync();
+            if (DebuggerSettings.instance.WaitForDebugger)
+            {
+                var showingProgressBar = false;
+                while (_waitDebuggerTask != null && !_waitDebuggerTask.IsCompleted)
+                {
+                    showingProgressBar = true;
+                    if (EditorUtility.DisplayCancelableProgressBar("[Oolong] Waiting for debugger", $"Waiting for debugger to attach to port {DebuggerSettings.instance.Port} ...", -1))
+                        break;
+                    _environment.Tick();
+                }
+                if (showingProgressBar)
+                    EditorUtility.ClearProgressBar();
+            }
             // _environment.Eval("require('reflect');require('update');require('dom');require('source-map');require('logExt');require('inspect').prepare(true);");
 #else
             _environment = new JsEnv(this);

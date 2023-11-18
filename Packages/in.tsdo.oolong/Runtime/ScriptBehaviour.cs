@@ -116,48 +116,6 @@ namespace TSF.Oolong
             get => (AddressableScript != null && AddressableScript.editorAsset != null) ? AddressableScript.editorAsset : null;
         }
 
-        // Extract editor field and default value by creating a script instance
-        public class SingleScriptLoader : ILoader
-        {
-            private readonly ScriptBehaviour _parent;
-            private readonly ILoader _defaultLoader;
-
-            public SingleScriptLoader(ScriptBehaviour parent)
-            {
-                _defaultLoader = new DefaultLoader();
-                _parent = parent;
-            }
-
-            public bool FileExists(string filePath)
-            {
-                if (_parent.EditorAsset == null) return _defaultLoader.FileExists(filePath);
-
-                var scriptName = _parent.EditorAsset.name;
-                var result = filePath.Equals(scriptName) || _defaultLoader.FileExists(filePath);
-                if (result) return true;
-                if (filePath.EndsWith(".js")) return true;
-                return false;
-            }
-
-            public string ReadFile(string filePath, out string debugPath)
-            {
-                if (_parent.EditorAsset == null) return _defaultLoader.ReadFile(filePath, out debugPath);
-
-                var scriptName = _parent.EditorAsset.name;
-                if (Path.GetFileNameWithoutExtension(filePath).Equals(scriptName))
-                {
-                    debugPath = filePath;
-                    return _parent.EditorAsset.text;
-                }
-
-                var result = _defaultLoader.ReadFile(filePath, out debugPath);
-                if (result != null) return result;
-                var className = Path.GetFileNameWithoutExtension(filePath);
-                var fakeSource = $@"export default class {className} extends ScriptBehaviour{{}}";
-                return fakeSource;
-            }
-        }
-
         [NonSerialized]
         private string _keptAddressable;
 
