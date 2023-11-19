@@ -16,6 +16,8 @@ namespace TSF.Oolong.UGUI
         private float _progress;
         private bool _hasInitialValue;
         private float _duration;
+        private float _delay;
+        private CubicBezier _timingFunction;
 
         public CubicBezier TimingFunction { get; set; } = CubicBezier.Ease;
         public float Delay { get; set; } = 0.0f;
@@ -25,6 +27,7 @@ namespace TSF.Oolong.UGUI
         public TransitionProperty(Action<T> applyCallback = null, T defaultValue = default)
         {
             _defaultValue = defaultValue;
+            _current = _defaultValue;
             _applyCallback = applyCallback;
         }
 
@@ -70,6 +73,8 @@ namespace TSF.Oolong.UGUI
                 _from = _current;
             }
 
+            _delay = Delay;
+            _timingFunction = TimingFunction;
             _start = _current;
             _to = value;
             Start();
@@ -106,14 +111,14 @@ namespace TSF.Oolong.UGUI
                 return;
             }
 
-            var t = Mathf.Clamp01((Time.time - _startTime - Delay) / _duration);
+            var t = Mathf.Clamp01((Time.time - _startTime - _delay) / _duration);
             if (t < 0.0f)
                 return;
 
             if (t >= 1.0f)
                 Stop();
 
-            _progress = TimingFunction.Evaluate(t);
+            _progress = _timingFunction.Evaluate(t);
             _current = Lerp(_start, _to, _progress);
             _applyCallback?.Invoke(_current);
         }
@@ -132,9 +137,6 @@ namespace TSF.Oolong.UGUI
             Delay = 0.0f;
             Duration = 0.0f;
             TimingFunction = CubicBezier.Ease;
-            _hasInitialValue = false;
-            _current = _defaultValue;
-            Stop();
         }
 
         protected abstract T Lerp(T from, T to, float t);

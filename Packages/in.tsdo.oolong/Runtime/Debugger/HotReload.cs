@@ -47,6 +47,7 @@ namespace TSF.Oolong
             _socket.OnOpen += SocketOnOnOpen;
             _socket.Connect();
         }
+
         private void SocketOnOnOpen()
         {
             // get source from v8 debugger
@@ -90,7 +91,6 @@ namespace TSF.Oolong
         public void Dispose()
         {
             _socket?.Close();
-            _socket = null;
         }
     }
 }

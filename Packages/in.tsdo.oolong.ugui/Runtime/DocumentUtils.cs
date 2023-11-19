@@ -308,6 +308,10 @@ namespace TSF.Oolong.UGUI
 
         public static void Dispose()
         {
+            OnTransitionUpdate = null;
+            OnTransitionValueUpdate = null;
+            OnDocumentUpdate = null;
+            OnDocumentLateUpdate = null;
             s_pooledElements.Clear();
         }
 
