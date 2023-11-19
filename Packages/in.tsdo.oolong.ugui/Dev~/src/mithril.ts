@@ -46,7 +46,8 @@ export const MithrilMount = (
     return el;
   } else {
     let el = new UnityElement(element, false);
-    return m.mount(el as any, component);
+    m.mount(el as any, component);
+    return el;
   }
 };
 

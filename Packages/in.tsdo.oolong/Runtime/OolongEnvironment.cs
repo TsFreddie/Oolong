@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Threading.Tasks;
 using Puerts;
 using UnityEditor;
@@ -54,7 +55,11 @@ namespace TSF.Oolong
         private JsEnv _environment;
         private ILoader _defaultLoader;
 
+#if UNITY_EDITOR
         private Task _waitDebuggerTask;
+        private HotReload _hotReload;
+        public static HotReload HotReload => s_instance?._hotReload;
+#endif
 
         public static JsEnv JsEnv => s_instance?._environment;
         public static OolongEnvironment Instance => s_instance;
@@ -104,7 +109,9 @@ namespace TSF.Oolong
         internal void InitializeJsEnv()
         {
 #if UNITY_EDITOR
-            _environment = new JsEnv(this, DebuggerSettings.instance.Port);
+            _hotReload = new HotReload();
+            var debuggerPort = DebuggerSettings.instance.Port;
+            _environment = new JsEnv(this, debuggerPort);
             _waitDebuggerTask = _environment.WaitDebuggerAsync();
             if (DebuggerSettings.instance.WaitForDebugger)
             {
@@ -119,10 +126,9 @@ namespace TSF.Oolong
                 if (showingProgressBar)
                     EditorUtility.ClearProgressBar();
             }
-            // _environment.Eval("require('reflect');require('update');require('dom');require('source-map');require('logExt');require('inspect').prepare(true);");
+            _hotReload.Connect(debuggerPort);
 #else
             _environment = new JsEnv(this);
-            // _environment.Eval("require('reflect');require('update');require('dom');require('inspect').prepare(false)");
 #endif
             InjectWrapper();
 
@@ -137,7 +143,6 @@ namespace TSF.Oolong
             OnUpdate += _environment.Eval<JsUpdate>("Oolong.update.bind(Oolong)");
             OnFixedUpdate += _environment.Eval<JsUpdate>("Oolong.fixedUpdate.bind(Oolong)");
             OnLateUpdate += _environment.Eval<JsUpdate>("Oolong.lateUpdate.bind(Oolong)");
-
         }
 
         private void InjectWrapper()
@@ -213,7 +218,11 @@ namespace TSF.Oolong
 
         private void Dispose()
         {
+#if UNITY_EDITOR
             _waitDebuggerTask = null;
+            _hotReload?.Dispose();
+            _hotReload = null;
+#endif
             OnDispose?.Invoke();
             _environment.Eval("Oolong.dispose();");
             _environment.Dispose();

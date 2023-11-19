@@ -66,22 +66,30 @@ class OolongManager {
     if (onDisableInternal) onDisableInternal = onDisableInternal.bind(script);
     if (onDestroy) onDestroy = onDestroy.bind(script);
 
-    let onEnable: () => void = null;
-    let onDisable: () => void = null;
+    const enable = () => {
+      if (update) this.updates[instanceId] = update;
+      if (fixedUpdate) this.fixedUpdates[instanceId] = fixedUpdate;
+      if (lateUpdate) this.lateUpdates[instanceId] = lateUpdate;
+    };
+
+    const disable = () => {
+      delete this.updates[instanceId];
+      delete this.fixedUpdates[instanceId];
+      delete this.lateUpdates[instanceId];
+    };
+
+    let onEnable: () => void = enable;
+    let onDisable: () => void = disable;
 
     if (onEnableInternal) {
       onEnable = () => {
-        if (update) this.updates[instanceId] = update;
-        if (fixedUpdate) this.fixedUpdates[instanceId] = fixedUpdate;
-        if (lateUpdate) this.lateUpdates[instanceId] = lateUpdate;
+        enable();
         onEnableInternal();
       };
     }
     if (onDisableInternal) {
       onDisable = () => {
-        delete this.updates[instanceId];
-        delete this.fixedUpdates[instanceId];
-        delete this.lateUpdates[instanceId];
+        disable();
         onDisableInternal();
       };
     }

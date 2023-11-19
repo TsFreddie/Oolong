@@ -22,6 +22,20 @@ namespace TSF.Oolong.Editor
                     UpdateAddressable(asset);
                 }
             }
+
+            for (var i = 0; i < movedAssets.Length; i++)
+            {
+                var asset = movedAssets[i];
+                // reimport moved assets
+                if (
+                    (asset.EndsWith(".js") || asset.EndsWith(".ts") || asset.EndsWith(".tsx")) &&
+                    !asset.Contains("Resources") &&
+                    !asset.EndsWith(".d.ts")
+                    )
+                {
+                    AssetDatabase.ImportAsset(asset);
+                }
+            }
         }
 
         private static void UpdateAddressable(string asset)
