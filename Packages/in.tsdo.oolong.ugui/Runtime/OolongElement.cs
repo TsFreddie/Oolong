@@ -11,7 +11,6 @@ namespace TSF.Oolong.UGUI
     public class OolongElement : MonoBehaviour
     {
         #region private
-        private UIEventHandler _eventHandler;
         private readonly HashSet<OolongElement> _children = new HashSet<OolongElement>();
 
         private List<string> _transitionAttrs;
@@ -102,20 +101,15 @@ namespace TSF.Oolong.UGUI
         [Preserve]
         public void AddListener(string key, IOolongLoader.JsCallback callback)
         {
-            if (_eventHandler.AddListener(key, callback)) return;
+            if (UIEventHandler.AddListenerToGameObject(gameObject, key, callback)) return;
             _loader?.AddListener(key, callback);
         }
 
         [Preserve]
         public void RemoveListener(string key)
         {
-            if (_eventHandler.RemoveListener(key)) return;
+            if (UIEventHandler.RemoveListenerFromGameObject(gameObject, key)) return;
             _loader?.RemoveListener(key);
-        }
-
-        public void SetEventHandler(UIEventHandler handler)
-        {
-            _eventHandler = handler;
         }
 
         public void OnCreate(IOolongLoader loader)
@@ -126,7 +120,7 @@ namespace TSF.Oolong.UGUI
         public void OnReset()
         {
             _loader?.Reset();
-            _eventHandler.Reset();
+            UIEventHandler.ResetListeners(gameObject);
             name = string.Concat("<", TagName, ">");
 
             foreach (var child in _children)

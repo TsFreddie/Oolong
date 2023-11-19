@@ -24,98 +24,106 @@
         ("Cancel", "BaseEventData"),
     };
 #>
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace TSF.Oolong.UGUI
 {
-    public class UIEventHandler : MonoBehaviour,
-        <#= string.Join(", \n        ", handlers.Select(h => $"I{h.Item1}Handler").ToArray()) #>
+    public interface IUIEventHandler
     {
-        private int _eventCount;
-        private int EventCount
-        {
-            get => _eventCount;
-            set
-            {
-                _eventCount = value;
-                enabled = _eventCount > 0;
-            }
-        }
-<#
-    foreach (var handler in handlers)
-    {
-#>
-        private IOolongLoader.JsCallback _on<#= handler.Item1 #>;
-<#
+        void AddListener(IOolongLoader.JsCallback callback);
+        void RemoveListener();
     }
-#>
 
-        public bool AddListener(string key, IOolongLoader.JsCallback callback)
+    public static class UIEventHandler
+    {
+        private static readonly List<IUIEventHandler> s_handlerCache = new List<IUIEventHandler>();
+
+        public static Type GetHandlerType(string key)
         {
             switch (key)
             {
 <#
     foreach (var handler in handlers)
     {
+        var name = handler.Item1;
 #>
-                case "<#= handler.Item1.ToLower() #>":
-                    if (_on<#= handler.Item1 #> == null) EventCount++;
-                    _on<#= handler.Item1 #> = callback;
-                    return true;
+                case "<#= name.ToLowerInvariant() #>": return typeof(On<#= name #>Handler);
 <#
     }
 #>
             }
-            return false;
+            return null;
         }
 
-        public bool RemoveListener(string key)
+        public static bool AddListenerToGameObject(GameObject gameObject, string key, IOolongLoader.JsCallback callback)
         {
-            switch (key)
+            var type = GetHandlerType(key);
+            if (type == null) return false;
+
+            var handler = gameObject.GetComponent(type) as IUIEventHandler;
+            if (handler == null) handler = gameObject.AddComponent(type) as IUIEventHandler;
+            if (handler == null) return false;
+            handler.AddListener(callback);
+            return true;
+        }
+
+        public static bool RemoveListenerFromGameObject(GameObject gameObject, string key)
+        {
+            var type = GetHandlerType(key);
+            if (type == null) return false;
+
+            var handler = gameObject.GetComponent(type) as IUIEventHandler;
+            if (handler == null) return false;
+            handler.RemoveListener();
+            return true;
+        }
+
+        public static void ResetListeners(GameObject gameObject)
+        {
+            gameObject.GetComponents(s_handlerCache);
+            foreach (var handler in s_handlerCache)
             {
-<#
-    foreach (var handler in handlers)
-    {
-#>
-                case "<#= handler.Item1.ToLower() #>":
-                    if (_on<#= handler.Item1 #> != null) EventCount--;
-                    _on<#= handler.Item1 #> = null;
-                    return true;
-<#
-    }
-#>
+                handler.RemoveListener();
             }
-            return false;
+            s_handlerCache.Clear();
         }
-<#
-    foreach (var handler in handlers)
-    {
-#>
-        public void On<#= handler.Item1 #>(<#= handler.Item2 #> eventData)
-        {
-            _on<#= handler.Item1 #>?.Invoke(eventData);
-        }
-<#
     }
-#>
 
-        public void Reset()
-        {
-            _eventCount = 0;
-            enabled = false;
 <#
     foreach (var handler in handlers)
     {
+        var name = handler.Item1;
+        var dataType = handler.Item2;
 #>
-            _on<#= handler.Item1 #> = null;
-<#
-    }
-#>
-        }
+    public class On<#= name #>Handler : MonoBehaviour, I<#= name #>Handler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
 
 #if UNITY_EDITOR
-        private void OnEnable() { }
+        private void OnEnable() {}
 #endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void On<#= name #>(<#= dataType #> eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
     }
+<#
+    }
+#>
 }

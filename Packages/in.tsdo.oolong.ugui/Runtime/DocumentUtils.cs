@@ -230,12 +230,9 @@ namespace TSF.Oolong.UGUI
             var obj = new GameObject(string.Format("<{0}>", tagName));
             obj.SetActive(false);
 
-            var eventHandler = obj.AddComponent<UIEventHandler>();
-            eventHandler.enabled = false;
             obj.AddComponent<RectTransform>();
             var element = obj.AddComponent<OolongElement>();
             element.TagName = tagName;
-            element.SetEventHandler(eventHandler);
             element.OnCreate(s_elements.TryGetValue(tagName, out var factory) ? factory(element) : null);
             return element;
         }

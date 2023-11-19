@@ -1,315 +1,528 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace TSF.Oolong.UGUI
 {
-    public class UIEventHandler : MonoBehaviour,
-        IPointerEnterHandler, 
-        IPointerExitHandler, 
-        IPointerDownHandler, 
-        IPointerUpHandler, 
-        IPointerMoveHandler, 
-        IPointerClickHandler, 
-        IInitializePotentialDragHandler, 
-        IBeginDragHandler, 
-        IDragHandler, 
-        IEndDragHandler, 
-        IDropHandler, 
-        IScrollHandler, 
-        IUpdateSelectedHandler, 
-        ISelectHandler, 
-        IDeselectHandler, 
-        IMoveHandler, 
-        ISubmitHandler, 
-        ICancelHandler
+    public interface IUIEventHandler
     {
-        private int _eventCount;
-        private int EventCount
-        {
-            get => _eventCount;
-            set
-            {
-                _eventCount = value;
-                enabled = _eventCount > 0;
-            }
-        }
-        private IOolongLoader.JsCallback _onPointerEnter;
-        private IOolongLoader.JsCallback _onPointerExit;
-        private IOolongLoader.JsCallback _onPointerDown;
-        private IOolongLoader.JsCallback _onPointerUp;
-        private IOolongLoader.JsCallback _onPointerMove;
-        private IOolongLoader.JsCallback _onPointerClick;
-        private IOolongLoader.JsCallback _onInitializePotentialDrag;
-        private IOolongLoader.JsCallback _onBeginDrag;
-        private IOolongLoader.JsCallback _onDrag;
-        private IOolongLoader.JsCallback _onEndDrag;
-        private IOolongLoader.JsCallback _onDrop;
-        private IOolongLoader.JsCallback _onScroll;
-        private IOolongLoader.JsCallback _onUpdateSelected;
-        private IOolongLoader.JsCallback _onSelect;
-        private IOolongLoader.JsCallback _onDeselect;
-        private IOolongLoader.JsCallback _onMove;
-        private IOolongLoader.JsCallback _onSubmit;
-        private IOolongLoader.JsCallback _onCancel;
+        void AddListener(IOolongLoader.JsCallback callback);
+        void RemoveListener();
+    }
 
-        public bool AddListener(string key, IOolongLoader.JsCallback callback)
+    public static class UIEventHandler
+    {
+        private static readonly List<IUIEventHandler> s_handlerCache = new List<IUIEventHandler>();
+
+        public static Type GetHandlerType(string key)
         {
             switch (key)
             {
-                case "pointerenter":
-                    if (_onPointerEnter == null) EventCount++;
-                    _onPointerEnter = callback;
-                    return true;
-                case "pointerexit":
-                    if (_onPointerExit == null) EventCount++;
-                    _onPointerExit = callback;
-                    return true;
-                case "pointerdown":
-                    if (_onPointerDown == null) EventCount++;
-                    _onPointerDown = callback;
-                    return true;
-                case "pointerup":
-                    if (_onPointerUp == null) EventCount++;
-                    _onPointerUp = callback;
-                    return true;
-                case "pointermove":
-                    if (_onPointerMove == null) EventCount++;
-                    _onPointerMove = callback;
-                    return true;
-                case "pointerclick":
-                    if (_onPointerClick == null) EventCount++;
-                    _onPointerClick = callback;
-                    return true;
-                case "initializepotentialdrag":
-                    if (_onInitializePotentialDrag == null) EventCount++;
-                    _onInitializePotentialDrag = callback;
-                    return true;
-                case "begindrag":
-                    if (_onBeginDrag == null) EventCount++;
-                    _onBeginDrag = callback;
-                    return true;
-                case "drag":
-                    if (_onDrag == null) EventCount++;
-                    _onDrag = callback;
-                    return true;
-                case "enddrag":
-                    if (_onEndDrag == null) EventCount++;
-                    _onEndDrag = callback;
-                    return true;
-                case "drop":
-                    if (_onDrop == null) EventCount++;
-                    _onDrop = callback;
-                    return true;
-                case "scroll":
-                    if (_onScroll == null) EventCount++;
-                    _onScroll = callback;
-                    return true;
-                case "updateselected":
-                    if (_onUpdateSelected == null) EventCount++;
-                    _onUpdateSelected = callback;
-                    return true;
-                case "select":
-                    if (_onSelect == null) EventCount++;
-                    _onSelect = callback;
-                    return true;
-                case "deselect":
-                    if (_onDeselect == null) EventCount++;
-                    _onDeselect = callback;
-                    return true;
-                case "move":
-                    if (_onMove == null) EventCount++;
-                    _onMove = callback;
-                    return true;
-                case "submit":
-                    if (_onSubmit == null) EventCount++;
-                    _onSubmit = callback;
-                    return true;
-                case "cancel":
-                    if (_onCancel == null) EventCount++;
-                    _onCancel = callback;
-                    return true;
+                case "pointerenter": return typeof(OnPointerEnterHandler);
+                case "pointerexit": return typeof(OnPointerExitHandler);
+                case "pointerdown": return typeof(OnPointerDownHandler);
+                case "pointerup": return typeof(OnPointerUpHandler);
+                case "pointermove": return typeof(OnPointerMoveHandler);
+                case "pointerclick": return typeof(OnPointerClickHandler);
+                case "initializepotentialdrag": return typeof(OnInitializePotentialDragHandler);
+                case "begindrag": return typeof(OnBeginDragHandler);
+                case "drag": return typeof(OnDragHandler);
+                case "enddrag": return typeof(OnEndDragHandler);
+                case "drop": return typeof(OnDropHandler);
+                case "scroll": return typeof(OnScrollHandler);
+                case "updateselected": return typeof(OnUpdateSelectedHandler);
+                case "select": return typeof(OnSelectHandler);
+                case "deselect": return typeof(OnDeselectHandler);
+                case "move": return typeof(OnMoveHandler);
+                case "submit": return typeof(OnSubmitHandler);
+                case "cancel": return typeof(OnCancelHandler);
             }
-            return false;
+            return null;
         }
 
-        public bool RemoveListener(string key)
+        public static bool AddListenerToGameObject(GameObject gameObject, string key, IOolongLoader.JsCallback callback)
         {
-            switch (key)
+            var type = GetHandlerType(key);
+            if (type == null) return false;
+
+            var handler = gameObject.GetComponent(type) as IUIEventHandler;
+            if (handler == null) handler = gameObject.AddComponent(type) as IUIEventHandler;
+            if (handler == null) return false;
+            handler.AddListener(callback);
+            return true;
+        }
+
+        public static bool RemoveListenerFromGameObject(GameObject gameObject, string key)
+        {
+            var type = GetHandlerType(key);
+            if (type == null) return false;
+
+            var handler = gameObject.GetComponent(type) as IUIEventHandler;
+            if (handler == null) return false;
+            handler.RemoveListener();
+            return true;
+        }
+
+        public static void ResetListeners(GameObject gameObject)
+        {
+            gameObject.GetComponents(s_handlerCache);
+            foreach (var handler in s_handlerCache)
             {
-                case "pointerenter":
-                    if (_onPointerEnter != null) EventCount--;
-                    _onPointerEnter = null;
-                    return true;
-                case "pointerexit":
-                    if (_onPointerExit != null) EventCount--;
-                    _onPointerExit = null;
-                    return true;
-                case "pointerdown":
-                    if (_onPointerDown != null) EventCount--;
-                    _onPointerDown = null;
-                    return true;
-                case "pointerup":
-                    if (_onPointerUp != null) EventCount--;
-                    _onPointerUp = null;
-                    return true;
-                case "pointermove":
-                    if (_onPointerMove != null) EventCount--;
-                    _onPointerMove = null;
-                    return true;
-                case "pointerclick":
-                    if (_onPointerClick != null) EventCount--;
-                    _onPointerClick = null;
-                    return true;
-                case "initializepotentialdrag":
-                    if (_onInitializePotentialDrag != null) EventCount--;
-                    _onInitializePotentialDrag = null;
-                    return true;
-                case "begindrag":
-                    if (_onBeginDrag != null) EventCount--;
-                    _onBeginDrag = null;
-                    return true;
-                case "drag":
-                    if (_onDrag != null) EventCount--;
-                    _onDrag = null;
-                    return true;
-                case "enddrag":
-                    if (_onEndDrag != null) EventCount--;
-                    _onEndDrag = null;
-                    return true;
-                case "drop":
-                    if (_onDrop != null) EventCount--;
-                    _onDrop = null;
-                    return true;
-                case "scroll":
-                    if (_onScroll != null) EventCount--;
-                    _onScroll = null;
-                    return true;
-                case "updateselected":
-                    if (_onUpdateSelected != null) EventCount--;
-                    _onUpdateSelected = null;
-                    return true;
-                case "select":
-                    if (_onSelect != null) EventCount--;
-                    _onSelect = null;
-                    return true;
-                case "deselect":
-                    if (_onDeselect != null) EventCount--;
-                    _onDeselect = null;
-                    return true;
-                case "move":
-                    if (_onMove != null) EventCount--;
-                    _onMove = null;
-                    return true;
-                case "submit":
-                    if (_onSubmit != null) EventCount--;
-                    _onSubmit = null;
-                    return true;
-                case "cancel":
-                    if (_onCancel != null) EventCount--;
-                    _onCancel = null;
-                    return true;
+                handler.RemoveListener();
             }
-            return false;
+            s_handlerCache.Clear();
         }
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            _onPointerEnter?.Invoke(eventData);
-        }
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            _onPointerExit?.Invoke(eventData);
-        }
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            _onPointerDown?.Invoke(eventData);
-        }
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            _onPointerUp?.Invoke(eventData);
-        }
-        public void OnPointerMove(PointerEventData eventData)
-        {
-            _onPointerMove?.Invoke(eventData);
-        }
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            _onPointerClick?.Invoke(eventData);
-        }
-        public void OnInitializePotentialDrag(PointerEventData eventData)
-        {
-            _onInitializePotentialDrag?.Invoke(eventData);
-        }
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            _onBeginDrag?.Invoke(eventData);
-        }
-        public void OnDrag(PointerEventData eventData)
-        {
-            _onDrag?.Invoke(eventData);
-        }
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            _onEndDrag?.Invoke(eventData);
-        }
-        public void OnDrop(PointerEventData eventData)
-        {
-            _onDrop?.Invoke(eventData);
-        }
-        public void OnScroll(PointerEventData eventData)
-        {
-            _onScroll?.Invoke(eventData);
-        }
-        public void OnUpdateSelected(BaseEventData eventData)
-        {
-            _onUpdateSelected?.Invoke(eventData);
-        }
-        public void OnSelect(BaseEventData eventData)
-        {
-            _onSelect?.Invoke(eventData);
-        }
-        public void OnDeselect(BaseEventData eventData)
-        {
-            _onDeselect?.Invoke(eventData);
-        }
-        public void OnMove(AxisEventData eventData)
-        {
-            _onMove?.Invoke(eventData);
-        }
-        public void OnSubmit(BaseEventData eventData)
-        {
-            _onSubmit?.Invoke(eventData);
-        }
-        public void OnCancel(BaseEventData eventData)
-        {
-            _onCancel?.Invoke(eventData);
-        }
+    }
 
-        public void Reset()
-        {
-            _eventCount = 0;
-            enabled = false;
-            _onPointerEnter = null;
-            _onPointerExit = null;
-            _onPointerDown = null;
-            _onPointerUp = null;
-            _onPointerMove = null;
-            _onPointerClick = null;
-            _onInitializePotentialDrag = null;
-            _onBeginDrag = null;
-            _onDrag = null;
-            _onEndDrag = null;
-            _onDrop = null;
-            _onScroll = null;
-            _onUpdateSelected = null;
-            _onSelect = null;
-            _onDeselect = null;
-            _onMove = null;
-            _onSubmit = null;
-            _onCancel = null;
-        }
+    public class OnPointerEnterHandler : MonoBehaviour, IPointerEnterHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
 
 #if UNITY_EDITOR
-        private void OnEnable() { }
+        private void OnEnable() {}
 #endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnPointerExitHandler : MonoBehaviour, IPointerExitHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnPointerDownHandler : MonoBehaviour, IPointerDownHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnPointerUpHandler : MonoBehaviour, IPointerUpHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnPointerMoveHandler : MonoBehaviour, IPointerMoveHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnPointerMove(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnPointerClickHandler : MonoBehaviour, IPointerClickHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnInitializePotentialDragHandler : MonoBehaviour, IInitializePotentialDragHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnInitializePotentialDrag(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnBeginDragHandler : MonoBehaviour, IBeginDragHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnDragHandler : MonoBehaviour, IDragHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnEndDragHandler : MonoBehaviour, IEndDragHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnDropHandler : MonoBehaviour, IDropHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnDrop(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnScrollHandler : MonoBehaviour, IScrollHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnScroll(PointerEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnUpdateSelectedHandler : MonoBehaviour, IUpdateSelectedHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnUpdateSelected(BaseEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnSelectHandler : MonoBehaviour, ISelectHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnDeselectHandler : MonoBehaviour, IDeselectHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnDeselect(BaseEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnMoveHandler : MonoBehaviour, IMoveHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnMove(AxisEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnSubmitHandler : MonoBehaviour, ISubmitHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnSubmit(BaseEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
+    }
+    public class OnCancelHandler : MonoBehaviour, ICancelHandler, IUIEventHandler
+    {
+        private IOolongLoader.JsCallback _callback;
+
+#if UNITY_EDITOR
+        private void OnEnable() {}
+#endif
+
+        public void AddListener(IOolongLoader.JsCallback callback)
+        {
+            _callback = callback;
+            enabled = true;
+        }
+
+        public void RemoveListener()
+        {
+            _callback = null;
+            enabled = false;
+        }
+
+        public void OnCancel(BaseEventData eventData)
+        {
+            _callback?.Invoke(eventData);
+        }
     }
 }
