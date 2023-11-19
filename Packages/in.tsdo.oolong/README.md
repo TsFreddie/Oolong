@@ -24,7 +24,8 @@ This is the roadmap planned out before I stopped working on generalizing the too
 - [x] In editor TypeScript transpiling
 - [x] tsconfig.json Generator
 - [x] Source map support
-- [ ] Debugging support
+- [x] Debugging support
+- [x] Hot reloading
 - [ ] Typescript Schema Server (for generating schema from TypeScript source)
 - [ ] Schema Inspector (for editing and serializing data in Unity Editor based on schema)
 
