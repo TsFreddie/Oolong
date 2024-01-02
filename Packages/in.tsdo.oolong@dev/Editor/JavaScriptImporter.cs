@@ -82,6 +82,9 @@ namespace TSF.Oolong.Editor
             if (s_compilerPath == null)
                 throw new FileNotFoundException("TypeScript transpiling is not supported on current platform");
 
+            var realFilePath = Path.GetFullPath(filePath);
+            var relativeFilePath = Path.GetRelativePath(Directory.GetCurrentDirectory(), realFilePath);
+            relativeFilePath = relativeFilePath.Replace("\\", "/");
             var process = new Process();
             var startInfo = new ProcessStartInfo
             {
@@ -94,10 +97,10 @@ namespace TSF.Oolong.Editor
                     "--source-maps",
                     "true",
                     "--source-file-name",
-                    Path.GetFullPath(filePath),
+                    realFilePath,
                     "--out-dir",
                     outDir,
-                    filePath
+                    relativeFilePath
                 },
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
@@ -129,8 +132,10 @@ namespace TSF.Oolong.Editor
         public override void OnImportAsset(AssetImportContext ctx)
         {
             var path = ctx.assetPath ?? assetPath;
+            var realPath = Path.GetFullPath(path);
+            var relativePath = Path.GetRelativePath(Directory.GetCurrentDirectory(), realPath);
             var outDir = OolongEnvironment.GetCachePath();
-            var compiledFileName = Path.ChangeExtension(path, ".js");
+            var compiledFileName = Path.ChangeExtension(relativePath, ".js");
             var compiledPath = Path.Combine(outDir, compiledFileName);
 #if UNITY_EDITOR_WIN
             compiledPath = compiledPath.Replace("/", "\\");
@@ -142,15 +147,5 @@ namespace TSF.Oolong.Editor
             ctx.SetMainObject(asset);
             OolongEnvironment.HotReload?.SetSource(compiledPath, text);
         }
-
-        // protected virtual string Compile(AssetImportContext ctx, string compiledPath)
-        // {
-        //     var targetDir = Path.GetDirectoryName(compiledPath);
-        //     if (!Directory.Exists(targetDir))
-        //         Directory.CreateDirectory(targetDir ?? OolongEnvironment.GetCachePath());
-        //     var source = File.ReadAllText(ctx.assetPath);
-        //     File.WriteAllText(compiledPath, source);
-        //     return source;
-        // }
     }
 }

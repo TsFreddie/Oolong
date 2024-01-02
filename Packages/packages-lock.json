@@ -181,16 +181,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.localization": {
-      "version": "1.4.5",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.addressables": "1.21.8",
-        "com.unity.nuget.newtonsoft-json": "3.0.2"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 2,
@@ -240,7 +230,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.6",
+      "version": "4.0.0-pre.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -280,7 +270,7 @@
       }
     },
     "in.tsdo.oolong": {
-      "version": "file:in.tsdo.oolong",
+      "version": "file:in.tsdo.oolong@dev",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
@@ -290,7 +280,7 @@
       }
     },
     "in.tsdo.oolong.ugui": {
-      "version": "file:in.tsdo.oolong.ugui",
+      "version": "file:in.tsdo.oolong.ugui@dev",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
