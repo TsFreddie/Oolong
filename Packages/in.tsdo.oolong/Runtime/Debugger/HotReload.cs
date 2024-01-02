@@ -39,6 +39,7 @@ namespace TSF.Oolong
         private Debugger _socket;
         private int _requestId = 0;
         private Dictionary<string, string> _scriptMap = new Dictionary<string, string>();
+        public event Action OnHotReload;
 
         public void Connect(int port)
         {
@@ -62,6 +63,11 @@ namespace TSF.Oolong
             if (result.method == "Debugger.scriptParsed")
             {
                 _scriptMap[result.@params.url] = result.@params.scriptId;
+            }
+            else if (result.method == null)
+            {
+                // Possible response to script update. Notify potential listeners.
+                OnHotReload?.Invoke();
             }
         }
 

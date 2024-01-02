@@ -12,6 +12,9 @@ public static class OolongUGUI
 
     private static OolongEnvironment.JsUpdate s_tick;
 
+    private delegate void MithrilRedraw();
+    private static MithrilRedraw s_redraw;
+
     private static ITextTransformer s_textTransformer;
     private static IAddressTransformer s_addressTransformer;
 
@@ -40,7 +43,19 @@ public static class OolongUGUI
         s_mithrilMount = env.Eval<MithrilMount>("MithrilMount");
         s_mithrilUnmount = env.Eval<MithrilUnmount>("MithrilUnmount");
         s_tick = env.Eval<OolongEnvironment.JsUpdate>("MithrilTick");
+        s_redraw = env.Eval<MithrilRedraw>("MithrilRedraw");
+
+#if UNITY_EDITOR
+        OolongEnvironment.HotReload.OnHotReload += OnHotReload;
+#endif
     }
+
+#if UNITY_EDITOR
+    private static void OnHotReload()
+    {
+        s_redraw?.Invoke();
+    }
+#endif
 
     private static void PreUpdate()
     {

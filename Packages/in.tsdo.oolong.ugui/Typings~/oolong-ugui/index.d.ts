@@ -144,6 +144,7 @@ declare global {
     export declare const PartialRedraw: (mountId: number) => void;
     export declare const MithrilMount: (element: CS.TSF.Oolong.UGUI.OolongElement, component: MithrilComponent, partial: boolean) => UnityElement<any>;
     export declare const MithrilUnmount: (element: UnityElement) => void;
+    export declare const MithrilRedraw: () => void;
     export declare abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {
         constructor(attrs: A);
         private __mountId;
