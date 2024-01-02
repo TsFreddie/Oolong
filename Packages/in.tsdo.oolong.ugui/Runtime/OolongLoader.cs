@@ -61,8 +61,9 @@ namespace TSF.Oolong.UGUI
         {
             if (this is not T loader) return;
 
-            foreach (var handler in Attrs.Values)
-                handler(loader, null);
+            if (Attrs != null)
+                foreach (var handler in Attrs.Values)
+                    handler(loader, null);
 
             ResetTransitions();
         }
