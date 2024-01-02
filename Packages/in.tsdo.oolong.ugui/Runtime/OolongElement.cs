@@ -168,9 +168,10 @@ namespace TSF.Oolong.UGUI
 
         private void SetTransitionList<TK>(ref List<TK> list, string value, Func<string, TK> parse)
         {
+            ClearList(ref list);
+
             if (string.IsNullOrEmpty(value))
             {
-                ClearList(ref list);
                 IsTransitionDirty = true;
                 return;
             }
@@ -186,9 +187,10 @@ namespace TSF.Oolong.UGUI
 
         private void SetTransitionFunctionList<TK>(ref List<TK> list, string value, Func<string, TK> parse)
         {
+            ClearList(ref list);
+
             if (string.IsNullOrEmpty(value))
             {
-                ClearList(ref list);
                 IsTransitionDirty = true;
                 return;
             }

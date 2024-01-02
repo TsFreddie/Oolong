@@ -12,7 +12,7 @@ namespace TSF.Oolong.UGUI
         private T _start;
         private T _to;
         private T _current;
-        private T _defaultValue;
+        private readonly T _defaultValue;
         private float _progress;
         private bool _hasInitialValue;
         private float _duration;
@@ -129,6 +129,7 @@ namespace TSF.Oolong.UGUI
             _current = _defaultValue;
             _progress = 0.0f;
             _duration = Duration;
+            _applyCallback?.Invoke(_current);
             Stop();
         }
 
