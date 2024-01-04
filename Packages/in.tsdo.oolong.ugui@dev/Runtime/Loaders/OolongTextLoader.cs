@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
@@ -122,6 +123,9 @@ namespace TSF.Oolong.UGUI
         private string _material;
         private bool _fontInitialized = false;
 
+        private string _text;
+        private bool _textUpdatePending = false;
+
         public OolongTextLoader(GameObject gameObject, OolongElement element)
         {
             Instance = gameObject.AddComponent<TextMeshProUGUI>();
@@ -190,7 +194,31 @@ namespace TSF.Oolong.UGUI
 
         private void SetText(string text)
         {
-            Instance.text = OolongUGUI.TransformText(text, this);
+            _text = text;
+            RefreshText();
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void RefreshText()
+        {
+            if (!_textUpdatePending)
+            {
+                _textUpdatePending = true;
+                DocumentUtils.OnDocumentUpdate += UpdateText;
+            }
+        }
+
+        private void UpdateText()
+        {
+            _textUpdatePending = false;
+            DocumentUtils.OnDocumentUpdate -= UpdateText;
+
+            if (_text == null)
+            {
+                Instance.text = null;
+                return;
+            }
+            Instance.text = OolongUGUI.TransformText(_text, this);
         }
 
         private void SetOutlineColor(string v)
@@ -404,6 +432,22 @@ namespace TSF.Oolong.UGUI
             Instance.fontSizeMin = value;
         }
 
+        public override bool SetAttribute(string key, string value)
+        {
+            var foundAttributes = base.SetAttribute(key, value);
+
+            if (!foundAttributes)
+            {
+                // Refresh text if the attribute is not handled by any of the loaders.
+                // Because an unhandled attribute is likely to be a text attribute.
+                // Inherently, user should avoid using loader attributes as localization arguments.
+                // Also, user should avoid rapidly changing unhandled attributes.
+                RefreshText();
+            }
+
+            return foundAttributes;
+        }
+
         protected override void OnUpdate()
         {
             base.OnUpdate();
@@ -488,6 +532,11 @@ namespace TSF.Oolong.UGUI
             ReleaseMaterial();
             Instance.text = null;
             IsLateUpdatePending = false;
+            if (_textUpdatePending)
+            {
+                DocumentUtils.OnDocumentUpdate -= UpdateText;
+                _textUpdatePending = false;
+            }
         }
 
 
