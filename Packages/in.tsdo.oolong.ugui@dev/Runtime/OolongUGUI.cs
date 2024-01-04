@@ -18,6 +18,17 @@ public static class OolongUGUI
     private static ITextTransformer s_textTransformer;
     private static IAddressTransformer s_addressTransformer;
 
+    public static ITextTransformer TextTransformer
+    {
+        get => s_textTransformer;
+        set => s_textTransformer = value ?? new IdentityTransformer();
+    }
+
+    public static IAddressTransformer AddressTransformer
+    {
+        get => s_addressTransformer;
+        set => s_addressTransformer = value ?? new IdentityTransformer();
+    }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
     public static void Initialize()
