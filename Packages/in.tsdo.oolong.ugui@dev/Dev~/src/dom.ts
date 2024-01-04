@@ -101,13 +101,82 @@ const LabelOf = (node: UnityNode | UnityTextNode) => {
 };
 
 export abstract class UnityNode {
-  public id: string;
   public tag: string;
   public parent: UnityNode;
   public children: UnityChildren = [];
 
+  private _id: string = null;
+  private childrenMap: { [key: string]: UnityElement[] };
+
+  public get id() {
+    return this._id;
+  }
+
+  public set id(value: string) {
+    const oldId = this._id;
+    this._id = value == null ? null : value.toString();
+
+    if (this instanceof UnityElement) {
+      var list = unityDocument.elementIdMap[oldId];
+
+      if (list != null) {
+        const index = list.indexOf(this);
+        if (index >= 0) {
+          list.splice(index, 1);
+        }
+        if (list.length === 0) {
+          delete unityDocument.elementIdMap[oldId];
+        }
+      }
+
+      if (this._id != null) {
+        if (unityDocument.elementIdMap[this._id] == null) {
+          unityDocument.elementIdMap[this._id] = [];
+        }
+        unityDocument.elementIdMap[this._id].push(this);
+      }
+
+      this.parent?.renameChildId(this, oldId, this._id);
+
+      const element = (this as any).element;
+      if (element) {
+        element.SetElementAttribute('id', this._id);
+      }
+    }
+  }
+
   public get childNodes() {
     return this.children;
+  }
+
+  public findChildById(id: string): UnityElement {
+    if (this.childrenMap != null && this.childrenMap[id] != null) {
+      return this.childrenMap[id]?.[0];
+    }
+    for (let i = 0; i < this.children.length; i++) {
+      const child = this.children[i];
+      if (child instanceof UnityNode) {
+        const found = child.findChildById(id);
+        if (found != null) {
+          return found;
+        }
+      }
+    }
+  }
+
+  public findChildrenById(id: string): readonly UnityElement[];
+  /**@internal */
+  public findChildrenById(id: string, list: UnityElement[] = []): readonly UnityElement[] {
+    if (this.childrenMap != null && this.childrenMap[id] != null) {
+      list.push(...this.childrenMap[id]);
+    }
+    for (let i = 0; i < this.children.length; i++) {
+      const child = this.children[i];
+      if (child instanceof UnityNode) {
+        child.findChildrenById(id);
+      }
+    }
+    return list;
   }
 
   private elementIndex(element: UnityChild) {
@@ -177,6 +246,31 @@ export abstract class UnityNode {
     this.setAttribute('#', RenderText(this.children));
   }
 
+  private addChildId(id: string, child: UnityElement) {
+    if (this.childrenMap == null) {
+      this.childrenMap = {};
+    }
+    if (this.childrenMap[id] == null) {
+      this.childrenMap[id] = [];
+    }
+    this.childrenMap[id].push(child);
+  }
+
+  private removeChildId(id: string, child: UnityElement) {
+    if (this.childrenMap == null) return;
+    var list = this.childrenMap[id];
+    if (list == null) {
+      return;
+    }
+    const index = list.indexOf(child);
+    if (index >= 0) {
+      list.splice(index, 1);
+    }
+    if (list.length === 0) {
+      delete this.childrenMap[id];
+    }
+  }
+
   public appendChild(child: UnityFragment | UnityElement | UnityTextNode): void {
     if (child.parent != null && !(child.parent instanceof UnityFragment)) {
       console.warn('Unexpected child.parent when appendChild');
@@ -190,10 +284,17 @@ export abstract class UnityNode {
       return;
     }
 
+    if (child.parent != null) {
+      child.parent.removeChild(child);
+    }
+
     child.parent = this;
     this.children.push(child);
 
     if (child instanceof UnityElement) {
+      if (child.id != null) {
+        this.addChildId(child.id, child);
+      }
       this.attachChildInternal(child);
     }
     if (child instanceof UnityTextNode) {
@@ -215,10 +316,23 @@ export abstract class UnityNode {
 
     // Remove element
     if (child instanceof UnityElement) {
+      if (child.id != null) {
+        this.removeChildId(child.id, child);
+      }
       this.removeChildInternal(child);
     }
     if (child instanceof UnityTextNode) {
       this.updateText();
+    }
+  }
+
+  /** @internal */
+  public renameChildId(child: UnityElement, oldId: string, newId: string) {
+    if (oldId != null) {
+      this.removeChildId(oldId, child);
+    }
+    if (newId != null) {
+      this.addChildId(newId, child);
     }
   }
 
@@ -257,11 +371,14 @@ export abstract class UnityNode {
 
   public abstract removeAttribute(name: string): void;
 
-  public abstract attachChildInternal(child: UnityElement): void;
+  /** @internal */
+  protected abstract attachChildInternal(child: UnityElement): void;
 
-  public abstract removeChildInternal(child: UnityElement): void;
+  /** @internal */
+  protected abstract removeChildInternal(child: UnityElement): void;
 
-  public abstract insertChildInternal(child: UnityElement, pos: number): void;
+  /** @internal */
+  protected abstract insertChildInternal(child: UnityElement, pos: number): void;
 }
 
 export class UnityFragment extends UnityNode {
@@ -274,11 +391,14 @@ export class UnityFragment extends UnityNode {
 
   public removeAttribute() {}
 
-  public attachChildInternal() {}
+  /** @internal */
+  protected attachChildInternal() {}
 
-  public removeChildInternal() {}
+  /** @internal */
+  protected removeChildInternal() {}
 
-  public insertChildInternal() {}
+  /** @internal */
+  protected insertChildInternal() {}
 }
 
 type UnityEvent = {
@@ -336,23 +456,29 @@ export class UnityElement<T extends object = any> extends UnityNode {
     return false;
   }
 
-  public attachChildInternal(child: UnityElement) {
+  /** @internal */
+  protected attachChildInternal(child: UnityElement) {
     CS.TSF.Oolong.UGUI.DocumentUtils.AttachElement(this.element, child.element);
     child.mountId = this.mountId;
   }
 
-  public removeChildInternal(child: UnityElement) {
+  /** @internal */
+  protected removeChildInternal(child: UnityElement) {
     CS.TSF.Oolong.UGUI.DocumentUtils.RemoveElement(this.element, child.element);
     child.mountId = undefined;
   }
 
-  public insertChildInternal(child: UnityElement, pos: number) {
+  /** @internal */
+  protected insertChildInternal(child: UnityElement, pos: number) {
     CS.TSF.Oolong.UGUI.DocumentUtils.InsertElement(this.element, child.element, pos);
     child.mountId = this.mountId;
   }
 
   public setAttribute(name: string, value: any) {
-    if (name == 'id') this.id = value == null ? undefined : value.toString();
+    if (name == 'id') {
+      this.id = value == null ? undefined : value.toString();
+      return;
+    }
     return this.element.SetElementAttribute(name, value == null ? null : value.toString());
   }
 
@@ -362,7 +488,10 @@ export class UnityElement<T extends object = any> extends UnityNode {
   }
 
   public removeAttribute(name: string) {
-    if (name == 'id') this.id = undefined;
+    if (name == 'id') {
+      this.id = undefined;
+      return;
+    }
     this.element.SetElementAttribute(name, null);
   }
 
@@ -407,6 +536,19 @@ export class UnityTextNode {
 }
 
 export class UnityDocument {
+  /** @internal */
+  public elementIdMap: { [key: string]: UnityElement[] } = {};
+
+  private emptyList: UnityElement[] = [];
+
+  public getElementById(id: string) {
+    return this.elementIdMap[id]?.[0];
+  }
+
+  public getElementsById(id: string): readonly UnityElement[] {
+    return this.elementIdMap[id] ?? this.emptyList;
+  }
+
   public createDocumentFragment(): UnityFragment {
     return new UnityFragment();
   }
@@ -510,11 +652,15 @@ export class UnityWindow {
 }
 
 export const window = new UnityWindow();
+export const unityWindow = window;
 export const requestAnimationFrame = (cb: () => void) => window.requestAnimationFrame(cb);
 
 export const document = window.document;
+export const unityDocument = document;
 export const location = window.location;
+export const unityLocation = location;
 export const history = window.history;
+export const unityHistory = history;
 export const addEventListener = (event: string, cb: (e: any) => void) =>
   window.addEventListener(event, cb);
 export const MithrilTick = () => {

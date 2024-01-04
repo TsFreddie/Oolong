@@ -12,6 +12,7 @@ namespace TSF.Oolong.UGUI
     {
         #region private
         private readonly HashSet<OolongElement> _children = new HashSet<OolongElement>();
+        private static readonly Dictionary<string, string> s_wrappedTagName = new Dictionary<string, string>();
 
         private List<string> _transitionAttrs;
         private List<float> _transitionDelays;
@@ -59,6 +60,16 @@ namespace TSF.Oolong.UGUI
             _children.Remove(e);
         }
 
+        private static string WrapTagName(string tag)
+        {
+            if (s_wrappedTagName.TryGetValue(tag, out var wrapped))
+                return wrapped;
+
+            wrapped = string.Concat("<", tag, ">");
+            s_wrappedTagName[tag] = wrapped;
+            return wrapped;
+        }
+
         [Preserve]
         public bool SetElementAttribute(string key, string value)
         {
@@ -70,7 +81,7 @@ namespace TSF.Oolong.UGUI
             switch (key)
             {
                 case "id":
-                    name = string.Concat("#", value);
+                    name = value ?? WrapTagName(TagName);
                     return true;
                 case "transition-property":
                     SetTransitionList(ref _transitionAttrs, value, v => v.Trim());
@@ -121,7 +132,7 @@ namespace TSF.Oolong.UGUI
         {
             _loader?.Reset();
             UIEventHandler.ResetListeners(gameObject);
-            name = string.Concat("<", TagName, ">");
+            name = WrapTagName(TagName);
 
             foreach (var child in _children)
             {

@@ -24,11 +24,16 @@ declare global {
     export type UnityChild = UnityElement | UnityTextNode;
     export type UnityChildren = UnityChild[];
     export declare abstract class UnityNode {
-        id: string;
         tag: string;
         parent: UnityNode;
         children: UnityChildren;
+        private _id;
+        private childrenMap;
+        get id(): string;
+        set id(value: string);
         get childNodes(): UnityChildren;
+        findChildById(id: string): UnityElement;
+        findChildrenById(id: string): readonly UnityElement[];
         private elementIndex;
         private setText;
         get parentElement(): UnityNode;
@@ -40,23 +45,19 @@ declare global {
         get firstChild(): UnityChild;
         get lastChild(): UnityChild;
         updateText(): void;
+        private addChildId;
+        private removeChildId;
         appendChild(child: UnityFragment | UnityElement | UnityTextNode): void;
         removeChild(child: UnityChild): void;
         insertBefore(child: UnityChild, ref: UnityChild): void;
         toJSON(): any;
         abstract setAttribute(name: string, value: string): void;
         abstract removeAttribute(name: string): void;
-        abstract attachChildInternal(child: UnityElement): void;
-        abstract removeChildInternal(child: UnityElement): void;
-        abstract insertChildInternal(child: UnityElement, pos: number): void;
     }
     export declare class UnityFragment extends UnityNode {
         constructor();
         setAttribute(): void;
         removeAttribute(): void;
-        attachChildInternal(): void;
-        removeChildInternal(): void;
-        insertChildInternal(): void;
     }
     type UnityEvent = {
         type: string;
@@ -74,9 +75,6 @@ declare global {
         constructor(element: CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean);
         constructor(tagName: string, mount?: boolean);
         contains(node: UnityElement): boolean;
-        attachChildInternal(child: UnityElement): void;
-        removeChildInternal(child: UnityElement): void;
-        insertChildInternal(child: UnityElement, pos: number): void;
         setAttribute(name: string, value: any): boolean;
         getAttribute(name: string): string;
         removeAttribute(name: string): void;
@@ -96,6 +94,9 @@ declare global {
         };
     }
     export declare class UnityDocument {
+        private emptyList;
+        getElementById(id: string): UnityElement<any>;
+        getElementsById(id: string): readonly UnityElement[];
         createDocumentFragment(): UnityFragment;
         createElement(tagName: string): UnityElement;
         createTextNode(text: string): UnityTextNode;
@@ -133,10 +134,14 @@ declare global {
         tick(): void;
     }
     export declare const window: UnityWindow;
+    export declare const unityWindow: UnityWindow;
     export declare const requestAnimationFrame: (cb: () => void) => void;
     export declare const document: UnityDocument;
+    export declare const unityDocument: UnityDocument;
     export declare const location: UnityLocation;
+    export declare const unityLocation: UnityLocation;
     export declare const history: UnityHistory;
+    export declare const unityHistory: UnityHistory;
     export declare const addEventListener: (event: string, cb: (e: any) => void) => void;
     export declare const MithrilTick: () => void;
     declare class UnityElement<T extends object = any> extends dom.UnityElement<T> {

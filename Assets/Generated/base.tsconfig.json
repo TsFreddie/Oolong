@@ -14,10 +14,10 @@
         "jsxFactory": "m",
         "jsxFragmentFactory": "m.Fragment",
         "typeRoots": [
-            "../../Packages/in.tsdo.oolong.ugui/Generated/Typings~",
-            "../../Packages/in.tsdo.oolong.ugui/Typings~",
-            "../../Packages/in.tsdo.oolong/Generated/Typings~",
-            "../../Packages/in.tsdo.oolong/Typings~"
+            "../../Packages/in.tsdo.oolong.ugui@dev/Generated/Typings~",
+            "../../Packages/in.tsdo.oolong.ugui@dev/Typings~",
+            "../../Packages/in.tsdo.oolong@dev/Generated/Typings~",
+            "../../Packages/in.tsdo.oolong@dev/Typings~"
         ]
     }
 }

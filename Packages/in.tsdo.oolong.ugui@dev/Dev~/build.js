@@ -22,6 +22,7 @@ esbuild.build({
 
 // build typings
 const options = {
+  stripInternal: true,
   skipLibCheck: true,
   declaration: true,
   emitDeclarationOnly: true,
@@ -38,7 +39,7 @@ const factory = ts.factory;
 const declarations = [];
 const imports = {};
 
-const collectDeclartion = sourceFile => {
+const collectDeclaration = sourceFile => {
   const visitor = node => {
     if (node.kind == ts.SyntaxKind.SourceFile) {
       node.forEachChild(node => {
@@ -59,7 +60,7 @@ const collectDeclartion = sourceFile => {
 const host = ts.createCompilerHost(options);
 host.writeFile = (fileName, text, _, __, sourceFiles) => {
   for (const sourceFile of sourceFiles) {
-    collectDeclartion(sourceFile);
+    collectDeclaration(sourceFile);
   }
 };
 const program = ts.createProgram(
