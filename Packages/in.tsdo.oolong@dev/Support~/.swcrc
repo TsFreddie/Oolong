@@ -4,7 +4,7 @@
         "parser": {
             "syntax": "typescript",
             "tsx": true,
-            "dynamicImport": false,
+            "dynamicImport": true,
             "decorators": true
         },
         "transform": {

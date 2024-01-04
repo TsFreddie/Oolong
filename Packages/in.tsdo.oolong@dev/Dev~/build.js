@@ -1,6 +1,8 @@
 import esbuild from 'esbuild';
 import ts from 'typescript';
 import fs from 'node:fs';
+import plugin from 'node-stdlib-browser/helpers/esbuild/plugin';
+import stdLibBrowser  from 'node-stdlib-browser';
 
 // build Oolong
 esbuild.build({
@@ -16,6 +18,13 @@ esbuild.build({
   entryPoints: ['./src/source-map.ts'],
   bundle: true,
   format: 'esm',
+  inject: ['./node_modules/node-stdlib-browser/helpers/esbuild/shim'],
+  define: {
+    global: 'global',
+    process: 'process',
+    Buffer: 'Buffer'
+  },
+  plugins: [plugin(stdLibBrowser)],
   minify: true,
   platform: 'node',
   outfile: '../Editor/Resources/oolong/source-map.js',
