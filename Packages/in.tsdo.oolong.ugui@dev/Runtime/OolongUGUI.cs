@@ -12,7 +12,7 @@ public static class OolongUGUI
 
     private static OolongEnvironment.JsUpdate s_tick;
 
-    private delegate void MithrilRedraw();
+    private delegate void MithrilRedraw(JSObject element);
     private static MithrilRedraw s_redraw;
 
     private static ITextTransformer s_textTransformer;
@@ -64,7 +64,7 @@ public static class OolongUGUI
 #if UNITY_EDITOR
     private static void OnHotReload()
     {
-        s_redraw?.Invoke();
+        s_redraw?.Invoke(null);
     }
 #endif
 
@@ -81,6 +81,11 @@ public static class OolongUGUI
     public static void Unmount(JSObject element)
     {
         s_mithrilUnmount?.Invoke(element);
+    }
+
+    public static void Redraw(JSObject element = null)
+    {
+        s_redraw?.Invoke(element);
     }
 
     private static void Dispose()

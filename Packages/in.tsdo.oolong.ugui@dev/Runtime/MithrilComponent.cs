@@ -89,5 +89,11 @@ namespace TSF.Oolong.UGUI
             OolongUGUI.Unmount(_element);
             _element = null;
         }
+
+        public void Redraw()
+        {
+            if (!_initialized || _element == null) return;
+            OolongUGUI.Redraw(_element);
+        }
     }
 }
