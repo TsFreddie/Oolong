@@ -132,7 +132,9 @@ namespace TSF.Oolong
             InjectWrapper();
 
             _environment.ExecuteModule("oolong");
+#if UNITY_EDITOR
             _environment.ExecuteModule("oolong/source-map");
+#endif
             _environment.UsingAction<ScriptBehaviour, string, string>();
             _environment.UsingAction<int, JSObject>();
             _environment.UsingAction<int>();
@@ -186,9 +188,9 @@ namespace TSF.Oolong
             {
 #if UNITY_EDITOR
                 var assetPath = filePath.Replace("_oolong_/", "");
-    #if UNITY_EDITOR_WIN
+#if UNITY_EDITOR_WIN
                 assetPath = assetPath.Replace('/', '\\');
-    #endif
+#endif
                 debugPath = Path.Combine(GetCachePath(), "Assets", assetPath) + ".js";
 #endif
                 var result = op.Result.text;
