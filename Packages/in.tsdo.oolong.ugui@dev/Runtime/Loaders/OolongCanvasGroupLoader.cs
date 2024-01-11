@@ -94,6 +94,7 @@ namespace TSF.Oolong.UGUI
         public override void Reset()
         {
             base.Reset();
+            Instance.enabled = true;
             _delayed = false;
             _delayFulfilled = false;
         }
