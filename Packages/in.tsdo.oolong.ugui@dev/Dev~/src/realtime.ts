@@ -1,19 +1,25 @@
 import m from 'mithril';
 import { MithrilComponent } from './mithril.js';
 
-export abstract class Realtime extends MithrilComponent {
+interface RealtimeAttr {
+  interval?: number;
+}
+
+export abstract class Realtime extends MithrilComponent<RealtimeAttr> {
   private interval: number;
   private dom: any;
 
-  register(vnode: m.VnodeDOM<{}, this>) {
+  register(vnode: m.VnodeDOM<RealtimeAttr, this>) {
     var children = vnode.children as any;
     if (typeof children != 'object') return;
     var render = children[0];
     if (typeof render != 'function') return;
 
+    const interval = vnode.attrs?.interval || 0;
+
     this.interval = setInterval(() => {
       m.render(this.dom, render());
-    }, 0);
+    }, interval);
   }
 
   oncreate(vnode: m.VnodeDOM<{}, this>) {
@@ -22,7 +28,7 @@ export abstract class Realtime extends MithrilComponent {
   }
 
   onupdate(vnode: m.VnodeDOM<{}, this>) {
-    this.onbeforeremove();
+    this.onremove();
     this.register(vnode);
   }
 
@@ -30,7 +36,7 @@ export abstract class Realtime extends MithrilComponent {
     return m('div', vnode.attrs);
   }
 
-  onbeforeremove() {
+  onremove() {
     if (this.interval != null) clearInterval(this.interval);
     this.interval = null;
   }
