@@ -13,7 +13,7 @@
     "url": "https://github.com/TsFreddie"
   },
   "dependencies": {
-    "com.tencent.puerts.core": "2.0.3",
+    "com.tencent.puerts.core": "2.0.4",
     "com.unity.addressables": "1.21.17",
     "com.unity.nuget.newtonsoft-json": "3.2.1"
   }

@@ -108,6 +108,9 @@ namespace TSF.Oolong.UGUI
                 // safe guard 0 duration
                 _current = _to;
                 _applyCallback?.Invoke(_current);
+                // force stop and mark as finished
+                _progress = 1.0f;
+                Stop();
                 return;
             }
 
