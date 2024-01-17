@@ -422,7 +422,7 @@ const runEvent = (
 };
 
 export class UnityElement<T extends object = any> extends UnityNode {
-  public element: CS.TSF.Oolong.UGUI.OolongElement;
+  public mono: CS.TSF.Oolong.UGUI.OolongElement;
   public mountId: number;
   public attrs: T = new Proxy(this, {
     get(target, prop) {
@@ -435,19 +435,19 @@ export class UnityElement<T extends object = any> extends UnityNode {
 
   private events: { [key: string]: EventHandler };
 
-  constructor(element: CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean);
+  constructor(mono: CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean);
   constructor(tagName: string, mount?: boolean);
-  constructor(tagNameOrElement: string | CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean) {
+  constructor(tagNameOrMono: string | CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean) {
     super();
-    if (typeof tagNameOrElement == 'string') {
-      this.element = CS.TSF.Oolong.UGUI.DocumentUtils.CreateElement(tagNameOrElement);
+    if (typeof tagNameOrMono == 'string') {
+      this.mono = CS.TSF.Oolong.UGUI.DocumentUtils.CreateElement(tagNameOrMono);
     } else {
-      this.element = tagNameOrElement;
+      this.mono = tagNameOrMono;
     }
-    this.tag = this.element.TagName;
+    this.tag = this.mono.TagName;
     this.events = {};
     if (mount) {
-      this.mountId = this.element.GetInstanceID();
+      this.mountId = this.mono.GetInstanceID();
     }
   }
 
@@ -458,19 +458,19 @@ export class UnityElement<T extends object = any> extends UnityNode {
 
   /** @internal */
   protected attachChildInternal(child: UnityElement) {
-    CS.TSF.Oolong.UGUI.DocumentUtils.AttachElement(this.element, child.element);
+    CS.TSF.Oolong.UGUI.DocumentUtils.AttachElement(this.mono, child.mono);
     child.mountId = this.mountId;
   }
 
   /** @internal */
   protected removeChildInternal(child: UnityElement) {
-    CS.TSF.Oolong.UGUI.DocumentUtils.RemoveElement(this.element, child.element);
+    CS.TSF.Oolong.UGUI.DocumentUtils.RemoveElement(this.mono, child.mono);
     child.mountId = undefined;
   }
 
   /** @internal */
   protected insertChildInternal(child: UnityElement, pos: number) {
-    CS.TSF.Oolong.UGUI.DocumentUtils.InsertElement(this.element, child.element, pos);
+    CS.TSF.Oolong.UGUI.DocumentUtils.InsertElement(this.mono, child.mono, pos);
     child.mountId = this.mountId;
   }
 
@@ -479,12 +479,12 @@ export class UnityElement<T extends object = any> extends UnityNode {
       this.id = value == null ? undefined : value.toString();
       return;
     }
-    return this.element.SetElementAttribute(name, value == null ? null : value.toString());
+    return this.mono.SetElementAttribute(name, value == null ? null : value.toString());
   }
 
   public getAttribute(name: string) {
     if (name == 'id') return this.id;
-    return this.element.GetElementAttribute(name);
+    return this.mono.GetElementAttribute(name);
   }
 
   public removeAttribute(name: string) {
@@ -492,17 +492,17 @@ export class UnityElement<T extends object = any> extends UnityNode {
       this.id = undefined;
       return;
     }
-    this.element.SetElementAttribute(name, null);
+    this.mono.SetElementAttribute(name, null);
   }
 
   public addEventListener(event: string, callback: EventHandler) {
     this.events[event] = callback;
-    this.element.AddListener(event, eventData => runEvent(this, event, eventData, callback));
+    this.mono.AddListener(event, eventData => runEvent(this, event, eventData, callback));
   }
 
   public removeEventListener(event: string, callback: EventHandler) {
     delete this.events[event];
-    this.element.RemoveListener(event);
+    this.mono.RemoveListener(event);
   }
 }
 

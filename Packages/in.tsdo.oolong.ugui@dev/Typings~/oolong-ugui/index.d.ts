@@ -68,11 +68,11 @@ declare global {
         handleEvent: (ev: UnityEvent) => void;
     };
     export declare class UnityElement<T extends object = any> extends UnityNode {
-        element: CS.TSF.Oolong.UGUI.OolongElement;
+        mono: CS.TSF.Oolong.UGUI.OolongElement;
         mountId: number;
         attrs: T;
         private events;
-        constructor(element: CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean);
+        constructor(mono: CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean);
         constructor(tagName: string, mount?: boolean);
         contains(node: UnityElement): boolean;
         setAttribute(name: string, value: any): boolean;
@@ -146,8 +146,12 @@ declare global {
     export declare const MithrilTick: () => void;
     declare class UnityElement<T extends object = any> extends dom.UnityElement<T> {
     }
+    export interface PartialRedrawAttrs {
+        redraw: () => void;
+        element: UnityElement;
+    }
     export declare const PartialRedraw: (mountId: number) => void;
-    export declare const MithrilMount: (element: CS.TSF.Oolong.UGUI.OolongElement, component: MithrilComponent, partial: boolean) => UnityElement<any>;
+    export declare const MithrilMount: (mono: CS.TSF.Oolong.UGUI.OolongElement, component: MithrilComponent, partial: boolean) => UnityElement<any>;
     export declare const MithrilUnmount: (element: UnityElement) => void;
     export declare const MithrilRedraw: (element?: UnityElement) => void;
     export declare abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {

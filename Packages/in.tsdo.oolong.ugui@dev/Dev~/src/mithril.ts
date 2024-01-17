@@ -4,24 +4,33 @@ declare class UnityElement<T extends object = any> extends dom.UnityElement<T> {
 
 import m from 'mithril';
 
-const partialRedrawMap = new Map<number, () => void>();
+export interface PartialRedrawAttrs {
+  redraw: () => void;
+  element: UnityElement;
+}
+
+const mountMap = new Map<number, PartialRedrawAttrs>();
 
 export const PartialRedraw = (mountId: number) => {
-  const redraw = partialRedrawMap.get(mountId);
-  if (redraw) {
-    redraw();
+  const mount = mountMap.get(mountId);
+  if (mount) {
+    mount.redraw();
   }
 };
 
 export const MithrilMount = (
-  element: CS.TSF.Oolong.UGUI.OolongElement,
+  mono: CS.TSF.Oolong.UGUI.OolongElement,
   component: MithrilComponent,
   partial: boolean
 ) => {
   if (partial) {
-    let mm: any = m; // for accessing untyped internal mithril API
-    let el = new UnityElement(element, true);
+    const mm: any = m; // for accessing untyped internal mithril API
+    const el = new UnityElement(mono, true);
     let pending = false;
+    const mount: PartialRedrawAttrs = {
+      redraw,
+      element: el,
+    };
 
     function redraw() {
       if (!pending) {
@@ -35,17 +44,17 @@ export const MithrilMount = (
 
     function sync() {
       try {
-        mm.render(el, mm.vnode(component), redraw);
+        mm.render(el, mm.vnode(component, undefined, mount), redraw);
       } catch (e) {
         console.error(e);
       }
     }
 
-    mm.render(el, mm.vnode(component), redraw);
-    partialRedrawMap.set(el.mountId, redraw);
+    mm.render(el, mm.vnode(component, undefined, mount), redraw);
+    mountMap.set(el.mountId, mount);
     return el;
   } else {
-    let el = new UnityElement(element, false);
+    let el = new UnityElement(mono, false);
     m.mount(el as any, component);
     return el;
   }
@@ -53,7 +62,7 @@ export const MithrilMount = (
 
 export const MithrilUnmount = (element: UnityElement) => {
   if (element.mountId) {
-    partialRedrawMap.delete(element.mountId);
+    mountMap.delete(element.mountId);
     m.render(element as any, []);
   } else {
     m.mount(element as any, null);
@@ -75,8 +84,8 @@ export const MithrilRedraw = (element: UnityElement = null) => {
   m.redraw();
 
   // Also redraw all partial redraws
-  for (const redraw of partialRedrawMap.values()) {
-    redraw();
+  for (const mount of mountMap.values()) {
+    mount.redraw();
   }
 };
 
