@@ -166,13 +166,13 @@ declare global {
         abstract view(vnode: m.Vnode<A, this>): m.Children | null | void;
         redraw(): void;
     }
-    interface RealtimeAttr {
+    type RealtimeAttrs = {
         interval?: number;
-    }
-    export declare abstract class Realtime extends MithrilComponent<RealtimeAttr> {
+    } & PanelElementAttributes;
+    export declare abstract class Realtime extends MithrilComponent<RealtimeAttrs> {
         private interval;
         private dom;
-        register(vnode: m.VnodeDOM<RealtimeAttr, this>): void;
+        register(vnode: m.VnodeDOM<RealtimeAttrs, this>): void;
         oncreate(vnode: m.VnodeDOM<{}, this>): void;
         onupdate(vnode: m.VnodeDOM<{}, this>): void;
         view(vnode: m.Vnode<{}, this>): void | m.Children;

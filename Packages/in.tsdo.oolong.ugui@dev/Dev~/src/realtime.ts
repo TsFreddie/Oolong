@@ -1,15 +1,15 @@
 import m from 'mithril';
 import { MithrilComponent } from './mithril.js';
 
-interface RealtimeAttr {
+type RealtimeAttrs = {
   interval?: number;
-}
+} & PanelElementAttributes;
 
-export abstract class Realtime extends MithrilComponent<RealtimeAttr> {
+export abstract class Realtime extends MithrilComponent<RealtimeAttrs> {
   private interval: number;
   private dom: any;
 
-  register(vnode: m.VnodeDOM<RealtimeAttr, this>) {
+  register(vnode: m.VnodeDOM<RealtimeAttrs, this>) {
     var children = vnode.children as any;
     if (typeof children != 'object') return;
     var render = children[0];

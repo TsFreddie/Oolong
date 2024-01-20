@@ -31,6 +31,7 @@ const options = {
     '../../../Assets/Generated/Puerts/Typing',
     '../../../Packages/in.tsdo.oolong/Typings~',
     '../../../Packages/in.tsdo.oolong/Generated/Typings~',
+    '../Typings~',
     '../Generated/Typings~',
   ],
 };
