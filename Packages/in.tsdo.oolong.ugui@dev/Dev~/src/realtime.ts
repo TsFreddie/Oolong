@@ -33,10 +33,11 @@ export abstract class Realtime extends MithrilComponent<RealtimeAttr> {
   }
 
   view(vnode: m.Vnode<{}, this>): void | m.Children {
-    return m('div', vnode.attrs);
+    return m('panel', vnode.attrs);
   }
 
   onremove() {
+    m.render(this.dom, null);
     if (this.interval != null) clearInterval(this.interval);
     this.interval = null;
   }

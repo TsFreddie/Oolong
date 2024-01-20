@@ -39,6 +39,7 @@ export class HttpRequest {
     if (this.withCredentials) {
       // TODO: add authentication callback
     }
+
     CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SendWithCallback(this.request, () => {
       if (this.onreadystatechange) {
         this.onreadystatechange({ target: this });
@@ -277,10 +278,10 @@ export abstract class UnityNode {
     }
 
     if (child instanceof UnityFragment) {
-      for (let i = 0; i < child.children.length; i++) {
-        this.appendChild(child.children[i]);
+      const children = [...child.children];
+      for (const child of children) {
+        this.appendChild(child);
       }
-      child.children.splice(0, child.children.length);
       return;
     }
 
