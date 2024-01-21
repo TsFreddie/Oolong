@@ -152,6 +152,12 @@ namespace TSF.Oolong.UGUI
             _children.Clear();
             UIEventHandler.ResetListeners(gameObject);
 
+            ClearList(ref _transitionAttrs);
+            ClearList(ref _transitionDelays);
+            ClearList(ref _transitionDurations);
+            ClearList(ref _transitionTimingFunctions);
+            OnResetTransition();
+
             Version++;
             MountId = 0;
         }
