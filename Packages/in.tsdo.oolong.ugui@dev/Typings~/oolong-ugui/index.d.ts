@@ -170,12 +170,8 @@ declare global {
         interval?: number;
     } & PanelElementAttributes;
     export declare abstract class Realtime extends MithrilComponent<RealtimeAttrs> {
-        private interval;
-        private dom;
-        register(vnode: m.VnodeDOM<RealtimeAttrs, this>): void;
-        oncreate(vnode: m.VnodeDOM<{}, this>): void;
-        onupdate(vnode: m.VnodeDOM<{}, this>): void;
-        view(vnode: m.Vnode<{}, this>): void | m.Children;
+        oncreate(vnode: m.VnodeDOM<RealtimeAttrs, this>): void;
+        view(vnode: m.Vnode<RealtimeAttrs, this>): void | m.Children;
         onremove(): void;
     }
 }

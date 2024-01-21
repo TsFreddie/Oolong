@@ -6,39 +6,38 @@ type RealtimeAttrs = {
 } & PanelElementAttributes;
 
 export abstract class Realtime extends MithrilComponent<RealtimeAttrs> {
-  private interval: number;
-  private dom: any;
+  /** @internal */
+  private _interval: number;
+  /** @internal */
+  private _dom: any;
 
-  register(vnode: m.VnodeDOM<RealtimeAttrs, this>) {
+  /** @internal */
+  private _render(vnode: m.Vnode<RealtimeAttrs, this>) {
     var children = vnode.children as any;
     if (typeof children != 'object') return;
     var render = children[0];
     if (typeof render != 'function') return;
+    return render();
+  }
 
+  oncreate(vnode: m.VnodeDOM<RealtimeAttrs, this>) {
+    this._dom = vnode.dom;
     const interval = vnode.attrs?.interval || 0;
 
-    this.interval = setInterval(() => {
-      m.render(this.dom, render());
+    this._interval = setInterval(() => {
+      m.render(this._dom, this._render(vnode));
     }, interval);
+
+    m.render(this._dom, this._render(vnode));
   }
 
-  oncreate(vnode: m.VnodeDOM<{}, this>) {
-    this.dom = vnode.dom;
-    this.register(vnode);
-  }
-
-  onupdate(vnode: m.VnodeDOM<{}, this>) {
-    this.onremove();
-    this.register(vnode);
-  }
-
-  view(vnode: m.Vnode<{}, this>): void | m.Children {
+  view(vnode: m.Vnode<RealtimeAttrs, this>): void | m.Children {
     return m('panel', vnode.attrs);
   }
 
   onremove() {
-    m.render(this.dom, null);
-    if (this.interval != null) clearInterval(this.interval);
-    this.interval = null;
+    m.render(this._dom, null);
+    if (this._interval != null) clearInterval(this._interval);
+    this._interval = null;
   }
 }
