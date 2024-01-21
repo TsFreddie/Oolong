@@ -450,7 +450,6 @@ export class UnityElement<T extends object = any> extends UnityNode {
     if (mount) {
       this.mountId = this.mono.GetInstanceID();
       this.mono.MountId = this.mountId;
-      console.log(this.mountId);
     }
   }
 
