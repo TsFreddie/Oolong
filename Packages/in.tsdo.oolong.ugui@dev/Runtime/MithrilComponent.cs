@@ -19,7 +19,6 @@ namespace TSF.Oolong.UGUI
         private bool _initialized = false;
         private JSObject _componentClass = null;
         private JSObject _element = null;
-        private bool _unmountPending = false;
 
         internal void Init(AssetReferenceT<TextAsset> addressableScript)
         {
@@ -55,37 +54,12 @@ namespace TSF.Oolong.UGUI
         private void OnEnable()
         {
             if (!_initialized) return;
-            if (_unmountPending)
-            {
-                OolongEnvironment.OnLateUpdate -= Unmount;
-                _unmountPending = false;
-            }
             _element = OolongUGUI.Mount(this, _componentClass, _partialRedraw);
         }
 
         private void OnDisable()
         {
             if (!_initialized || _element == null) return;
-            if (_unmountPending) return;
-            OolongEnvironment.OnLateUpdate += Unmount;
-            _unmountPending = true;
-        }
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            if (!_initialized || _element == null) return;
-
-            _unmountPending = false;
-            OolongEnvironment.OnLateUpdate -= Unmount;
-            OolongUGUI.Unmount(_element);
-            _element = null;
-        }
-
-        private void Unmount()
-        {
-            _unmountPending = false;
-            OolongEnvironment.OnLateUpdate -= Unmount;
             OolongUGUI.Unmount(_element);
             _element = null;
         }

@@ -21,6 +21,7 @@ export abstract class Realtime extends MithrilComponent<RealtimeAttrs> {
   }
 
   oncreate(vnode: m.VnodeDOM<RealtimeAttrs, this>) {
+    super.oncreate(vnode);
     this._dom = vnode.dom;
     const interval = vnode.attrs?.interval || 0;
 

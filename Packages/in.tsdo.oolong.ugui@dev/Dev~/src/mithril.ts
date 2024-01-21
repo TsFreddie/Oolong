@@ -30,19 +30,21 @@ export const MithrilMount = (
     const el = new UnityElement(mono, true);
     let pending = false;
     const mount: PartialRedrawAttrs = {
-      redraw,
+      redraw: () => {
+        if (!pending) {
+          pending = true;
+          requestAnimationFrame(function () {
+            pending = false;
+            sync();
+          });
+        }
+      },
       element: el,
     };
 
-    function redraw() {
-      if (!pending) {
-        pending = true;
-        requestAnimationFrame(function () {
-          pending = false;
-          sync();
-        });
-      }
-    }
+    const redraw = () => {
+      MithrilRedraw(mount.element);
+    };
 
     function sync() {
       try {
@@ -65,7 +67,8 @@ export const MithrilMount = (
 export const MithrilUnmount = (element: UnityElement) => {
   if (element.mountId) {
     mountMap.delete(element.mountId);
-    m.render(element as any, []);
+    element.mountId = 0;
+    m.render(element as any, null);
   } else {
     m.mount(element as any, null);
   }
