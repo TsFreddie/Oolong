@@ -17,6 +17,7 @@ namespace TSF.Oolong.UGUI
         public bool PartialRedraw => _partialRedraw;
 
         private bool _initialized = false;
+        private bool _unmountPending = false;
         private JSObject _componentClass = null;
         private JSObject _element = null;
 
@@ -54,11 +55,31 @@ namespace TSF.Oolong.UGUI
         private void OnEnable()
         {
             if (!_initialized) return;
+            if (_unmountPending)
+            {
+                // Cancel unmount and keep the mounted element
+                OolongEnvironment.OnLateUpdate -= Unmount;
+                _unmountPending = false;
+                return;
+            }
             _element = OolongUGUI.Mount(this, _componentClass, _partialRedraw);
         }
 
         private void OnDisable()
         {
+            // Delay unmount to avoid changing parents when GameObjects is deactivating
+            if (!_unmountPending)
+            {
+                OolongEnvironment.OnLateUpdate += Unmount;
+                _unmountPending = true;
+            }
+        }
+
+        private void Unmount()
+        {
+            _unmountPending = false;
+            OolongEnvironment.OnLateUpdate -= Unmount;
+
             if (!_initialized || _element == null) return;
             OolongUGUI.Unmount(_element);
             _element = null;
@@ -66,6 +87,16 @@ namespace TSF.Oolong.UGUI
 
         protected override void OnDestroy()
         {
+            if (_unmountPending)
+            {
+                // Cancel pending unmount and unmount immediately
+                OolongEnvironment.OnLateUpdate -= Unmount;
+                _unmountPending = false;
+                Unmount();
+            }
+
+            // Force reset children elements in case unmount
+            // is delayed by mithril's onbeforeremove hook
             ResetChildren();
         }
 
