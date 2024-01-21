@@ -143,17 +143,17 @@ namespace TSF.Oolong.UGUI
 
         public void OnReset()
         {
-            MountId = 0;
-            Version++;
             _loader?.Reset();
-            UIEventHandler.ResetListeners(gameObject);
             name = WrapTagName(TagName);
-
             foreach (var child in _children)
             {
                 DocumentUtils.ResetElement(child);
             }
             _children.Clear();
+            UIEventHandler.ResetListeners(gameObject);
+
+            Version++;
+            MountId = 0;
         }
 
         public void OnReuse()

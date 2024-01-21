@@ -7,6 +7,7 @@ import m from 'mithril';
 export interface PartialRedrawAttrs {
   redraw: () => void;
   element: UnityElement;
+  unmounted: boolean;
 }
 
 const mountMap = new Map<number, PartialRedrawAttrs>();
@@ -29,22 +30,6 @@ export const MithrilMount = (
     const mm: any = m; // for accessing untyped internal mithril API
     const el = new UnityElement(mono, true);
     let pending = false;
-    const mount: PartialRedrawAttrs = {
-      redraw: () => {
-        if (!pending) {
-          pending = true;
-          requestAnimationFrame(function () {
-            pending = false;
-            sync();
-          });
-        }
-      },
-      element: el,
-    };
-
-    const redraw = () => {
-      MithrilRedraw(mount.element);
-    };
 
     function sync() {
       try {
@@ -54,8 +39,25 @@ export const MithrilMount = (
       }
     }
 
-    mm.render(el, mm.vnode(component, undefined, mount), redraw);
+    const redraw = () => {
+      if (!pending) {
+        pending = true;
+        requestAnimationFrame(function () {
+          pending = false;
+          if (!mount.unmounted) sync();
+        });
+      }
+    };
+
+    const mount: PartialRedrawAttrs = {
+      redraw,
+      element: el,
+      unmounted: false,
+    };
+
     mountMap.set(el.mountId, mount);
+
+    sync();
     return el;
   } else {
     let el = new UnityElement(mono, false);
@@ -66,9 +68,12 @@ export const MithrilMount = (
 
 export const MithrilUnmount = (element: UnityElement) => {
   if (element.mountId) {
-    mountMap.delete(element.mountId);
-    element.mountId = 0;
-    m.render(element as any, null);
+    const mount = mountMap.get(element.mountId);
+    if (mount) {
+      mount.unmounted = true;
+      m.render(mount.element as any, null);
+      mountMap.delete(element.mountId);
+    }
   } else {
     m.mount(element as any, null);
   }
