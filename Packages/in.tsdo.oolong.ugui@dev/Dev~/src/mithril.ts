@@ -11,10 +11,12 @@ export interface PartialRedrawAttrs {
 
 const mountMap = new Map<number, PartialRedrawAttrs>();
 
-export const PartialRedraw = (mountId: number) => {
-  const mount = mountMap.get(mountId);
+export const CustomRedraw = (mountId: number) => {
+  const mount = mountId != 0 ? mountMap.get(mountId) : 0;
   if (mount) {
     mount.redraw();
+  } else {
+    m.redraw();
   }
 };
 
@@ -72,13 +74,11 @@ export const MithrilUnmount = (element: UnityElement) => {
 export const MithrilRedraw = (element: UnityElement = null) => {
   // Try partial redraw if element is provided
   if (element != null) {
-    if (element.mountId) {
-      PartialRedraw(element.mountId);
-    } else {
-      m.redraw();
-    }
+    CustomRedraw(element.mountId);
     return;
   }
+
+  // If element is not provided, redraw all, including partial redraws
 
   // Global redraw
   m.redraw();
@@ -119,7 +119,7 @@ export abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {
 
   redraw() {
     if (this.__mountId) {
-      PartialRedraw(this.__mountId);
+      CustomRedraw(this.__mountId);
     } else {
       m.redraw();
     }

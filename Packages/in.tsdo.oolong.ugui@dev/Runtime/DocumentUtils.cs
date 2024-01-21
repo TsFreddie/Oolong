@@ -113,6 +113,12 @@ namespace TSF.Oolong.UGUI
                         .Add(new OolongSelectableLoader(input.Instance, e.TagName, true))
                         .Add(new OolongRectMaskLoader(textAreaRect.gameObject))
                         .SetRoot(e, input.Content)
+            },
+            {
+                "selectable", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongSelectableLoader(e.gameObject, e.TagName, true))
             }
         };
 

@@ -25,7 +25,7 @@ namespace TSF.Oolong.UGUI
             { "handle-offset-y", (e, v) => { e.SetFloat(ref e._handleOffsetY, v); } },
         };
 
-        public readonly Slider Instance;
+        public readonly OolongSlider Instance;
 
         private bool _directionLocked = false;
         private readonly RectTransform _fillArea;
@@ -51,7 +51,7 @@ namespace TSF.Oolong.UGUI
 
         public OolongSliderLoader(GameObject obj, string tagName)
         {
-            Instance = obj.AddComponent<Slider>();
+            Instance = obj.AddComponent<OolongSlider>();
             _sliderRect = Instance.GetComponent<RectTransform>();
 
             _fillArea = DocumentUtils.CreateChildRect(obj.transform, "::fill-area");

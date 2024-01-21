@@ -24,7 +24,7 @@ namespace TSF.Oolong.UGUI
 
         private static readonly Dictionary<string, RefCountToggleGroup> s_toggleGroups = new Dictionary<string, RefCountToggleGroup>();
 
-        public readonly Toggle Instance;
+        public readonly OolongToggle Instance;
 
         protected override Dictionary<string, AttrHandler> Attrs => s_attrs;
         private static readonly Dictionary<string, AttrHandler> s_attrs = new Dictionary<string, AttrHandler>()
@@ -36,7 +36,7 @@ namespace TSF.Oolong.UGUI
 
         public OolongToggleLoader(GameObject gameObject, Graphic checkmark = null)
         {
-            Instance = gameObject.AddComponent<Toggle>();
+            Instance = gameObject.AddComponent<OolongToggle>();
             Instance.SetIsOnWithoutNotify(false);
             if (checkmark)
                 Instance.graphic = checkmark;
@@ -114,7 +114,7 @@ namespace TSF.Oolong.UGUI
             return false;
         }
 
-        public override bool TryReadValue(string key, out string value)
+        public override bool TryGetAttribute(string key, out string value)
         {
             switch (key)
             {
@@ -122,7 +122,7 @@ namespace TSF.Oolong.UGUI
                     value = Instance.isOn ? "on" : "off";
                     return true;
             }
-            return base.TryReadValue(key, out value);
+            return base.TryGetAttribute(key, out value);
         }
 
         public override void Reset()

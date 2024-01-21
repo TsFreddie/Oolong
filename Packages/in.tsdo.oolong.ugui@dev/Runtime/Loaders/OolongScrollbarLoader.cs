@@ -19,7 +19,7 @@ namespace TSF.Oolong.UGUI
             { "min-length", (e, v) => e.SetMinLength(v) }
         };
 
-        public readonly Scrollbar Instance;
+        public readonly OolongScrollbar Instance;
 
         // TODO: This will be used to lock direction for ScrollView.
         private bool _directionLocked = false;
@@ -34,7 +34,7 @@ namespace TSF.Oolong.UGUI
 
         public OolongScrollbarLoader(GameObject obj, string tagName)
         {
-            Instance = obj.AddComponent<Scrollbar>();
+            Instance = obj.AddComponent<OolongScrollbar>();
             _image = new OolongImageLoader(obj.AddComponent<Image>(), tagName) { DefaultType = "slice" };
 
             var offsetPositive = new Vector2(_halfMinHandleLength, _halfMinHandleLength);

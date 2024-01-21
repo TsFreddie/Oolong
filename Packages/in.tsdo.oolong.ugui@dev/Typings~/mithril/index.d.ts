@@ -460,15 +460,22 @@ declare global {
                 TextElementAttributes &
                 TransitionAttributes &
                 ElementCallbacks<TextElementAttributes>;
+            selectable: Mithril.Attributes &
+                SelectableElementAttributes &
+                TransitionAttributes &
+                ElementCallbacks<SelectableElementAttributes> &
+                SelectableCallbacks;
             button: Mithril.Attributes &
                 ButtonElementAttributes &
                 TransitionAttributes &
                 ElementCallbacks<ButtonElementAttributes> &
+                SelectableCallbacks &
                 ButtonCallbacks;
             toggle: Mithril.Attributes &
                 ToggleElementAttributes &
                 TransitionAttributes &
                 ElementCallbacks<ToggleElementAttributes> &
+                SelectableCallbacks &
                 ToggleCallbacks;
             scrollrect: Mithril.Attributes &
                 ScrollRectElementAttributes &
@@ -479,11 +486,13 @@ declare global {
                 InputElementAttributes &
                 TransitionAttributes &
                 ElementCallbacks<InputElementAttributes> &
+                SelectableCallbacks &
                 InputCallbacks;
             slider: Mithril.Attributes &
                 SliderElementAttributes &
                 TransitionAttributes &
                 ElementCallbacks<SliderElementAttributes> &
+                SelectableCallbacks &
                 SliderCallbacks;
             canvasgroup: Mithril.Attributes &
                 CanvasGroupElementAttributes &

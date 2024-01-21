@@ -6,7 +6,7 @@ namespace TSF.Oolong.UGUI
 {
     public class OolongInputLoader : OolongLoader<OolongInputLoader>
     {
-        public readonly TMP_InputField Instance;
+        public readonly OolongInput Instance;
         public readonly RectTransform Content;
         public readonly RectTransform TextArea;
 
@@ -96,7 +96,7 @@ namespace TSF.Oolong.UGUI
         public OolongInputLoader(GameObject gameObject, RectTransform textArea, Graphic placeHolder, TMP_Text text)
         {
             var transform = gameObject.transform;
-            Instance = gameObject.AddComponent<TMP_InputField>();
+            Instance = gameObject.AddComponent<OolongInput>();
             TextArea = textArea;
             Instance.textViewport = textArea;
             Instance.placeholder = placeHolder;
@@ -179,7 +179,7 @@ namespace TSF.Oolong.UGUI
             return false;
         }
 
-        public override bool TryReadValue(string key, out string value)
+        public override bool TryGetAttribute(string key, out string value)
         {
             switch (key)
             {
@@ -187,7 +187,7 @@ namespace TSF.Oolong.UGUI
                     value = Instance.text;
                     return true;
             }
-            return base.TryReadValue(key, out value);
+            return base.TryGetAttribute(key, out value);
         }
 
         public override void Reuse()

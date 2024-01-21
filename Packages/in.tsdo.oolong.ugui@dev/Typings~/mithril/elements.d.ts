@@ -194,19 +194,18 @@ type TextAttributes = {
     material?: string;
 };
 
-type SelectableAttributes =
-    | {
-          color?: string;
-          normal?: string;
-          highlight?: string;
-          press?: string;
-          select?: string;
-          disable?: string;
-          "fade-duration"?: AttributeNumber;
-          disabled?: boolean;
-          async?: boolean;
-      }
-    | ImageAttributes;
+type SelectableAttributes = {
+    color?: string;
+    normal?: string;
+    highlight?: string;
+    press?: string;
+    select?: string;
+    disable?: string;
+    "fade-duration"?: AttributeNumber;
+    disabled?: boolean;
+    async?: boolean;
+    readonly interactable?: "yes" | "no";
+} & ImageAttributes;
 
 type ToggleAttributes = {
     value?: "on" | "off";
@@ -234,6 +233,8 @@ type ScrollRectAttributes = {
     inertia?: AttributeNumber;
     sensitivity?: AttributeNumber;
     direction?: Direction | "both" | "none";
+    readonly scrollX?: StringNumber;
+    readonly scrollY?: StringNumber;
 };
 
 type InputAttributes = {
@@ -276,13 +277,6 @@ type CanvasGroupAttributes = {
     delayed?: boolean;
 };
 
-// Values
-
-type ScrollRectValueAttributes = {
-    scrollX?: StringNumber;
-    scrollY?: StringNumber;
-};
-
 // Transitions
 
 type TransitionAttributes = {
@@ -298,6 +292,7 @@ type PanelElementAttributes = RectAttributes & LayoutAttributes;
 type ImageElementAttributes = RectAttributes & ImageAttributes;
 type TextElementAttributes = RectAttributes & TextAttributes;
 type ButtonElementAttributes = RectAttributes & SelectableAttributes;
+type SelectableElementAttributes = RectAttributes & SelectableAttributes;
 type ToggleElementAttributes = RectAttributes &
     ToggleAttributes &
     SelectableAttributes &
@@ -347,6 +342,10 @@ type ElementCallbacks<T extends object = any> = {
     oncancel?: OolongEventHandler<T>;
 };
 
+type SelectableCallbacks = {
+    oncanvasgroupchanged?: OolongEventHandler<SelectableElementAttributes>;
+};
+
 type ButtonCallbacks = {
     onclick?: OolongEventHandler<ButtonElementAttributes>;
 };
@@ -360,9 +359,7 @@ type SliderCallbacks = {
 };
 
 type ScrollRectCallbacks = {
-    onvaluechanged?: OolongEventHandler<
-        ScrollRectElementAttributes & ScrollRectValueAttributes
-    >;
+    onvaluechanged?: OolongEventHandler<ScrollRectElementAttributes>;
 };
 
 type InputCallbacks = {

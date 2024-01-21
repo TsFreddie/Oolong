@@ -150,7 +150,7 @@ declare global {
         redraw: () => void;
         element: UnityElement;
     }
-    export declare const PartialRedraw: (mountId: number) => void;
+    export declare const CustomRedraw: (mountId: number) => void;
     export declare const MithrilMount: (mono: CS.TSF.Oolong.UGUI.OolongElement, component: MithrilComponent, partial: boolean) => UnityElement<any>;
     export declare const MithrilUnmount: (element: UnityElement) => void;
     export declare const MithrilRedraw: (element?: UnityElement) => void;

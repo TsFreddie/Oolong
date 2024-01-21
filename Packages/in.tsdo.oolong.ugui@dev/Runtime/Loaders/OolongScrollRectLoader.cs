@@ -289,7 +289,7 @@ namespace TSF.Oolong.UGUI
             return true;
         }
 
-        public override bool TryReadValue(string key, out string value)
+        public override bool TryGetAttribute(string key, out string value)
         {
             switch (key)
             {
@@ -300,7 +300,7 @@ namespace TSF.Oolong.UGUI
                     value = Instance.normalizedPosition.y.ToString(CultureInfo.InvariantCulture);
                     return true;
             }
-            return base.TryReadValue(key, out value);
+            return base.TryGetAttribute(key, out value);
         }
 
         public override void Reuse()

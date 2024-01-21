@@ -66,7 +66,7 @@ namespace TSF.Oolong.UGUI
             { "async", ((e, v) => e.SetAsync(v)) },
         };
 
-        public readonly Selectable Instance;
+        public readonly IOolongSelectable Instance;
         private readonly OolongImageLoader _image; // ignoring src and color
         private AddressableHolder<Sprite> _baseSprite;
         private AddressableHolder<Sprite> _highlightSprite;
@@ -78,6 +78,8 @@ namespace TSF.Oolong.UGUI
         private bool _loaded = false;
         private bool _isAsync = false;
         private string _tagName;
+
+        private IOolongLoader.JsCallback _onCanvasGroupChange;
 
         public bool HasImage { get; private set; } = false;
 
@@ -104,7 +106,7 @@ namespace TSF.Oolong.UGUI
 
         private Color _baseColor = Color.white;
 
-        public OolongSelectableLoader(Selectable instance, string tagName, bool createImageTarget = false)
+        public OolongSelectableLoader(IOolongSelectable instance, string tagName, bool createImageTarget = false)
         {
             Instance = instance;
             Instance.enabled = false;
@@ -115,6 +117,11 @@ namespace TSF.Oolong.UGUI
                 Instance.targetGraphic = image;
             }
             _tagName = tagName;
+        }
+
+        public OolongSelectableLoader(GameObject gameObject, string tagName, bool createImageTarget = false)
+            : this(gameObject.AddComponent<OolongSelectable>(), tagName, createImageTarget)
+        {
         }
 
         public override bool SetAttribute(string key, string value)
@@ -383,6 +390,50 @@ namespace TSF.Oolong.UGUI
 
             SetSprite(state, sprite);
             if (_image != null) _image.Instance.enabled = true;
+        }
+
+        public override bool AddListener(string key, IOolongLoader.JsCallback callback)
+        {
+            if (base.AddListener(key, callback)) return true;
+
+            switch (key)
+            {
+                case "canvasgroupchanged":
+                    _onCanvasGroupChange = callback;
+                    Instance.OnCanvasGroupChange += OnCanvasGroupChange;
+                    return true;
+            }
+            return false;
+        }
+
+        public override bool RemoveListener(string key)
+        {
+            if (base.RemoveListener(key)) return true;
+
+            switch (key)
+            {
+                case "canvasgroupchanged":
+                    _onCanvasGroupChange = null;
+                    Instance.OnCanvasGroupChange -= OnCanvasGroupChange;
+                    return true;
+            }
+            return false;
+        }
+
+        public override bool TryGetAttribute(string key, out string value)
+        {
+            switch (key)
+            {
+                case "interactable":
+                    value = Instance.IsInteractable() ? "yes" : "no";
+                    return true;
+            }
+            return base.TryGetAttribute(key, out value);
+        }
+
+        private void OnCanvasGroupChange()
+        {
+            _onCanvasGroupChange?.Invoke(null);
         }
 
         public override void Reset()

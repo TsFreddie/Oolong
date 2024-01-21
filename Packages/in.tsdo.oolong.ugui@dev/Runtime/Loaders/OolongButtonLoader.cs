@@ -4,11 +4,11 @@ namespace TSF.Oolong.UGUI
 {
     public class OolongButtonLoader : OolongLoader<OolongButtonLoader>
     {
-        public readonly Button Instance;
+        public readonly OolongButton Instance;
 
         public OolongButtonLoader(GameObject gameObject)
         {
-            Instance = gameObject.AddComponent<Button>();
+            Instance = gameObject.AddComponent<OolongButton>();
         }
 
         public override bool AddListener(string key, IOolongLoader.JsCallback callback)

@@ -41,6 +41,16 @@
         interface IEquatable$1<T>
         {
         }
+        class Int32 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface IFormattable
+        {
+        }
+        interface ISpanFormattable
+        {
+        }
         class String extends System.Object implements System.ICloneable, System.IComparable, System.IComparable$1<string>, System.IConvertible, System.Collections.Generic.IEnumerable$1<number>, System.Collections.IEnumerable, System.IEquatable$1<string>
         {
             protected [__keep_incompatibility]: never;
@@ -62,27 +72,21 @@
         Invoke?: (...args:any[]) => any;
         }
         var MulticastDelegate: { new (func: (...args:any[]) => any): MulticastDelegate; }
+        class Enum extends System.ValueType implements System.IFormattable, System.IComparable, System.IConvertible
+        {
+            protected [__keep_incompatibility]: never;
+        }
         interface Action
         { 
         () : void; 
         Invoke?: () => void;
         }
         var Action: { new (func: () => void): Action; }
-        class Int32 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        class Type extends System.Reflection.MemberInfo implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._Type, System.Reflection.ICustomAttributeProvider, System.Reflection.IReflect
         {
             protected [__keep_incompatibility]: never;
-        }
-        interface IFormattable
-        {
-        }
-        interface ISpanFormattable
-        {
         }
         class Single extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class Enum extends System.ValueType implements System.IFormattable, System.IComparable, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
@@ -122,11 +126,23 @@
         class OolongUGUI extends System.Object
         {
             protected [__keep_incompatibility]: never;
+            public static get TextTransformer(): ITextTransformer;
+            public static set TextTransformer(value: ITextTransformer);
+            public static get AddressTransformer(): IAddressTransformer;
+            public static set AddressTransformer(value: IAddressTransformer);
             public static Initialize () : void
             public static Mount ($element: TSF.Oolong.UGUI.OolongElement, $component: Puerts.JSObject, $partial: boolean) : Puerts.JSObject
             public static Unmount ($element: Puerts.JSObject) : void
+            public static Redraw ($element?: Puerts.JSObject) : void
+            public static Redraw ($mountId?: number) : void
             public static TransformText ($text: string, $loader: TSF.Oolong.UGUI.OolongTextLoader) : string
             public static TransformAddress ($tag: string, $address: string) : string
+        }
+        interface ITextTransformer
+        {
+        }
+        interface IAddressTransformer
+        {
         }
         namespace Puerts {
         type JSObject = any;
@@ -166,6 +182,18 @@
         {
             protected [__keep_incompatibility]: never;
         }
+        /** Base class for all entities in Unity Scenes.
+        */
+        class GameObject extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface ICanvasRaycastFilter
+        {
+        }
+        interface ISerializationCallbackReceiver
+        {
+        }
         /** Position, size, anchor and pivot information for a rectangle.
         */
         class RectTransform extends UnityEngine.Transform implements System.Collections.IEnumerable
@@ -178,27 +206,21 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        /** Base class for all entities in Unity Scenes.
-        */
-        class GameObject extends UnityEngine.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
         /** A Canvas placable element that can be used to modify children Alpha, Raycasting, Enabled state.
         */
         class CanvasGroup extends UnityEngine.Behaviour implements UnityEngine.ICanvasRaycastFilter
         {
             protected [__keep_incompatibility]: never;
         }
-        interface ICanvasRaycastFilter
-        {
-        }
-        interface ISerializationCallbackReceiver
-        {
-        }
         /** Represents a raw text or binary file asset.
         */
         class TextAsset extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        /** The material class.
+        */
+        class Material extends UnityEngine.Object
         {
             protected [__keep_incompatibility]: never;
         }
@@ -248,6 +270,8 @@
             public set RootTransform(value: UnityEngine.Transform);
             public get ParentElement(): TSF.Oolong.UGUI.OolongElement;
             public set ParentElement(value: TSF.Oolong.UGUI.OolongElement);
+            public get MountId(): number;
+            public set MountId(value: number);
             public GetInstanceID () : number
             public AddChild ($e: TSF.Oolong.UGUI.OolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.OolongElement) : void
@@ -255,7 +279,6 @@
             public GetElementAttribute ($key: string) : string
             public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
             public RemoveListener ($key: string) : void
-            public SetEventHandler ($handler: TSF.Oolong.UGUI.UIEventHandler) : void
             public OnCreate ($loader: TSF.Oolong.UGUI.IOolongLoader) : void
             public OnReset () : void
             public OnReuse () : void
@@ -270,7 +293,7 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
@@ -282,7 +305,7 @@
             Reuse () : void
             Reset () : void
             SetAttribute ($key: string, $value: string) : boolean
-            TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             ResetTransitions () : void
             SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
@@ -308,14 +331,173 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
+        }
+        interface IOolongSelectable
+        {
+            enabled : boolean
+            transform : UnityEngine.Transform
+            gameObject : UnityEngine.GameObject
+            colors : UnityEngine.UI.ColorBlock
+            spriteState : UnityEngine.UI.SpriteState
+            transition : UnityEngine.UI.Selectable.Transition
+            targetGraphic : UnityEngine.UI.Graphic
+            interactable : boolean
+            image : UnityEngine.UI.Image
+            add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+        }
+        interface CanvasGroupChanged
+        { 
+        () : void; 
+        Invoke?: () => void;
+        }
+        var CanvasGroupChanged: { new (func: () => void): CanvasGroupChanged; }
+        class OolongButton extends UnityEngine.UI.Button implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public get enabled(): boolean;
+            public set enabled(value: boolean);
+            public get transform(): UnityEngine.Transform;
+            public get gameObject(): UnityEngine.GameObject;
+            public get colors(): UnityEngine.UI.ColorBlock;
+            public set colors(value: UnityEngine.UI.ColorBlock);
+            public get spriteState(): UnityEngine.UI.SpriteState;
+            public set spriteState(value: UnityEngine.UI.SpriteState);
+            public get transition(): UnityEngine.UI.Selectable.Transition;
+            public set transition(value: UnityEngine.UI.Selectable.Transition);
+            public get targetGraphic(): UnityEngine.UI.Graphic;
+            public set targetGraphic(value: UnityEngine.UI.Graphic);
+            public get interactable(): boolean;
+            public set interactable(value: boolean);
+            public get image(): UnityEngine.UI.Image;
+            public set image(value: UnityEngine.UI.Image);
+            public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public constructor ()
+        }
+        class OolongInput extends TMPro.TMP_InputField implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.EventSystems.IEndDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IScrollHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IUpdateSelectedHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler, UnityEngine.UI.ILayoutElement
+        {
+            protected [__keep_incompatibility]: never;
+            public get enabled(): boolean;
+            public set enabled(value: boolean);
+            public get transform(): UnityEngine.Transform;
+            public get gameObject(): UnityEngine.GameObject;
+            public get colors(): UnityEngine.UI.ColorBlock;
+            public set colors(value: UnityEngine.UI.ColorBlock);
+            public get spriteState(): UnityEngine.UI.SpriteState;
+            public set spriteState(value: UnityEngine.UI.SpriteState);
+            public get transition(): UnityEngine.UI.Selectable.Transition;
+            public set transition(value: UnityEngine.UI.Selectable.Transition);
+            public get targetGraphic(): UnityEngine.UI.Graphic;
+            public set targetGraphic(value: UnityEngine.UI.Graphic);
+            public get interactable(): boolean;
+            public set interactable(value: boolean);
+            public get image(): UnityEngine.UI.Image;
+            public set image(value: UnityEngine.UI.Image);
+            public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public constructor ()
+        }
+        class OolongScrollbar extends UnityEngine.UI.Scrollbar implements UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public get enabled(): boolean;
+            public set enabled(value: boolean);
+            public get transform(): UnityEngine.Transform;
+            public get gameObject(): UnityEngine.GameObject;
+            public get colors(): UnityEngine.UI.ColorBlock;
+            public set colors(value: UnityEngine.UI.ColorBlock);
+            public get spriteState(): UnityEngine.UI.SpriteState;
+            public set spriteState(value: UnityEngine.UI.SpriteState);
+            public get transition(): UnityEngine.UI.Selectable.Transition;
+            public set transition(value: UnityEngine.UI.Selectable.Transition);
+            public get targetGraphic(): UnityEngine.UI.Graphic;
+            public set targetGraphic(value: UnityEngine.UI.Graphic);
+            public get interactable(): boolean;
+            public set interactable(value: boolean);
+            public get image(): UnityEngine.UI.Image;
+            public set image(value: UnityEngine.UI.Image);
+            public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public constructor ()
+        }
+        class OolongSelectable extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public get enabled(): boolean;
+            public set enabled(value: boolean);
+            public get transform(): UnityEngine.Transform;
+            public get gameObject(): UnityEngine.GameObject;
+            public get colors(): UnityEngine.UI.ColorBlock;
+            public set colors(value: UnityEngine.UI.ColorBlock);
+            public get spriteState(): UnityEngine.UI.SpriteState;
+            public set spriteState(value: UnityEngine.UI.SpriteState);
+            public get transition(): UnityEngine.UI.Selectable.Transition;
+            public set transition(value: UnityEngine.UI.Selectable.Transition);
+            public get targetGraphic(): UnityEngine.UI.Graphic;
+            public set targetGraphic(value: UnityEngine.UI.Graphic);
+            public get interactable(): boolean;
+            public set interactable(value: boolean);
+            public get image(): UnityEngine.UI.Image;
+            public set image(value: UnityEngine.UI.Image);
+            public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public constructor ()
+        }
+        class OolongSlider extends UnityEngine.UI.Slider implements UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public get enabled(): boolean;
+            public set enabled(value: boolean);
+            public get transform(): UnityEngine.Transform;
+            public get gameObject(): UnityEngine.GameObject;
+            public get colors(): UnityEngine.UI.ColorBlock;
+            public set colors(value: UnityEngine.UI.ColorBlock);
+            public get spriteState(): UnityEngine.UI.SpriteState;
+            public set spriteState(value: UnityEngine.UI.SpriteState);
+            public get transition(): UnityEngine.UI.Selectable.Transition;
+            public set transition(value: UnityEngine.UI.Selectable.Transition);
+            public get targetGraphic(): UnityEngine.UI.Graphic;
+            public set targetGraphic(value: UnityEngine.UI.Graphic);
+            public get interactable(): boolean;
+            public set interactable(value: boolean);
+            public get image(): UnityEngine.UI.Image;
+            public set image(value: UnityEngine.UI.Image);
+            public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public constructor ()
+        }
+        class OolongToggle extends UnityEngine.UI.Toggle implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public get enabled(): boolean;
+            public set enabled(value: boolean);
+            public get transform(): UnityEngine.Transform;
+            public get gameObject(): UnityEngine.GameObject;
+            public get colors(): UnityEngine.UI.ColorBlock;
+            public set colors(value: UnityEngine.UI.ColorBlock);
+            public get spriteState(): UnityEngine.UI.SpriteState;
+            public set spriteState(value: UnityEngine.UI.SpriteState);
+            public get transition(): UnityEngine.UI.Selectable.Transition;
+            public set transition(value: UnityEngine.UI.Selectable.Transition);
+            public get targetGraphic(): UnityEngine.UI.Graphic;
+            public set targetGraphic(value: UnityEngine.UI.Graphic);
+            public get interactable(): boolean;
+            public set interactable(value: boolean);
+            public get image(): UnityEngine.UI.Image;
+            public set image(value: UnityEngine.UI.Image);
+            public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            public constructor ()
         }
         class DocumentUtils extends System.Object
         {
             protected [__keep_incompatibility]: never;
-            public static OnDocumentPreUpdate : System.Action
+            public static OnTransitionUpdate : System.Action
+            public static OnTransitionValueUpdate : System.Action
             public static OnDocumentUpdate : System.Action
             public static OnDocumentLateUpdate : System.Action
             public static AttachElement ($parent: TSF.Oolong.UGUI.OolongElement, $node: TSF.Oolong.UGUI.OolongElement) : void
@@ -327,34 +509,166 @@
             public static CacheElement ($tagName: string, $count: number) : void
             public static CreateChildRect ($parent: UnityEngine.Transform, $name: string) : UnityEngine.RectTransform
             public static ParseColor ($color: string) : UnityEngine.Color
+            public static TryParseColor ($color: string, $value: $Ref<UnityEngine.Color>) : boolean
             public static Dispose () : void
             public static UpdateLayout () : void
             public static LateUpdateLayout () : void
         }
-        class UIEventHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.EventSystems.ICancelHandler, UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.EventSystems.IEndDragHandler, UnityEngine.EventSystems.IDropHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IScrollHandler, UnityEngine.EventSystems.IPointerMoveHandler, UnityEngine.EventSystems.IUpdateSelectedHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IMoveHandler, UnityEngine.EventSystems.IPointerUpHandler
+        interface IUIEventHandler
+        {
+            AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            RemoveListener () : void
+        }
+        class UIEventHandler extends System.Object
         {
             protected [__keep_incompatibility]: never;
-            public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
-            public RemoveListener ($key: string) : boolean
+            public static GetHandlerType ($key: string) : System.Type
+            public static AddListenerToGameObject ($gameObject: UnityEngine.GameObject, $key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
+            public static RemoveListenerFromGameObject ($gameObject: UnityEngine.GameObject, $key: string) : boolean
+            public static ResetListeners ($gameObject: UnityEngine.GameObject) : void
+        }
+        class OnPointerEnterHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnPointerEnter ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnPointerExitHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerExitHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnPointerExit ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnPointerDownHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerDownHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnPointerDown ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnPointerUpHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerUpHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnPointerUp ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnPointerMoveHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnPointerMove ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnPointerClickHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.IPointerClickHandler, TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnPointerClick ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnInitializePotentialDragHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.IInitializePotentialDragHandler, TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnInitializePotentialDrag ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnBeginDragHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.IBeginDragHandler, TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnBeginDrag ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnDragHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.IDragHandler, TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnDrag ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnEndDragHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.IEndDragHandler, TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnEndDrag ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnDropHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IDropHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnDrop ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnScrollHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IScrollHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnScroll ($eventData: UnityEngine.EventSystems.PointerEventData) : void
+            public constructor ()
+        }
+        class OnUpdateSelectedHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IUpdateSelectedHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnUpdateSelected ($eventData: UnityEngine.EventSystems.BaseEventData) : void
+            public constructor ()
+        }
+        class OnSelectHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.ISelectHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnSelect ($eventData: UnityEngine.EventSystems.BaseEventData) : void
+            public constructor ()
+        }
+        class OnDeselectHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IDeselectHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnDeselect ($eventData: UnityEngine.EventSystems.BaseEventData) : void
+            public constructor ()
+        }
+        class OnMoveHandler extends UnityEngine.MonoBehaviour implements TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnMove ($eventData: UnityEngine.EventSystems.AxisEventData) : void
+            public constructor ()
+        }
+        class OnSubmitHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.ISubmitHandler, TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnSubmit ($eventData: UnityEngine.EventSystems.BaseEventData) : void
+            public constructor ()
+        }
+        class OnCancelHandler extends UnityEngine.MonoBehaviour implements UnityEngine.EventSystems.ICancelHandler, TSF.Oolong.UGUI.IUIEventHandler, UnityEngine.EventSystems.IEventSystemHandler
+        {
+            protected [__keep_incompatibility]: never;
+            public AddListener ($callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
+            public RemoveListener () : void
             public OnCancel ($eventData: UnityEngine.EventSystems.BaseEventData) : void
-            public Reset () : void
             public constructor ()
         }
         class CubicBezier extends System.ValueType
@@ -371,7 +685,7 @@
         class OolongButtonLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongButtonLoader> implements TSF.Oolong.UGUI.IOolongLoader
         {
             protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.Button
+            public Instance : TSF.Oolong.UGUI.OolongButton
             public constructor ($gameObject: UnityEngine.GameObject)
             public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
             public RemoveListener ($key: string) : boolean
@@ -379,7 +693,7 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
@@ -387,16 +701,14 @@
         {
             protected [__keep_incompatibility]: never;
             public Instance : UnityEngine.CanvasGroup
-            public Content : UnityEngine.RectTransform
             public constructor ($gameObject: UnityEngine.GameObject)
-            public constructor ($transform: UnityEngine.Transform)
             public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
             public RemoveListener ($key: string) : boolean
             public Release () : void
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
@@ -409,7 +721,7 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
             public Do ($action: System.Action) : TSF.Oolong.UGUI.OolongChainLoader
@@ -436,14 +748,14 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
         class OolongInputLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongInputLoader> implements TSF.Oolong.UGUI.IOolongLoader
         {
             protected [__keep_incompatibility]: never;
-            public Instance : TMPro.TMP_InputField
+            public Instance : TSF.Oolong.UGUI.OolongInput
             public Content : UnityEngine.RectTransform
             public TextArea : UnityEngine.RectTransform
             public constructor ($gameObject: UnityEngine.GameObject, $textArea: UnityEngine.RectTransform, $placeHolder: UnityEngine.UI.Graphic, $text: TMPro.TMP_Text)
@@ -453,7 +765,7 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
@@ -467,7 +779,7 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
@@ -483,7 +795,7 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
@@ -498,14 +810,14 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
         class OolongScrollbarLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongScrollbarLoader> implements TSF.Oolong.UGUI.IOolongLoader
         {
             protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.Scrollbar
+            public Instance : TSF.Oolong.UGUI.OolongScrollbar
             public get Enabled(): boolean;
             public constructor ($obj: UnityEngine.GameObject, $tagName: string)
             public constructor ($obj: UnityEngine.GameObject, $direction: UnityEngine.UI.Scrollbar.Direction, $tagName: string)
@@ -515,7 +827,7 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
@@ -532,33 +844,34 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
         class OolongSelectableLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongSelectableLoader> implements TSF.Oolong.UGUI.IOolongLoader
         {
             protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.Selectable
+            public Instance : TSF.Oolong.UGUI.IOolongSelectable
             public get HasImage(): boolean;
             public get Loaded(): boolean;
             public get Enabled(): boolean;
             public set Enabled(value: boolean);
-            public constructor ($instance: UnityEngine.UI.Selectable, $tagName: string, $createImageTarget?: boolean)
+            public constructor ($instance: TSF.Oolong.UGUI.IOolongSelectable, $tagName: string, $createImageTarget?: boolean)
+            public constructor ($gameObject: UnityEngine.GameObject, $tagName: string, $createImageTarget?: boolean)
             public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
             public RemoveListener ($key: string) : boolean
             public Release () : void
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
         class OolongSliderLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongSliderLoader> implements TSF.Oolong.UGUI.IOolongLoader
         {
             protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.Slider
+            public Instance : TSF.Oolong.UGUI.OolongSlider
             public get Enabled(): boolean;
             public constructor ($obj: UnityEngine.GameObject, $tagName: string)
             public constructor ($obj: UnityEngine.GameObject, $direction: UnityEngine.UI.Slider.Direction, $tagName: string)
@@ -568,14 +881,14 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
         class OolongToggleLoader extends TSF.Oolong.UGUI.OolongLoader$1<TSF.Oolong.UGUI.OolongToggleLoader> implements TSF.Oolong.UGUI.IOolongLoader
         {
             protected [__keep_incompatibility]: never;
-            public Instance : UnityEngine.UI.Toggle
+            public Instance : TSF.Oolong.UGUI.OolongToggle
             public constructor ($gameObject: UnityEngine.GameObject, $checkmark?: UnityEngine.UI.Graphic)
             public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : boolean
             public RemoveListener ($key: string) : boolean
@@ -583,7 +896,7 @@
             public Reuse () : void
             public Reset () : void
             public SetAttribute ($key: string, $value: string) : boolean
-            public TryReadValue ($key: string, $value: $Ref<string>) : boolean
+            public TryGetAttribute ($key: string, $value: $Ref<string>) : boolean
             public ResetTransitions () : void
             public SetTransition ($key: string, $duration: number, $timingFunction: TSF.Oolong.UGUI.CubicBezier, $delay: number) : void
         }
@@ -593,6 +906,7 @@
             public AddressableScript : UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.TextAsset>
             public get HasScript(): boolean;
             public get PartialRedraw(): boolean;
+            public Redraw () : void
             public constructor ()
         }
         class UnityWebRequestExtension extends System.Object
@@ -602,9 +916,10 @@
             public static SendWithCallback ($request: UnityEngine.Networking.UnityWebRequest, $callback: TSF.Oolong.UGUI.UnityWebRequestExtension.JsWebCallback) : void
             public static GetArrayBuffer ($handler: UnityEngine.Networking.DownloadHandler) : ArrayBuffer
         }
-        class OolongMithril extends System.Object
+        class OolongTextMeshPro extends System.Object
         {
             protected [__keep_incompatibility]: never;
+            public static GetFont ($fontName: string, $materialName: string, $font: $Ref<UnityEngine.TextCore.Text.FontAsset>, $material: $Ref<UnityEngine.Material>) : void
         }
         class TransitionProperty$1<T> extends System.Object implements TSF.Oolong.UGUI.ITransitionProperty
         {
@@ -633,7 +948,7 @@
             public set Delay(value: number);
             public get Duration(): number;
             public set Duration(value: number);
-            public constructor ($applyCallback: System.Action$1<boolean>)
+            public constructor ($applyCallback?: System.Action$1<boolean>, $defaultValue?: boolean)
             public Reset () : void
         }
         class ColorTransitionProperty extends TSF.Oolong.UGUI.TransitionProperty$1<UnityEngine.Color> implements TSF.Oolong.UGUI.ITransitionProperty
@@ -645,7 +960,7 @@
             public set Delay(value: number);
             public get Duration(): number;
             public set Duration(value: number);
-            public constructor ($applyCallback: System.Action$1<UnityEngine.Color>)
+            public constructor ($applyCallback?: System.Action$1<UnityEngine.Color>, $defaultValue?: UnityEngine.Color)
             public Reset () : void
         }
         class FloatTransitionProperty extends TSF.Oolong.UGUI.TransitionProperty$1<number> implements TSF.Oolong.UGUI.ITransitionProperty
@@ -657,7 +972,7 @@
             public set Delay(value: number);
             public get Duration(): number;
             public set Duration(value: number);
-            public constructor ($applyCallback: System.Action$1<number>)
+            public constructor ($applyCallback?: System.Action$1<number>, $defaultValue?: number)
             public Reset () : void
         }
         class TransitionUtils extends System.Object
@@ -746,99 +1061,12 @@
         {
         }
     }
-    namespace UnityEngine.EventSystems {
-        interface ISubmitHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IEventSystemHandler
-        {
-        }
-        interface IPointerClickHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface ICancelHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IBeginDragHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IInitializePotentialDragHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IDragHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IEndDragHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IDropHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IScrollHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IPointerMoveHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IUpdateSelectedHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IPointerEnterHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface ISelectHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IPointerExitHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IDeselectHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IPointerDownHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IMoveHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        interface IPointerUpHandler extends UnityEngine.EventSystems.IEventSystemHandler
-        {
-        }
-        class AbstractEventData extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class BaseEventData extends UnityEngine.EventSystems.AbstractEventData
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class PointerEventData extends UnityEngine.EventSystems.BaseEventData
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class AxisEventData extends UnityEngine.EventSystems.BaseEventData
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class UIBehaviour extends UnityEngine.MonoBehaviour
-        {
-            protected [__keep_incompatibility]: never;
-        }
-    }
-    namespace TSF.Oolong.UGUI.IOolongLoader {
-        interface JsCallback
-        { 
-        (eventData: UnityEngine.EventSystems.BaseEventData) : void; 
-        Invoke?: (eventData: UnityEngine.EventSystems.BaseEventData) => void;
-        }
-        var JsCallback: { new (func: (eventData: UnityEngine.EventSystems.BaseEventData) => void): JsCallback; }
-    }
     namespace UnityEngine.UI {
-        class Selectable extends UnityEngine.EventSystems.UIBehaviour implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        class ColorBlock extends System.ValueType implements System.IEquatable$1<UnityEngine.UI.ColorBlock>
         {
             protected [__keep_incompatibility]: never;
         }
-        class Button extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        class SpriteState extends System.ValueType implements System.IEquatable$1<UnityEngine.UI.SpriteState>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -869,16 +1097,32 @@
         interface ILayoutElement
         {
         }
+        class Selectable extends UnityEngine.EventSystems.UIBehaviour implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class Button extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class Scrollbar extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class Slider extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class Toggle extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
+        {
+            protected [__keep_incompatibility]: never;
+        }
         class RectMask2D extends UnityEngine.EventSystems.UIBehaviour implements UnityEngine.ICanvasRaycastFilter, UnityEngine.UI.IClipper
         {
             protected [__keep_incompatibility]: never;
         }
         interface IClipper
         {
-        }
-        class Scrollbar extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
-        {
-            protected [__keep_incompatibility]: never;
         }
         class ScrollRect extends UnityEngine.EventSystems.UIBehaviour implements UnityEngine.UI.ILayoutController, UnityEngine.UI.ILayoutGroup, UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.EventSystems.IEndDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IScrollHandler, UnityEngine.UI.ILayoutElement
         {
@@ -890,14 +1134,6 @@
         interface ILayoutGroup extends UnityEngine.UI.ILayoutController
         {
         }
-        class Slider extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class Toggle extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
-        {
-            protected [__keep_incompatibility]: never;
-        }
         class BaseMeshEffect extends UnityEngine.EventSystems.UIBehaviour implements UnityEngine.UI.IMeshModifier
         {
             protected [__keep_incompatibility]: never;
@@ -908,6 +1144,89 @@
         class VertexHelper extends System.Object implements System.IDisposable
         {
             protected [__keep_incompatibility]: never;
+        }
+    }
+    namespace UnityEngine.UI.Selectable {
+        enum Transition
+        { None = 0, ColorTint = 1, SpriteSwap = 2, Animation = 3 }
+    }
+    namespace UnityEngine.EventSystems {
+        class UIBehaviour extends UnityEngine.MonoBehaviour
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface IEventSystemHandler
+        {
+        }
+        interface IPointerEnterHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface ISelectHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IPointerExitHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IDeselectHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IPointerDownHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IPointerUpHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IMoveHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface ISubmitHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IPointerClickHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IBeginDragHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IDragHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IEndDragHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IScrollHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IUpdateSelectedHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IInitializePotentialDragHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        class AbstractEventData extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class BaseEventData extends UnityEngine.EventSystems.AbstractEventData
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class PointerEventData extends UnityEngine.EventSystems.BaseEventData
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface IPointerMoveHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        interface IDropHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
+        }
+        class AxisEventData extends UnityEngine.EventSystems.BaseEventData
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface ICancelHandler extends UnityEngine.EventSystems.IEventSystemHandler
+        {
         }
     }
     namespace TMPro {
@@ -929,6 +1248,34 @@
         { Overflow = 0, Ellipsis = 1, Masking = 2, Truncate = 3, ScrollRect = 4, Page = 5, Linked = 6 }
         enum FontStyles
         { Normal = 0, Bold = 1, Italic = 2, Underline = 4, LowerCase = 8, UpperCase = 16, SmallCaps = 32, Strikethrough = 64, Superscript = 128, Subscript = 256, Highlight = 512 }
+    }
+    namespace TSF.Oolong.UGUI.IOolongLoader {
+        interface JsCallback
+        { 
+        (eventData: UnityEngine.EventSystems.BaseEventData) : void; 
+        Invoke?: (eventData: UnityEngine.EventSystems.BaseEventData) => void;
+        }
+        var JsCallback: { new (func: (eventData: UnityEngine.EventSystems.BaseEventData) => void): JsCallback; }
+    }
+    namespace System.Reflection {
+        class MemberInfo extends System.Object implements System.Runtime.InteropServices._MemberInfo, System.Reflection.ICustomAttributeProvider
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface ICustomAttributeProvider
+        {
+        }
+        interface IReflect
+        {
+        }
+    }
+    namespace System.Runtime.InteropServices {
+        interface _MemberInfo
+        {
+        }
+        interface _Type
+        {
+        }
     }
     namespace UnityEngine.UI.Scrollbar {
         enum Direction
@@ -1264,6 +1611,12 @@
         Invoke?: () => void;
         }
         var JsWebCallback: { new (func: () => void): JsWebCallback; }
+    }
+    namespace UnityEngine.TextCore.Text {
+        class FontAsset extends UnityEngine.TextCore.Text.TextAsset
+        {
+            protected [__keep_incompatibility]: never;
+        }
     }
     namespace TSF.Oolong.UGUI.OolongChainLoader {
         class Node extends System.ValueType

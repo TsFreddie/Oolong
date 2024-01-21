@@ -15,6 +15,9 @@ public static class OolongUGUI
     private delegate void MithrilRedraw(JSObject element);
     private static MithrilRedraw s_redraw;
 
+    private delegate void MithrilRedrawId(int mountId);
+    private static MithrilRedrawId s_redrawMountId;
+
     private static ITextTransformer s_textTransformer;
     private static IAddressTransformer s_addressTransformer;
 
@@ -55,6 +58,7 @@ public static class OolongUGUI
         s_mithrilUnmount = env.Eval<MithrilUnmount>("MithrilUnmount");
         s_tick = env.Eval<OolongEnvironment.JsUpdate>("MithrilTick");
         s_redraw = env.Eval<MithrilRedraw>("MithrilRedraw");
+        s_redrawMountId = env.Eval<MithrilRedrawId>("CustomRedraw");
 
 #if UNITY_EDITOR
         OolongEnvironment.HotReload.OnHotReload += OnHotReload;
@@ -86,6 +90,11 @@ public static class OolongUGUI
     public static void Redraw(JSObject element = null)
     {
         s_redraw?.Invoke(element);
+    }
+
+    public static void Redraw(int mountId = 0)
+    {
+        s_redrawMountId?.Invoke(mountId);
     }
 
     private static void Dispose()

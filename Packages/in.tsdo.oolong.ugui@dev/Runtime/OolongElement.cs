@@ -37,10 +37,13 @@ namespace TSF.Oolong.UGUI
             set => _rootTransform = value;
         }
         public OolongElement ParentElement { get; set; } = null;
+        public int MountId { get; set; } = 0;
+
+        [Preserve]
         public new int GetInstanceID() => base.GetInstanceID();
 
         /// <summary>
-        /// Keep track of all attribute values
+        /// Keep track of all attribute values set
         /// </summary>
         public Dictionary<string, string> Attrs = new Dictionary<string, string>();
         #endregion
@@ -103,7 +106,7 @@ namespace TSF.Oolong.UGUI
         [Preserve]
         public string GetElementAttribute(string key)
         {
-            if (_loader?.TryReadValue(key, out var value) ?? false)
+            if (_loader?.TryGetAttribute(key, out var value) ?? false)
                 return value;
 
             return Attrs.TryGetValue(key, out value) ? value : null;
@@ -130,6 +133,7 @@ namespace TSF.Oolong.UGUI
 
         public void OnReset()
         {
+            MountId = 0;
             _loader?.Reset();
             UIEventHandler.ResetListeners(gameObject);
             name = WrapTagName(TagName);
@@ -242,6 +246,14 @@ namespace TSF.Oolong.UGUI
         private void OnSetTransition(string attr, float duration, CubicBezier timingFunction, float delay)
         {
             _loader?.SetTransition(attr, duration, timingFunction, delay);
+        }
+
+        /// <summary>
+        /// Redraw the mount for this element
+        /// </summary>
+        public void Redraw()
+        {
+            OolongUGUI.Redraw(MountId);
         }
     }
 }

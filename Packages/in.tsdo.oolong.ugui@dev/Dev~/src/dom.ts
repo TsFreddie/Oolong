@@ -139,7 +139,7 @@ export abstract class UnityNode {
 
       this.parent?.renameChildId(this, oldId, this._id);
 
-      const element = (this as any).element;
+      const element = (this as any).mono;
       if (element) {
         element.SetElementAttribute('id', this._id);
       }
@@ -449,6 +449,7 @@ export class UnityElement<T extends object = any> extends UnityNode {
     this.events = {};
     if (mount) {
       this.mountId = this.mono.GetInstanceID();
+      this.mono.MountId = this.mountId;
     }
   }
 
@@ -461,18 +462,21 @@ export class UnityElement<T extends object = any> extends UnityNode {
   protected attachChildInternal(child: UnityElement) {
     CS.TSF.Oolong.UGUI.DocumentUtils.AttachElement(this.mono, child.mono);
     child.mountId = this.mountId;
+    child.mono.MountId = this.mountId;
   }
 
   /** @internal */
   protected removeChildInternal(child: UnityElement) {
     CS.TSF.Oolong.UGUI.DocumentUtils.RemoveElement(this.mono, child.mono);
     child.mountId = undefined;
+    child.mono.MountId = 0;
   }
 
   /** @internal */
   protected insertChildInternal(child: UnityElement, pos: number) {
     CS.TSF.Oolong.UGUI.DocumentUtils.InsertElement(this.mono, child.mono, pos);
     child.mountId = this.mountId;
+    child.mono.MountId = this.mountId;
   }
 
   public setAttribute(name: string, value: any) {

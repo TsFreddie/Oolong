@@ -82,7 +82,7 @@ namespace TSF.Oolong.UGUI
             return true;
         }
 
-        public virtual bool TryReadValue(string key, out string value)
+        public virtual bool TryGetAttribute(string key, out string value)
         {
             value = null;
             return false;

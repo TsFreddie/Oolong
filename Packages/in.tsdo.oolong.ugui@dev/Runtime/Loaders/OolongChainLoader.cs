@@ -76,18 +76,18 @@ namespace TSF.Oolong.UGUI
             return false;
         }
 
-        public bool TryReadValue(string key, out string value)
+        public bool TryGetAttribute(string key, out string value)
         {
             foreach (var node in _chain)
             {
                 if (node.Prefix == null)
                 {
-                    if (node.Loader.TryReadValue(key, out value))
+                    if (node.Loader.TryGetAttribute(key, out value))
                         return true;
                 }
                 else if (key.StartsWith(node.Prefix))
                 {
-                    if (node.Loader.TryReadValue(key.Substring(node.Prefix.Length), out value))
+                    if (node.Loader.TryGetAttribute(key.Substring(node.Prefix.Length), out value))
                         return true;
                 }
             }

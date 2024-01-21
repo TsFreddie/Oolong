@@ -11,7 +11,7 @@ namespace TSF.Oolong.UGUI
         public void Reuse();
         public void Reset();
         public bool SetAttribute(string key, string value);
-        public bool TryReadValue(string key, out string value);
+        public bool TryGetAttribute(string key, out string value);
         public void ResetTransitions();
         public void SetTransition(string key, float duration, CubicBezier timingFunction, float delay);
     }
