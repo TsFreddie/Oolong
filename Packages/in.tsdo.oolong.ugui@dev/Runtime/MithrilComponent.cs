@@ -64,6 +64,11 @@ namespace TSF.Oolong.UGUI
             _element = null;
         }
 
+        protected override void OnDestroy()
+        {
+            ResetChildren();
+        }
+
         public void Redraw()
         {
             if (!_initialized || _element == null) return;

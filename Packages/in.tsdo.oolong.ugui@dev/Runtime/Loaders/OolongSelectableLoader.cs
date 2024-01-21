@@ -440,6 +440,9 @@ namespace TSF.Oolong.UGUI
         {
             base.Reset();
 
+            _onCanvasGroupChange = null;
+            Instance.OnCanvasGroupChange -= OnCanvasGroupChange;
+
             _baseSprite.Release();
             _highlightSprite.Release();
             _pressedSprite.Release();

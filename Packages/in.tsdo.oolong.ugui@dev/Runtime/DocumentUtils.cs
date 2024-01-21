@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Scripting;
 using Object = UnityEngine.Object;
 
 namespace TSF.Oolong.UGUI
 {
     public static class DocumentUtils
     {
+        public static bool PoolInitialized { get; private set; } = false;
         public static Action OnTransitionUpdate;
         public static Action OnTransitionValueUpdate;
         public static Action OnDocumentUpdate;
@@ -126,16 +128,23 @@ namespace TSF.Oolong.UGUI
 
         private static Transform GetPoolParent()
         {
-            if (s_elementPoolRoot != null)
-            {
-                return s_elementPoolRoot;
-            }
-
-            s_elementPoolRoot = new GameObject("ElementPool").transform;
-            Object.DontDestroyOnLoad(s_elementPoolRoot.gameObject);
             return s_elementPoolRoot;
         }
 
+        public static void Initialize()
+        {
+            OnTransitionUpdate = null;
+            OnTransitionValueUpdate = null;
+            OnDocumentUpdate = null;
+            OnDocumentLateUpdate = null;
+            s_pooledElements.Clear();
+
+            var pool = new GameObject("OolongElementPool");
+            s_elementPoolRoot = pool.transform;
+            Object.DontDestroyOnLoad(s_elementPoolRoot.gameObject);
+        }
+
+        [Preserve]
         public static void AttachElement(OolongElement parent, OolongElement node)
         {
             var transform = node.transform;
@@ -148,17 +157,7 @@ namespace TSF.Oolong.UGUI
             node.gameObject.SetActive(true);
         }
 
-        public static void DetachElement(OolongElement node)
-        {
-            Debug.Log("不应出现");
-            // var scale = node.transform.localScale;
-            // node.ParentElement = null;
-            // node.transform.SetParent(null);
-            // node.transform.localScale = scale;
-            // node.transform.localRotation = Quaternion.identity;
-            // node.gameObject.SetActive(false);
-        }
-
+        [Preserve]
         public static void RemoveElement(OolongElement parent, OolongElement node)
         {
             var transform = node.transform;
@@ -173,6 +172,7 @@ namespace TSF.Oolong.UGUI
             node.OnReset();
             node.gameObject.SetActive(false);
             var pool = GetPoolParent();
+            if (pool == null) return;
             transform.SetParent(pool);
             transform.localScale = scale;
             transform.localRotation = Quaternion.identity;
@@ -193,6 +193,7 @@ namespace TSF.Oolong.UGUI
             }
         }
 
+        [Preserve]
         public static void ResetElement(OolongElement node)
         {
             var transform = node.transform;
@@ -201,6 +202,7 @@ namespace TSF.Oolong.UGUI
             node.OnReset();
             node.gameObject.SetActive(false);
             var pool = GetPoolParent();
+            if (pool == null) return;
             transform.SetParent(pool);
             transform.localScale = scale;
             transform.localRotation = Quaternion.identity;
@@ -217,6 +219,7 @@ namespace TSF.Oolong.UGUI
             }
         }
 
+        [Preserve]
         public static int InsertElement(OolongElement parent, OolongElement node, int index)
         {
             var transform = node.transform;
@@ -231,6 +234,7 @@ namespace TSF.Oolong.UGUI
             return index;
         }
 
+        [Preserve]
         private static OolongElement CreateElementOfTag(string tagName)
         {
             var obj = new GameObject(string.Format("<{0}>", tagName));
@@ -243,6 +247,7 @@ namespace TSF.Oolong.UGUI
             return element;
         }
 
+        [Preserve]
         public static OolongElement CreateElement(string tagName)
         {
             if (s_pooledElements.TryGetValue(tagName, out var queue))
@@ -258,6 +263,7 @@ namespace TSF.Oolong.UGUI
             return CreateElementOfTag(tagName);
         }
 
+        [Preserve]
         public static void CacheElement(string tagName, int count)
         {
             var type = s_elements[tagName];

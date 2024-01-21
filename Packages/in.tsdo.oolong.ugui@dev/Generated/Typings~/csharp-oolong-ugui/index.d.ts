@@ -272,6 +272,7 @@
             public set ParentElement(value: TSF.Oolong.UGUI.OolongElement);
             public get MountId(): number;
             public set MountId(value: number);
+            public get Version(): number;
             public GetInstanceID () : number
             public AddChild ($e: TSF.Oolong.UGUI.OolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.OolongElement) : void
@@ -282,6 +283,7 @@
             public OnCreate ($loader: TSF.Oolong.UGUI.IOolongLoader) : void
             public OnReset () : void
             public OnReuse () : void
+            public Redraw () : void
             public constructor ()
         }
         class OolongLoader$1<T> extends System.Object implements TSF.Oolong.UGUI.IOolongLoader
@@ -348,6 +350,7 @@
             image : UnityEngine.UI.Image
             add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
+            IsInteractable () : boolean
         }
         interface CanvasGroupChanged
         { 
@@ -377,6 +380,7 @@
             public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public constructor ()
+            public IsInteractable () : boolean
         }
         class OolongInput extends TMPro.TMP_InputField implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.EventSystems.IEndDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IScrollHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IUpdateSelectedHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler, UnityEngine.UI.ILayoutElement
         {
@@ -400,6 +404,7 @@
             public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public constructor ()
+            public IsInteractable () : boolean
         }
         class OolongScrollbar extends UnityEngine.UI.Scrollbar implements UnityEngine.EventSystems.IBeginDragHandler, UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
         {
@@ -423,6 +428,7 @@
             public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public constructor ()
+            public IsInteractable () : boolean
         }
         class OolongSelectable extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
         {
@@ -446,6 +452,7 @@
             public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public constructor ()
+            public IsInteractable () : boolean
         }
         class OolongSlider extends UnityEngine.UI.Slider implements UnityEngine.EventSystems.IInitializePotentialDragHandler, UnityEngine.EventSystems.IDragHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
         {
@@ -469,6 +476,7 @@
             public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public constructor ()
+            public IsInteractable () : boolean
         }
         class OolongToggle extends UnityEngine.UI.Toggle implements UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler, UnityEngine.UI.ICanvasElement, UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, TSF.Oolong.UGUI.IOolongSelectable, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler
         {
@@ -492,6 +500,7 @@
             public add_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public remove_OnCanvasGroupChange ($value: TSF.Oolong.UGUI.CanvasGroupChanged) : void
             public constructor ()
+            public IsInteractable () : boolean
         }
         class DocumentUtils extends System.Object
         {

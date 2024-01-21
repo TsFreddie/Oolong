@@ -25,11 +25,15 @@ export abstract class Realtime extends MithrilComponent<RealtimeAttrs> {
     this._dom = vnode.dom;
     const interval = vnode.attrs?.interval || 0;
 
+    const redraw = () => {
+      this.redraw();
+    };
+
     this._interval = setInterval(() => {
-      m.render(this._dom, this._render(vnode));
+      (m as any).render(this._dom, this._render(vnode), redraw);
     }, interval);
 
-    m.render(this._dom, this._render(vnode));
+    (m as any).render(this._dom, this._render(vnode), redraw);
   }
 
   view(vnode: m.Vnode<RealtimeAttrs, this>): void | m.Children {

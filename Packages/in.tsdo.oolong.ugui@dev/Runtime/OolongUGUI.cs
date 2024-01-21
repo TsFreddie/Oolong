@@ -60,6 +60,8 @@ public static class OolongUGUI
         s_redraw = env.Eval<MithrilRedraw>("MithrilRedraw");
         s_redrawMountId = env.Eval<MithrilRedrawId>("CustomRedraw");
 
+        DocumentUtils.Initialize();
+
 #if UNITY_EDITOR
         OolongEnvironment.HotReload.OnHotReload += OnHotReload;
 #endif

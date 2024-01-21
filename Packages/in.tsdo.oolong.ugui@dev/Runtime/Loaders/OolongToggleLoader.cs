@@ -129,6 +129,7 @@ namespace TSF.Oolong.UGUI
         {
             base.Reset();
             RemoveGroup();
+            Instance.onValueChanged.RemoveAllListeners();
             Instance.SetIsOnWithoutNotify(false);
         }
 

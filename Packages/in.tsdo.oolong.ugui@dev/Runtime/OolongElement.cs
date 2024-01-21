@@ -38,6 +38,7 @@ namespace TSF.Oolong.UGUI
         }
         public OolongElement ParentElement { get; set; } = null;
         public int MountId { get; set; } = 0;
+        public int Version { get; private set; } = 0;
 
         [Preserve]
         public new int GetInstanceID() => base.GetInstanceID();
@@ -61,6 +62,15 @@ namespace TSF.Oolong.UGUI
         public void RemoveChild(OolongElement e)
         {
             _children.Remove(e);
+        }
+
+        public void ResetChildren()
+        {
+            foreach (var child in _children)
+            {
+                DocumentUtils.ResetElement(child);
+            }
+            _children.Clear();
         }
 
         private static string WrapTagName(string tag)
@@ -134,6 +144,7 @@ namespace TSF.Oolong.UGUI
         public void OnReset()
         {
             MountId = 0;
+            Version++;
             _loader?.Reset();
             UIEventHandler.ResetListeners(gameObject);
             name = WrapTagName(TagName);

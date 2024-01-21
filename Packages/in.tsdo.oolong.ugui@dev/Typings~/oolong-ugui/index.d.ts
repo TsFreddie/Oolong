@@ -72,6 +72,7 @@ declare global {
         mountId: number;
         attrs: T;
         private events;
+        private _version;
         constructor(mono: CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean);
         constructor(tagName: string, mount?: boolean);
         contains(node: UnityElement): boolean;

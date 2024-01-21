@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+
 namespace TSF.Oolong.UGUI
 {
     public class OolongButtonLoader : OolongLoader<OolongButtonLoader>
@@ -35,6 +35,12 @@ namespace TSF.Oolong.UGUI
                     return true;
             }
             return false;
+        }
+
+        public override void Reset()
+        {
+            base.Reset();
+            Instance.onClick.RemoveAllListeners();
         }
     }
 }

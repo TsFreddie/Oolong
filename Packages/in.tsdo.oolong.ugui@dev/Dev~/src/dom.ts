@@ -435,6 +435,7 @@ export class UnityElement<T extends object = any> extends UnityNode {
   }) as any as T;
 
   private events: { [key: string]: EventHandler };
+  private _version: number;
 
   constructor(mono: CS.TSF.Oolong.UGUI.OolongElement, mount?: boolean);
   constructor(tagName: string, mount?: boolean);
@@ -447,6 +448,7 @@ export class UnityElement<T extends object = any> extends UnityNode {
     }
     this.tag = this.mono.TagName;
     this.events = {};
+    this._version = this.mono.Version;
     if (mount) {
       this.mountId = this.mono.GetInstanceID();
       this.mono.MountId = this.mountId;
@@ -467,6 +469,9 @@ export class UnityElement<T extends object = any> extends UnityNode {
 
   /** @internal */
   protected removeChildInternal(child: UnityElement) {
+    if (child.mono.Version != child._version) {
+      return;
+    }
     CS.TSF.Oolong.UGUI.DocumentUtils.RemoveElement(this.mono, child.mono);
     child.mountId = undefined;
     child.mono.MountId = 0;
@@ -480,19 +485,26 @@ export class UnityElement<T extends object = any> extends UnityNode {
   }
 
   public setAttribute(name: string, value: any) {
+    if (this._version != this.mono.Version) {
+      return true;
+    }
+
     if (name == 'id') {
       this.id = value == null ? undefined : value.toString();
-      return;
+      return true;
     }
-    return this.mono.SetElementAttribute(name, value == null ? null : value.toString());
+    this.mono.SetElementAttribute(name, value == null ? null : value.toString());
+    return true;
   }
 
   public getAttribute(name: string) {
+    if (this._version != this.mono.Version) return null;
     if (name == 'id') return this.id;
     return this.mono.GetElementAttribute(name);
   }
 
   public removeAttribute(name: string) {
+    if (this._version != this.mono.Version) return;
     if (name == 'id') {
       this.id = undefined;
       return;
@@ -501,11 +513,13 @@ export class UnityElement<T extends object = any> extends UnityNode {
   }
 
   public addEventListener(event: string, callback: EventHandler) {
+    if (this._version != this.mono.Version) return;
     this.events[event] = callback;
     this.mono.AddListener(event, eventData => runEvent(this, event, eventData, callback));
   }
 
   public removeEventListener(event: string, callback: EventHandler) {
+    if (this._version != this.mono.Version) return;
     delete this.events[event];
     this.mono.RemoveListener(event);
   }
