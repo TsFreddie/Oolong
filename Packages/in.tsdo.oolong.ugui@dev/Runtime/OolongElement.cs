@@ -158,6 +158,7 @@ namespace TSF.Oolong.UGUI
             ClearList(ref _transitionTimingFunctions);
             OnResetTransition();
 
+            Attrs.Clear();
             Version++;
             MountId = 0;
         }
