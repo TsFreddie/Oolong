@@ -29,10 +29,9 @@ export class HttpRequest {
   public send(body?: string | Uint8Array) {
     if (body != null) {
       if (typeof body != 'string') {
-        CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SetBody(this.request, body);
+        CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SetArrayBufferBody(this.request, body);
       } else {
-        var data = new TextEncoder().encode(body);
-        CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SetBody(this.request, data);
+        CS.TSF.Oolong.UGUI.UnityWebRequestExtension.SetStringBody(this.request, body);
       }
     }
 

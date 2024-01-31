@@ -276,6 +276,7 @@
             public GetInstanceID () : number
             public AddChild ($e: TSF.Oolong.UGUI.OolongElement) : void
             public RemoveChild ($e: TSF.Oolong.UGUI.OolongElement) : void
+            public ResetChildren () : void
             public SetElementAttribute ($key: string, $value: string) : boolean
             public GetElementAttribute ($key: string) : string
             public AddListener ($key: string, $callback: TSF.Oolong.UGUI.IOolongLoader.JsCallback) : void
@@ -509,8 +510,9 @@
             public static OnTransitionValueUpdate : System.Action
             public static OnDocumentUpdate : System.Action
             public static OnDocumentLateUpdate : System.Action
+            public static get PoolInitialized(): boolean;
+            public static Initialize () : void
             public static AttachElement ($parent: TSF.Oolong.UGUI.OolongElement, $node: TSF.Oolong.UGUI.OolongElement) : void
-            public static DetachElement ($node: TSF.Oolong.UGUI.OolongElement) : void
             public static RemoveElement ($parent: TSF.Oolong.UGUI.OolongElement, $node: TSF.Oolong.UGUI.OolongElement) : void
             public static ResetElement ($node: TSF.Oolong.UGUI.OolongElement) : void
             public static InsertElement ($parent: TSF.Oolong.UGUI.OolongElement, $node: TSF.Oolong.UGUI.OolongElement, $index: number) : number
@@ -921,7 +923,8 @@
         class UnityWebRequestExtension extends System.Object
         {
             protected [__keep_incompatibility]: never;
-            public static SetBody ($request: UnityEngine.Networking.UnityWebRequest, $body: ArrayBuffer) : void
+            public static SetArrayBufferBody ($request: UnityEngine.Networking.UnityWebRequest, $body: ArrayBuffer) : void
+            public static SetStringBody ($request: UnityEngine.Networking.UnityWebRequest, $body: string) : void
             public static SendWithCallback ($request: UnityEngine.Networking.UnityWebRequest, $callback: TSF.Oolong.UGUI.UnityWebRequestExtension.JsWebCallback) : void
             public static GetArrayBuffer ($handler: UnityEngine.Networking.DownloadHandler) : ArrayBuffer
         }
@@ -1558,7 +1561,8 @@
         /** Provides methods to communicate with web servers.
         */
         interface UnityWebRequest {
-            SetBody ($body: ArrayBuffer) : void;
+            SetArrayBufferBody ($body: ArrayBuffer) : void;
+            SetStringBody ($body: string) : void;
             SendWithCallback ($callback: TSF.Oolong.UGUI.UnityWebRequestExtension.JsWebCallback) : void;
         }
         /** Manage and process HTTP response body data received from a remote server.

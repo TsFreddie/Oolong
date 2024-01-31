@@ -9,9 +9,15 @@ namespace TSF.Oolong.UGUI
         public delegate void JsWebCallback();
 
         [Preserve]
-        public static void SetBody(this UnityWebRequest request, Puerts.ArrayBuffer body)
+        public static void SetArrayBufferBody(this UnityWebRequest request, Puerts.ArrayBuffer body)
         {
             request.uploadHandler = new UploadHandlerRaw(body.Bytes);
+        }
+
+        [Preserve]
+        public static void SetStringBody(this UnityWebRequest request, string body)
+        {
+            request.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(body));
         }
 
         [Preserve]

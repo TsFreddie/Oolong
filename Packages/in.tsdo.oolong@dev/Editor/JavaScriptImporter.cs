@@ -123,6 +123,13 @@ namespace TSF.Oolong.Editor
             // Do not import definitions
             if (ctx.assetPath.EndsWith(".d.ts")) return null;
 
+            // Directly import package files
+            if (ctx.assetPath.StartsWith("Packages/"))
+            {
+                var text = File.ReadAllText(ctx.assetPath);
+                return text;
+            }
+
             // delete old file if exists
             if (File.Exists(compiledPath)) File.Delete(compiledPath);
             CompileFile(outDir, ctx.assetPath);
