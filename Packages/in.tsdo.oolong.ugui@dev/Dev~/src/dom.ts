@@ -6,7 +6,7 @@ export class HttpRequest {
   public withCredentials: boolean;
 
   public constructor() {
-    this.request = new CS.UnityEngine.Networking.UnityWebRequest();
+    this.request = CS.TSF.Oolong.UGUI.UnityWebRequestExtension.Create();
   }
 
   public abort() {
