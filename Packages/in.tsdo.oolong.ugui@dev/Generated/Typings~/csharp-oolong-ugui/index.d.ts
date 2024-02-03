@@ -923,6 +923,7 @@
         class UnityWebRequestExtension extends System.Object
         {
             protected [__keep_incompatibility]: never;
+            public static Create () : UnityEngine.Networking.UnityWebRequest
             public static SetArrayBufferBody ($request: UnityEngine.Networking.UnityWebRequest, $body: ArrayBuffer) : void
             public static SetStringBody ($request: UnityEngine.Networking.UnityWebRequest, $body: string) : void
             public static SendWithCallback ($request: UnityEngine.Networking.UnityWebRequest, $callback: TSF.Oolong.UGUI.UnityWebRequestExtension.JsWebCallback) : void
