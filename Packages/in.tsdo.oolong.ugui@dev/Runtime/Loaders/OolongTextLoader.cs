@@ -1,3 +1,5 @@
+#if UNITY_TMP || UNITY_UGUI_2
+
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
@@ -549,3 +551,5 @@ namespace TSF.Oolong.UGUI
         }
     }
 }
+
+#endif

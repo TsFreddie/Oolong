@@ -1,7 +1,9 @@
+#if UNITY_TMP || UNITY_UGUI_2
+
 using TMPro;
 using UnityEngine;
 
-#if UNITY_TMP_4
+#if UNITY_TMP_4 || UNITY_UGUI_2
 using UnityEngine.TextCore.Text;
 #endif
 
@@ -9,7 +11,7 @@ namespace TSF.Oolong.UGUI
 {
     public static class OolongTextMeshPro
     {
-#if UNITY_TMP_4
+#if UNITY_TMP_4 || UNITY_UGUI_2
         public static void GetFont(string fontName, string materialName, out FontAsset font, out Material material)
         {
             var fontHashCode = fontName == null ? 0 : TMP_TextUtilities.GetSimpleHashCode(fontName);
@@ -106,3 +108,5 @@ namespace TSF.Oolong.UGUI
 #endif
     }
 }
+
+#endif

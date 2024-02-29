@@ -26,6 +26,16 @@
             "name": "com.unity.textmeshpro",
             "expression": "4.0.0-pre.2",
             "define": "UNITY_TMP_4"
+        },
+        {
+            "name": "com.unity.textmeshpro",
+            "expression": "3.0.6",
+            "define": "UNITY_TMP"
+        },
+        {
+            "name": "com.unity.ugui",
+            "expression": "2.0.0",
+            "define": "UNITY_UGUI_2"
         }
     ],
     "noEngineReferences": false

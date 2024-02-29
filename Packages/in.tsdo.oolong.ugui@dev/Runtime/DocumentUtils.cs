@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Scripting;
 using Object = UnityEngine.Object;
+
+#if UNITY_TMP || UNITY_UGUI_2
+using TMPro;
+#endif
 
 namespace TSF.Oolong.UGUI
 {
@@ -44,12 +47,6 @@ namespace TSF.Oolong.UGUI
                         .Add(new OolongImageLoader(e.gameObject, e.TagName))
             },
             {
-                "text", (e) =>
-                    new OolongChainLoader()
-                        .Add(new OolongRectLoader(e.transform))
-                        .Add(new OolongTextLoader(e.gameObject, e))
-            },
-            {
                 "button", (e) =>
                     new OolongChainLoader()
                         .Add(new OolongRectLoader(e.transform))
@@ -85,6 +82,19 @@ namespace TSF.Oolong.UGUI
                         .Add(new OolongSliderLoader(e.gameObject, e.TagName))
             },
             {
+                "selectable", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongSelectableLoader(e.gameObject, e.TagName, true))
+            },
+#if UNITY_TMP || UNITY_UGUI_2
+            {
+                "text", (e) =>
+                    new OolongChainLoader()
+                        .Add(new OolongRectLoader(e.transform))
+                        .Add(new OolongTextLoader(e.gameObject, e))
+            },
+            {
                 "input", (e) =>
                     new OolongChainLoader()
                         .Add(new OolongRectLoader(e.transform))
@@ -116,12 +126,7 @@ namespace TSF.Oolong.UGUI
                         .Add(new OolongRectMaskLoader(textAreaRect.gameObject))
                         .SetRoot(e, input.Content)
             },
-            {
-                "selectable", (e) =>
-                    new OolongChainLoader()
-                        .Add(new OolongRectLoader(e.transform))
-                        .Add(new OolongSelectableLoader(e.gameObject, e.TagName, true))
-            }
+#endif
         };
 
         private static Transform s_elementPoolRoot = null;

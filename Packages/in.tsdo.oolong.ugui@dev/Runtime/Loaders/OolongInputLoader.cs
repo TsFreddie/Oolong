@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_TMP || UNITY_UGUI_2
+
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -215,3 +217,5 @@ namespace TSF.Oolong.UGUI
         }
     }
 }
+
+#endif

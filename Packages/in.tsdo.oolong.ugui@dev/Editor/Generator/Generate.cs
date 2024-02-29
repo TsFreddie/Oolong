@@ -37,7 +37,9 @@ namespace TSF.Oolong.UGUI.Editor.Generator
             s_bindings.AddRange(typeof(OolongUGUI).Assembly.GetExportedTypes()
                 .Where(t =>
                     !t.IsGenericType &&
+#if UNITY_TMP || UNITY_UGUI_2
                     !typeof(ITextTransformer).IsAssignableFrom(t) &&
+#endif
                     !typeof(IAddressTransformer).IsAssignableFrom(t) &&
                     !typeof(Delegate).IsAssignableFrom(t) &&
                     !t.IsEnum

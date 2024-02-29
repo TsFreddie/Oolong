@@ -18,15 +18,16 @@ public static class OolongUGUI
     private delegate void MithrilRedrawId(int mountId);
     private static MithrilRedrawId s_redrawMountId;
 
+#if UNITY_TMP || UNITY_UGUI_2
     private static ITextTransformer s_textTransformer;
-    private static IAddressTransformer s_addressTransformer;
-
     public static ITextTransformer TextTransformer
     {
         get => s_textTransformer;
         set => s_textTransformer = value ?? new IdentityTransformer();
     }
+#endif
 
+    private static IAddressTransformer s_addressTransformer;
     public static IAddressTransformer AddressTransformer
     {
         get => s_addressTransformer;
@@ -43,7 +44,10 @@ public static class OolongUGUI
         OolongEnvironment.OnUpdate += DocumentUtils.UpdateLayout;
         OolongEnvironment.OnLateUpdate += DocumentUtils.LateUpdateLayout;
 
+#if UNITY_TMP || UNITY_UGUI_2
         s_textTransformer = new IdentityTransformer();
+#endif
+
         s_addressTransformer = new IdentityTransformer();
     }
 
@@ -108,10 +112,12 @@ public static class OolongUGUI
         s_tick = null;
     }
 
+#if UNITY_TMP || UNITY_UGUI_2
     public static string TransformText(string text, OolongTextLoader loader)
     {
         return s_textTransformer.Transform(text, loader);
     }
+#endif
 
     public static string TransformAddress(string tag, string address)
     {

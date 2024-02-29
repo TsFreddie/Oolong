@@ -1,3 +1,5 @@
+#if UNITY_TMP || UNITY_UGUI_2
+
 using TMPro;
 using UnityEngine.UI;
 
@@ -17,3 +19,5 @@ namespace TSF.Oolong.UGUI
         }
     }
 }
+
+#endif
