@@ -23,7 +23,7 @@ export const CustomRedraw = (mountId: number) => {
 
 export const MithrilMount = (
   mono: CS.TSF.Oolong.UGUI.OolongElement,
-  component: MithrilComponent,
+  component: new () => MithrilComponent,
   partial: boolean
 ) => {
   if (partial) {

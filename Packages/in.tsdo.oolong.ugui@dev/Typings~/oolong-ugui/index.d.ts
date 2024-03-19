@@ -153,7 +153,7 @@ declare global {
         unmounted: boolean;
     }
     export declare const CustomRedraw: (mountId: number) => void;
-    export declare const MithrilMount: (mono: CS.TSF.Oolong.UGUI.OolongElement, component: MithrilComponent, partial: boolean) => UnityElement<any>;
+    export declare const MithrilMount: (mono: CS.TSF.Oolong.UGUI.OolongElement, component: new () => MithrilComponent, partial: boolean) => UnityElement<any>;
     export declare const MithrilUnmount: (element: UnityElement) => void;
     export declare const MithrilRedraw: (element?: UnityElement) => void;
     export declare abstract class MithrilComponent<A = {}> implements m.ClassComponent<A> {
