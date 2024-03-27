@@ -112,6 +112,8 @@ type RectAttributes = {
     x?: AttributeNumber;
     y?: AttributeNumber;
     z?: AttributeNumber;
+    "rotation-x"?: AttributeNumber;
+    "rotation-y"?: AttributeNumber;
     rotation?: AttributeNumber;
     anchor?: `${number} ${number}`;
     "min-width"?: AttributeNumber;

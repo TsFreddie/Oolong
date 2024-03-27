@@ -37,6 +37,8 @@ namespace TSF.Oolong.UGUI
             public FloatTransitionProperty MarginX;
             public FloatTransitionProperty MarginY;
             public FloatTransitionProperty Margin;
+            public FloatTransitionProperty RotationX;
+            public FloatTransitionProperty RotationY;
             public FloatTransitionProperty Rotation;
             public FloatTransitionProperty X;
             public FloatTransitionProperty Y;
@@ -71,6 +73,8 @@ namespace TSF.Oolong.UGUI
             { "x", (e, v) => e.SetLayoutTransition(e._layoutData.X, v) },
             { "y", (e, v) => e.SetLayoutTransition(e._layoutData.Y, v) },
             { "z", (e, v) => e.SetLayoutTransition(e._layoutData.Z, v) },
+            { "rotation-x", (e, v) => e.SetLayoutTransition(e._layoutData.RotationX, v) },
+            { "rotation-y", (e, v) => e.SetLayoutTransition(e._layoutData.RotationY, v) },
             { "rotation", (e, v) => e.SetLayoutTransition(e._layoutData.Rotation, v) },
             { "min-width", (e, v) => e.SetLayoutTransition(e._layoutData.MinWidth, v) },
             { "min-height", (e, v) => e.SetLayoutTransition(e._layoutData.MinHeight, v) },
@@ -120,6 +124,8 @@ namespace TSF.Oolong.UGUI
                 MarginX = new FloatTransitionProperty(TriggerLayoutUpdate),
                 MarginY = new FloatTransitionProperty(TriggerLayoutUpdate),
                 Margin = new FloatTransitionProperty(TriggerLayoutUpdate),
+                RotationX = new FloatTransitionProperty(TriggerLayoutUpdate),
+                RotationY = new FloatTransitionProperty(TriggerLayoutUpdate),
                 Rotation = new FloatTransitionProperty(TriggerLayoutUpdate),
                 X = new FloatTransitionProperty(TriggerLayoutUpdate),
                 Y = new FloatTransitionProperty(TriggerLayoutUpdate),
@@ -140,6 +146,8 @@ namespace TSF.Oolong.UGUI
                 Transitions.Add("margin-x", _layoutData.MarginX);
                 Transitions.Add("margin-y", _layoutData.MarginY);
                 Transitions.Add("margin", _layoutData.Margin);
+                Transitions.Add("rotation-x", _layoutData.RotationX);
+                Transitions.Add("rotation-y", _layoutData.RotationY);
                 Transitions.Add("rotation", _layoutData.Rotation);
                 Transitions.Add("x", _layoutData.X);
                 Transitions.Add("y", _layoutData.Y);
@@ -466,7 +474,7 @@ namespace TSF.Oolong.UGUI
                     }
             }
 
-            Instance.localRotation = Quaternion.Euler(0, 0, layoutData.Rotation.Current);
+            Instance.localRotation = Quaternion.Euler(layoutData.RotationX.Current, layoutData.RotationY.Current, layoutData.Rotation.Current);
 
             var parent = Instance.parent;
             var shouldHaveElementLayout = parent && parent.GetComponent<LayoutGroup>() != null;
