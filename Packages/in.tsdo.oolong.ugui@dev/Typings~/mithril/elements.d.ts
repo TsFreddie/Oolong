@@ -155,6 +155,7 @@ type ImageAttributes = {
     clockwise?: boolean;
     "fill-amount"?: AttributeNumber;
     passthrough?: boolean;
+    unmask?: boolean;
     extend?: AttributeNumber;
     "extend-left"?: AttributeNumber;
     "extend-top"?: AttributeNumber;

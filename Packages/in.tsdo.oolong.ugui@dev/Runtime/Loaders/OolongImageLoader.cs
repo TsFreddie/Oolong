@@ -28,6 +28,7 @@ namespace TSF.Oolong.UGUI
             { "fit", (e, v) => e.SetFit(v) },
             { "clockwise", (e, v) => e.SetClockwise(v) },
             { "passthrough", ((e, v) => e.SetClickThrough(v)) },
+            { "unmask", (e, v) => e.SetUnmask(v) },
             { "extend", (e, v) => e.SetFloat(ref e._extendData.Extend, v) },
             { "extend-left", (e, v) => e.SetFloat(ref e._extendData.ExtendLeft, v) },
             { "extend-top", (e, v) => e.SetFloat(ref e._extendData.ExtendTop, v) },
@@ -137,6 +138,11 @@ namespace TSF.Oolong.UGUI
         private void SetClickThrough(string v)
         {
             Instance.raycastTarget = v == null;
+        }
+
+        private void SetUnmask(string v)
+        {
+            Instance.maskable = v != null;
         }
 
         private void TryInitFlipGraphic()
