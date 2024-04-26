@@ -45,7 +45,7 @@ namespace TSF.Oolong.UGUI
             { "fill-amount", (e, v) => e.SetLayoutTransition(e._amount, v) },
         };
 
-        private string _defaultType;
+        private string _defaultType = null;
         public string DefaultType
         {
             get => _defaultType;
@@ -56,7 +56,7 @@ namespace TSF.Oolong.UGUI
             }
         }
 
-        private string _defaultMask;
+        private string _defaultMask = null;
         public string DefaultMask
         {
             get => _defaultMask;
@@ -153,7 +153,7 @@ namespace TSF.Oolong.UGUI
 
         private void SetUnmask(string v)
         {
-            Instance.maskable = v != null;
+            Instance.maskable = v == null;
         }
 
         private void TryInitFlipGraphic()
