@@ -72,7 +72,7 @@ namespace TSF.Oolong.UGUI
                         .Add(new OolongScrollRectLoader(e.gameObject, e.TagName), out var scrollRect)
                         .Add("content-", new OolongRectLoader(scrollRect.Content))
                         .Add(new OolongLayoutLoader(scrollRect.Content.gameObject))
-                        .Add(new OolongRectMaskLoader(scrollRect.Viewport.gameObject, true))
+                        .Add("mask-", new OolongImageLoader(scrollRect.Viewport.gameObject, e.TagName) { DefaultMask = "mask" })
                         .SetRoot(e, scrollRect.Content)
             },
             {

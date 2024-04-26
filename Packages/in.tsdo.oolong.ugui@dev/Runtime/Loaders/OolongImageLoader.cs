@@ -56,6 +56,17 @@ namespace TSF.Oolong.UGUI
             }
         }
 
+        private string _defaultMask;
+        public string DefaultMask
+        {
+            get => _defaultMask;
+            set
+            {
+                _defaultMask = value;
+                SetMask(value);
+            }
+        }
+
         public readonly Image Instance;
 
         private Mask _mask;
@@ -175,6 +186,8 @@ namespace TSF.Oolong.UGUI
 
         private void SetMask(string v)
         {
+            v ??= _defaultMask;
+
             var maskActive = _mask != null && _mask.enabled;
 
             if (v == null && maskActive)
