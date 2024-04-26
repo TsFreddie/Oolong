@@ -28,14 +28,14 @@ namespace TSF.Oolong.UGUI
         private RectTransform _handleRect;
 
         private readonly OolongSelectableLoader _selectable;
-        private readonly OolongImageLoader _image;
+        private readonly OolongImageLoader _bgImage;
 
         public bool Enabled => _selectable.HasImage;
 
         public OolongScrollbarLoader(GameObject obj, string tagName)
         {
             Instance = obj.AddComponent<OolongScrollbar>();
-            _image = new OolongImageLoader(obj.AddComponent<Image>(), tagName) { DefaultType = "slice" };
+            _bgImage = new OolongImageLoader(obj.AddComponent<Image>(), tagName) { DefaultType = "slice" };
 
             var offsetPositive = new Vector2(_halfMinHandleLength, _halfMinHandleLength);
             var offsetNegative = new Vector2(-_halfMinHandleLength, -_halfMinHandleLength);
@@ -53,8 +53,8 @@ namespace TSF.Oolong.UGUI
             _handleRect.anchorMax = Vector2.one;
             _handleRect.offsetMin = offsetNegative;
             _handleRect.offsetMax = offsetPositive;
-            Instance.targetGraphic = _handleRect.gameObject.AddComponent<Image>();
-            _selectable = new OolongSelectableLoader(Instance, tagName);
+            var targetGraphic = _handleRect.gameObject.AddComponent<Image>();
+            _selectable = new OolongSelectableLoader(targetGraphic, Instance, tagName);
         }
 
         public OolongScrollbarLoader(GameObject obj, Scrollbar.Direction direction, string tagName) : this(obj, tagName)
@@ -67,7 +67,7 @@ namespace TSF.Oolong.UGUI
         {
             if (base.SetAttribute(key, value)) return true;
             if (_selectable.SetAttribute(key, value)) return true;
-            if (key.StartsWith("bg-") && _image.SetAttribute(key.Substring(3), value))
+            if (key.StartsWith("bg-") && _bgImage.SetAttribute(key.Substring(3), value))
                 return true;
             return false;
         }
@@ -98,14 +98,14 @@ namespace TSF.Oolong.UGUI
         {
             base.Reset();
             _selectable.Reset();
-            _image.Reset();
+            _bgImage.Reset();
         }
 
         public override void Release()
         {
             base.Release();
             _selectable.Release();
-            _image.Release();
+            _bgImage.Release();
         }
     }
 }

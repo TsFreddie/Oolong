@@ -82,6 +82,8 @@ namespace TSF.Oolong.UGUI
         private IOolongLoader.JsCallback _onCanvasGroupChange;
 
         public bool HasImage { get; private set; } = false;
+        public Image TargetImage => Instance.targetGraphic as Image;
+        public Graphic TargetGraphic => Instance.targetGraphic;
 
         public bool Loaded
         {
@@ -106,21 +108,21 @@ namespace TSF.Oolong.UGUI
 
         private Color _baseColor = Color.white;
 
-        public OolongSelectableLoader(IOolongSelectable instance, string tagName, bool createImageTarget = false)
+        public OolongSelectableLoader(Image image, IOolongSelectable instance, string tagName)
         {
             Instance = instance;
             Instance.enabled = false;
-            if (createImageTarget)
-            {
-                var image = Instance.gameObject.AddComponent<Image>();
-                _image = new OolongImageLoader(image, tagName);
-                Instance.targetGraphic = image;
-            }
+            _image = new OolongImageLoader(image, tagName);
+            Instance.targetGraphic = image;
             _tagName = tagName;
         }
 
-        public OolongSelectableLoader(GameObject gameObject, string tagName, bool createImageTarget = false)
-            : this(gameObject.AddComponent<OolongSelectable>(), tagName, createImageTarget)
+        public OolongSelectableLoader(IOolongSelectable instance, string tagName) : this(instance.gameObject.AddComponent<Image>(), instance, tagName)
+        {
+        }
+
+        public OolongSelectableLoader(GameObject gameObject, string tagName)
+            : this(gameObject.AddComponent<OolongSelectable>(), tagName)
         {
         }
 

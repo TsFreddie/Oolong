@@ -51,7 +51,7 @@ namespace TSF.Oolong.UGUI
                     new OolongChainLoader()
                         .Add(new OolongRectLoader(e.transform))
                         .Add(new OolongButtonLoader(e.gameObject), out var button)
-                        .Add(new OolongSelectableLoader(button.Instance, e.TagName, true))
+                        .Add(new OolongSelectableLoader(button.Instance, e.TagName))
             },
             {
                 "toggle", (e) =>
@@ -61,7 +61,7 @@ namespace TSF.Oolong.UGUI
                         .Add("cm-", new OolongRectLoader(checkmarkRect))
                         .Add("cm-", new OolongImageLoader(checkmarkRect.gameObject, e.TagName), out var checkmark)
                         .Add(new OolongToggleLoader(e.gameObject, checkmark.Instance), out var toggle)
-                        .Add(new OolongSelectableLoader(toggle.Instance, e.TagName, true))
+                        .Add(new OolongSelectableLoader(toggle.Instance, e.TagName))
                         .CreateChildRect(e.transform, "::content", out var content)
                         .SetRoot(e, content)
             },
@@ -85,7 +85,7 @@ namespace TSF.Oolong.UGUI
                 "selectable", (e) =>
                     new OolongChainLoader()
                         .Add(new OolongRectLoader(e.transform))
-                        .Add(new OolongSelectableLoader(e.gameObject, e.TagName, true))
+                        .Add(new OolongSelectableLoader(e.gameObject, e.TagName))
             },
 #if UNITY_TMP || UNITY_UGUI_2
             {
@@ -122,7 +122,7 @@ namespace TSF.Oolong.UGUI
                             }
                         }, out var text)
                         .Add(new OolongInputLoader(e.gameObject, textAreaRect, placeHolder.Instance, text.Instance), out var input)
-                        .Add(new OolongSelectableLoader(input.Instance, e.TagName, true))
+                        .Add(new OolongSelectableLoader(input.Instance, e.TagName))
                         .Add(new OolongRectMaskLoader(textAreaRect.gameObject))
                         .SetRoot(e, input.Content)
             },

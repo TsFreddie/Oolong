@@ -87,9 +87,8 @@ namespace TSF.Oolong.UGUI
             _handleRect.anchorMax = Vector2.one;
             _handleRect.offsetMin = Vector2.zero;
             _handleRect.offsetMax = Vector2.zero;
-            Instance.targetGraphic = _handleRect.gameObject.AddComponent<Image>();
-            _selectable = new OolongSelectableLoader(Instance, tagName);
-
+            var image = _handleRect.gameObject.AddComponent<Image>();
+            _selectable = new OolongSelectableLoader(image, Instance, tagName);
             IsUpdatePending = true;
         }
 
