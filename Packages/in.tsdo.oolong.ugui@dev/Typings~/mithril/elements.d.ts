@@ -306,6 +306,7 @@ type ScrollRectElementAttributes = RectAttributes &
     PrefixAttributes<ScrollbarAttributes, "sx-"> &
     PrefixAttributes<ScrollbarAttributes, "sy-"> &
     PrefixAttributes<RectAttributes, "content-"> &
+    PrefixAttributes<ImageAttributes, "mask-"> &
     LayoutAttributes;
 type InputElementAttributes = RectAttributes &
     InputAttributes &
