@@ -149,6 +149,15 @@ namespace TSF.Oolong.UGUI
             Object.DontDestroyOnLoad(s_elementPoolRoot.gameObject);
         }
 
+        private static void SetLayerRecursively(GameObject obj, int layer)
+        {
+            obj.layer = layer;
+            foreach (Transform child in obj.transform)
+            {
+                SetLayerRecursively(child.gameObject, layer);
+            }
+        }
+
         [Preserve]
         public static void AttachElement(OolongElement parent, OolongElement node)
         {
@@ -159,6 +168,7 @@ namespace TSF.Oolong.UGUI
             parent.AddChild(node);
             transform.localScale = scale;
             transform.localRotation = Quaternion.identity;
+            SetLayerRecursively(node.gameObject, parent.gameObject.layer);
             node.gameObject.SetActive(true);
         }
 
@@ -176,6 +186,7 @@ namespace TSF.Oolong.UGUI
             parent.RemoveChild(node);
             node.OnReset();
             node.gameObject.SetActive(false);
+            SetLayerRecursively(node.gameObject, 0);
             var pool = GetPoolParent();
             if (pool == null) return;
             transform.SetParent(pool);
@@ -206,6 +217,7 @@ namespace TSF.Oolong.UGUI
             var tagName = node.TagName;
             node.OnReset();
             node.gameObject.SetActive(false);
+            SetLayerRecursively(node.gameObject, 0);
             var pool = GetPoolParent();
             if (pool == null) return;
             transform.SetParent(pool);
@@ -235,6 +247,7 @@ namespace TSF.Oolong.UGUI
             transform.localScale = scale;
             transform.localRotation = Quaternion.identity;
             transform.SetSiblingIndex(index);
+            SetLayerRecursively(node.gameObject, parent.gameObject.layer);
             node.gameObject.SetActive(true);
             return index;
         }
