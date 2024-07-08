@@ -42,7 +42,7 @@ namespace TSF.Oolong.UGUI
         public T WaitForCompletion()
         {
             if (!_isLoaded) return null;
-            if (_op.IsDone) return null;
+            if (_op.IsDone) return _op.Result;
             _op.WaitForCompletion();
             return _op.Result;
         }
