@@ -93,6 +93,7 @@ namespace TSF.Oolong.UGUI
             {
                 _loaded = value;
                 Instance.enabled = _enabled && Loaded;
+                if (_image != null) _image.Instance.enabled = Instance.enabled;
             }
         }
 
@@ -437,43 +438,37 @@ namespace TSF.Oolong.UGUI
                 return;
 
             SetSprite(state, sprite);
-            if (_image != null) _image.Instance.enabled = true;
         }
 
         private void WaitForBaseImageLoad()
         {
             DocumentUtils.OnDocumentLateUpdate -= WaitForBaseImageLoad;
-            _baseSprite.WaitForCompletion();
-            SetSprite(ButtonState.Base, _baseSprite.Asset);
+            SetSprite(ButtonState.Base, _baseSprite.WaitForCompletion());
             Loaded = true;
         }
 
         private void WaitForHighlightImageLoad()
         {
             DocumentUtils.OnDocumentLateUpdate -= WaitForHighlightImageLoad;
-            _highlightSprite.WaitForCompletion();
-            SetSprite(ButtonState.Highlight, _highlightSprite.Asset);
+            SetSprite(ButtonState.Highlight, _highlightSprite.WaitForCompletion());
         }
 
         private void WaitForPressedImageLoad()
         {
             DocumentUtils.OnDocumentLateUpdate -= WaitForPressedImageLoad;
-            _pressedSprite.WaitForCompletion();
-            SetSprite(ButtonState.Pressed, _pressedSprite.Asset);
+            SetSprite(ButtonState.Pressed, _pressedSprite.WaitForCompletion());
         }
 
         private void WaitForSelectedImageLoad()
         {
             DocumentUtils.OnDocumentLateUpdate -= WaitForSelectedImageLoad;
-            _selectedSprite.WaitForCompletion();
-            SetSprite(ButtonState.Selected, _selectedSprite.Asset);
+            SetSprite(ButtonState.Selected, _selectedSprite.WaitForCompletion());
         }
 
         private void WaitForDisabledImageLoad()
         {
             DocumentUtils.OnDocumentLateUpdate -= WaitForDisabledImageLoad;
-            _disabledSprite.WaitForCompletion();
-            SetSprite(ButtonState.Disabled, _disabledSprite.Asset);
+            SetSprite(ButtonState.Disabled, _disabledSprite.WaitForCompletion());
         }
 
         public override bool AddListener(string key, IOolongLoader.JsCallback callback)
