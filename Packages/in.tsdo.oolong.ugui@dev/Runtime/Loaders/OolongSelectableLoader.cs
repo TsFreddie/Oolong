@@ -68,11 +68,12 @@ namespace TSF.Oolong.UGUI
 
         public readonly IOolongSelectable Instance;
         private readonly OolongImageLoader _image; // ignoring src and color
-        private AddressableHolder<Sprite> _baseSprite;
-        private AddressableHolder<Sprite> _highlightSprite;
-        private AddressableHolder<Sprite> _selectedSprite;
-        private AddressableHolder<Sprite> _pressedSprite;
-        private AddressableHolder<Sprite> _disabledSprite;
+
+        private readonly AddressableHolder<Sprite> _baseSprite = new AddressableHolder<Sprite>();
+        private readonly AddressableHolder<Sprite> _highlightSprite = new AddressableHolder<Sprite>();
+        private readonly AddressableHolder<Sprite> _selectedSprite = new AddressableHolder<Sprite>();
+        private readonly AddressableHolder<Sprite> _pressedSprite = new AddressableHolder<Sprite>();
+        private readonly AddressableHolder<Sprite> _disabledSprite = new AddressableHolder<Sprite>();
 
 
         private bool _loaded = false;
@@ -366,24 +367,69 @@ namespace TSF.Oolong.UGUI
                 case ButtonState.Base:
                     HasImage = true;
                     if (isNone)
+                    {
                         sprite = Resources.Load<Sprite>("Stub/White");
+                        Loaded = true;
+                    }
                     else
-                        sprite = _isAsync ? await _baseSprite.Load(address) : _baseSprite.LoadSync(address);
-                    Loaded = true;
+                    {
+                        if (!_isAsync)
+                        {
+                            DocumentUtils.OnDocumentLateUpdate += WaitForBaseImageLoad;
+                            await _baseSprite.Load(address);
+                        }
+                        else
+                        {
+                            sprite = await _baseSprite.Load(address);
+                            Loaded = true;
+                        }
+                    }
                     break;
                 case ButtonState.Normal:
                     break;
                 case ButtonState.Highlight:
-                    sprite = _isAsync ? await _highlightSprite.Load(address) : _highlightSprite.LoadSync(address);
+                    if (!_isAsync)
+                    {
+                        DocumentUtils.OnDocumentLateUpdate += WaitForHighlightImageLoad;
+                        await _highlightSprite.Load(address);
+                    }
+                    else
+                    {
+                        sprite = await _highlightSprite.Load(address);
+                    }
                     break;
                 case ButtonState.Pressed:
-                    sprite = _isAsync ? await _pressedSprite.Load(address) : _pressedSprite.LoadSync(address);
+                    if (!_isAsync)
+                    {
+                        DocumentUtils.OnDocumentLateUpdate += WaitForPressedImageLoad;
+                        await _pressedSprite.Load(address);
+                    }
+                    else
+                    {
+                        sprite = await _pressedSprite.Load(address);
+                    }
                     break;
                 case ButtonState.Selected:
-                    sprite = _isAsync ? await _selectedSprite.Load(address) : _selectedSprite.LoadSync(address);
+                    if (!_isAsync)
+                    {
+                        DocumentUtils.OnDocumentLateUpdate += WaitForSelectedImageLoad;
+                        await _selectedSprite.Load(address);
+                    }
+                    else
+                    {
+                        sprite = await _selectedSprite.Load(address);
+                    }
                     break;
                 case ButtonState.Disabled:
-                    sprite = _isAsync ? await _disabledSprite.Load(address) : _disabledSprite.LoadSync(address);
+                    if (!_isAsync)
+                    {
+                        DocumentUtils.OnDocumentLateUpdate += WaitForDisabledImageLoad;
+                        await _disabledSprite.Load(address);
+                    }
+                    else
+                    {
+                        sprite = await _disabledSprite.Load(address);
+                    }
                     break;
             }
 
@@ -392,6 +438,42 @@ namespace TSF.Oolong.UGUI
 
             SetSprite(state, sprite);
             if (_image != null) _image.Instance.enabled = true;
+        }
+
+        private void WaitForBaseImageLoad()
+        {
+            DocumentUtils.OnDocumentLateUpdate -= WaitForBaseImageLoad;
+            _baseSprite.WaitForCompletion();
+            SetSprite(ButtonState.Base, _baseSprite.Asset);
+            Loaded = true;
+        }
+
+        private void WaitForHighlightImageLoad()
+        {
+            DocumentUtils.OnDocumentLateUpdate -= WaitForHighlightImageLoad;
+            _highlightSprite.WaitForCompletion();
+            SetSprite(ButtonState.Highlight, _highlightSprite.Asset);
+        }
+
+        private void WaitForPressedImageLoad()
+        {
+            DocumentUtils.OnDocumentLateUpdate -= WaitForPressedImageLoad;
+            _pressedSprite.WaitForCompletion();
+            SetSprite(ButtonState.Pressed, _pressedSprite.Asset);
+        }
+
+        private void WaitForSelectedImageLoad()
+        {
+            DocumentUtils.OnDocumentLateUpdate -= WaitForSelectedImageLoad;
+            _selectedSprite.WaitForCompletion();
+            SetSprite(ButtonState.Selected, _selectedSprite.Asset);
+        }
+
+        private void WaitForDisabledImageLoad()
+        {
+            DocumentUtils.OnDocumentLateUpdate -= WaitForDisabledImageLoad;
+            _disabledSprite.WaitForCompletion();
+            SetSprite(ButtonState.Disabled, _disabledSprite.Asset);
         }
 
         public override bool AddListener(string key, IOolongLoader.JsCallback callback)

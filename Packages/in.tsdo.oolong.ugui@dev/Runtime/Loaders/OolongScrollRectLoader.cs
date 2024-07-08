@@ -234,8 +234,8 @@ namespace TSF.Oolong.UGUI
             var occupyX = _scrollViewData.ScrollbarOccupyWidth < 0 ? _scrollViewData.ScrollbarWidth : _scrollViewData.ScrollbarOccupyWidth;
             var occupyY = _scrollViewData.ScrollbarOccupyHeight < 0 ? _scrollViewData.ScrollbarHeight : _scrollViewData.ScrollbarOccupyHeight;
 
-            var spacingX = hasScrollX ? occupyX - offsetX : 0;
-            var spacingY = hasScrollY ? occupyY - offsetY : 0;
+            var spacingX = occupyX - offsetX;
+            var spacingY = occupyY - offsetY;
 
             if (hasScrollX)
             {

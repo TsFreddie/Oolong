@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace TSF.Oolong.UGUI
 {
-    public struct AddressableHolder<T> where T : Object
+    public class AddressableHolder<T> where T : Object
     {
         public T Asset;
 
@@ -39,28 +39,12 @@ namespace TSF.Oolong.UGUI
             }
         }
 
-        public T LoadSync(string address)
+        public T WaitForCompletion()
         {
-            Release();
-            _isLoaded = true;
-            try
-            {
-                _op = Addressables.LoadAssetAsync<T>(address);
-                if (!_op.IsDone)
-                    _op.WaitForCompletion();
-                if (!_isLoaded || _op.Status != AsyncOperationStatus.Succeeded)
-                    return null;
-
-                Asset = _op.Result;
-                if (Asset == null) Release();
-                return Asset;
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning("资源加载失败：" + address);
-                Debug.LogError(e.Message);
-                return null;
-            }
+            if (!_isLoaded) return null;
+            if (_op.IsDone) return null;
+            _op.WaitForCompletion();
+            return _op.Result;
         }
 
         public void Release()

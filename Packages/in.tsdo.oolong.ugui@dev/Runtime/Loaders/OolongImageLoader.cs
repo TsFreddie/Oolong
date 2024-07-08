@@ -74,7 +74,7 @@ namespace TSF.Oolong.UGUI
         private bool _loaded = false;
         private string _address;
         private readonly string _tagName;
-        private AddressableHolder<Sprite> _handle;
+        private readonly AddressableHolder<Sprite> _handle = new AddressableHolder<Sprite>();
 
         private readonly ColorTransitionProperty _color;
         private readonly FloatTransitionProperty _amount;
@@ -335,23 +335,36 @@ namespace TSF.Oolong.UGUI
             HasImage = true;
             Sprite sprite = null;
             var isNone = _address == "#";
-            if (!isNone)
+            if (isNone)
             {
-                _address = OolongUGUI.TransformAddress(_tagName, _address);
-                if (_isAsync)
-                    sprite = await _handle.Load(_address);
-                else
-                    sprite = _handle.LoadSync(_address);
+                sprite = Resources.Load<Sprite>("Stub/White");
+                if (sprite == null)
+                    return;
+
+                Instance.sprite = sprite;
+                Loaded = true;
+                return;
+            }
+
+            _address = OolongUGUI.TransformAddress(_tagName, _address);
+            if (!_isAsync)
+            {
+                DocumentUtils.OnDocumentLateUpdate += WaitForImageLoad;
+                await _handle.Load(_address);
             }
             else
             {
-                sprite = Resources.Load<Sprite>("Stub/White");
+                sprite = await _handle.Load(_address);
+
+                Instance.sprite = sprite;
+                Loaded = true;
             }
+        }
 
-            if (sprite == null)
-                return;
-
-            Instance.sprite = sprite;
+        private void WaitForImageLoad()
+        {
+            DocumentUtils.OnDocumentLateUpdate -= WaitForImageLoad;
+            Instance.sprite = _handle.WaitForCompletion();
             Loaded = true;
         }
 
